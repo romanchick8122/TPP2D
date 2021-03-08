@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.17)
 project(TPP2D)
 
 set(CMAKE_CXX_STANDARD 17)
+include_directories(include)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ -lwsock32 -lws2_32 ${CMAKE_CSS_STANDARD_LIBRARIES}")
 
@@ -44,10 +46,11 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 file(COPY ${PROJECT_SOURCE_DIR}/SFML/bin DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
-include(include/CMakeLists.txt)
-include(src/CMakeLists.txt)
+add_executable(TPP2D)
+add_subdirectory(src)
 
-add_executable(TPP2D ${sources})
+get_target_property(sources TPP2D SOURCES)
+message(${sources})
 
 #linking SFML#
 target_link_libraries(TPP2D sfml-graphics)
