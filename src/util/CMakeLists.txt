@@ -1,2 +1,1 @@
-list(APPEND sources
-        ${CMAKE_CURRENT_LIST_DIR}/delaunay.cpp)
+target_sources(TPP2D PUBLIC cellgen.cpp)

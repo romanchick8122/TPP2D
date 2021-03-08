@@ -51,10 +51,11 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 file(COPY ${PROJECT_SOURCE_DIR}/SFML/bin DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
-include(include/CMakeLists.txt)
-include(src/CMakeLists.txt)
+add_executable(TPP2D)
+add_subdirectory(src)
 
-add_executable(TPP2D ${sources})
+get_target_property(sources TPP2D SOURCES)
+message(${sources})
 
 #linking SFML#
 target_link_libraries(TPP2D sfml-graphics)
