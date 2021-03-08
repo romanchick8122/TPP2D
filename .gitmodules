@@ -1,0 +1,3 @@
+[submodule "delaunay-triangulation-algorithm"]
+	path = delaunay-triangulation-algorithm
+	url = https://github.com/pkositsyn/delaunay-triangulation-algorithm

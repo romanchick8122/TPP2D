@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.17)
 project(TPP2D)
-
 set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ -lwsock32 -lws2_32 ${CMAKE_CSS_STANDARD_LIBRARIES}")
 
 #SFML installation
 if(EXISTS ${PROJECT_SOURCE_DIR}/SFML)
@@ -47,10 +45,18 @@ file(COPY ${PROJECT_SOURCE_DIR}/SFML/bin DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
 add_executable(TPP2D)
+target_compile_features(TPP2D PUBLIC cxx_std_17)
+
+#Adding submodules
+include_directories(delaunay-triangulation-algorithm/src)
+target_sources(TPP2D PUBLIC
+        delaunay-triangulation-algorithm/src/models.cpp
+        delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
+
 add_subdirectory(src)
 
 get_target_property(sources TPP2D SOURCES)
 message(${sources})
 
-#linking SFML#
+#linking SFML
 target_link_libraries(TPP2D sfml-graphics)
