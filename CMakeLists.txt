@@ -45,9 +45,14 @@ file(COPY ${PROJECT_SOURCE_DIR}/SFML/bin DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
 add_executable(TPP2D)
-target_compile_features(TPP2D PUBLIC cxx_std_17)
 
 #Adding submodules
+if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
+    message(Submodule not found)
+    file(REMOVE delaunay-triangulation-algorithm)
+    execute_process(COMMAND git submodule add --force https://github.com/pkositsyn/delaunay-triangulation-algorithm)
+    execute_process(COMMAND git submodule update --force delaunay-triangulation-algorithm)
+endif()
 include_directories(delaunay-triangulation-algorithm/src)
 target_sources(TPP2D PUBLIC
         delaunay-triangulation-algorithm/src/models.cpp
@@ -56,7 +61,6 @@ target_sources(TPP2D PUBLIC
 add_subdirectory(src)
 
 get_target_property(sources TPP2D SOURCES)
-message(${sources})
 
 #linking SFML
 target_link_libraries(TPP2D sfml-graphics)
