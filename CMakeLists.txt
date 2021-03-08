@@ -12,13 +12,25 @@ else()
     message("Checking compiler...")
     if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         message(Downloading SFML for GCC...)
-        file(DOWNLOAD
-                https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit.zip
-                ${PROJECT_SOURCE_DIR}/SFML.zip)
+        if (${CMAKE_SIZEOF_VOID_P} STREQUAL "4")
+            file(DOWNLOAD
+                    https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit.zip
+                    ${PROJECT_SOURCE_DIR}/SFML.zip)
+        else()
+            file(DOWNLOAD
+                    https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip
+                    ${PROJECT_SOURCE_DIR}/SFML.zip)
+        endif()
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-        file(DOWNLOAD
-                https://www.sfml-dev.org/files/SFML-2.5.1-windows-vc15-32-bit.zip
-                ${PROJECT_SOURCE_DIR}/SFML.zip)
+        if (${CMAKE_SIZEOF_VOID_P} STREQUAL "4")
+            file(DOWNLOAD
+                    https://www.sfml-dev.org/files/SFML-2.5.1-windows-vc15-32-bit.zip
+                    ${PROJECT_SOURCE_DIR}/SFML.zip)
+        else()
+            file(DOWNLOAD
+                    https://www.sfml-dev.org/files/SFML-2.5.1-windows-vc15-64-bit.zip
+                    ${PROJECT_SOURCE_DIR}/SFML.zip)
+        endif()
     else()
         message(FATAL_ERROR Unsupported compiler)
     endif()
