@@ -50,6 +50,7 @@ namespace util::cellGen {
     }
 
     std::vector<CellData*> getMap(Point2D canvasSize, size_t regionsCount) {
+        #define pointOutside(a) (a.x < 0 || a.y < 0 || a.x > canvasSize.x || a.y > canvasSize.y)
         std::vector<Point2D> points = getRandomPoints(canvasSize, regionsCount);
         const auto builder = geometry::DelaunayBuilder::Create(std::move(points));
         geometry::DelaunayTriangulation triangulation = builder->Get();
@@ -63,15 +64,9 @@ namespace util::cellGen {
         for (size_t i = 0; i < triangulation.points.size(); ++i) {
             ans[i]->center = triangulation.points[i];
         }
-        std::vector<Point2D> toSkipVec = triangulation.points;
-        convexHull(toSkipVec);
-        std::set<float> skipX;
-        for (auto val : toSkipVec) {
-            skipX.insert(val.x);
-        }
         for (auto &edge : triangulation.graph) {
-            if (skipX.find(ans[edge.first.v1]->center.x) == skipX.end() &&
-                skipX.find(ans[edge.first.v2]->center.x) == skipX.end()) {
+            if (!pointOutside(ans[edge.first.v1]->center) &&
+                !pointOutside(ans[edge.first.v2]->center)) {
                 ans[edge.first.v1]->adjacent.push_back(ans[edge.first.v2]);
                 ans[edge.first.v2]->adjacent.push_back(ans[edge.first.v1]);
             }

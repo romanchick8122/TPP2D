@@ -4,7 +4,7 @@ using util::cellGen::Point2D;
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1536, 864), "TPP2D");
-    auto t = util::cellGen::getMap(Point2D(1000, 500), 400);
+    auto t = util::cellGen::getMap(Point2D(1536, 864), 3);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -24,10 +24,6 @@ int main()
             }
             cell.setFillColor(sf::Color(a, b, c));
             window.draw(cell);
-            sf::CircleShape circ(3);
-            circ.setPosition(u->center.x, u->center.y);
-            circ.setFillColor(sf::Color(255 - a, 255 - b, 255 - c));
-            window.draw(circ);
         }
         for (auto &u : t) {
             for (auto &n : u->adjacent) {
