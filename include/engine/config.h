@@ -1,4 +1,6 @@
 #pragma once
 namespace config {
-    extern float 
+    extern const float scaleSpeed;
+    extern const float minScale;
+    extern const float maxScale;
 }

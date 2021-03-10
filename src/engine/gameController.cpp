@@ -1,4 +1,5 @@
 #include "engine/gameController.h"
+#include "engine/config.h"
 gameController::gameController(int resX, int resY, const char* windowName, int frameRate) {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
@@ -46,7 +47,12 @@ void gameController::gameLoop() {
                     params.origin.y -= (sf::Mouse::getPosition(*window).y - viewChangeStartY) / params.scale;
                 }
             } else if (event.type == sf::Event::MouseWheelScrolled) {
-                params.scale += event.mouseWheelScroll.delta / 10;
+                params.scale += event.mouseWheelScroll.delta * config::scaleSpeed;
+                if (params.scale > config::maxScale) {
+                    params.scale = config::maxScale;
+                } else if (params.scale < config::minScale) {
+                    params.scale = config::minScale;
+                }
             }
         }
         if (!window->isOpen()) {
@@ -67,6 +73,13 @@ void gameController::gameLoop() {
         //rendering
         window->clear(sf::Color::White);
         for (auto obj : objects) {
+            auto edges = obj->getRenderEdges();
+            if (edges.second.x < params.origin.x
+                || edges.second.y < params.origin.y
+                || edges.first.x > params.origin.x + window->getSize().x / params.scale
+                || edges.first.y > params.origin.y + window->getSize().y / params.scale) {
+                continue;
+            }
             obj->render(params);
         }
         window->display();
