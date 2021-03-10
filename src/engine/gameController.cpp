@@ -16,14 +16,15 @@ void gameController::unregisterObject(gameObject* object) {
 void gameController::gameLoop() {
     renderParams params;
     params.targetWindow = window;
+    params.scale = 1;
     bool wheelPresed = false;
     int viewChangeStartX = 0;
     int viewChangeStartY = 0;
-    sf::Vector2f viewChangeStartCoordShift = params.coordShift;
+    sf::Vector2f viewChangeStartCoordShift = params.origin;
     while (true) {
         //restoring invariant things
         if (wheelPresed) {
-            params.coordShift = viewChangeStartCoordShift;
+            params.origin = viewChangeStartCoordShift;
         }
         //event processing
         sf::Event event;
@@ -36,14 +37,16 @@ void gameController::gameLoop() {
                     wheelPresed = true;
                     viewChangeStartX = event.mouseButton.x;
                     viewChangeStartY = event.mouseButton.y;
-                    viewChangeStartCoordShift = params.coordShift;
+                    viewChangeStartCoordShift = params.origin;
                 }
             } else if (event.type == sf::Event::MouseButtonReleased) {
                 if (event.mouseButton.button == sf::Mouse::Button::Middle) {
                     wheelPresed = false;
-                    params.coordShift.x += sf::Mouse::getPosition(*window).x - viewChangeStartX;
-                    params.coordShift.y += sf::Mouse::getPosition(*window).y - viewChangeStartY;
+                    params.origin.x -= (sf::Mouse::getPosition(*window).x - viewChangeStartX) / params.scale;
+                    params.origin.y -= (sf::Mouse::getPosition(*window).y - viewChangeStartY) / params.scale;
                 }
+            } else if (event.type == sf::Event::MouseWheelScrolled) {
+                params.scale += event.mouseWheelScroll.delta / 10;
             }
         }
         if (!window->isOpen()) {
@@ -51,8 +54,8 @@ void gameController::gameLoop() {
         }
         //scrooling
         if (wheelPresed) {
-            params.coordShift.x += sf::Mouse::getPosition(*window).x - viewChangeStartX;
-            params.coordShift.y += sf::Mouse::getPosition(*window).y - viewChangeStartY;
+            params.origin.x -= (sf::Mouse::getPosition(*window).x - viewChangeStartX) / params.scale;
+            params.origin.y -= (sf::Mouse::getPosition(*window).y - viewChangeStartY) / params.scale;
         }
         //ticking
         for (auto obj : objects) {
