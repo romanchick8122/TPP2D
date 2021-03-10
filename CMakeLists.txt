@@ -44,7 +44,7 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 file(COPY ${PROJECT_SOURCE_DIR}/SFML/bin DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
-add_executable(TPP2D)
+add_executable(TPP2D include/GameObject.h include/Unit.h include/Cell.h include/Squad.h include/UnitOrder.h)
 
 #Adding submodules
 if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
