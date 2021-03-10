@@ -4,17 +4,17 @@
 class UnitOrder {
 public:
     UnitOrder(Unit*);
-    virtual void tick();
-    virtual UnitOrder* Copy();
+    virtual void tick(Unit*);
+    virtual UnitOrder* copy();
 };
 
-class testOrder : UnitOrder {
+class TestOrder : public UnitOrder {
 public:
-    const std::string name = "test_order";
-    void tick() {
+    std::string name = "test_order";
+    void tick(Unit* ptr) {
         std::cout << "tick";
     }
-    UnitOrder* Copy() {
+    UnitOrder* copy() {
         return this;
     }
 };
