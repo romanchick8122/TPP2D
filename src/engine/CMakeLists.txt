@@ -1,1 +1,2 @@
-target_sources(TPP2D PUBLIC gameObject.cpp)
+target_sources(TPP2D PUBLIC
+        gameController.cpp)
