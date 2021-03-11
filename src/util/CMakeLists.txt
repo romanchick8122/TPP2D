@@ -1,1 +1,3 @@
-target_sources(TPP2D PUBLIC cellgen.cpp)
+target_sources(TPP2D PUBLIC
+        cellgen.cpp
+        geometry.cpp)

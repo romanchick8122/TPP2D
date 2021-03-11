@@ -44,14 +44,11 @@ void gameController::gameLoop() {
                 }
                     //left click detection
                 else if (event.mouseButton.button == sf::Mouse::Button::Left) {
-                    sf::Vector2f pos((event.mouseButton.x - params.origin.x) / params.scale,
-                                     (event.mouseButton.y - params.origin.y) / params.scale);
-                    sf::FloatRect windowRect(params.origin,
-                                             sf::Vector2f(window->getSize().x / params.scale,
-                                                          window->getSize().y / params.scale));
+                    sf::Vector2f pos(event.mouseButton.x / params.scale + params.origin.x,
+                                     event.mouseButton.y / params.scale + params.origin.y);
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
                         if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
-                            if (!obj->getClickEdges().intersects(windowRect)) {
+                            if (!obj->getClickEdges().contains(pos)) {
                                 continue;
                             }
                             if (obj->tryOnClick(pos)) {
