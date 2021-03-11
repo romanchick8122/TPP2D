@@ -72,15 +72,11 @@ void gameController::gameLoop() {
         }
         //rendering
         window->clear(sf::Color::White);
+        sf::FloatRect windowRect(params.origin, sf::Vector2f(window->getSize().x / params.scale, window->getSize().y / params.scale));
         for (auto obj : objects) {
-            auto edges = obj->getRenderEdges();
-            if (edges.second.x < params.origin.x
-                || edges.second.y < params.origin.y
-                || edges.first.x > params.origin.x + window->getSize().x / params.scale
-                || edges.first.y > params.origin.y + window->getSize().y / params.scale) {
-                continue;
+            if (windowRect.intersects(obj->getRenderEdges())) {
+                obj->render(params);
             }
-            obj->render(params);
         }
         window->display();
     }
