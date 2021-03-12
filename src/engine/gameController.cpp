@@ -1,33 +1,35 @@
 #include "engine/gameController.h"
 #include "engine/config.h"
 #include "engine/clickableGameObject.h"
-gameController::gameController(int resX, int resY, const char* windowName, int frameRate) {
+engine::gameController::gameController(int resX, int resY, const char* windowName, int frameRate) {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    window = new sf::RenderWindow(sf::VideoMode(resX, resY), windowName, sf::Style::Default, settings);
+    window = new sf::RenderWindow(sf::VideoMode(resX, resY), windowName, sf::Style::None, settings);
     window->setFramerateLimit(frameRate);
 }
-void gameController::registerObject(gameObject* object) {
+void engine::gameController::registerObject(gameObject* object) {
     objects.push_back(object);
     object->gameObjectListPosition = objects.end();
     --object->gameObjectListPosition;
 }
-void gameController::unregisterObject(gameObject* object) {
+void engine::gameController::unregisterObject(gameObject* object) {
     objects.erase(object->gameObjectListPosition);
 }
-void gameController::gameLoop() {
+void engine::gameController::gameLoop() {
     renderParams params;
     params.targetWindow = window;
     params.scale = 1;
     bool wheelPresed = false;
-    int viewChangeStartX = 0;
-    int viewChangeStartY = 0;
+    float viewChangeStartX = 0;
+    float viewChangeStartY = 0;
     sf::Vector2f viewChangeStartCoordShift = params.origin;
     while (true) {
         //restoring invariant things
         if (wheelPresed) {
             params.origin = viewChangeStartCoordShift;
         }
+        float cursorX = (sf::Mouse::getPosition(*window).x) / params.scale + params.origin.x;
+        float cursorY = (sf::Mouse::getPosition(*window).y) / params.scale + params.origin.y;
         //event processing
         sf::Event event;
         while (window->pollEvent(event)) {
@@ -38,14 +40,13 @@ void gameController::gameLoop() {
                 //camera movement started
                 if (event.mouseButton.button == sf::Mouse::Button::Middle) {
                     wheelPresed = true;
-                    viewChangeStartX = event.mouseButton.x;
-                    viewChangeStartY = event.mouseButton.y;
+                    viewChangeStartX = cursorX;
+                    viewChangeStartY = cursorY;
                     viewChangeStartCoordShift = params.origin;
                 }
-                    //left click detection
+                //left click detection
                 else if (event.mouseButton.button == sf::Mouse::Button::Left) {
-                    sf::Vector2f pos(event.mouseButton.x / params.scale + params.origin.x,
-                                     event.mouseButton.y / params.scale + params.origin.y);
+                    sf::Vector2f pos(cursorX, cursorY);
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
                         if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
                             if (!obj->getClickEdges().contains(pos)) {
@@ -61,8 +62,8 @@ void gameController::gameLoop() {
                 //camera movement ended
                 if (event.mouseButton.button == sf::Mouse::Button::Middle) {
                     wheelPresed = false;
-                    params.origin.x -= (sf::Mouse::getPosition(*window).x - viewChangeStartX) / params.scale;
-                    params.origin.y -= (sf::Mouse::getPosition(*window).y - viewChangeStartY) / params.scale;
+                    params.origin.x -= cursorX - viewChangeStartX;
+                    params.origin.y -= cursorY - viewChangeStartY;
                 }
             } else if (event.type == sf::Event::MouseWheelScrolled) {
                 //zooming in/out
@@ -79,8 +80,8 @@ void gameController::gameLoop() {
         }
         //camera movement
         if (wheelPresed) {
-            params.origin.x -= (sf::Mouse::getPosition(*window).x - viewChangeStartX) / params.scale;
-            params.origin.y -= (sf::Mouse::getPosition(*window).y - viewChangeStartY) / params.scale;
+            params.origin.x -= cursorX - viewChangeStartX;
+            params.origin.y -= cursorY - viewChangeStartY;
         }
         //ticking
         for (auto obj : objects) {
