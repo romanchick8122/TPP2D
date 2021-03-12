@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.17)
 project(TPP2D)
 set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
+include_directories(include/engine)
+include_directories(include/GameLogic)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
@@ -44,7 +46,7 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 file(COPY ${PROJECT_SOURCE_DIR}/SFML/bin DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
-add_executable(TPP2D include/GameObject.h include/Unit.h include/Cell.h include/Squad.h include/UnitOrder.h)
+add_executable(TPP2D src/GameLogic/Cell.cpp src/GameLogic/SquadOrder.cpp include/GameLogic/SquadOrder.h src/GameLogic/Action.cpp include/GameLogic/Action.h)
 
 #Adding submodules
 if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)

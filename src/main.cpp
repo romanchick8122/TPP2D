@@ -1,43 +1,72 @@
+#include "engine/gameController.h"
 #include "util/cellgen.h"
-#include "SFML/Graphics.hpp"
+#include "GameLogic/Cell.h"
+#include "GameLogic/Squad.h"
+//#include "GameLogic/Unit.h"
+//#include "GameLogic/UnitOrder.h"
+
 using util::cellGen::Point2D;
+class cell : public gameObject {
+private:
+    std::vector<Point2D> vertices;
+    int a;
+    int b;
+    int c;
+    std::pair<sf::Vector2f, sf::Vector2f> renderEdges;
+public:
+    cell(const util::cellGen::CellData& k) : vertices(k.vertices.begin(), k.vertices.end()) {
+        a = rand() % 256;
+        b = rand() % 256;
+        c = rand() % 256;
+        renderEdges.first.x = renderEdges.second.x = vertices[0].x;
+        renderEdges.first.y = renderEdges.second.y = vertices[0].y;
+        for (auto point : vertices) {
+            if (point.y < renderEdges.first.y) {
+                renderEdges.first.y = point.y;
+            }
+            if (point.y > renderEdges.second.y) {
+                renderEdges.second.y = point.y;
+            }
+            if (point.x < renderEdges.first.x) {
+                renderEdges.first.x = point.x;
+            }
+            if (point.x > renderEdges.second.x) {
+                renderEdges.second.x = point.x;
+            }
+        }
+    }
+    void tick() override {
+
+    }
+    void lateTick() override {
+
+    }
+    void render(const renderParams& params) override {
+        sf::ConvexShape shape(vertices.size());
+        for (int i = 0; i < vertices.size(); ++i) {
+            shape.setPoint(i, sf::Vector2f(vertices[i].x, vertices[i].y));
+        }
+        shape.setFillColor(sf::Color(a, b, c));
+        shape.setOrigin(params.origin);
+        shape.setScale(params.scale, params.scale);
+        params.targetWindow->draw(shape);
+    }
+    decltype(renderEdges) getRenderEdges() override {
+        return renderEdges;
+    }
+};
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1536, 864), "TPP2D");
-    auto t = util::cellGen::getMap(Point2D(1536, 864), 3);
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-        window.clear(sf::Color::White);
-        int a = 0, b = 0, c = 0;
-        for (auto &u : t) {
-            a = (a + 17) % 256;
-            b = (b + 213) % 256;
-            c = (c + 123) % 256;
-            sf::ConvexShape cell(u->vertices.size());
-            for (int i = 0; i < u->vertices.size(); ++i) {
-                cell.setPoint(i, sf::Vector2f(u->vertices[i].x, u->vertices[i].y));
-            }
-            cell.setFillColor(sf::Color(a, b, c));
-            window.draw(cell);
-        }
-        for (auto &u : t) {
-            for (auto &n : u->adjacent) {
-                if (n > u) {
-                    continue;
-                }
-                sf::VertexArray line(sf::Lines, 2);
-                line[0].position = sf::Vector2f(u->center.x, u->center.y);
-                line[1].position = sf::Vector2f(n->center.x, n->center.y);
-                line[0].color = line[1].color = sf::Color::Black;
-                window.draw(line);
-            }
-        }
-        window.display();
+    //Cell* c = new Cell();
+    //Squad s(c);
+    ;
+    //s.tick();
+    //std::cout << "432";
+    gameController controller(1536, 864, "TPP2D", 60);
+    auto t = util::cellGen::getMap(Point2D(15360, 8640), 1000);
+    for (auto ob : t) {
+        controller.registerObject(new cell(*ob));
     }
+    controller.gameLoop();
     return 0;
 }

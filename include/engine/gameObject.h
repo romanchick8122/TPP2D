@@ -1,6 +1,8 @@
 #pragma once
 #include "engine/renderParams.h"
 #include <list>
+#include <iostream>
+#include <util/cellgen.h>
 class gameObject {
   public:
     std::list<gameObject*>::iterator gameObjectListPosition;
