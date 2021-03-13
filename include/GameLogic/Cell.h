@@ -1,6 +1,6 @@
 class Cell;
 #pragma once
-#include "engine/gameObject.h"
+#include "engine/clickableGameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
 
@@ -12,14 +12,16 @@ namespace Comparators {
 }
 
 
-class Cell : engine::gameObject {
+class Cell : public engine::clickableGameObject {
     util::cellGen::Point2D center;
     std::vector<float> cellLandscapeFlags;
+    sf::FloatRect renderEdges;
+    sf::ConvexShape shape;
 public:
-    std::map<Cell*, std::vector<float>> cellBorderFlags;
+    std::map<const Cell*, std::vector<float>> cellBorderFlags;
     std::vector<Cell*> adjacent;
     const std::vector<float>* landscapeFlags = &cellLandscapeFlags;
-    const std::map<Cell*, std::vector<float>>* bordersFlags = &cellBorderFlags;
+    const std::map<const Cell*, std::vector<float>>* bordersFlags = &cellBorderFlags;
     const std::vector<util::cellGen::Point2D> vertices;
 
     Cell(const util::cellGen::CellData&);
@@ -31,6 +33,7 @@ public:
     void lateTick() override;
     void render(const engine::renderParams& params) override;
     sf::FloatRect getRenderEdges() override;
-
+    bool tryOnClick(sf::Vector2f pos) override;
+    sf::FloatRect getClickEdges() override;
 };
 

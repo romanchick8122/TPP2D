@@ -11,7 +11,7 @@ class Action {
     std::list<Cell*> possiblePath;
 public:
     Action(Squad*);
-    float calcSpeed(Cell* start, Cell* end);
+    float calcSpeed(const Cell* start, const Cell* end);
     void findPath();
     void setPath();
     void tick();

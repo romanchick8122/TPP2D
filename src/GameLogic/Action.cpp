@@ -2,7 +2,7 @@
 #include "AllFlags.h"
 Action::Action(Squad* ptr) : squad(ptr){}
 
-float Action::calcSpeed(Cell *start, Cell *end) {
+float Action::calcSpeed(const Cell *start, const Cell *end) {
     float finalSpeed = *(squad -> currentSpeed);
     for(int i = 0; i < Flags::landscapeFlags.size(); ++i) {
         std::vector<float> vec = *end->landscapeFlags;
