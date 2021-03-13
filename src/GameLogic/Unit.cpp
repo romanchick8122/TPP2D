@@ -6,8 +6,11 @@ void TestUnit::tick() {
 }
 
 TestUnit::TestUnit(Squad* ptr) {
+    unitSpeed = 10000;
     allOrders[0] = new TestOrder();
     currentOrder = allOrders[0];
+    unitBorderFlagResists = Flags::generateBorderFlags();
+    unitLandscapeFlagResists = Flags::generateLandscapeFlags();
 };
 
 bool TestUnit::isOrderPossible(UnitOrder* order) {

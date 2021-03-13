@@ -3,16 +3,26 @@ class Squad;
 #include "GameLogic/Cell.h"
 #include "Unit.h"
 #include "engine/gameObject.h"
+#include "Action.h"
 
-class Squad : gameObject{
+class Squad : engine::gameObject{
     Cell* cell;
-    std::pair<sf::Vector2f, sf::Vector2f> getRenderEdges() override;
+    sf::FloatRect getRenderEdges() override;
     std::list<Unit*> units;
-    //std::list
+    void updateSpeed();
+    float squadCurrentSpeed;
+    void updateFlagResists();
+    std::vector<float> squadLandscapeFlagResists;
+    std::vector<float> squadBorderFlagResists;
 public:
+    const float* currentSpeed = &squadCurrentSpeed;
+    const std::vector<float>* landscapeFlagResists = &squadLandscapeFlagResists;
+    const std::vector<float>* borderFlagResists = &squadBorderFlagResists;
+    Action* action;
+    Squad(Cell* ptr);
+
     void tick() override;
     void lateTick() override;
-    void render(const renderParams& params) override;
+    void render(const engine::renderParams& params) override;
 
-    Squad(Cell* ptr);
 };

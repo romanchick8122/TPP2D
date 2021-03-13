@@ -5,9 +5,21 @@ class TestUnit;
 #include <cstdio>
 #include "UnitOrder.h"
 #include "GameLogic/Squad.h"
+#include "AllFlags.h"
 
 class Unit {
+protected:
+    UnitOrder* currentOrder;
+    size_t currentUsageOfOrder;
+    UnitOrder* allOrders[1];
+    Squad* squad;
+    std::vector<float> unitLandscapeFlagResists;
+    std::vector<float> unitBorderFlagResists;
+    float unitSpeed;
 public:
+    const std::vector<float>* landscapeFlagResists = &unitLandscapeFlagResists;
+    const std::vector<float>* borderFlagResists = &unitBorderFlagResists;
+    const float* commonSpeed = &unitSpeed;
     virtual void tick() = 0;
     virtual bool isOrderPossible(UnitOrder*) = 0;
     virtual void enableOrder(UnitOrder*) = 0;
@@ -15,10 +27,6 @@ public:
 };
 
 class TestUnit : public Unit {
-    UnitOrder* currentOrder;
-    size_t currentUsageOfOrder;
-    Squad* squad;
-    UnitOrder* allOrders[1];
 public:
     TestUnit(Squad* ptr);
     bool isOrderPossible(UnitOrder*) override;

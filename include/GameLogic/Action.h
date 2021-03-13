@@ -1,14 +1,19 @@
-//
-// Created by alex on 12.03.2021.
-//
-
-#ifndef TPP2D_ACTION_H
-#define TPP2D_ACTION_H
-
+class Action;
+#pragma once
+#include "Squad.h"
+#include "Cell.h"
 
 class Action {
-
+    const Squad* squad;
+    float speed;
+    Cell* nextCell;
+    std::list<Cell*> currentPath;
+    std::list<Cell*> possiblePath;
+public:
+    Action(Squad*);
+    float calcSpeed(Cell* start, Cell* end);
+    void findPath();
+    void setPath();
+    void tick();
+    void render();
 };
-
-
-#endif //TPP2D_ACTION_H

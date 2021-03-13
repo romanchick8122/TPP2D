@@ -2,6 +2,7 @@
 #include <vector>
 #include <map>
 #include "scanline_triangulation.hpp"
+
 namespace util::cellGen {
     typedef geometry::Vector2D Point2D;
     struct CellData {
