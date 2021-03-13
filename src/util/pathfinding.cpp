@@ -2,7 +2,8 @@
 #include <queue>
 namespace util::pathfinding {
     std::list<const Cell*> dijkstraPath(const Cell* from, const Cell* to, const Squad* squad) {
-        std::priority_queue<std::pair<float, std::pair<const Cell*, const Cell*>>> distanceHeap;
+        typedef std::pair<float, std::pair<const Cell*, const Cell*>> distanceHeapElem;
+        std::priority_queue<distanceHeapElem, std::vector<distanceHeapElem>, std::greater<>> distanceHeap;
         std::map<const Cell*, std::pair<float, const Cell*>> distance;
         distanceHeap.push({0, {from, nullptr}});
         while (!distanceHeap.empty()) {
@@ -21,6 +22,12 @@ namespace util::pathfinding {
                     curr = distance[curr].second;
                 }
                 return ans;
+            }
+            for (auto t : cell->adjacent) {
+                if (distance.find(t) != distance.end()) {
+                    continue;
+                }
+                distanceHeap.push({dist + squad->moveTime(cell, t), {t, cell}});
             }
         }
     }
