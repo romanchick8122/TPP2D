@@ -27,7 +27,7 @@ namespace util::pathfinding {
                 if (distance.find(t) != distance.end()) {
                     continue;
                 }
-                distanceHeap.push({dist + squad->moveTime(cell, t), {t, cell}});
+                distanceHeap.push({dist + squad->action->calcSpeed(cell, t), {t, cell}});
             }
         }
     }

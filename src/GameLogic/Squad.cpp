@@ -29,11 +29,6 @@ void Squad::updateSpeed() {
     }
 }
 
-//TODO: сделать вычисление того что надо
-float Squad::moveTime(const Cell* from, const Cell* to) const {
-    return 1;
-}
-
 void Squad::tick(){
     for(Unit* unit : units) {
         unit -> tick();

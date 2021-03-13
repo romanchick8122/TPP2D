@@ -18,10 +18,10 @@ class Cell : public engine::clickableGameObject {
     sf::FloatRect renderEdges;
     sf::ConvexShape shape;
 public:
-    std::map<Cell*, std::vector<float>> cellBorderFlags;
+    std::map<const Cell*, std::vector<float>> cellBorderFlags;
     std::vector<Cell*> adjacent;
     const std::vector<float>* landscapeFlags = &cellLandscapeFlags;
-    const std::map<Cell*, std::vector<float>>* bordersFlags = &cellBorderFlags;
+    const std::map<const Cell*, std::vector<float>>* bordersFlags = &cellBorderFlags;
     const std::vector<util::cellGen::Point2D> vertices;
 
     Cell(const util::cellGen::CellData&);
