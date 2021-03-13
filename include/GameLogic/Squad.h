@@ -21,6 +21,8 @@ public:
     Action* action;
     Squad(Cell* ptr);
 
+    float moveTime(const Cell* from, const Cell* to) const;
+
     void tick() override;
     void lateTick() override;
     void render(const engine::renderParams& params) override;
