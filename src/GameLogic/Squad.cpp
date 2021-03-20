@@ -1,7 +1,8 @@
 #include "GameLogic/Squad.h"
 #include "engine/config.h"
 using Facade = engine::config::Facade;
-Squad::Squad(Cell* ptr) {
+Squad::Squad(Cell* ptr) :center(ptr->center){
+    shape = Facade::Rect(center.x - 10, center.y-10, 10, 10);
     action = new Action(this);
     cell = ptr;
     Unit* u = new TestUnit1(1);
@@ -12,6 +13,7 @@ Squad::Squad(Cell* ptr) {
 }
 
 Squad::Squad(Cell *cell_, std::list<Unit *> units_) {
+    shape = Facade::Rect(center.x - 10, center.y-10, 10, 10);
     action = new Action(this);
     cell = cell_;
     units = units_;
@@ -45,13 +47,21 @@ void Squad::updateSpeed() {
 }
 
 void Squad::tick(){
+    action->tick();
     for(Unit* unit : units) {
         unit -> tick();
     };
 };
 void Squad::lateTick(){return;};
 
-void Squad::render(){return;};
-Facade::Rect Squad::getRenderEdges(){
-    return Facade::Rect();
+void Squad::render(){
+    Facade::DrawRect(shape, Facade::Color(255, 255, 0));
+    return;
 };
+Facade::Rect Squad::getRenderEdges(){
+    return shape;
+}
+
+void Squad::setCell(Cell *ptr) {
+    cell = ptr;
+}

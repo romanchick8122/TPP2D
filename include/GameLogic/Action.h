@@ -4,16 +4,21 @@ class Action;
 #include "Cell.h"
 
 class Action {
-    const Squad* squad;
+    float progress;
+    Squad* squad;
     float speed;
+    float dx;
+    float dy;
     Cell* nextCell;
     std::list<Cell*> currentPath;
     std::list<Cell*> possiblePath;
 public:
     Action(Squad*);
+    void nextStep();
     float calcSpeed(const Cell* start, const Cell* end);
-    void findPath();
+    std::list<Cell*> findPath(Cell*, Cell*);
     void setPath();
+    void setPath(Cell*);
     void tick();
     void render();
 };

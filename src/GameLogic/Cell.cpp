@@ -38,7 +38,7 @@ std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>& cells_) {
 }
 
 
-Cell::Cell(const util::cellGen::CellData& cell_) : center(cell_.center), vertices(cell_.vertices),
+Cell::Cell(const util::cellGen::CellData& cell_) : center(cell_.center.x, cell_.center.y), vertices(cell_.vertices),
 shape(cell_.vertices.size()) {
     cellLandscapeFlags = Flags::generateLandscapeFlags();
     for (size_t i = 0; i < vertices.size(); ++i) {

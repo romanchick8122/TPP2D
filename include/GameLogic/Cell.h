@@ -15,12 +15,12 @@ namespace Comparators {
 
 class Cell : public engine::clickableGameObject {
     int x = 0,y = 255,z = 255;
-    util::cellGen::Point2D center;
     std::vector<float> cellLandscapeFlags;
     std::map<const Cell*, std::vector<float>> cellBorderFlags;
     engine::config::Facade::Rect renderEdges;
     std::vector<engine::config::Facade::Point> shape;
 public:
+    const Facade::Point center;
     std::vector<Cell*> adjacent;
     const std::vector<float>* landscapeFlags = &cellLandscapeFlags;
     const std::map<const Cell*, std::vector<float>>* bordersFlags = &cellBorderFlags;
