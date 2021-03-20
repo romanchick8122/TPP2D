@@ -1,5 +1,6 @@
 #include "GameLogic/Squad.h"
-
+#include "engine/config.h"
+using Facade = engine::config::Facade;
 Squad::Squad(Cell* ptr) {
     action = new Action(this);
     cell = ptr;
@@ -35,7 +36,7 @@ void Squad::tick(){
     };
 };
 void Squad::lateTick(){return;};
-void Squad::render(const engine::renderParams& params){return;};
-sf::FloatRect Squad::getRenderEdges(){
-    return {sf::Vector2f(), sf::Vector2f()};
+void Squad::render(){return;};
+Facade::Rect Squad::getRenderEdges(){
+    return Facade::Rect();
 };
