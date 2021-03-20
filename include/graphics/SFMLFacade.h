@@ -18,6 +18,7 @@ namespace graphics {
 
         static void Init(int resX, int resY, const char* windowName, int frameRate);
         static void DrawConvexPolygon(const std::vector<Point> vertices, Color fill);
+        static void DrawRect(Rect toDraw, Color fill);
         static std::vector<Event> Frame();
     };
 }
