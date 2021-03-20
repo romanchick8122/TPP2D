@@ -27,6 +27,16 @@ void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point> vertices, 
         vertexArray[i] = sf::Vertex((vertices[i] - origin) * scale, fill);
     }
     window->draw(vertexArray, vertices.size(), sf::TriangleFan);
+    delete[] vertexArray;
+}
+void graphics::SFMLFacade::DrawRect(Rect toDraw, Color fill) {
+    auto arr = new sf::Vertex[4];
+    arr[0] = {(Point(toDraw.left, toDraw.top) - origin) * scale, fill};
+    arr[1] = {(Point(toDraw.left + toDraw.width, toDraw.top) - origin) * scale, fill};
+    arr[2] = {(Point(toDraw.left + toDraw.width, toDraw.top + toDraw.height) - origin) * scale, fill};
+    arr[3] = {(Point(toDraw.left, toDraw.top + toDraw.height) - origin) * scale, fill};
+    window->draw(arr, 4, sf::Quads);
+    delete[] arr;
 }
 void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point> vertices, float thickness, Color fill,
                                               bool cyclic) {
