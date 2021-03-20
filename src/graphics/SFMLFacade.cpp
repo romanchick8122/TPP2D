@@ -37,17 +37,17 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point> vertices,
         Point tangent;
         if (i == 0) {
             if (!cyclic) {
-                tangent = normalize(vertices[1] - vertices[0]);
+                tangent = normalize(vertices[0] - vertices[1]);
             } else {
-                tangent = normalize(normalize(vertices[1] - vertices[0])
-                    + normalize(vertices[0] - vertices.back()));
+                tangent = normalize(normalize(vertices[0] - vertices[1])
+                    + normalize(vertices.back()) - vertices[0]);
             }
         } else if (i == vertices.size() - 1) {
             if (!cyclic) {
-                tangent = normalize(vertices[i] - vertices[i - 1]);
+                tangent = normalize(vertices[i - 1] - vertices[i]);
             } else {
-                tangent = normalize(normalize(vertices[0] - vertices[i])
-                    + normalize(vertices[i] - vertices[i - 1]));
+                tangent = normalize(normalize(vertices[i] - vertices[0])
+                    + normalize(vertices[i - 1] - vertices[i]));
             }
         } else {
             tangent = normalize(

@@ -58,8 +58,8 @@ shape(cell_.vertices.size()) {
 void Cell::tick() { return; };
 void Cell::lateTick() { return; };
 void Cell::render() {
-    //Facade::DrawConvexPolygon(shape, Facade::Color(0, 0, 0));
-    Facade::DrawThickLineStrip(shape, 5, Facade::Color(255, 255, 255), true);
+    Facade::DrawConvexPolygon(shape, Facade::Color(0, 0, 0));
+    Facade::DrawThickLineStrip(shape, 3, Facade::Color(255, 255, 255), true);
 };
 Facade::Rect Cell::getRenderEdges() {
     return renderEdges;
