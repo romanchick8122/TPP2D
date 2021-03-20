@@ -1,23 +1,13 @@
 #include "GameLogic/Unit.h"
 #include "GameLogic/UnitOrder.h"
 
-void TestUnit::tick() {
-    if(currentOrder != nullptr) currentOrder -> tick(this);
-}
-
-TestUnit::TestUnit(Squad* ptr) {
-    unitSpeed = 10000;
-    allOrders[0] = new TestOrder();
-    currentOrder = allOrders[0];
-    unitBorderFlagResists = Flags::generateBorderFlags();
-    unitLandscapeFlagResists = Flags::generateLandscapeFlags();
+bool Unit::isOrderPossible(UnitOrder* order) {
+    bool exist = false;
+    for(auto i : allOrders) if(order == i) exist = true;
+    return (currentOrder == nullptr || currentOrder == order) && exist;
 };
 
-bool TestUnit::isOrderPossible(UnitOrder* order) {
-    return currentOrder == nullptr || currentOrder == order;
-};
-
-void TestUnit::enableOrder(UnitOrder* order) {
+void Unit::enableOrder(UnitOrder* order) {
     if(!isOrderPossible(order)) return;
     if(currentOrder == nullptr) {
         currentOrder = order -> copy();
@@ -27,7 +17,7 @@ void TestUnit::enableOrder(UnitOrder* order) {
     ++currentUsageOfOrder;
 }
 
-void TestUnit::disableOrder() {
+void Unit::disableOrder() {
     if(currentUsageOfOrder > 1) {
         --currentUsageOfOrder;
         return;
@@ -36,4 +26,44 @@ void TestUnit::disableOrder() {
     currentUsageOfOrder = 0;
 }
 
+void Unit::setSquad(Squad *ptr) {
+    squad = ptr;
+}
 
+
+void TestUnit1::tick() {
+    if(currentOrder != nullptr) currentOrder -> tick(this);
+}
+
+TestUnit1::TestUnit1(int param1_) : param1(param1_) {
+    unitSpeed = 100;
+    allOrders[0] = new TestOrder();
+    currentOrder = allOrders[0];
+    unitBorderFlagResists = Flags::generateBorderFlags();
+    unitLandscapeFlagResists = Flags::generateLandscapeFlags();
+};
+
+void TestUnit2::tick() {
+    if(currentOrder != nullptr) currentOrder -> tick(this);
+}
+
+TestUnit2::TestUnit2(int param1_, int param2_) : param1(param1_), param2(param2_) {
+    unitSpeed = 1000;
+    allOrders[0] = new TestOrder();
+    currentOrder = allOrders[0];
+    unitBorderFlagResists = Flags::generateBorderFlags();
+    unitLandscapeFlagResists = Flags::generateLandscapeFlags();
+};
+
+
+void TestUnit3::tick() {
+    if(currentOrder != nullptr) currentOrder -> tick(this);
+}
+
+TestUnit3::TestUnit3(int param1_, int param2_, int param3_) : param1(param1_), param2(param2_), param3(param3_) {
+    unitSpeed = 10000;
+    allOrders[0] = new TestOrder();
+    currentOrder = allOrders[0];
+    unitBorderFlagResists = Flags::generateBorderFlags();
+    unitLandscapeFlagResists = Flags::generateLandscapeFlags();
+};

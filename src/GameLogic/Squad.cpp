@@ -3,10 +3,24 @@
 Squad::Squad(Cell* ptr) {
     action = new Action(this);
     cell = ptr;
-    Unit* u = new TestUnit(this);
+    Unit* u = new TestUnit1(1);
     units.push_back(u);
     updateFlagResists();
     updateSpeed();
+    updateUnitSquadPtr();
+}
+
+Squad::Squad(Cell *cell_, std::list<Unit *> units_) {
+    action = new Action(this);
+    cell = cell_;
+    units = units_;
+    updateFlagResists();
+    updateSpeed();
+    updateUnitSquadPtr();
+};
+
+void Squad::updateUnitSquadPtr() {
+    for(auto unit : units) unit->setSquad(this);
 }
 
 void Squad::updateFlagResists() {
@@ -38,4 +52,6 @@ void Squad::lateTick(){return;};
 void Squad::render(const engine::renderParams& params){return;};
 sf::FloatRect Squad::getRenderEdges(){
     return {sf::Vector2f(), sf::Vector2f()};
-};
+}
+
+

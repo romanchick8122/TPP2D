@@ -17,21 +17,39 @@ protected:
     std::vector<float> unitBorderFlagResists;
     float unitSpeed;
 public:
+    void setSquad(Squad*);
     const std::vector<float>* landscapeFlagResists = &unitLandscapeFlagResists;
     const std::vector<float>* borderFlagResists = &unitBorderFlagResists;
     const float* commonSpeed = &unitSpeed;
     virtual void tick() = 0;
-    virtual bool isOrderPossible(UnitOrder*) = 0;
-    virtual void enableOrder(UnitOrder*) = 0;
-    virtual void disableOrder() = 0;
+    bool isOrderPossible(UnitOrder*);
+    void enableOrder(UnitOrder*);
+    void disableOrder();
 };
 
-class TestUnit : public Unit {
+class TestUnit1 : public Unit {
+    int param1;
 public:
-    TestUnit(Squad* ptr);
-    bool isOrderPossible(UnitOrder*) override;
-    void enableOrder(UnitOrder*) override;
-    void disableOrder() override;
+    TestUnit1(int param1_);
+    void tick() override;
+
+};
+
+class TestUnit2 : public Unit {
+    int param1;
+    int param2;
+public:
+    TestUnit2(int param1_, int param2_);
+    void tick() override;
+
+};
+
+class TestUnit3 : public Unit {
+    int param1;
+    int param2;
+    int param3;
+public:
+    TestUnit3(int param1_, int param2_, int param3_);
     void tick() override;
 
 };
