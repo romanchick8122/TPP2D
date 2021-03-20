@@ -55,6 +55,7 @@ void Squad::tick(){
 void Squad::lateTick(){return;};
 
 void Squad::render(){
+    action->render();
     Facade::DrawRect(shape, Facade::Color(255, 255, 0));
     return;
 };
