@@ -13,8 +13,7 @@ void engine::gameController::unregisterObject(gameObject* object) {
 void engine::gameController::gameLoop() {
     engine::config::Facade::scale = 1;
     bool wheelPresed = false;
-    float viewChangeStartX = 0;
-    float viewChangeStartY = 0;
+    Facade::Point viewChangeStart;
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
         auto events = Facade::Frame();
@@ -22,8 +21,7 @@ void engine::gameController::gameLoop() {
         if (wheelPresed) {
             Facade::origin = viewChangeStartCoordShift;
         }
-        float cursorX = (Facade::mousePosition.x) / Facade::scale + Facade::origin.x;
-        float cursorY = (Facade::mousePosition.y) / Facade::scale + Facade::origin.y;
+        Facade::Point cursor = Facade::mousePosition / Facade::scale + Facade::origin;
         //event processing
         for (auto event : events) {
             if (event.type == event.Close) {
@@ -32,19 +30,17 @@ void engine::gameController::gameLoop() {
                 //camera movement started
                 if (event.mouseButton == graphics::Event::MouseButton::Right) {
                     wheelPresed = true;
-                    viewChangeStartX = cursorX;
-                    viewChangeStartY = cursorY;
+                    viewChangeStart = cursor;
                     viewChangeStartCoordShift = Facade::origin;
                 }
                 //left click detection
                 else if (event.mouseButton == graphics::Event::MouseButton::Left) {
-                    Facade::Point pos(cursorX, cursorY);
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
                         if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
-                            if (!obj->getClickEdges().contains(pos)) {
+                            if (!obj->getClickEdges().contains(cursor)) {
                                 continue;
                             }
-                            if (obj->tryOnClick(pos)) {
+                            if (obj->tryOnClick(cursor)) {
                                 break;
                             }
                         }
@@ -54,23 +50,23 @@ void engine::gameController::gameLoop() {
                 //camera movement ended
                 if (event.mouseButton == graphics::Event::MouseButton::Right) {
                     wheelPresed = false;
-                    Facade::origin.x -= cursorX - viewChangeStartX;
-                    Facade::origin.y -= cursorY - viewChangeStartY;
+                    Facade::origin -= cursor - viewChangeStart;
                 }
             } else if (event.type == graphics::Event::MouseWheelScrolled) {
                 //zooming in/out
+                float oldScale = Facade::scale;
                 Facade::scale += event.mouseWheelScrollDelta * config::scaleSpeed;
                 if (Facade::scale > config::maxScale) {
                     Facade::scale = config::maxScale;
                 } else if (Facade::scale < config::minScale) {
                     Facade::scale = config::minScale;
                 }
+                Facade::origin = cursor - Facade::mousePosition / Facade::scale;
             }
         }
         //camera movement
         if (wheelPresed) {
-            Facade::origin.x -= cursorX - viewChangeStartX;
-            Facade::origin.y -= cursorY - viewChangeStartY;
+            Facade::origin -= cursor - viewChangeStart;
         }
         //ticking
         for (auto obj : objects) {

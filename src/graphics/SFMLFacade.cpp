@@ -1,4 +1,11 @@
 #include "graphics/SFMLFacade.h"
+#include <cmath>
+float graphics::SFMLFacade::length(graphics::SFMLFacade::Point vec) {
+    return sqrtf(vec.x * vec.x + vec.y * vec.y);
+}
+graphics::SFMLFacade::Point graphics::SFMLFacade::normalize(graphics::SFMLFacade::Point vec) {
+    return vec / length(vec);
+}
 sf::RenderWindow* graphics::SFMLFacade::window;
 float graphics::SFMLFacade::scale;
 graphics::SFMLFacade::Point graphics::SFMLFacade::origin;
@@ -21,11 +28,48 @@ void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point> vertices, 
     }
     window->draw(vertexArray, vertices.size(), sf::TriangleFan);
 }
+void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point> vertices, float thickness, Color fill,
+                                              bool cyclic) {
+    size_t sz = cyclic ? vertices.size() + 1 : vertices.size();
+    sz *= 2;
+    sf::Vertex* vertexArray = new sf::Vertex[sz];
+    for (size_t i = 0; i < vertices.size(); ++i) {
+        Point tangent;
+        if (i == 0) {
+            if (!cyclic) {
+                tangent = normalize(vertices[1] - vertices[0]);
+            } else {
+                tangent = normalize(normalize(vertices[1] - vertices[0])
+                    + normalize(vertices[0] - vertices.back()));
+            }
+        } else if (i == vertices.size() - 1) {
+            if (!cyclic) {
+                tangent = normalize(vertices[i] - vertices[i - 1]);
+            } else {
+                tangent = normalize(normalize(vertices[0] - vertices[i])
+                    + normalize(vertices[i] - vertices[i - 1]));
+            }
+        } else {
+            tangent = normalize(
+                normalize(vertices[i] - vertices[i + 1])
+                + normalize(vertices[i - 1] - vertices[i]));
+        }
+        tangent = Point(-tangent.y, tangent.x);
+        tangent *= thickness;
+        vertexArray[2 * i] = sf::Vertex((vertices[i] + tangent - origin) * scale, fill);
+        vertexArray[2 * i + 1] = sf::Vertex((vertices[i] - tangent - origin) * scale, fill);
+    }
+    if (cyclic) {
+        vertexArray[sz - 2] = vertexArray[0];
+        vertexArray[sz - 1] = vertexArray[1];
+    }
+    window->draw(vertexArray, sz, sf::TrianglesStrip);
+}
 std::vector<graphics::Event> graphics::SFMLFacade::Frame() {
     window->display();
     window->clear();
-    mousePosition.x = sf::Mouse::getPosition().x;
-    mousePosition.y = sf::Mouse::getPosition().y;
+    mousePosition.x = sf::Mouse::getPosition(*window).x;
+    mousePosition.y = sf::Mouse::getPosition(*window).y;
     sf::Event e;
     std::vector<Event> ans;
     while (window->pollEvent(e)) {
