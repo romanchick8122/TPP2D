@@ -18,9 +18,7 @@ void Cell::setAdjacent(const util::cellGen::CellData& cells_,
 void Cell::setBorders() {
     for (auto cellPtr : adjacent) {
         int xx = adjacent.size();
-        std::map<const Cell*, std::vector<float>>* ptr = &cellBorderFlags;
         cellBorderFlags[cellPtr] = std::vector<float>(1, 133);
-        //std::vector<float> b = Flags::generateBorderFlags();
     }
 }
 
@@ -30,8 +28,6 @@ std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>& cells_) {
     std::map<util::cellGen::Point2D, Cell*, Comparators::Point2DComp> mp;
     for (auto cell_ : cells_) {
         cells.push_back(new Cell(*cell_));
-        //std::map<Cell*, std::vector<float>>* ptr = &cl.cellBorderFlags;
-        std::map<const Cell*, std::vector<float>>* ptr2 = &cells[0]->cellBorderFlags;
         mp[cell_->center] = cells[cells.size() - 1];
     };
     for (int i = 0; i < cells.size(); ++i) {
@@ -44,7 +40,6 @@ std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>& cells_) {
 
 Cell::Cell(const util::cellGen::CellData& cell_) : center(cell_.center), vertices(cell_.vertices),
 shape(cell_.vertices.size()) {
-    std::map<const Cell*, std::vector<float>>* ptr = &cellBorderFlags;
     cellLandscapeFlags = Flags::generateLandscapeFlags();
     for (size_t i = 0; i < vertices.size(); ++i) {
         shape[i] = Facade::Point(cell_.vertices[i].x, cell_.vertices[i].y);
@@ -63,13 +58,16 @@ shape(cell_.vertices.size()) {
 void Cell::tick() { return; };
 void Cell::lateTick() { return; };
 void Cell::render() {
-    Facade::DrawConvexPolygon(shape, Facade::Color(rand(), rand(), rand()));
+    Facade::DrawConvexPolygon(shape, Facade::Color(x, y, z));
 };
 Facade::Rect Cell::getRenderEdges() {
     return renderEdges;
 };
 bool Cell::tryOnClick(Facade::Point pos) {
     if (util::geometry::pointWithin(vertices, util::cellGen::Point2D(pos.x, pos.y))) {
+        x = 0;
+        y = 0;
+        z = 255;
         return true;
     }
     return false;

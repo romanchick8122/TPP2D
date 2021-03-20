@@ -11,7 +11,7 @@ class Unit {
 protected:
     UnitOrder* currentOrder;
     size_t currentUsageOfOrder;
-    UnitOrder* allOrders[1];
+    std::vector<UnitOrder*> allOrders;
     Squad* squad;
     std::vector<float> unitLandscapeFlagResists;
     std::vector<float> unitBorderFlagResists;

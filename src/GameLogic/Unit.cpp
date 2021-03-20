@@ -36,6 +36,7 @@ void TestUnit1::tick() {
 }
 
 TestUnit1::TestUnit1(int param1_) : param1(param1_) {
+    allOrders = std::vector<UnitOrder*>(1);
     unitSpeed = 100;
     allOrders[0] = new TestOrder();
     currentOrder = allOrders[0];
@@ -48,6 +49,7 @@ void TestUnit2::tick() {
 }
 
 TestUnit2::TestUnit2(int param1_, int param2_) : param1(param1_), param2(param2_) {
+    allOrders = std::vector<UnitOrder*>(1);
     unitSpeed = 1000;
     allOrders[0] = new TestOrder();
     currentOrder = allOrders[0];
@@ -61,6 +63,7 @@ void TestUnit3::tick() {
 }
 
 TestUnit3::TestUnit3(int param1_, int param2_, int param3_) : param1(param1_), param2(param2_), param3(param3_) {
+    allOrders = std::vector<UnitOrder*>(1);
     unitSpeed = 10000;
     allOrders[0] = new TestOrder();
     currentOrder = allOrders[0];

@@ -7,7 +7,7 @@ graphics::SFMLFacade::Point graphics::SFMLFacade::windowSize;
 void graphics::SFMLFacade::Init(int resX, int resY, const char* windowName, int frameRate) {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    window = new sf::RenderWindow(sf::VideoMode(resX, resY), windowName, sf::Style::None, settings);
+    window = new sf::RenderWindow(sf::VideoMode(resX, resY), windowName, sf::Style::Fullscreen, settings);
     window->setFramerateLimit(frameRate);
     windowSize.x = resX;
     windowSize.y = resY;
