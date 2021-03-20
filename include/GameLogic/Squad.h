@@ -4,10 +4,11 @@ class Squad;
 #include "Unit.h"
 #include "engine/gameObject.h"
 #include "Action.h"
+#include "engine/config.h"
 
 class Squad : engine::gameObject{
     Cell* cell;
-    sf::FloatRect getRenderEdges() override;
+    engine::config::Facade::Rect getRenderEdges() override;
     std::list<Unit*> units;
     void updateSpeed();
     float squadCurrentSpeed;
@@ -23,6 +24,6 @@ public:
 
     void tick() override;
     void lateTick() override;
-    void render(const engine::renderParams& params) override;
+    void render() override;
 
 };

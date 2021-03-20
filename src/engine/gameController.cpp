@@ -1,12 +1,7 @@
 #include "engine/gameController.h"
 #include "engine/config.h"
 #include "engine/clickableGameObject.h"
-engine::gameController::gameController(int resX, int resY, const char* windowName, int frameRate) {
-    sf::ContextSettings settings;
-    settings.antialiasingLevel = 8;
-    window = new sf::RenderWindow(sf::VideoMode(resX, resY), windowName, sf::Style::None, settings);
-    window->setFramerateLimit(frameRate);
-}
+using Facade = engine::config::Facade;
 void engine::gameController::registerObject(gameObject* object) {
     objects.push_back(object);
     object->gameObjectListPosition = objects.end();
@@ -16,37 +11,34 @@ void engine::gameController::unregisterObject(gameObject* object) {
     objects.erase(object->gameObjectListPosition);
 }
 void engine::gameController::gameLoop() {
-    renderParams params;
-    params.targetWindow = window;
-    params.scale = 1;
+    engine::config::Facade::scale = 1;
     bool wheelPresed = false;
     float viewChangeStartX = 0;
     float viewChangeStartY = 0;
-    sf::Vector2f viewChangeStartCoordShift = params.origin;
+    Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
+        auto events = Facade::Frame();
         //restoring invariant things
         if (wheelPresed) {
-            params.origin = viewChangeStartCoordShift;
+            Facade::origin = viewChangeStartCoordShift;
         }
-        float cursorX = (sf::Mouse::getPosition(*window).x) / params.scale + params.origin.x;
-        float cursorY = (sf::Mouse::getPosition(*window).y) / params.scale + params.origin.y;
+        float cursorX = (Facade::mousePosition.x) / Facade::scale + Facade::origin.x;
+        float cursorY = (Facade::mousePosition.y) / Facade::scale + Facade::origin.y;
         //event processing
-        sf::Event event;
-        while (window->pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window->close();
-                break;
-            } else if (event.type == sf::Event::MouseButtonPressed) {
+        for (auto event : events) {
+            if (event.type == event.Close) {
+                return;
+            } else if (event.type == graphics::Event::MouseButtonPressed) {
                 //camera movement started
-                if (event.mouseButton.button == sf::Mouse::Button::Middle) {
+                if (event.mouseButton == graphics::Event::MouseButton::Right) {
                     wheelPresed = true;
                     viewChangeStartX = cursorX;
                     viewChangeStartY = cursorY;
-                    viewChangeStartCoordShift = params.origin;
+                    viewChangeStartCoordShift = Facade::origin;
                 }
                 //left click detection
-                else if (event.mouseButton.button == sf::Mouse::Button::Left) {
-                    sf::Vector2f pos(cursorX, cursorY);
+                else if (event.mouseButton == graphics::Event::MouseButton::Left) {
+                    Facade::Point pos(cursorX, cursorY);
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
                         if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
                             if (!obj->getClickEdges().contains(pos)) {
@@ -58,30 +50,27 @@ void engine::gameController::gameLoop() {
                         }
                     }
                 }
-            } else if (event.type == sf::Event::MouseButtonReleased) {
+            } else if (event.type == graphics::Event::MouseButtonReleased) {
                 //camera movement ended
-                if (event.mouseButton.button == sf::Mouse::Button::Middle) {
+                if (event.mouseButton == graphics::Event::MouseButton::Right) {
                     wheelPresed = false;
-                    params.origin.x -= cursorX - viewChangeStartX;
-                    params.origin.y -= cursorY - viewChangeStartY;
+                    Facade::origin.x -= cursorX - viewChangeStartX;
+                    Facade::origin.y -= cursorY - viewChangeStartY;
                 }
-            } else if (event.type == sf::Event::MouseWheelScrolled) {
+            } else if (event.type == graphics::Event::MouseWheelScrolled) {
                 //zooming in/out
-                params.scale += event.mouseWheelScroll.delta * config::scaleSpeed;
-                if (params.scale > config::maxScale) {
-                    params.scale = config::maxScale;
-                } else if (params.scale < config::minScale) {
-                    params.scale = config::minScale;
+                Facade::scale += event.mouseWheelScrollDelta * config::scaleSpeed;
+                if (Facade::scale > config::maxScale) {
+                    Facade::scale = config::maxScale;
+                } else if (Facade::scale < config::minScale) {
+                    Facade::scale = config::minScale;
                 }
             }
         }
-        if (!window->isOpen()) {
-            break;
-        }
         //camera movement
         if (wheelPresed) {
-            params.origin.x -= cursorX - viewChangeStartX;
-            params.origin.y -= cursorY - viewChangeStartY;
+            Facade::origin.x -= cursorX - viewChangeStartX;
+            Facade::origin.y -= cursorY - viewChangeStartY;
         }
         //ticking
         for (auto obj : objects) {
@@ -91,15 +80,11 @@ void engine::gameController::gameLoop() {
             obj->lateTick();
         }
         //rendering
-        window->clear(sf::Color::White);
-        sf::FloatRect windowRect(params.origin,
-                                 sf::Vector2f(window->getSize().x / params.scale,
-                                              window->getSize().y / params.scale));
+        Facade::Rect windowRect(Facade::origin, Facade::windowSize / Facade::scale);
         for (auto obj : objects) {
             if (windowRect.intersects(obj->getRenderEdges())) {
-                obj->render(params);
+                obj->render();
             }
         }
-        window->display();
     }
 }
