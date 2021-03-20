@@ -21,6 +21,7 @@ namespace graphics {
         static void DrawConvexPolygon(const std::vector<Point> vertices, Color fill);
         static void DrawThickLineStrip(const std::vector<Point> vertices, float thickness, Color fill,
                                        bool cyclic = false);
+        static void DrawRect(Rect toDraw, Color fill);
         static std::vector<Event> Frame();
     };
 }
