@@ -3,7 +3,8 @@ class Cell;
 #include "engine/clickableGameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
-
+#include "engine/config.h"
+using Facade = engine::config::Facade;
 std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>&);
 namespace Comparators {
     struct Point2DComp {
@@ -15,8 +16,8 @@ namespace Comparators {
 class Cell : public engine::clickableGameObject {
     util::cellGen::Point2D center;
     std::vector<float> cellLandscapeFlags;
-    sf::FloatRect renderEdges;
-    sf::ConvexShape shape;
+    engine::config::Facade::Rect renderEdges;
+    std::vector<engine::config::Facade::Point> shape;
 public:
     std::map<const Cell*, std::vector<float>> cellBorderFlags;
     std::vector<Cell*> adjacent;
@@ -31,9 +32,9 @@ public:
 
     void tick() override;
     void lateTick() override;
-    void render(const engine::renderParams& params) override;
-    sf::FloatRect getRenderEdges() override;
-    bool tryOnClick(sf::Vector2f pos) override;
-    sf::FloatRect getClickEdges() override;
+    void render() override;
+    Facade::Rect getRenderEdges() override;
+    bool tryOnClick(Facade::Point pos) override;
+    Facade::Rect getClickEdges() override;
 };
 

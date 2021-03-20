@@ -2,7 +2,8 @@
 #include <map>
 #include "iostream"
 #include "util/geometry.h"
-
+#include "engine/config.h"
+using Facade = engine::config::Facade;
 bool Comparators::Point2DComp::operator()(const util::cellGen::Point2D& t1, const util::cellGen::Point2D& t2) const {
     if (t1.x == t2.x) return t1.y < t2.y;
     return t1.x < t2.x;
@@ -45,6 +46,9 @@ Cell::Cell(const util::cellGen::CellData& cell_) : center(cell_.center), vertice
 shape(cell_.vertices.size()) {
     std::map<const Cell*, std::vector<float>>* ptr = &cellBorderFlags;
     cellLandscapeFlags = Flags::generateLandscapeFlags();
+    for (size_t i = 0; i < vertices.size(); ++i) {
+        shape[i] = Facade::Point(cell_.vertices[i].x, cell_.vertices[i].y);
+    }
     double minx, maxx, miny, maxy;
     minx = maxx = vertices[0].x;
     miny = maxy = vertices[0].y;
@@ -54,30 +58,23 @@ shape(cell_.vertices.size()) {
         maxx = std::max(maxx, vert.x);
         maxy = std::max(maxy, vert.y);
     }
-    renderEdges = sf::FloatRect(minx, miny, maxx - minx, maxy - miny);
-    for (int i = 0; i < vertices.size(); ++i) {
-        shape.setPoint(i, sf::Vector2f(vertices[i].x, vertices[i].y));
-    }
-    shape.setFillColor(sf::Color(rand() % 256, rand() % 256, rand() % 256));
+    renderEdges = Facade::Rect(minx, miny, maxx - minx, maxy - miny);
 };
 void Cell::tick() { return; };
 void Cell::lateTick() { return; };
-void Cell::render(const engine::renderParams& params) {
-    shape.setOrigin(params.origin);
-    shape.setScale(params.scale, params.scale);
-    shape.setOutlineColor(sf::Color(127, 127, 127));
-    params.targetWindow->draw(shape);
+void Cell::render() {
+    Facade::DrawConvexPolygon(shape, Facade::Color(rand(), rand(), rand()));
 };
-sf::FloatRect Cell::getRenderEdges() {
+Facade::Rect Cell::getRenderEdges() {
     return renderEdges;
 };
-bool Cell::tryOnClick(sf::Vector2f pos) {
+bool Cell::tryOnClick(Facade::Point pos) {
     if (util::geometry::pointWithin(vertices, util::cellGen::Point2D(pos.x, pos.y))) {
         return true;
     }
     return false;
 }
-sf::FloatRect Cell::getClickEdges() {
+Facade::Rect Cell::getClickEdges() {
     return renderEdges;
 }
 
