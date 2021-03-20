@@ -14,6 +14,6 @@ int main() {
     for (auto ob : vec) {
         controller.registerObject(ob);
     }
-        controller.gameLoop();
+    controller.gameLoop();
     return 0;
 }
