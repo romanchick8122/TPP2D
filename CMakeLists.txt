@@ -48,7 +48,7 @@ else()
 endif()
 set(SFML_DIR ${PROJECT_SOURCE_DIR}/SFML/lib/cmake/SFML)
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
-include_directories(${SFML_INCLUDE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
 add_executable(TPP2D src/GameLogic/Cell.cpp src/GameLogic/SquadOrder.cpp include/GameLogic/SquadOrder.h src/GameLogic/Action.cpp include/GameLogic/Action.h src/GameLogic/Flag.cpp include/GameLogic/Flag.h src/GameLogic/AllFlags.cpp include/GameLogic/AllFlags.h src/GameLogic/Factory.cpp include/GameLogic/Factory.h src/GameLogic/AllUnits.cpp include/GameLogic/AllUnits.h src/GameLogic/SquadTemplate.cpp include/GameLogic/SquadTemplate.h)
 
@@ -69,4 +69,4 @@ add_subdirectory(src)
 get_target_property(sources TPP2D SOURCES)
 
 #linking SFML
-target_link_libraries(TPP2D sfml-graphics)
+target_link_libraries(TPP2D general sfml-graphics)
