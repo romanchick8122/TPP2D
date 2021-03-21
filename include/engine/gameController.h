@@ -9,7 +9,7 @@ namespace engine {
         gameController();
       public:
         static gameController* Instance();
-        void registerObject(gameObject* object);
+        void registerObject(gameObject* object, gameObject* after = nullptr);
         void unregisterObject(gameObject* object);
         void gameLoop();
     };

@@ -3,11 +3,6 @@
 #include "engine/clickableGameObject.h"
 using Facade = engine::config::Facade;
 engine::gameController* engine::gameController::instance;
-void engine::gameController::registerObject(gameObject* object) {
-    objects.push_back(object);
-    object->gameObjectListPosition = objects.end();
-    --object->gameObjectListPosition;
-}
 void engine::gameController::unregisterObject(gameObject* object) {
     objects.erase(object->gameObjectListPosition);
 }
@@ -90,5 +85,15 @@ engine::gameController* engine::gameController::Instance() {
         instance = new gameController();
     }
     return instance;
+}
+void engine::gameController::registerObject(engine::gameObject* object, engine::gameObject* after) {
+    std::list<gameObject*>::iterator insertPos;
+    if (after == nullptr) {
+        insertPos = objects.end();
+    } else {
+        insertPos = after->gameObjectListPosition;
+        insertPos++;
+    }
+    object->gameObjectListPosition = objects.insert(insertPos, object);
 }
 engine::gameController::gameController() = default;
