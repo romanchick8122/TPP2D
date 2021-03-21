@@ -2,6 +2,7 @@
 #include "engine/config.h"
 #include "engine/clickableGameObject.h"
 using Facade = engine::config::Facade;
+engine::gameController* engine::gameController::instance;
 void engine::gameController::registerObject(gameObject* object) {
     objects.push_back(object);
     object->gameObjectListPosition = objects.end();
@@ -84,3 +85,10 @@ void engine::gameController::gameLoop() {
         }
     }
 }
+engine::gameController* engine::gameController::Instance() {
+    if (instance == nullptr) {
+        instance = new gameController();
+    }
+    return instance;
+}
+engine::gameController::gameController() = default;
