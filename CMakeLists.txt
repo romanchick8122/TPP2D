@@ -12,7 +12,12 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/SFML)
     message("SFML already downloaded")
 else()
     message("Checking compiler...")
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    if (UNIX)
+	message(Downloading SFML for Linux)
+	file(DOWNLOAD
+		    https://www.sfml-dev.org/files/SFML-2.5.1-linux-gcc-64-bit.tar.gz
+		    ${PROJECT_SOURCE_DIR}/SFML.tar.gz)
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         message(Downloading SFML for GCC...)
         if (${CMAKE_SIZEOF_VOID_P} STREQUAL "4")
             file(DOWNLOAD
@@ -38,8 +43,8 @@ else()
     endif()
     file(MAKE_DIRECTORY SFML)
     if (UNIX)
-        execute_process(COMMAND unzip ${PROJECT_SOURCE_DIR}/SFML.zip)
-        file(RENAME SFML-2.5.1 SFML)
+        execute_process(COMMAND tar xzf ${PROJECT_SOURCE_DIR}/SFML.tar.gz --strip-components=1
+		--directory ${PROJECT_SOURCE_DIR}/SFML)
     else()
         execute_process(COMMAND tar xzf ${PROJECT_SOURCE_DIR}/SFML.zip --strip-components=1
                 --directory ${PROJECT_SOURCE_DIR}/SFML)
@@ -69,4 +74,4 @@ add_subdirectory(src)
 get_target_property(sources TPP2D SOURCES)
 
 #linking SFML
-target_link_libraries(TPP2D general sfml-graphics)
+target_link_libraries(TPP2D PRIVATE sfml-graphics)
