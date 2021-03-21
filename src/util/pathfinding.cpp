@@ -30,5 +30,6 @@ namespace util::pathfinding {
                 distanceHeap.push({dist + squad->action->calcSpeed(cell, t), {t, cell}});
             }
         }
+        return std::list<Cell*>();
     }
 }

@@ -21,7 +21,7 @@ void graphics::SFMLFacade::Init(int resX, int resY, const char* windowName, int 
     scale = 1;
     origin.x = origin.y = 0;
 }
-void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point> vertices, Color fill)  {
+void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point>& vertices, Color fill)  {
     auto* vertexArray = new sf::Vertex[vertices.size()];
     for (size_t i = 0; i < vertices.size(); ++i) {
         vertexArray[i] = sf::Vertex((vertices[i] - origin) * scale, fill);
@@ -38,7 +38,7 @@ void graphics::SFMLFacade::DrawRect(Rect toDraw, Color fill) {
     window->draw(arr, 4, sf::Quads);
     delete[] arr;
 }
-void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point> vertices, float thickness, Color fill,
+void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices, float thickness, Color fill,
                                               bool cyclic) {
     size_t sz = cyclic ? vertices.size() + 1 : vertices.size();
     sz *= 2;
