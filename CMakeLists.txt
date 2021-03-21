@@ -52,8 +52,6 @@ include_directories(${SFML_INCLUDE_DIR})
 
 add_executable(TPP2D src/GameLogic/Cell.cpp src/GameLogic/SquadOrder.cpp include/GameLogic/SquadOrder.h src/GameLogic/Action.cpp include/GameLogic/Action.h src/GameLogic/Flag.cpp include/GameLogic/Flag.h src/GameLogic/AllFlags.cpp include/GameLogic/AllFlags.h src/GameLogic/Factory.cpp include/GameLogic/Factory.h src/GameLogic/AllUnits.cpp include/GameLogic/AllUnits.h src/GameLogic/SquadTemplate.cpp include/GameLogic/SquadTemplate.h)
 
-target_link_libraries(TPP2D ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
-
 #Adding submodules
 if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
     message(Submodule not found)
