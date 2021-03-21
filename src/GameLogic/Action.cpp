@@ -47,7 +47,7 @@ void Action::tick() {
         nextStep();
         return;
     }
-    squad->center += d;
+    squad->center -= d;
     squad->shape.left -= d.x;
     squad->shape.top -= d.y;
 //    squad->center.x += dx;
@@ -55,11 +55,12 @@ void Action::tick() {
 }
 
 void Action::render() {
-    std::vector<Facade::Point> vec(currentPath.size() + 1);
-    vec[0] = nextCell->center;
+    std::vector<Facade::Point> vec(currentPath.size() + 2);
+    vec[0] = squad->center;
+    vec[1] = nextCell->center;
     for(auto [i, it] = std::make_pair(0, currentPath.begin()); i < currentPath.size(); ++i, ++it)
-        vec[i+1] = (*it) -> center;
-    Facade::DrawThickLineStrip(vec, 20, Facade::Color(100,0,0,150));
+        vec[i+2] = (*it) -> center;
+    Facade::DrawThickLineStrip(vec, 10, Facade::Color(255,0,0));
 }
 
 void Action::setPath(Cell *end) {

@@ -13,7 +13,7 @@ Squad::Squad(Cell* ptr) :center(ptr->center){
 }
 
 Squad::Squad(Cell *cell_, std::list<Unit *> units_) {
-    shape = Facade::Rect(center.x - 10, center.y-10, 10, 10);
+    shape = Facade::Rect(center.x - 16, center.y-16, 16, 16);
     action = new Action(this);
     cell = cell_;
     units = units_;
