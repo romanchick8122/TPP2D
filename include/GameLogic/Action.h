@@ -7,6 +7,7 @@ class Action {
     float progress;
     Squad* squad;
     float speed;
+    Facade::Point d;
     float dx;
     float dy;
     Cell* nextCell;
