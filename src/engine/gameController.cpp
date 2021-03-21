@@ -31,6 +31,21 @@ void engine::gameController::gameLoop() {
                 }
                 //left click detection
                 else if (event.mouseButton == graphics::Event::MouseButton::Left) {
+                    bool clicked = false;
+                    for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
+                        if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
+                            if (!obj->getClickEdges().contains(Facade::mousePosition)) {
+                                continue;
+                            }
+                            if (obj->tryOnClick(Facade::mousePosition)) {
+                                clicked = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (clicked) {
+                        continue;
+                    }
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
                         if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
                             if (!obj->getClickEdges().contains(cursor)) {
@@ -68,7 +83,13 @@ void engine::gameController::gameLoop() {
         for (auto obj : objects) {
             obj->tick();
         }
+        for (auto obj : staticObjects) {
+            obj->tick();
+        }
         for (auto obj : objects) {
+            obj->lateTick();
+        }
+        for (auto obj : staticObjects) {
             obj->lateTick();
         }
         //rendering
@@ -78,6 +99,15 @@ void engine::gameController::gameLoop() {
                 obj->render();
             }
         }
+        auto scaleRev = Facade::scale;
+        auto originRev = Facade::origin;
+        Facade::scale = 1;
+        Facade::origin = Facade::Point();
+        for (auto obj : staticObjects) {
+            obj->render();
+        }
+        Facade::scale = scaleRev;
+        Facade::origin = originRev;
     }
 }
 engine::gameController* engine::gameController::Instance() {
@@ -95,5 +125,18 @@ void engine::gameController::registerObject(engine::gameObject* object, engine::
         insertPos++;
     }
     object->gameObjectListPosition = objects.insert(insertPos, object);
+}
+void engine::gameController::registerStaticObject(engine::gameObject* object, engine::gameObject* after) {
+    std::list<gameObject*>::iterator insertPos;
+    if (after == nullptr) {
+        insertPos = staticObjects.end();
+    } else {
+        insertPos = after->gameObjectListPosition;
+        insertPos++;
+    }
+    object->gameObjectListPosition = staticObjects.insert(insertPos, object);
+}
+void engine::gameController::unregisterStaticObject(engine::gameObject* object) {
+    staticObjects.erase(object->gameObjectListPosition);
 }
 engine::gameController::gameController() = default;
