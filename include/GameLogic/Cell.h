@@ -36,7 +36,6 @@ public:
     void lateTick() override;
     void render() override;
     Facade::Rect getRenderEdges() override;
-    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
-    Facade::Rect getClickEdges() override;
+    bool tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
 };
 

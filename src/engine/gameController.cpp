@@ -37,13 +37,8 @@ void engine::gameController::gameLoop() {
                     || event.mouseButton != graphics::Event::MouseButton::Left) {
                     bool clicked = false;
                     for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
-                        if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
-                            continue;
-                        }
-                        auto obj = (*objIt)->tryOnClick(Facade::mousePosition, event.mouseButton);
-                        if (obj) {
+                        if ((*objIt)->tryOnClick(Facade::mousePosition, event.mouseButton)) {
                             clicked = true;
-                            networkManager.addAction(std::move(obj));
                             break;
                         }
                     }
@@ -51,12 +46,7 @@ void engine::gameController::gameLoop() {
                         continue;
                     }
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
-                        if (!(*objIt)->getClickEdges().contains(cursor)) {
-                            continue;
-                        }
-                        auto obj = (*objIt)->tryOnClick(cursor, event.mouseButton);
-                        if (obj) {
-                            networkManager.addAction(std::move(obj));
+                        if ((*objIt)->tryOnClick(cursor, event.mouseButton)) {
                             break;
                         }
                     }
