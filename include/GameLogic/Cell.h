@@ -1,9 +1,10 @@
 class Cell;
 #pragma once
-#include "engine/clickableGameObject.h"
+#include "engine/gameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
 #include "engine/config.h"
+#include "graphics/Facade.h"
 using Facade = engine::config::Facade;
 std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>&);
 namespace Comparators {
@@ -13,7 +14,7 @@ namespace Comparators {
 }
 
 
-class Cell : public engine::clickableGameObject {
+class Cell : public engine::gameObject {
     int x = 0,y = 255,z = 255;
     std::vector<float> cellLandscapeFlags;
     std::map<const Cell*, std::vector<float>> cellBorderFlags;
@@ -35,7 +36,7 @@ public:
     void lateTick() override;
     void render() override;
     Facade::Rect getRenderEdges() override;
-    bool tryOnClick(Facade::Point pos) override;
+    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
     Facade::Rect getClickEdges() override;
 };
 

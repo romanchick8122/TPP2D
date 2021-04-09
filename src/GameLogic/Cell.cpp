@@ -3,6 +3,7 @@
 #include "iostream"
 #include "util/geometry.h"
 #include "engine/config.h"
+#include "engine/actions/None.h"
 using Facade = engine::config::Facade;
 bool Comparators::Point2DComp::operator()(const util::cellGen::Point2D& t1, const util::cellGen::Point2D& t2) const {
     if (t1.x == t2.x) return t1.y < t2.y;
@@ -64,14 +65,14 @@ void Cell::render() {
 Facade::Rect Cell::getRenderEdges() {
     return renderEdges;
 };
-bool Cell::tryOnClick(Facade::Point pos) {
+std::unique_ptr<engine::Action> Cell::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
     if (util::geometry::pointWithin(vertices, util::cellGen::Point2D(pos.x, pos.y))) {
         x = 0;
         y = 0;
         z = 255;
-        return true;
+        return std::unique_ptr<engine::Action>(new engine::actions::None());
     }
-    return false;
+    return std::unique_ptr<engine::Action>(nullptr);
 }
 Facade::Rect Cell::getClickEdges() {
     return renderEdges;

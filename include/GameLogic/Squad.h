@@ -5,12 +5,14 @@ class Squad;
 #include "engine/gameObject.h"
 #include "Action.h"
 #include "engine/config.h"
+#include "graphics/Facade.h"
 
 class Squad : public engine::gameObject{
     engine::config::Facade::Point center = {100, 100};
     Facade::Rect shape;
     Cell* cell;
     engine::config::Facade::Rect getRenderEdges() override;
+    engine::config::Facade::Rect getClickEdges() override;
     std::list<Unit*> units;
     void updateUnitSquadPtr();
     void updateSpeed();
@@ -30,5 +32,5 @@ public:
     void tick() override;
     void lateTick() override;
     void render() override;
-
+    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
 };
