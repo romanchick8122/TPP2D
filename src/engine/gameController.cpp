@@ -13,6 +13,7 @@ void engine::gameController::gameLoop() {
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
         auto events = Facade::Frame();
+        networkManager.processActions();
         //restoring invariant things
         if (wheelPresed) {
             Facade::origin = viewChangeStartCoordShift;
@@ -75,6 +76,7 @@ void engine::gameController::gameLoop() {
                 Facade::origin = cursor - Facade::mousePosition / Facade::scale;
             }
         }
+        networkManager.flushActions();
         //camera movement
         if (wheelPresed) {
             Facade::origin -= cursor - viewChangeStart;
