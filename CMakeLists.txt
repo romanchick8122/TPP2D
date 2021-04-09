@@ -56,6 +56,14 @@ set(SFML_DIR ${PROJECT_SOURCE_DIR}/SFML/lib/cmake/SFML)
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
+if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
+    message("Downloading json parser")
+    file(DOWNLOAD
+            https://github.com/nlohmann/json/releases/download/v3.9.1/json.hpp
+            ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
+endif()
+include_directories(${PROJECT_SOURCE_DIR})
+
 add_executable(TPP2D)
 
 #Adding submodules
@@ -71,7 +79,6 @@ target_sources(TPP2D PUBLIC
         delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
 
 add_subdirectory(src)
-add_subdirectory(inipp)
 
 get_target_property(sources TPP2D SOURCES)
 

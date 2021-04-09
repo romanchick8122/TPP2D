@@ -1,12 +1,28 @@
+#include <fstream>
 #include "engine/gameController.h"
 #include "util/cellgen.h"
 #include "util/geometry.h"
 #include "GameLogic/Cell.h"
 #include "engine/config.h"
 #include "Squad.h"
+#include "nlohmann/json.hpp"
 
 using util::cellGen::Point2D;
+std::string readFile(std::string filename) {
+    std::ifstream t(filename);
+    std::string str;
+
+    t.seekg(0, std::ios::end);
+    str.reserve(t.tellg());
+    t.seekg(0, std::ios::beg);
+
+    str.assign((std::istreambuf_iterator<char>(t)),
+               std::istreambuf_iterator<char>());
+    return str;
+}
 int main() {
+    engine::config::runtime = readFile("config.json");
+
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
     auto t = util::cellGen::getMap(Point2D(15360, 8640), 10000);
     auto vec = makeSurface(t);
