@@ -4,6 +4,7 @@
 namespace engine {
     class gameObject {
       public:
+        size_t id;
         std::list<gameObject*>::iterator gameObjectListPosition;
         virtual void tick() = 0;
         virtual void lateTick() = 0;
