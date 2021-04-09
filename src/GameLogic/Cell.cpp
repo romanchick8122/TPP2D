@@ -65,7 +65,7 @@ void Cell::render() {
 Facade::Rect Cell::getRenderEdges() {
     return renderEdges;
 };
-std::unique_ptr<engine::Action> Cell::tryOnClick(Facade::Point pos) {
+std::unique_ptr<engine::Action> Cell::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
     if (util::geometry::pointWithin(vertices, util::cellGen::Point2D(pos.x, pos.y))) {
         x = 0;
         y = 0;

@@ -32,36 +32,36 @@ void engine::gameController::gameLoop() {
             } else if (event.type == graphics::Event::MouseButtonReleased) {
                 if (event.mouseButton == graphics::Event::MouseButton::Left) {
                     wheelPresed = false;
-                    if (Facade::length(cursor - viewChangeStart) < 20) {
-                        bool clicked = false;
-                        for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
-                            if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
-                                continue;
-                            }
-                            auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
-                            if (obj) {
-                                clicked = true;
-                                networkManager.addAction(std::move(obj));
-                                break;
-                            }
-                        }
-                        if (clicked) {
+                }
+                if (Facade::length(cursor - viewChangeStart) < 20
+                    || event.mouseButton != graphics::Event::MouseButton::Left) {
+                    bool clicked = false;
+                    for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
+                        if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
                             continue;
                         }
-                        for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
-                            if (!(*objIt)->getClickEdges().contains(cursor)) {
-                                continue;
-                            }
-                            auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
-                            if (obj) {
-                                networkManager.addAction(std::move(obj));
-                                break;
-                            }
+                        auto obj = (*objIt)->tryOnClick(Facade::mousePosition, event.mouseButton);
+                        if (obj) {
+                            clicked = true;
+                            networkManager.addAction(std::move(obj));
+                            break;
                         }
                     }
-                    else {
-                        Facade::origin -= cursor - viewChangeStart;
+                    if (clicked) {
+                        continue;
                     }
+                    for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
+                        if (!(*objIt)->getClickEdges().contains(cursor)) {
+                            continue;
+                        }
+                        auto obj = (*objIt)->tryOnClick(cursor, event.mouseButton);
+                        if (obj) {
+                            networkManager.addAction(std::move(obj));
+                            break;
+                        }
+                    }
+                } else {
+                    Facade::origin -= cursor - viewChangeStart;
                 }
             } else if (event.type == graphics::Event::MouseWheelScrolled) {
                 //zooming in/out

@@ -4,6 +4,7 @@ class Cell;
 #include "util/cellgen.h"
 #include "AllFlags.h"
 #include "engine/config.h"
+#include "graphics/Facade.h"
 using Facade = engine::config::Facade;
 std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>&);
 namespace Comparators {
@@ -35,7 +36,7 @@ public:
     void lateTick() override;
     void render() override;
     Facade::Rect getRenderEdges() override;
-    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos) override;
+    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
     Facade::Rect getClickEdges() override;
 };
 
