@@ -50,8 +50,6 @@ void Action::tick() {
     squad->center -= d;
     squad->shape.left -= d.x;
     squad->shape.top -= d.y;
-//    squad->center.x += dx;
-//    squad->center.y += dy;
 }
 
 void Action::render() {
