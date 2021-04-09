@@ -63,8 +63,8 @@ Facade::Rect Squad::getRenderEdges(){
     return shape;
 }
 
-bool Squad::tryOnClick(Facade::Point pos) {
-    return false;
+std::unique_ptr<engine::Action> Squad::tryOnClick(Facade::Point pos) {
+    return std::unique_ptr<engine::Action>(nullptr);
 }
 Facade::Rect Squad::getClickEdges() {
     return shape;

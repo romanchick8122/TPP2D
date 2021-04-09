@@ -35,7 +35,7 @@ public:
     void lateTick() override;
     void render() override;
     Facade::Rect getRenderEdges() override;
-    bool tryOnClick(Facade::Point pos) override;
+    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos) override;
     Facade::Rect getClickEdges() override;
 };
 

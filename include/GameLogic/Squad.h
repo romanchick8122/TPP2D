@@ -31,5 +31,5 @@ public:
     void tick() override;
     void lateTick() override;
     void render() override;
-    bool tryOnClick(Facade::Point pos) override;
+    std::unique_ptr<engine::Action> tryOnClick(Facade::Point pos) override;
 };

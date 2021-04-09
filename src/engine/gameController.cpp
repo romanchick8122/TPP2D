@@ -36,8 +36,10 @@ void engine::gameController::gameLoop() {
                         if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
                             continue;
                         }
-                        if ((*objIt)->tryOnClick(Facade::mousePosition)) {
+                        auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
+                        if (obj) {
                             clicked = true;
+                            //todo process action
                             break;
                         }
                     }

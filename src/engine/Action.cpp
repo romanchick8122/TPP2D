@@ -6,4 +6,5 @@ std::unique_ptr<engine::Action> readAction(std::istream& istr) {
     if (type == engine::Action::Type::None) {
         return engine::actions::None::read(istr);
     }
+    return std::unique_ptr<engine::Action>(nullptr);
 }
