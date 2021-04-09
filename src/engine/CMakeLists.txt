@@ -1,4 +1,4 @@
-include_directories(actions)
+add_subdirectory(actions)
 target_sources(TPP2D PUBLIC
         Action.cpp
         config.cpp

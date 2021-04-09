@@ -3,7 +3,8 @@
 namespace engine::actions {
     class None : engine::Action {
       public:
-        void write(const std::ostream&) override;
+        void write(std::ostream&) override;
+        static std::unique_ptr<Action> read(std::istream&);
         void apply() override;
     };
 }
