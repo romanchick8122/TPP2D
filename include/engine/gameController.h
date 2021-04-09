@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include "engine/gameObject.h"
+#include "engine/NetworkManager.h"
 namespace engine {
     class gameController {
       private:
@@ -9,6 +10,7 @@ namespace engine {
         static gameController* instance;
         gameController();
       public:
+        NetworkManager networkManager;
         static gameController* Instance();
         void registerObject(gameObject* object, gameObject* after = nullptr);
         void registerStaticObject(gameObject* object, gameObject* after = nullptr);

@@ -39,7 +39,7 @@ void engine::gameController::gameLoop() {
                         auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
                         if (obj) {
                             clicked = true;
-                            //todo process action
+                            networkManager.addAction(std::move(obj));
                             break;
                         }
                     }
@@ -50,7 +50,9 @@ void engine::gameController::gameLoop() {
                         if (!(*objIt)->getClickEdges().contains(cursor)) {
                             continue;
                         }
-                        if ((*objIt)->tryOnClick(cursor)) {
+                        auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
+                        if (obj) {
+                            networkManager.addAction(std::move(obj));
                             break;
                         }
                     }
