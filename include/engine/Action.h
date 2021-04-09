@@ -2,8 +2,12 @@
 #include "iostream"
 namespace engine {
     class Action {
-        void write(const std::ostream&);
-        void read(const std::istream&);
-        void apply();
+      public:
+        enum Type {
+            None
+        };
+        virtual void write(const std::ostream&);
+        virtual void apply();
+        static Action read(const std::istream&);
     };
 }
