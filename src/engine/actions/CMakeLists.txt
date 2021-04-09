@@ -1,2 +1,3 @@
 target_sources(TPP2D PUBLIC
-        None.cpp)
+        None.cpp
+        ClickAction.cpp)
