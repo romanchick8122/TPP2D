@@ -9,9 +9,10 @@ namespace graphics {
         using Color = sf::Color;
       private:
         static sf::RenderWindow* window;
+      public:
         static float length(Point);
         static Point normalize(Point);
-      public:
+
         static float scale;
         static Point origin;
         static Point mousePosition;

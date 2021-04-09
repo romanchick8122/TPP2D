@@ -24,45 +24,44 @@ void engine::gameController::gameLoop() {
             if (event.type == event.Close) {
                 return;
             } else if (event.type == graphics::Event::MouseButtonPressed) {
-                //camera movement started
-                if (event.mouseButton == graphics::Event::MouseButton::Right) {
+                if (event.mouseButton == graphics::Event::MouseButton::Left) {
                     wheelPresed = true;
                     viewChangeStart = cursor;
                     viewChangeStartCoordShift = Facade::origin;
                 }
-                    //left click detection
-                else if (event.mouseButton == graphics::Event::MouseButton::Left) {
-                    bool clicked = false;
-                    for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
-                        if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
-                            continue;
-                        }
-                        auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
-                        if (obj) {
-                            clicked = true;
-                            networkManager.addAction(std::move(obj));
-                            break;
-                        }
-                    }
-                    if (clicked) {
-                        continue;
-                    }
-                    for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
-                        if (!(*objIt)->getClickEdges().contains(cursor)) {
-                            continue;
-                        }
-                        auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
-                        if (obj) {
-                            networkManager.addAction(std::move(obj));
-                            break;
-                        }
-                    }
-                }
             } else if (event.type == graphics::Event::MouseButtonReleased) {
-                //camera movement ended
-                if (event.mouseButton == graphics::Event::MouseButton::Right) {
+                if (event.mouseButton == graphics::Event::MouseButton::Left) {
                     wheelPresed = false;
-                    Facade::origin -= cursor - viewChangeStart;
+                    if (Facade::length(cursor - viewChangeStart) < 20) {
+                        bool clicked = false;
+                        for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
+                            if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
+                                continue;
+                            }
+                            auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
+                            if (obj) {
+                                clicked = true;
+                                networkManager.addAction(std::move(obj));
+                                break;
+                            }
+                        }
+                        if (clicked) {
+                            continue;
+                        }
+                        for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
+                            if (!(*objIt)->getClickEdges().contains(cursor)) {
+                                continue;
+                            }
+                            auto obj = (*objIt)->tryOnClick(Facade::mousePosition);
+                            if (obj) {
+                                networkManager.addAction(std::move(obj));
+                                break;
+                            }
+                        }
+                    }
+                    else {
+                        Facade::origin -= cursor - viewChangeStart;
+                    }
                 }
             } else if (event.type == graphics::Event::MouseWheelScrolled) {
                 //zooming in/out
