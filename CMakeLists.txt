@@ -66,6 +66,8 @@ include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable(TPP2D)
 
+configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
+
 #Adding submodules
 if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
     message(Submodule not found)

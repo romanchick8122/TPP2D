@@ -63,11 +63,8 @@ Facade::Rect Squad::getRenderEdges(){
     return shape;
 }
 
-std::unique_ptr<engine::Action> Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
-    return std::unique_ptr<engine::Action>(nullptr);
-}
-Facade::Rect Squad::getClickEdges() {
-    return shape;
+bool Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
+    return false;
 }
 
 void Squad::setCell(Cell *ptr) {
