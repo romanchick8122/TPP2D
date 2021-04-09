@@ -21,7 +21,7 @@ std::string readFile(std::string filename) {
     return str;
 }
 int main() {
-    engine::config::runtime = readFile("config.json");
+    engine::config::runtime = nlohmann::json::parse(readFile("config.json"));
 
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
     auto t = util::cellGen::getMap(Point2D(15360, 8640), 10000);
