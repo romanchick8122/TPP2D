@@ -11,6 +11,7 @@ class Squad : public engine::gameObject{
     Facade::Rect shape;
     Cell* cell;
     engine::config::Facade::Rect getRenderEdges() override;
+    engine::config::Facade::Rect getClickEdges() override;
     std::list<Unit*> units;
     void updateUnitSquadPtr();
     void updateSpeed();
@@ -30,5 +31,5 @@ public:
     void tick() override;
     void lateTick() override;
     void render() override;
-
+    bool tryOnClick(Facade::Point pos) override;
 };

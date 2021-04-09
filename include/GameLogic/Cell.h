@@ -1,6 +1,6 @@
 class Cell;
 #pragma once
-#include "engine/clickableGameObject.h"
+#include "engine/gameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
 #include "engine/config.h"
@@ -13,7 +13,7 @@ namespace Comparators {
 }
 
 
-class Cell : public engine::clickableGameObject {
+class Cell : public engine::gameObject {
     int x = 0,y = 255,z = 255;
     std::vector<float> cellLandscapeFlags;
     std::map<const Cell*, std::vector<float>> cellBorderFlags;

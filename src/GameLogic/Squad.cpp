@@ -63,6 +63,13 @@ Facade::Rect Squad::getRenderEdges(){
     return shape;
 }
 
+bool Squad::tryOnClick(Facade::Point pos) {
+    return false;
+}
+Facade::Rect Squad::getClickEdges() {
+    return shape;
+}
+
 void Squad::setCell(Cell *ptr) {
     cell = ptr;
 }

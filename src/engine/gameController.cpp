@@ -1,6 +1,6 @@
 #include "engine/gameController.h"
 #include "engine/config.h"
-#include "engine/clickableGameObject.h"
+#include "engine/gameObject.h"
 using Facade = engine::config::Facade;
 engine::gameController* engine::gameController::instance;
 void engine::gameController::unregisterObject(gameObject* object) {
@@ -29,31 +29,27 @@ void engine::gameController::gameLoop() {
                     viewChangeStart = cursor;
                     viewChangeStartCoordShift = Facade::origin;
                 }
-                //left click detection
+                    //left click detection
                 else if (event.mouseButton == graphics::Event::MouseButton::Left) {
                     bool clicked = false;
                     for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
-                        if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
-                            if (!obj->getClickEdges().contains(Facade::mousePosition)) {
-                                continue;
-                            }
-                            if (obj->tryOnClick(Facade::mousePosition)) {
-                                clicked = true;
-                                break;
-                            }
+                        if (!(*objIt)->getClickEdges().contains(Facade::mousePosition)) {
+                            continue;
+                        }
+                        if ((*objIt)->tryOnClick(Facade::mousePosition)) {
+                            clicked = true;
+                            break;
                         }
                     }
                     if (clicked) {
                         continue;
                     }
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
-                        if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
-                            if (!obj->getClickEdges().contains(cursor)) {
-                                continue;
-                            }
-                            if (obj->tryOnClick(cursor)) {
-                                break;
-                            }
+                        if (!(*objIt)->getClickEdges().contains(cursor)) {
+                            continue;
+                        }
+                        if ((*objIt)->tryOnClick(cursor)) {
+                            break;
                         }
                     }
                 }
