@@ -25,6 +25,14 @@ namespace graphics {
                                        bool cyclic = false);
         static void DrawRect(Rect toDraw, Color fill);
         static void DrawRect(Rect toDraw, const Texture* texture);
+        static void DrawText(const std::string& str, uint32_t fontSize, Color color, Point position) {
+            auto text = sf::Text();
+            text.setString(str);
+            text.setFillColor(color);
+            text.setCharacterSize(fontSize);
+            text.setPosition(position);
+            window->draw(text);
+        }
         static std::vector<Event> Frame();
     };
 }
