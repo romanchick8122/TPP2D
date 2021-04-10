@@ -17,7 +17,7 @@
   "graphics": {
     "Textures": {
       "list": [
-        "resources/squad.png" //0
+        "resources/squad.png"
       ]
     },
     "defaultFont": "resources/font.ttf"
