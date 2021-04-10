@@ -1,6 +1,7 @@
 #include "GameLogic/Squad.h"
 #include "engine/config.h"
 #include "graphics/Textures.h"
+
 using Facade = engine::config::Facade;
 Squad::Squad(Cell* ptr) :center(ptr->center){
     shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
@@ -57,7 +58,7 @@ void Squad::lateTick(){return;};
 
 void Squad::render(){
     action->render();
-    Facade::DrawRect(shape, Facade::Color(x, y, z));
+    Facade::DrawRect(shape, graphics::Textures::squad);
     return;
 };
 Facade::Rect Squad::getRenderEdges(){
@@ -77,11 +78,5 @@ void Squad::setCell(Cell *ptr) {
 }
 
 void Squad::doOnClick() {
-    x+=128;
-    x%=256;
-    y+=128;
-    y%=256;
-    z+=128;
-    z%=256;
     previousClick = this;
 }

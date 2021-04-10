@@ -71,9 +71,6 @@ bool Cell::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
         return false;
     }
     if (util::geometry::pointWithin(vertices, util::cellGen::Point2D(pos.x, pos.y))) {
-        x = 0;
-        y = 0;
-        z = 255;
         doOnClick();
         return true;
     }

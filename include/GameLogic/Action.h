@@ -10,7 +10,6 @@ class Action {
     Facade::Point d;
     float dx;
     float dy;
-    Cell* nextCell;
     std::list<Cell*> currentPath;
     std::list<Cell*> possiblePath;
 public:
