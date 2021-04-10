@@ -1,4 +1,5 @@
 #include "Cell.h"
+#include "Squad.h"
 #include <map>
 #include "iostream"
 #include "util/geometry.h"
@@ -59,7 +60,7 @@ shape(cell_.vertices.size()) {
 void Cell::tick() { return; };
 void Cell::lateTick() { return; };
 void Cell::render() {
-    Facade::DrawConvexPolygon(shape, Facade::Color(0, 0, 0));
+    Facade::DrawConvexPolygon(shape, Facade::Color(x, y, z));
     Facade::DrawThickLineStrip(shape, 3, Facade::Color(255, 255, 255), true);
 };
 Facade::Rect Cell::getRenderEdges() {
@@ -73,9 +74,17 @@ bool Cell::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
         x = 0;
         y = 0;
         z = 255;
+        doOnClick();
         return true;
     }
     return false;
+}
+
+void Cell::doOnClick() {
+    if(static_cast<Squad*>(previousClick) != nullptr) {
+        static_cast<Squad*>(previousClick) -> action -> setPath(this);
+    }
+    return;
 }
 
 
