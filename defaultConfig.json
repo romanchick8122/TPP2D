@@ -1,0 +1,12 @@
+{
+  "GameLogic": {
+    "AllFlags": {
+      "landscape": [
+        {"name": "forest", "speedInfluence": 0.5, "randParameter": 10}
+      ],
+      "border": [
+        {"name": "reinforces", "speedInfluence": 5, "randParameter": 10}
+      ]
+    }
+  }
+}
