@@ -1,7 +1,7 @@
 #include "GameLogic/Units/LandUnitFactory.h"
 #include "GameLogic/Units/LandUnit.h"
 
-LandUnitFactory::LandUnitFactory(std::string& name_, float cost_, float HP_, float speed_, float attack_): Factory(name_, cost_) {
+LandUnitFactory::LandUnitFactory(const std::string& name_, float cost_, float HP_, float speed_, float attack_): Factory(name_, cost_) {
     HP = HP_;
     speed = speed_;
     attack = attack_;

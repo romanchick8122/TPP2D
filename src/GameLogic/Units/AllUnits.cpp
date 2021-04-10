@@ -1,14 +1,10 @@
 #include "GameLogic/Units/AllUnits.h"
-#include "LandUnit.h"
+#include "LandUnitFactory.h"
 namespace Units {
-    extern std::vector<Factory*> AllUnits;
+    std::vector<Factory*> AllUnits;
     void setUnits() {
         for (auto& unitInfo : engine::config::runtime["GameLogic"]["AllUnits"]["LandUnit"]) {
-            Unit* unit = new LandUnit(unitInfo[name]);
-            land->name = unit["name"];
-            land->speedInfluence = lo["speedInfluence"];
-            land->randParameter = lo["randParameter"];
-            landscapeFlags.push_back(std::unique_ptr<Flag>(land));
+            AllUnits.push_back(new LandUnitFactory(unitInfo["name"], unitInfo["cost"], unitInfo["HP"], unitInfo["speed"], unitInfo["attack"]));
         }
     }
 }

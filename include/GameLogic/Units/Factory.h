@@ -8,7 +8,7 @@ protected:
     float cost;
 public:
     const std::string name;
-    Factory(std::string&, float);
+    Factory(const std::string&, float);
     virtual bool isPossible(Cell*) = 0;
     virtual Units::Unit* createUnit() = 0;
     //void render();

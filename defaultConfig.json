@@ -10,7 +10,7 @@
     },
     "AllUnits": {
       "LandUnit": [
-        {"name": "Infantry", "cost": 100, "speed": 4, "HP": 25, "attack": 10}
+        {"name": "Infantry", "cost": 100, "speed": 4, "HP": 25, "attack": 10, "texture": ""}
       ]
     }
   }
