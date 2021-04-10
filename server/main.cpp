@@ -5,7 +5,7 @@
 #endif
 #include "iostream"
 #include "vector"
-int main() {
+int main(int argc, char *argv[]) {
     //init sockets
 #ifdef WIN32
     WSADATA wsaData;
@@ -18,7 +18,11 @@ int main() {
     settings.sin_port = htons(9587);
     bind(worker, (struct sockaddr*)&settings, sizeof(settings));
     int numberOfConnections;
-    std::cin >> numberOfConnections;
+    if (argc == 1) {
+        std::cin >> numberOfConnections;
+    } else {
+        numberOfConnections = std::stoi(argv[1]);
+    }
     listen(worker, numberOfConnections);
     std::vector<SOCKET> clients(numberOfConnections);
     for (int i = 0; i < numberOfConnections; ++i) {
@@ -27,6 +31,8 @@ int main() {
         int tmp = sizeof(struct sockaddr_in);
         clients[i] = accept(worker, (struct sockaddr*)&client, &tmp);
         char toSend = static_cast<char>(i);
+        send(clients[i], &toSend, 1, 0);
+        toSend = 0;
         send(clients[i], &toSend, 1, 0);
         std::cout << "accepted\n";
     }
