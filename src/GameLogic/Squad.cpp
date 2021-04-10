@@ -1,9 +1,10 @@
 #include "GameLogic/Squad.h"
 #include "engine/config.h"
 #include "graphics/Textures.h"
-
+#include "engine/gameController.h"
 using Facade = engine::config::Facade;
 Squad::Squad(Cell* ptr) :center(ptr->center){
+    engine::gameController::Instance()->networkManager.makeShared(this);
     shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
     action = new Action(this);
     cell = ptr;
@@ -14,7 +15,9 @@ Squad::Squad(Cell* ptr) :center(ptr->center){
     updateUnitSquadPtr();
 }
 
+
 Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
+    engine::gameController::Instance()->networkManager.makeShared(this);
     shape = Facade::Rect(center.x - 48, center.y-48, 48, 48);
     action = new Action(this);
     cell = cell_;
@@ -58,8 +61,7 @@ void Squad::lateTick(){return;};
 
 void Squad::render(){
     action->render();
-    Facade::DrawRect(shape, graphics::Textures::squad);
-    return;
+    Facade::DrawRect(shape, graphics::Textures::textures[0]);
 };
 Facade::Rect Squad::getRenderEdges(){
     return shape;

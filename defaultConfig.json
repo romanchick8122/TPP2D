@@ -13,5 +13,13 @@
         {"name": "Infantry", "cost": 100, "speed": 4, "HP": 25, "attack": 10, "texture": ""}
       ]
     }
+  },
+  "graphics": {
+    "Textures": {
+      "list": [
+        "resources/squad.png" //0
+      ]
+    },
+    "defaultFont": "resources/font.ttf"
   }
 }

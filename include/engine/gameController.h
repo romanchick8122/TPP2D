@@ -2,6 +2,7 @@
 #include <list>
 #include "engine/gameObject.h"
 #include "engine/NetworkManager.h"
+#include <random>
 namespace engine {
     class gameController {
       private:
@@ -10,6 +11,7 @@ namespace engine {
         static gameController* instance;
         gameController();
       public:
+        std::mt19937 rng;
         NetworkManager networkManager;
         static gameController* Instance();
         void registerObject(gameObject* object, gameObject* after = nullptr);

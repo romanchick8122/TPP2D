@@ -130,4 +130,8 @@ void engine::gameController::registerStaticObject(engine::gameObject* object, en
 void engine::gameController::unregisterStaticObject(engine::gameObject* object) {
     staticObjects.erase(object->gameObjectListPosition);
 }
-engine::gameController::gameController() = default;
+engine::gameController::gameController()  {
+    //todo сделать через диалоговое окно
+    uint32_t rngSeed = networkManager.connect("127.0.0.1", 9587);
+    rng.seed(rngSeed);
+}
