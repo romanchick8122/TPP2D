@@ -60,8 +60,7 @@ void Squad::lateTick(){return;};
 
 void Squad::render(){
     action->render();
-    Facade::DrawRect(shape, graphics::Textures::squad);
-    return;
+    Facade::DrawRect(shape, graphics::Textures::textures[0]);
 };
 Facade::Rect Squad::getRenderEdges(){
     return shape;

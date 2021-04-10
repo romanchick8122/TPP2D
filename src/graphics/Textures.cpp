@@ -1,6 +1,13 @@
 #include "graphics/Textures.h"
 void graphics::Textures::loadTextures() {
-    squad = new engine::config::Facade::Texture;
-    squad->loadFromFile("resources/squad.png");
+    auto tex = engine::config::runtime["graphics"]["Textures"]["list"];
+    textures.reserve(tex.size());
+    for (auto& tx : tex) {
+        auto* newTex = new engine::config::Facade::Texture;
+        newTex->loadFromFile(tx);
+        nameMapping[tx] = textures.size();
+        textures.push_back(newTex);
+    }
 }
-engine::config::Facade::Texture* graphics::Textures::squad;
+std::unordered_map<std::string, size_t> graphics::Textures::nameMapping;
+std::vector<engine::config::Facade::Texture*> graphics::Textures::textures;

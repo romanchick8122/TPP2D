@@ -8,5 +8,12 @@
         {"name": "reinforces", "speedInfluence": 5, "randParameter": 10}
       ]
     }
+  },
+  "graphics": {
+    "Textures": {
+      "list": [
+        "resources/squad.png" //0
+      ]
+    }
   }
 }
