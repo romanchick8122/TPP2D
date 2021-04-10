@@ -26,7 +26,7 @@ void engine::NetworkManager::addAction(std::unique_ptr<engine::Action> action) {
 
 void engine::NetworkManager::flushActions() {
     std::stringstream memoryStream;
-    memoryStream.put(pendingActions.size());
+    memoryStream.put(static_cast<char>(pendingActions.size()));
     for (auto& action : pendingActions) {
         action->write(memoryStream);
     }

@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
             break;
         }
         char* broadcast = new char[totalSize + 1];
-        broadcast[0] = static_cast<char>(genCnt & 0xFF);
+        broadcast[0] = static_cast<char>(genCnt);
         int car = 1;
         for (int client = 0; client < numberOfConnections; ++client) {
             memcpy(broadcast + car, &(answers[client][1]), sizes[client] - 1);

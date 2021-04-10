@@ -93,3 +93,5 @@ if(NOT UNIX)
 endif()
 
 add_subdirectory(server)
+
+add_dependencies(TPP2D server)
