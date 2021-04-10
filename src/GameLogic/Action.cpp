@@ -34,7 +34,7 @@ void Action::nextStep() {
         nextCell = nullptr;
         return;
     }
-    d = (squad->cell->center - currentPath.front()->center)/100.0f;
+    d = (squad->center - currentPath.front()->center)/100.0f;
     //speed = calcSpeed(nextCell, currentPath.front());
     nextCell = currentPath.front();
     currentPath.pop_front();
@@ -62,10 +62,14 @@ void Action::render() {
 }
 
 void Action::setPath(Cell *end) {
+    if(currentPath.empty() && progress == 0) {
+        currentPath = findPath(squad->cell, end);
+        return;
+    }
     currentPath = findPath(squad->cell, end);
-    if(currentPath.empty()) return;
-    progress = 0;
-    d = (squad->cell->center - currentPath.front()->center)/100.0f;
+    progress = 1 - progress;
+    currentPath.push_front(squad->cell);
+    d = (squad->center - currentPath.front()->center)/100.0f;
     nextCell = currentPath.front();
     currentPath.pop_front();
 }

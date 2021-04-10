@@ -2,12 +2,13 @@ class Squad;
 #pragma once
 #include "GameLogic/Cell.h"
 #include "Unit.h"
-#include "engine/gameObject.h"
+#include "engine/gameplayClickableGameObject.h"
 #include "Action.h"
 #include "engine/config.h"
 #include "graphics/Facade.h"
 
-class Squad : public engine::gameObject{
+class Squad : public engine::gameplayClickableGameObject{
+    int x = 255,y= 255,z=0;
     engine::config::Facade::Point center = {100, 100};
     Facade::Rect shape;
     Cell* cell;
@@ -32,4 +33,5 @@ public:
     void lateTick() override;
     void render() override;
     bool tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
+    void doOnClick() override;
 };

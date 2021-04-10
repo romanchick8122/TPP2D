@@ -1,6 +1,6 @@
 class Cell;
 #pragma once
-#include "engine/gameObject.h"
+#include "engine/gameplayClickableGameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
 #include "engine/config.h"
@@ -14,8 +14,8 @@ namespace Comparators {
 }
 
 
-class Cell : public engine::gameObject {
-    int x = 0,y = 255,z = 255;
+class Cell : public engine::gameplayClickableGameObject {
+    int x = 0,y = 0,z = 0;
     std::vector<float> cellLandscapeFlags;
     std::map<const Cell*, std::vector<float>> cellBorderFlags;
     engine::config::Facade::Rect renderEdges;
@@ -30,12 +30,13 @@ public:
     Cell(const util::cellGen::CellData&);
     void setAdjacent(const util::cellGen::CellData&, const std::map<util::cellGen::Point2D , Cell*, Comparators::Point2DComp>&);
     void setBorders();
-    //todo две функции на похуй меняют приватные поля, звучит хуево
+    //todo плохо
 
     void tick() override;
     void lateTick() override;
     void render() override;
     Facade::Rect getRenderEdges() override;
     bool tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
+    void doOnClick() override;
 };
 

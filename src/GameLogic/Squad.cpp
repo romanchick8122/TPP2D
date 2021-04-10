@@ -1,8 +1,9 @@
 #include "GameLogic/Squad.h"
 #include "engine/config.h"
+#include "graphics/Textures"
 using Facade = engine::config::Facade;
 Squad::Squad(Cell* ptr) :center(ptr->center){
-    shape = Facade::Rect(center.x - 10, center.y-10, 10, 10);
+    shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
     action = new Action(this);
     cell = ptr;
     Unit* u = new TestUnit1(1);
@@ -13,7 +14,7 @@ Squad::Squad(Cell* ptr) :center(ptr->center){
 }
 
 Squad::Squad(Cell *cell_, std::list<Unit *> units_) {
-    shape = Facade::Rect(center.x - 16, center.y-16, 16, 16);
+    shape = Facade::Rect(center.x - 48, center.y-48, 48, 48);
     action = new Action(this);
     cell = cell_;
     units = units_;
@@ -56,7 +57,7 @@ void Squad::lateTick(){return;};
 
 void Squad::render(){
     action->render();
-    Facade::DrawRect(shape, Facade::Color(255, 255, 0));
+    Facade::DrawRect(shape, Facade::Color(x, y, z));
     return;
 };
 Facade::Rect Squad::getRenderEdges(){
@@ -64,9 +65,23 @@ Facade::Rect Squad::getRenderEdges(){
 }
 
 bool Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
-    return false;
+    if (!shape.contains(pos)) {
+        return false;
+    }
+    doOnClick();
+    return true;
 }
 
 void Squad::setCell(Cell *ptr) {
     cell = ptr;
+}
+
+void Squad::doOnClick() {
+    x+=128;
+    x%=256;
+    y+=128;
+    y%=256;
+    z+=128;
+    z%=256;
+    previousClick = this;
 }
