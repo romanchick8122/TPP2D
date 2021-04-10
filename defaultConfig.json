@@ -14,6 +14,7 @@
       "list": [
         "resources/squad.png" //0
       ]
-    }
+    },
+    "defaultFont": "resources/font.ttf"
   }
 }

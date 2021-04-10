@@ -1,4 +1,5 @@
 #include "graphics/SFMLFacade.h"
+#include "engine/config.h"
 #include <cmath>
 float graphics::SFMLFacade::length(graphics::SFMLFacade::Point vec) {
     return sqrtf(vec.x * vec.x + vec.y * vec.y);
@@ -7,6 +8,7 @@ graphics::SFMLFacade::Point graphics::SFMLFacade::normalize(graphics::SFMLFacade
     return vec / length(vec);
 }
 sf::RenderWindow* graphics::SFMLFacade::window;
+sf::Font graphics::SFMLFacade::font;
 float graphics::SFMLFacade::scale;
 graphics::SFMLFacade::Point graphics::SFMLFacade::origin;
 graphics::SFMLFacade::Point graphics::SFMLFacade::mousePosition;
@@ -20,8 +22,10 @@ void graphics::SFMLFacade::Init(int resX, int resY, const char* windowName, int 
     windowSize.y = resY;
     scale = 1;
     origin.x = origin.y = 0;
+
+    font.loadFromFile(engine::config::runtime["graphics"]["defaultFont"]);
 }
-void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point>& vertices, Color fill)  {
+void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point>& vertices, Color fill) {
     auto* vertexArray = new sf::Vertex[vertices.size()];
     for (size_t i = 0; i < vertices.size(); ++i) {
         vertexArray[i] = sf::Vertex((vertices[i] - origin) * scale, fill);
@@ -56,26 +60,26 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
     size_t sz = cyclic ? vertices.size() + 1 : vertices.size();
     sz *= 2;
     sf::Vertex* vertexArray = new sf::Vertex[sz];
-    for (size_t i = 0; i < vertices.size(); ++i) {
+    for (size_t i = 0; i < vertices.size(); ++i)    {
         Point tangent;
         if (i == 0) {
             if (!cyclic) {
                 tangent = normalize(vertices[0] - vertices[1]);
             } else {
                 tangent = normalize(normalize(vertices[0] - vertices[1])
-                    + normalize(vertices.back()) - vertices[0]);
+                                        + normalize(vertices.back()) - vertices[0]);
             }
         } else if (i == vertices.size() - 1) {
             if (!cyclic) {
                 tangent = normalize(vertices[i - 1] - vertices[i]);
             } else {
                 tangent = normalize(normalize(vertices[i] - vertices[0])
-                    + normalize(vertices[i - 1] - vertices[i]));
+                                        + normalize(vertices[i - 1] - vertices[i]));
             }
         } else {
             tangent = normalize(
                 normalize(vertices[i] - vertices[i + 1])
-                + normalize(vertices[i - 1] - vertices[i]));
+                    + normalize(vertices[i - 1] - vertices[i]));
         }
         tangent = Point(-tangent.y, tangent.x);
         tangent *= thickness;
@@ -87,6 +91,15 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
         vertexArray[sz - 1] = vertexArray[1];
     }
     window->draw(vertexArray, sz, sf::TrianglesStrip);
+}
+void graphics::SFMLFacade::DrawText(const std::string& str, uint32_t fontSize, Color color, Point position) {
+    auto text = sf::Text();
+    text.setString(str);
+    text.setFillColor(color);
+    text.setCharacterSize(fontSize);
+    text.setPosition(position);
+    text.setFont(font);
+    window->draw(text);
 }
 std::vector<graphics::Event> graphics::SFMLFacade::Frame() {
     window->display();
@@ -112,19 +125,15 @@ std::vector<graphics::Event> graphics::SFMLFacade::Frame() {
 
         if (needButtonParse) {
             switch (e.mouseButton.button) {
-                case sf::Mouse::Button::Left:
-                    ans.back().mouseButton = Event::MouseButton::Left;
+                case sf::Mouse::Button::Left:ans.back().mouseButton = Event::MouseButton::Left;
                     break;
-                case sf::Mouse::Button::Right:
-                    ans.back().mouseButton = Event::MouseButton::Right;
+                case sf::Mouse::Button::Right:ans.back().mouseButton = Event::MouseButton::Right;
                     break;
-                case sf::Mouse::Button::Middle:
-                    ans.back().mouseButton = Event::MouseButton::Middle;
+                case sf::Mouse::Button::Middle:ans.back().mouseButton = Event::MouseButton::Middle;
                     break;
                 case sf::Mouse::XButton1:
                 case sf::Mouse::XButton2:
-                case sf::Mouse::ButtonCount:
-                    throw std::runtime_error("Unsupported button");
+                case sf::Mouse::ButtonCount:throw std::runtime_error("Unsupported button");
             }
         }
     }

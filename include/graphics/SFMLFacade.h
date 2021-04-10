@@ -10,6 +10,7 @@ namespace graphics {
         using Texture = sf::Texture;
       private:
         static sf::RenderWindow* window;
+        static sf::Font font;
       public:
         static float length(Point);
         static Point normalize(Point);
@@ -25,14 +26,7 @@ namespace graphics {
                                        bool cyclic = false);
         static void DrawRect(Rect toDraw, Color fill);
         static void DrawRect(Rect toDraw, const Texture* texture);
-        static void DrawText(const std::string& str, uint32_t fontSize, Color color, Point position) {
-            auto text = sf::Text();
-            text.setString(str);
-            text.setFillColor(color);
-            text.setCharacterSize(fontSize);
-            text.setPosition(position);
-            window->draw(text);
-        }
+        static void DrawText(const std::string& str, uint32_t fontSize, Color color, Point position);
         static std::vector<Event> Frame();
     };
 }

@@ -7,8 +7,12 @@ namespace engine::GUI {
         engine::config::Facade::Texture* Texture;
         engine::config::Facade::Color Color;
         std::string Text;
-        Button(engine::config::Facade::Rect, std::function<void()>, engine::config::Facade::Color);
-        Button(engine::config::Facade::Rect, std::function<void()>, engine::config::Facade::Texture*);
+        engine::config::Facade::Color TextColor;
+        uint32_t fontSize;
+        Button(engine::config::Facade::Rect, std::function<void()>, engine::config::Facade::Color, std::string,
+               engine::config::Facade::Color, uint32_t);
+        Button(engine::config::Facade::Rect, std::function<void()>, engine::config::Facade::Texture*, std::string,
+               engine::config::Facade::Color, uint32_t);
         void tick() override;
         void lateTick() override;
         void render() override;
