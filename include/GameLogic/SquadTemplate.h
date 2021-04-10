@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Factory.h"
+#include "GameLogic/Units/Factory.h"
 class SquadTemplate {
     std::vector<std::pair<Factory*, int>> temp;
 public:

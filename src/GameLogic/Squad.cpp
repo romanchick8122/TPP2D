@@ -7,14 +7,14 @@ Squad::Squad(Cell* ptr) :center(ptr->center){
     shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
     action = new Action(this);
     cell = ptr;
-    Unit* u = new TestUnit1(1);
+    Units::Unit* u = new Units::TestUnit1(1);
     units.push_back(u);
     updateFlagResists();
     updateSpeed();
     updateUnitSquadPtr();
 }
 
-Squad::Squad(Cell *cell_, std::list<Unit *> units_) {
+Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
     shape = Facade::Rect(center.x - 48, center.y-48, 48, 48);
     action = new Action(this);
     cell = cell_;
@@ -50,7 +50,7 @@ void Squad::updateSpeed() {
 
 void Squad::tick(){
     action->tick();
-    for(Unit* unit : units) {
+    for(Units::Unit* unit : units) {
         unit -> tick();
     };
 };

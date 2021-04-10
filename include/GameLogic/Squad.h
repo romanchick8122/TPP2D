@@ -1,7 +1,7 @@
 class Squad;
 #pragma once
 #include "GameLogic/Cell.h"
-#include "Unit.h"
+#include "GameLogic/Units/Unit.h"
 #include "engine/gameplayClickableGameObject.h"
 #include "Action.h"
 #include "engine/config.h"
@@ -13,7 +13,7 @@ class Squad : public engine::gameplayClickableGameObject{
     Facade::Rect shape;
     Cell* cell;
     engine::config::Facade::Rect getRenderEdges() override;
-    std::list<Unit*> units;
+    std::list<Units::Unit*> units;
     void updateUnitSquadPtr();
     void updateSpeed();
     float squadCurrentSpeed;
@@ -23,7 +23,7 @@ class Squad : public engine::gameplayClickableGameObject{
 public:
     void setCell(Cell*);
     friend Action;
-    Squad(Cell*, std::list<Unit*>);
+    Squad(Cell*, std::list<Units::Unit*>);
     const float* currentSpeed = &squadCurrentSpeed;
     const std::vector<float>* landscapeFlagResists = &squadLandscapeFlagResists;
     const std::vector<float>* borderFlagResists = &squadBorderFlagResists;

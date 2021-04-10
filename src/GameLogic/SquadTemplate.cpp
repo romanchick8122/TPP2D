@@ -17,7 +17,7 @@ void SquadTemplate::addFactory(Factory *ptr, int n) {
 
 Squad *SquadTemplate::build() {
     if(temp.empty()) return nullptr;
-    std::list<Unit*> units_;
+    std::list<Units::Unit*> units_;
     for(auto f : temp) for(int i = 0; i < f.second; ++i) units_.push_back(f.first -> createUnit());
     return new Squad(nullptr, units_);
 }
