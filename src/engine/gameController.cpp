@@ -132,5 +132,6 @@ void engine::gameController::unregisterStaticObject(engine::gameObject* object) 
 }
 engine::gameController::gameController()  {
     //todo сделать через диалоговое окно
-    networkManager.connect("127.0.0.1", 9587);
+    uint32_t rngSeed = networkManager.connect("127.0.0.1", 9587);
+    rng.seed(rngSeed);
 }

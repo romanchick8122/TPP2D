@@ -1,5 +1,4 @@
 #include <sstream>
-#include <strstream>
 #include "engine/NetworkManager.h"
 void engine::NetworkManager::makeShared(gameObject* obj) {
     if (!freeIds.empty()) {
@@ -38,20 +37,21 @@ void engine::NetworkManager::processActions() {
     char* buff = new char[16384];
     int actual = recv(worker, buff, 16384, 0);
     std::stringstream stream(std::string(buff, actual));
+    delete[] buff;
     int count = stream.get();
     while (count-->0) {
         engine::readAction(stream)->apply();
     }
 }
 
-void engine::NetworkManager::connect(std::string host, int port) {
+uint32_t engine::NetworkManager::connect(std::string host, int port) {
     worker = socket(AF_INET, SOCK_STREAM, 0);
     struct sockaddr_in settings;
     settings.sin_family = AF_INET;
     settings.sin_addr.s_addr = inet_addr(host.c_str());
     settings.sin_port = htons(port);
     if(::connect(worker, (struct sockaddr*)&settings, sizeof(settings)) < 0) {
-        std::system("start /min server.exe 2");
+        std::system("start /min server.exe 1");
         settings.sin_family = AF_INET;
         settings.sin_addr.s_addr = inet_addr("127.0.0.1");
         settings.sin_port = htons(9587);
@@ -59,5 +59,10 @@ void engine::NetworkManager::connect(std::string host, int port) {
             throw std::runtime_error("Do not close the server");
         }
     }
-    recv(worker, &serverId, 1, 0);
+    char* ans = new char[5];
+    recv(worker, ans, 5, 0);
+    serverId = ans[0];
+    uint32_t rngSeed = *reinterpret_cast<uint32_t*>(ans + 1);
+    delete[] ans;
+    return rngSeed;
 }

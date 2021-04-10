@@ -1,4 +1,5 @@
 #ifdef WIN32
+#include <ctime>
 #include "winsock2.h"
 #else
 #include "sys/socket.h"
@@ -25,15 +26,20 @@ int main(int argc, char *argv[]) {
     }
     listen(worker, numberOfConnections);
     std::vector<SOCKET> clients(numberOfConnections);
+    srand(time(nullptr));
+    uint32_t gameRng = abs(1LL * rand() * rand() * rand()) % UINT32_MAX;
     for (int i = 0; i < numberOfConnections; ++i) {
         std::cout << "Waiting for " << i << "... ";
         struct sockaddr_in client;
         int tmp = sizeof(struct sockaddr_in);
         clients[i] = accept(worker, (struct sockaddr*)&client, &tmp);
-        char toSend = static_cast<char>(i);
-        send(clients[i], &toSend, 1, 0);
-        toSend = 0;
-        send(clients[i], &toSend, 1, 0);
+        char* buff = new char[5];
+        buff[0] = static_cast<char>(i);
+        *reinterpret_cast<uint32_t*>(buff + 1) = gameRng;
+        send(clients[i], buff, 5, 0);
+        buff[0] = 0;
+        send(clients[i], buff, 1, 0);
+        delete[] buff;
         std::cout << "accepted\n";
     }
     std::vector<char*> answers(numberOfConnections);

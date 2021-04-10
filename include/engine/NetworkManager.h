@@ -15,7 +15,7 @@ namespace engine {
         std::vector<size_t> freeIds;
         std::vector<std::unique_ptr<engine::Action>> pendingActions;
       public:
-        void connect(std::string host, int port);
+        uint32_t connect(std::string host, int port);
 
         char serverId;
 
