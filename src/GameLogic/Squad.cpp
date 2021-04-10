@@ -1,6 +1,6 @@
 #include "GameLogic/Squad.h"
 #include "engine/config.h"
-#include "graphics/Textures"
+//#include "graphics/Textures"
 using Facade = engine::config::Facade;
 Squad::Squad(Cell* ptr) :center(ptr->center){
     shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
