@@ -6,6 +6,7 @@
 #include "engine/config.h"
 #include "Squad.h"
 #include "nlohmann/json.hpp"
+#include "graphics/Textures.h"
 
 using util::cellGen::Point2D;
 std::string readFile(std::string filename) {
@@ -22,6 +23,7 @@ std::string readFile(std::string filename) {
 }
 int main() {
     engine::config::runtime = nlohmann::json::parse(readFile("config.json"));
+    graphics::Textures::loadTextures();
 
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
     auto t = util::cellGen::getMap(Point2D(15360, 8640), 10000);

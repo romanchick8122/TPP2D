@@ -65,6 +65,7 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable(TPP2D)
+add_subdirectory(resources)
 
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
 

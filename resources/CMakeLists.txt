@@ -1,0 +1,1 @@
+configure_file(squad.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/squad.png COPYONLY)
