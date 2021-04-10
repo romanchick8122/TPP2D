@@ -1,5 +1,6 @@
 #include "engine/Action.h"
 #include "engine/actions/None.h"
+#include "engine/gameController.h"
 #include "iostream"
 std::unique_ptr<engine::Action> readAction(std::istream& istr) {
     int type = istr.get();

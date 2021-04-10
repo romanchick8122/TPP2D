@@ -38,6 +38,19 @@ void graphics::SFMLFacade::DrawRect(Rect toDraw, Color fill) {
     window->draw(arr, 4, sf::Quads);
     delete[] arr;
 }
+void graphics::SFMLFacade::DrawRect(Rect toDraw, const Texture* texture) {
+    auto arr = new sf::Vertex[4];
+    arr[0] = {(Point(toDraw.left, toDraw.top) - origin) * scale};
+    arr[0].texCoords = {0, 0};
+    arr[1] = {(Point(toDraw.left + toDraw.width, toDraw.top) - origin) * scale};
+    arr[1].texCoords = {static_cast<float>(texture->getSize().x), 0};
+    arr[2] = {(Point(toDraw.left + toDraw.width, toDraw.top + toDraw.height) - origin) * scale};
+    arr[2].texCoords = {static_cast<float>(texture->getSize().x), static_cast<float>(texture->getSize().y)};
+    arr[3] = {(Point(toDraw.left, toDraw.top + toDraw.height) - origin) * scale};
+    arr[3].texCoords = {0, static_cast<float>(texture->getSize().y)};
+    window->draw(arr, 4, sf::Quads, texture);
+    delete[] arr;
+}
 void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices, float thickness, Color fill,
                                               bool cyclic) {
     size_t sz = cyclic ? vertices.size() + 1 : vertices.size();

@@ -31,6 +31,7 @@ int main() {
 #endif
 
     engine::config::runtime = nlohmann::json::parse(readFile("config.json"));
+    graphics::Textures::loadTextures();
 
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
     auto t = util::cellGen::getMap(Point2D(15360, 8640), 10000);
