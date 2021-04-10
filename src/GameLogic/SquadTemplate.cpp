@@ -1,6 +1,6 @@
 #include "SquadTemplate.h"
 
-SquadTemplate::SquadTemplate() {}
+SquadTemplate::SquadTemplate() : GuiList(engine::config::Facade::Color(60, 40, 8)) {};
 
 bool SquadTemplate::isPossible(Cell *ptr) {
     for(auto i : temp) if(!i.first ->isPossible(ptr)) return false;
@@ -8,11 +8,11 @@ bool SquadTemplate::isPossible(Cell *ptr) {
 }
 
 void SquadTemplate::addFactory(Factory *ptr, int n) {
-    for(int i = 0; i < temp.size(); ++i) if(temp[i].first == ptr) {
-        temp[i].second += n;
+    for(auto & i : temp) if(i.first == ptr) {
+        i.second += n;
         return;
     }
-    temp.push_back({ptr, n});
+    temp.emplace_back(ptr, n);
 }
 
 Squad *SquadTemplate::build() {
@@ -21,4 +21,3 @@ Squad *SquadTemplate::build() {
     for(auto f : temp) for(int i = 0; i < f.second; ++i) units_.push_back(f.first -> createUnit());
     return new Squad(nullptr, units_);
 }
-

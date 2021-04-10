@@ -5,6 +5,7 @@
 #include "Squad.h"
 #include "engine/GUI/Button.h"
 #include "graphics/Textures.h"
+#include "GameLogic/SquadTemplate.h"
 #ifdef WIN32
 #include "winsock2.h"
 #endif
@@ -37,9 +38,27 @@ int main() {
     for (auto ob : vec) {
         engine::gameController::Instance()->registerObject(ob);
     }
-    Squad* sq = new Squad(vec[0]);
+    auto* sq = new Squad(vec[0]);
     sq->action->setPath(vec[9999]);
     engine::gameController::Instance()->registerObject(sq);
+
+    auto* st = new SquadTemplate();
+    auto* bruh1 = new engine::GUI::GuiList(engine::config::Facade::Color(255,255,255));
+    bruh1->boundary.width = 533;
+    bruh1->boundary.height = 50;
+    st->addChild(std::unique_ptr<engine::GUI::GuiObject>(bruh1));
+    auto* bruh2 = new engine::GUI::GuiList(engine::config::Facade::Color(255, 0, 0));
+    bruh2->boundary.width = 533;
+    bruh2->boundary.height = 50;
+    st->addChild(std::unique_ptr<engine::GUI::GuiObject>(bruh2));
+    auto* bruh3 = new engine::GUI::GuiList(engine::config::Facade::Color(255, 255, 255));
+    bruh3->boundary.width = 533;
+    bruh3->boundary.height = 50;
+    st->addChild(std::unique_ptr<engine::GUI::GuiObject>(bruh3));
+    st->boundary.left = 500;
+    st->boundary.top = 500;
+    engine::gameController::Instance()->registerStaticObject(st);
+
     engine::gameController::Instance()->gameLoop();
     return 0;
 }
