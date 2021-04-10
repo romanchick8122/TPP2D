@@ -19,7 +19,9 @@ void engine::GUI::Button::render() {
     } else {
         engine::config::Facade::DrawRect(boundary, Color);
     }
-    engine::config::Facade::DrawText(Text, fontSize, TextColor, {boundary.left, boundary.top});
+    if (!Text.empty()) {
+        engine::config::Facade::DrawText(Text, fontSize, TextColor, {boundary.left, boundary.top});
+    }
 }
 engine::config::Facade::Rect engine::GUI::Button::getRenderEdges() {
     return boundary;
