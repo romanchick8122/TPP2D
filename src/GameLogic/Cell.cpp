@@ -5,6 +5,7 @@
 #include "util/geometry.h"
 #include "engine/config.h"
 #include "engine/actions/None.h"
+#include "engine/gameController.h"
 using Facade = engine::config::Facade;
 bool Comparators::Point2DComp::operator()(const util::cellGen::Point2D& t1, const util::cellGen::Point2D& t2) const {
     if (t1.x == t2.x) return t1.y < t2.y;
@@ -56,6 +57,7 @@ shape(cell_.vertices.size()) {
         maxy = std::max(maxy, vert.y);
     }
     renderEdges = Facade::Rect(minx, miny, maxx - minx, maxy - miny);
+    engine::gameController::Instance()->networkManager.makeShared(this);
 };
 void Cell::tick() { return; };
 void Cell::lateTick() { return; };
