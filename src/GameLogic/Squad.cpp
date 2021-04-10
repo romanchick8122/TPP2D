@@ -1,9 +1,10 @@
 #include "GameLogic/Squad.h"
 #include "engine/config.h"
 #include "graphics/Textures.h"
-
+#include "engine/gameController.h"
 using Facade = engine::config::Facade;
 Squad::Squad(Cell* ptr) :center(ptr->center){
+    engine::gameController::Instance()->networkManager.makeShared(this);
     shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
     action = new Action(this);
     cell = ptr;
@@ -15,6 +16,7 @@ Squad::Squad(Cell* ptr) :center(ptr->center){
 }
 
 Squad::Squad(Cell *cell_, std::list<Unit *> units_) {
+    engine::gameController::Instance()->networkManager.makeShared(this);
     shape = Facade::Rect(center.x - 48, center.y-48, 48, 48);
     action = new Action(this);
     cell = cell_;

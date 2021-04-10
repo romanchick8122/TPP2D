@@ -5,7 +5,8 @@ namespace engine {
     class Action {
       public:
         enum Type {
-            None
+            None,
+            SetSquadPath
         };
         virtual void write(std::ostream&) = 0;
         virtual void apply() = 0;

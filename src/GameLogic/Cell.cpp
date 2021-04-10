@@ -6,6 +6,7 @@
 #include "engine/config.h"
 #include "engine/actions/None.h"
 #include "engine/gameController.h"
+#include "engine/actions/SetSquadPath.h"
 using Facade = engine::config::Facade;
 bool Comparators::Point2DComp::operator()(const util::cellGen::Point2D& t1, const util::cellGen::Point2D& t2) const {
     if (t1.x == t2.x) return t1.y < t2.y;
@@ -40,9 +41,8 @@ std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>& cells_) {
     return cells;
 }
 
-
 Cell::Cell(const util::cellGen::CellData& cell_) : center(cell_.center.x, cell_.center.y), vertices(cell_.vertices),
-shape(cell_.vertices.size()) {
+                                                   shape(cell_.vertices.size()) {
     cellLandscapeFlags = Flags::generateLandscapeFlags();
     for (size_t i = 0; i < vertices.size(); ++i) {
         shape[i] = Facade::Point(cell_.vertices[i].x, cell_.vertices[i].y);
@@ -80,10 +80,11 @@ bool Cell::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
 }
 
 void Cell::doOnClick() {
-    if(static_cast<Squad*>(previousClick) != nullptr) {
-        static_cast<Squad*>(previousClick) -> action -> setPath(this);
+    if (auto* squad = dynamic_cast<Squad*>(previousClick)) {
+        engine::gameController::Instance()->networkManager.addAction(std::unique_ptr<engine::Action>(
+            new engine::actions::SetSquadPath(squad, this)
+        ));
     }
-    return;
 }
 
 
