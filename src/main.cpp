@@ -6,6 +6,7 @@
 #include "engine/config.h"
 #include "Squad.h"
 #include "nlohmann/json.hpp"
+#include "engine/GUI/Button.h"
 #include "graphics/Textures.h"
 #ifdef WIN32
 #include "winsock2.h"
@@ -29,11 +30,11 @@ int main() {
     WSADATA wsaData;
     WSAStartup(MAKEWORD(2, 2), &wsaData);
 #endif
-
     engine::config::runtime = nlohmann::json::parse(readFile("config.json"));
     graphics::Textures::loadTextures();
 
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
+
     auto t = util::cellGen::getMap(Point2D(15360, 8640), 10000);
     auto vec = makeSurface(t);
     for (auto ob : vec) {
