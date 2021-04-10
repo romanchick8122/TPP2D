@@ -1,11 +1,8 @@
 #include <fstream>
 #include "engine/gameController.h"
 #include "util/cellgen.h"
-#include "util/geometry.h"
 #include "GameLogic/Cell.h"
-#include "engine/config.h"
 #include "Squad.h"
-#include "nlohmann/json.hpp"
 #include "engine/GUI/Button.h"
 #include "graphics/Textures.h"
 #ifdef WIN32
@@ -30,7 +27,7 @@ int main() {
     WSADATA wsaData;
     WSAStartup(MAKEWORD(2, 2), &wsaData);
 #endif
-    engine::config::runtime = nlohmann::json::parse(readFile("config.json"));
+    engine::config::runtime = nlohmann::json::parse(readFile("config.json"), nullptr, false, true);
     graphics::Textures::loadTextures();
 
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
