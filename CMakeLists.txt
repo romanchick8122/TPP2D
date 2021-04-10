@@ -92,4 +92,4 @@ if(NOT UNIX)
     target_link_libraries(TPP2D PRIVATE ws2_32)
 endif()
 
-include_directories(server)
+add_subdirectory(server)
