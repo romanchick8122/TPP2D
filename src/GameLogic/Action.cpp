@@ -26,18 +26,11 @@ std::list<Cell*> Action::findPath(Cell* start, Cell* end) {
 }
 
 void Action::nextStep() {
-    squad->cell = nextCell;
-    squad->center = squad->cell->center;
+    squad->cell = currentPath.front();
     progress = 0;
-    if(currentPath.empty()) {
-        speed = 0;
-        nextCell = nullptr;
-        return;
-    }
-    d = (squad->center - currentPath.front()->center)/100.0f;
-    //speed = calcSpeed(nextCell, currentPath.front());
-    nextCell = currentPath.front();
     currentPath.pop_front();
+    if (currentPath.empty()) return;
+    d = (squad->center - currentPath.front()->center)/100.0f;
 }
 
 void Action::tick() {
@@ -53,23 +46,26 @@ void Action::tick() {
 }
 
 void Action::render() {
-    std::vector<Facade::Point> vec(currentPath.size() + 2);
+    if(currentPath.empty()) return;
+    std::vector<Facade::Point> vec(currentPath.size() + 1);
     vec[0] = squad->center;
-    vec[1] = nextCell->center;
     for(auto [i, it] = std::make_pair(0, currentPath.begin()); i < currentPath.size(); ++i, ++it)
-        vec[i+2] = (*it) -> center;
+        vec[i+1] = (*it) -> center;
     Facade::DrawThickLineStrip(vec, 10, Facade::Color(255,0,0));
 }
 
 void Action::setPath(Cell *end) {
     if(currentPath.empty() && progress == 0) {
         currentPath = findPath(squad->cell, end);
+        currentPath.push_front(squad->cell);
+        nextStep();
         return;
     }
-    currentPath = findPath(squad->cell, end);
-    progress = 1 - progress;
-    currentPath.push_front(squad->cell);
-    d = (squad->center - currentPath.front()->center)/100.0f;
-    nextCell = currentPath.front();
-    currentPath.pop_front();
+    possiblePath = findPath(squad->cell, end);
+    if(currentPath.front() != possiblePath.front()){
+        progress = 1 - progress;
+        possiblePath.push_front(squad->cell);
+        d = (squad->center - possiblePath.front()->center)/100.0f;
+    }
+    currentPath = possiblePath;
 }
