@@ -86,3 +86,9 @@ get_target_property(sources TPP2D SOURCES)
 
 #linking SFML
 target_link_libraries(TPP2D PRIVATE sfml-graphics)
+#sockets
+if(NOT UNIX)
+    target_link_libraries(TPP2D PRIVATE ws2_32)
+endif()
+
+include_directories(server)
