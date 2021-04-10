@@ -60,7 +60,7 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
     size_t sz = cyclic ? vertices.size() + 1 : vertices.size();
     sz *= 2;
     sf::Vertex* vertexArray = new sf::Vertex[sz];
-    for (size_t i = 0; i < vertices.size(); ++i)    {
+    for (size_t i = 0; i < vertices.size(); ++i) {
         Point tangent;
         if (i == 0) {
             if (!cyclic) {
