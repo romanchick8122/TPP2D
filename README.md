@@ -5,5 +5,5 @@ git clone git@github.com:romanchick8122/TPP2D.git
 cmake .
 make TPP2D
 ```
-#UML diagram
-file: UMLdiagram.pdf
+#Documentation
+Документация и UML диаграммы доступны [тут](https://romanchick8122.github.io/TPP2D/)
