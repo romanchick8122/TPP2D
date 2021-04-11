@@ -4,6 +4,20 @@
 #include "GameLogic/Units/AllUnits.h"
 #include "engine/GUI/GuiStrip.h"
 Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::config::Facade::Color(60, 40, 8))) {
+    auto topMenuStrip = std::make_unique<engine::GUI::GuiStrip>(600, engine::config::Facade::Color(0,0,0,0));
+    topMenuStrip->addChild(std::make_unique<engine::GUI::Button>(
+        engine::config::Facade::Rect({0, 0}, {555, 30}),
+        [](engine::GUI::Button*){},
+        engine::config::Facade::Color(0, 0, 0, 0),
+        name,
+        engine::config::Facade::Color(255, 220, 220)));
+    topMenuStrip->addChild(std::make_unique<engine::GUI::Button>(
+        engine::config::Facade::Rect({0, 0}, {30, 30}),
+        [this](engine::GUI::Button*){ hide(); },
+        engine::config::Facade::Color(255, 0, 0)
+        ));
+    list->addChild(std::move(topMenuStrip));
+
     auto buttonStrip = std::make_unique<engine::GUI::GuiStrip>(600, engine::config::Facade::Color(30, 20, 4));
     for (auto* fact : Units::allUnits) {
         buttonStrip->addChild(std::make_unique<engine::GUI::Button>(

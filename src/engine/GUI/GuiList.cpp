@@ -1,6 +1,6 @@
 #include "engine/GUI/GuiList.h"
 engine::GUI::GuiList::GuiList(engine::config::Facade::Color color)
-    : GuiObject(engine::config::Facade::Rect({0, 0}, {10, 10})), newPos(5), background(color) {}
+    : GuiObject(engine::config::Facade::Rect({0, 0}, {10, 5})), newPos(5), background(color) {}
 void engine::GUI::GuiList::tick() {}
 void engine::GUI::GuiList::lateTick() {}
 void engine::GUI::GuiList::render() {
@@ -29,6 +29,6 @@ void engine::GUI::GuiList::addChild(std::unique_ptr<GuiObject> child) {
     child->boundary.left = 5;
     newPos += child->boundary.height + 5;
     boundary.width = std::max(boundary.width, child->boundary.width + 10);
-    boundary.height += child->boundary.height;
+    boundary.height += child->boundary.height + 5;
     children.push_back(std::move(child));
 }
