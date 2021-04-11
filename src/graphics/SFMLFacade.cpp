@@ -133,7 +133,7 @@ std::vector<graphics::Event> graphics::SFMLFacade::Frame() {
                     break;
                 case sf::Mouse::XButton1:
                 case sf::Mouse::XButton2:
-                case sf::Mouse::ButtonCount:throw std::runtime_error("Unsupported button");
+                case sf::Mouse::ButtonCount: break;
             }
         }
     }
