@@ -1,8 +1,8 @@
 #include "ArmoredUnitFactory.h"
 
-Units::ArmoredUnitFactory::ArmoredUnitFactory(nlohmann::json &unitInfo, const graphics::SFMLFacade::Texture *&,
+Units::ArmoredUnitFactory::ArmoredUnitFactory(nlohmann::json &unitInfo, const graphics::SFMLFacade::Texture *& texture_,
                                               TransportUnitFactory *base_) :
-        Factory(unitInfo, texture, base_) {
+        Factory(unitInfo, texture_, base_) {
     base = base_;
     attack = unitInfo["attack"];
 }
