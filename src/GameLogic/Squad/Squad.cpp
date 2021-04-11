@@ -18,6 +18,7 @@ Squads::Squad::Squad(Cell* ptr) {
 
 Squads::Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
     engine::gameController::Instance()->networkManager.makeShared(this);
+    engine::gameController::Instance()->registerObject(this);
     action = new Action(this);
     cell = cell_;
     units = units_;
