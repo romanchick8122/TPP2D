@@ -10,14 +10,62 @@
     },
     "AllUnits": {
       "LandUnit": [
-        {"name": "Infantry", "cost": 100, "speed": 400, "HP": 25, "attack": 10, "texture": "resources/squad.png"}
-      ]
+        {"name": "Infantry", "cost": 100, "weight": 80, "speed": 40, "HP": 25, "attack": 10, "texture": "resources/squad.png"},
+        {"name": "Bicycle", "cost": 150, "weight": 110, "speed": 60, "HP": 35, "attack": 10, "texture": "resources/Bicycle_Battalion.png"},
+        {"name": "CoolInfantry", "cost": 250, "weight": 90, "speed": 50, "HP": 40, "attack": 20, "texture": "resources/Mountain.png"},
+        {"name": "Marines", "cost": 100, "weight": 80, "speed": 40, "HP": 25, "attack": 15, "texture": "resources/Marine.png"},
+        {"name": "Paratrooper", "cost": 400, "weight": 80, "speed": 50, "HP": 40, "attack": 30, "texture": "resources/Paratroop.png"},
+        {"name": "Anti-Tank", "cost": 300, "weight": 100, "speed": 20, "HP": 20, "attack": 40, "texture": "resources/Anti-tank.png"}
+      ],
+
+      "TransportUnit": [
+        {"name": "Transport for Infantry", "cost": 300, "weight": 1500, "speed": 80, "HP": 60, "armor": 500, "capacity": 1000, "texture": "resources/Motorized.png"},
+        {"name": "Heavy Transport for Infantry", "cost": 600, "weight": 2500, "speed": 60, "HP": 100, "armor": 1500, "capacity": 800, "texture": "resources/Mechanized.png"},
+        {"name": "Transport for Anti-Tank weapon", "cost": 500, "weight": 1500, "speed": 50, "HP": 70, "armor": 600, "capacity": 1500, "texture": "resources/Motorized_anti-tank.png"},
+        {"name": "Transport for Anti-Air weapon", "cost": 550, "weight": 1500, "speed": 55, "HP": 70, "armor": 600, "capacity": 1500, "texture": "resources/Motorized_anti-air.png"},
+        {"name": "Cavalry", "cost": 20, "weight": 80, "speed": 80, "HP": 10, "armor": 10, "capacity": 100, "texture": "resources/Cavalry.png"},
+        {"name": "Armored car", "cost": 800, "weight": 1000, "speed": 80, "HP": 80, "armor": 1000, "capacity": 500, "texture": "resources/Armored_Car.png"}
+      ],
+
+      "ArmoredUnit": {
+        "Bases": [
+          {"name": "Light Tank", "cost": 1500, "weight": 2500, "speed": 70, "HP": 400, "armor": 500, "capacity": 250, "texture": "resources/Light_tank.png"},
+          {"name": "Heavy Tank", "cost": 2500, "weight": 4000, "speed": 60, "HP": 800, "armor": 800, "capacity": 300, "texture": "resources/Heavy_tank.png"},
+          {"name": "Modern tank", "cost": 4000, "weight": 5000, "speed": 80, "HP": 1200, "armor": 1000, "capacity": 400, "texture": "resources/Modern_tank.png"},
+          {"name": "Super heavy tank", "cost": 5000, "weight": 8000, "speed": 40, "HP": 2500, "armor": 2000, "capacity": 300, "texture": "resources/Super_heavy_tank.png"},
+          {"name": "Amphibious Tank", "cost": 3500, "weight": 2500, "speed": 700, "HP": 1000, "armor": 800, "capacity": 200, "texture": "resources/Amphibious_Tank.png"}
+        ],
+        "Weapons": [
+          {"addName": "Default weapon", "addCost": 100, "addWeight": 800, "attack": 80},
+          {"addName": "Anti-Tank weapon", "addCost": 300, "addWeight": 1200, "attack": 120},
+          {"addName": "Anti-Air weapon", "addCost": 150, "addWeight": 900, "attack": 90},
+          {"addName": "Artillery", "addCost": 250, "addWeight": 1000, "attack": 100},
+          {"addName": "Heavy Anti-Tank", "addCost": 500, "addWeight": 1500, "attack": 150}
+        ]
+      }
     }
   },
   "graphics": {
     "Textures": {
       "list": [
-        "resources/squad.png"
+        "resources/squad.png",
+        "resources/Amphibious_Tank.png",
+        "resources/Anti-tank.png",
+        "resources/Armored_Car.png",
+        "resources/Bicycle_Battalion.png",
+        "resources/Cavalry.png",
+        "resources/Heavy_tank.png",
+        "resources/Light_tank.png",
+        "resources/Marine.png",
+        "resources/Mechanized.png",
+        "resources/Modern_tank.png",
+        "resources/Motorized.png",
+        "resources/Motorized_anti-air.png",
+        "resources/Motorized_anti-tank.png",
+        "resources/Mountain.png",
+        "resources/Paratroop.png",
+        "resources/squad.png",
+        "resources/Super_heavy_tank.png"
       ]
     },
     "defaultFont": "resources/font.ttf"

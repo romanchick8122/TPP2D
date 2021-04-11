@@ -5,13 +5,13 @@ bool LandUnitFactory::isPossible(Cell *) {
 }
 
 Units::Unit *LandUnitFactory::createUnit() {
-    auto* unit =  new Units::LandUnit(name, texture);
-    unit -> setStats(HP, speed, attack);
+    auto *unit = new Units::LandUnit(name, texture, weight);
+    unit->setStats(HP, speed, attack);
     return unit;
 }
 
-LandUnitFactory::LandUnitFactory(nlohmann::json &unitInfo, const engine::config::Facade::Texture*& texture):
-Factory(unitInfo["name"], unitInfo["cost"], texture) {
+LandUnitFactory::LandUnitFactory(nlohmann::json &unitInfo, const engine::config::Facade::Texture *&texture_) :
+        Factory(unitInfo, texture_) {
     HP = unitInfo["HP"];
     speed = unitInfo["speed"];
     attack = unitInfo["attack"];

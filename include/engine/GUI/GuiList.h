@@ -4,7 +4,7 @@
 namespace engine::GUI {
     class GuiList : public GuiObject {
       protected:
-        std::vector<std::unique_ptr<GuiObject>> children;
+        std::list<std::unique_ptr<GuiObject>> children;
         float newPos;
       public:
         engine::config::Facade::Color background;
@@ -14,6 +14,6 @@ namespace engine::GUI {
         void render() override;
         bool tryOnClick(engine::config::Facade::Point, graphics::Event::MouseButton) override;
 
-        void addChild(std::unique_ptr<GuiObject> child);
+        virtual void addChild(std::unique_ptr<GuiObject> child);
     };
 }
