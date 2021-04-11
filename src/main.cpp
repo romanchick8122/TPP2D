@@ -56,12 +56,8 @@ int main() {
     st->boundary.top = 42;
     engine::gameController::Instance()->registerStaticObject(st);
 
-    auto* sq1 = new Squads::Squad(nullptr);
-    sq1->setCell(vec[0]);
     Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
     sq2->setCell(vec[9999]);
-    sq1->action->setPath(vec[9999]);
-    engine::gameController::Instance()->registerObject(sq1);
     engine::gameController::Instance()->registerObject(sq2);
     engine::gameController::Instance()->gameLoop();
     return 0;
