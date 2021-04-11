@@ -10,6 +10,7 @@ namespace engine::GUI {
       explicit GuiScroll(engine::config::Facade::Rect, engine::config::Facade::Color);
 
       void render() override;
+      bool tryOnClick(engine::config::Facade::Point, graphics::Event::MouseButton) override;
 
       void addChild(std::unique_ptr<GuiObject>) override;
       void removeChild(GuiObject*);

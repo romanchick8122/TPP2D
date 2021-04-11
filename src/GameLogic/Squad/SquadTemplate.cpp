@@ -29,7 +29,9 @@ Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::c
     auto buttonLambda = [scrollObj](engine::GUI::Button* button) {
         scrollObj->addChild(std::make_unique<engine::GUI::Button>(
             engine::config::Facade::Rect({0, 0}, {590, 90}),
-            [](engine::GUI::Button*){},
+            [scrollObj](engine::GUI::Button* button){
+                scrollObj->removeChild(button);
+                },
             button->Texture
         ));
     };
