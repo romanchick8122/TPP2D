@@ -1,3 +1,4 @@
+configure_file(Amphibious_Tank.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Amphibious_Tank.png COPYONLY)
 configure_file(Anti-tank.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Anti-tank.png COPYONLY)
 configure_file(Armored_Car.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Armored_Car.png COPYONLY)
 configure_file(Bicycle_Battalion.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Bicycle_Battalion.png COPYONLY)
@@ -13,6 +14,7 @@ configure_file(Motorized_anti-tank.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resourc
 configure_file(Mountain.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Mountain.png COPYONLY)
 configure_file(Paratroop.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Paratroop.png COPYONLY)
 configure_file(squad.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/squad.png COPYONLY)
+configure_file(Super_heavy_tank.png ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/Super_heavy_tank.png COPYONLY)
 
 
 configure_file(font.ttf ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources/font.ttf COPYONLY)

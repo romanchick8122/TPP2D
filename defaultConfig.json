@@ -29,10 +29,18 @@
 
       "ArmoredUnit": {
         "Bases": [
-          {"name": "Light Tank", "cost": 1500, "weight": 4000, "speed": 70, "HP": 400, "armor": 500, "capacity": 250, "texture": "resources/squad.png"}
+          {"name": "Light Tank", "cost": 1500, "weight": 2500, "speed": 70, "HP": 400, "armor": 500, "capacity": 250, "texture": "resources/Light_tank.png"},
+          {"name": "Heavy Tank", "cost": 2500, "weight": 4000, "speed": 60, "HP": 800, "armor": 800, "capacity": 300, "texture": "resources/Heavy_tank.png"},
+          {"name": "Modern tank", "cost": 4000, "weight": 5000, "speed": 80, "HP": 1200, "armor": 1000, "capacity": 400, "texture": "resources/Modern_tank.png"},
+          {"name": "Super heavy tank", "cost": 5000, "weight": 8000, "speed": 40, "HP": 2500, "armor": 2000, "capacity": 300, "texture": "resources/Super_heavy_tank.png"},
+          {"name": "Amphibious Tank", "cost": 3500, "weight": 2500, "speed": 700, "HP": 1000, "armor": 800, "capacity": 200, "texture": "resources/Amphibious_Tank.png"}
         ],
         "Weapons": [
-          {"addName": "Default", "addCost": 0, "addWeight": 1200, "attack": 80}
+          {"addName": "Default weapon", "addCost": 100, "addWeight": 800, "attack": 80},
+          {"addName": "Anti-Tank weapon", "addCost": 300, "addWeight": 1200, "attack": 120},
+          {"addName": "Anti-Air weapon", "addCost": 150, "addWeight": 900, "attack": 90},
+          {"addName": "Artillery", "addCost": 250, "addWeight": 1000, "attack": 100},
+          {"addName": "Heavy Anti-Tank", "addCost": 500, "addWeight": 1500, "attack": 150}
         ]
       }
     }
