@@ -1,11 +1,12 @@
 #include "util/pathfinding.h"
+#include "engine/gameController.h"
 #include <queue>
 namespace util::pathfinding {
-    std::list<Cell*> dijkstraPath(Cell* from, Cell* to, const Squad* squad) {
-        typedef std::pair<float, std::pair<Cell*, Cell*>> distanceHeapElem;
+    std::list<Cell*> dijkstraPath(Cell* from, Cell* to, const Squads::Squad* squad) {
+        typedef std::pair<float, std::pair<size_t , size_t>> distanceHeapElem;
         std::priority_queue<distanceHeapElem, std::vector<distanceHeapElem>, std::greater<>> distanceHeap;
-        std::map<Cell*, std::pair<float, Cell*>> distance;
-        distanceHeap.push({0, {from, nullptr}});
+        std::map<size_t, std::pair<float, size_t>> distance;
+        distanceHeap.push({0, {from->id, std::numeric_limits<size_t>::max()}});
         while (!distanceHeap.empty()) {
             auto [dist, cpPair] = distanceHeap.top();
             auto [cell, prev] = cpPair;
@@ -14,20 +15,22 @@ namespace util::pathfinding {
                 continue;
             }
             distance[cell] = {dist, prev};
-            if (cell == to) {
+            if (cell == to->id) {
                 std::list<Cell*> ans;
                 Cell* curr = to;
                 while (curr != from) {
                     ans.push_front(curr);
-                    curr = distance[curr].second;
+                    curr = dynamic_cast<Cell*>(
+                        engine::gameController::Instance()->networkManager.getShared(distance[curr->id].second));
                 }
                 return ans;
             }
-            for (auto t : cell->adjacent) {
-                if (distance.find(t) != distance.end()) {
+            Cell* ccell = dynamic_cast<Cell*>(engine::gameController::Instance()->networkManager.getShared(cell));
+            for (auto t : ccell->adjacent) {
+                if (distance.find(t->id) != distance.end()) {
                     continue;
                 }
-                distanceHeap.push({dist + squad->action->calcSpeed(cell, t), {t, cell}});
+                distanceHeap.push({dist + squad->action->calcSpeed(ccell, t), {t->id, cell}});
             }
         }
         return std::list<Cell*>();

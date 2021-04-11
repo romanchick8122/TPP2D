@@ -1,12 +1,10 @@
+add_subdirectory(Units)
+add_subdirectory(Squad)
 target_sources(TPP2D PUBLIC
         Cell.cpp
-        SquadOrder.cpp
-        Action.cpp
+        Squad/SquadOrder.cpp
+        Squad/Action.cpp
         Flag.cpp
         AllFlags.cpp
-        Factory.cpp
-        AllUnits.cpp
-        SquadTemplate.cpp
-        UnitOrder.cpp
-        Unit.cpp
-        Squad.cpp)
+        Squad/SquadTemplate.cpp
+        Squad/Squad.cpp)

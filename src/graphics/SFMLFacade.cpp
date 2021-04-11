@@ -1,4 +1,5 @@
 #include "graphics/SFMLFacade.h"
+#include "engine/config.h"
 #include <cmath>
 float graphics::SFMLFacade::length(graphics::SFMLFacade::Point vec) {
     return sqrtf(vec.x * vec.x + vec.y * vec.y);
@@ -7,6 +8,7 @@ graphics::SFMLFacade::Point graphics::SFMLFacade::normalize(graphics::SFMLFacade
     return vec / length(vec);
 }
 sf::RenderWindow* graphics::SFMLFacade::window;
+sf::Font graphics::SFMLFacade::font;
 float graphics::SFMLFacade::scale;
 graphics::SFMLFacade::Point graphics::SFMLFacade::origin;
 graphics::SFMLFacade::Point graphics::SFMLFacade::mousePosition;
@@ -20,8 +22,10 @@ void graphics::SFMLFacade::Init(int resX, int resY, const char* windowName, int 
     windowSize.y = resY;
     scale = 1;
     origin.x = origin.y = 0;
+
+    font.loadFromFile(engine::config::runtime["graphics"]["defaultFont"]);
 }
-void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point>& vertices, Color fill)  {
+void graphics::SFMLFacade::DrawConvexPolygon(const std::vector<Point>& vertices, Color fill) {
     auto* vertexArray = new sf::Vertex[vertices.size()];
     for (size_t i = 0; i < vertices.size(); ++i) {
         vertexArray[i] = sf::Vertex((vertices[i] - origin) * scale, fill);
@@ -38,6 +42,19 @@ void graphics::SFMLFacade::DrawRect(Rect toDraw, Color fill) {
     window->draw(arr, 4, sf::Quads);
     delete[] arr;
 }
+void graphics::SFMLFacade::DrawRect(Rect toDraw, const Texture* texture) {
+    auto arr = new sf::Vertex[4];
+    arr[0] = {(Point(toDraw.left, toDraw.top) - origin) * scale};
+    arr[0].texCoords = {0, 0};
+    arr[1] = {(Point(toDraw.left + toDraw.width, toDraw.top) - origin) * scale};
+    arr[1].texCoords = {static_cast<float>(texture->getSize().x), 0};
+    arr[2] = {(Point(toDraw.left + toDraw.width, toDraw.top + toDraw.height) - origin) * scale};
+    arr[2].texCoords = {static_cast<float>(texture->getSize().x), static_cast<float>(texture->getSize().y)};
+    arr[3] = {(Point(toDraw.left, toDraw.top + toDraw.height) - origin) * scale};
+    arr[3].texCoords = {0, static_cast<float>(texture->getSize().y)};
+    window->draw(arr, 4, sf::Quads, texture);
+    delete[] arr;
+}
 void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices, float thickness, Color fill,
                                               bool cyclic) {
     size_t sz = cyclic ? vertices.size() + 1 : vertices.size();
@@ -50,19 +67,19 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
                 tangent = normalize(vertices[0] - vertices[1]);
             } else {
                 tangent = normalize(normalize(vertices[0] - vertices[1])
-                    + normalize(vertices.back()) - vertices[0]);
+                                        + normalize(vertices.back()) - vertices[0]);
             }
         } else if (i == vertices.size() - 1) {
             if (!cyclic) {
                 tangent = normalize(vertices[i - 1] - vertices[i]);
             } else {
                 tangent = normalize(normalize(vertices[i] - vertices[0])
-                    + normalize(vertices[i - 1] - vertices[i]));
+                                        + normalize(vertices[i - 1] - vertices[i]));
             }
         } else {
             tangent = normalize(
                 normalize(vertices[i] - vertices[i + 1])
-                + normalize(vertices[i - 1] - vertices[i]));
+                    + normalize(vertices[i - 1] - vertices[i]));
         }
         tangent = Point(-tangent.y, tangent.x);
         tangent *= thickness;
@@ -74,6 +91,15 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
         vertexArray[sz - 1] = vertexArray[1];
     }
     window->draw(vertexArray, sz, sf::TrianglesStrip);
+}
+void graphics::SFMLFacade::DrawText(const std::string& str, uint32_t fontSize, Color color, Point position) {
+    auto text = sf::Text();
+    text.setString(str);
+    text.setFillColor(color);
+    text.setCharacterSize(fontSize);
+    text.setPosition(position);
+    text.setFont(font);
+    window->draw(text);
 }
 std::vector<graphics::Event> graphics::SFMLFacade::Frame() {
     window->display();
@@ -99,19 +125,15 @@ std::vector<graphics::Event> graphics::SFMLFacade::Frame() {
 
         if (needButtonParse) {
             switch (e.mouseButton.button) {
-                case sf::Mouse::Button::Left:
-                    ans.back().mouseButton = Event::MouseButton::Left;
+                case sf::Mouse::Button::Left:ans.back().mouseButton = Event::MouseButton::Left;
                     break;
-                case sf::Mouse::Button::Right:
-                    ans.back().mouseButton = Event::MouseButton::Right;
+                case sf::Mouse::Button::Right:ans.back().mouseButton = Event::MouseButton::Right;
                     break;
-                case sf::Mouse::Button::Middle:
-                    ans.back().mouseButton = Event::MouseButton::Middle;
+                case sf::Mouse::Button::Middle:ans.back().mouseButton = Event::MouseButton::Middle;
                     break;
                 case sf::Mouse::XButton1:
                 case sf::Mouse::XButton2:
-                case sf::Mouse::ButtonCount:
-                    throw std::runtime_error("Unsupported button");
+                case sf::Mouse::ButtonCount:throw std::runtime_error("Unsupported button");
             }
         }
     }

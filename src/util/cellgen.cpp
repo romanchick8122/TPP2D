@@ -1,5 +1,5 @@
 #include "util/cellgen.h"
-#include <random>
+#include <engine/gameController.h>
 #include <algorithm>
 #include <chrono>
 #include <set>
@@ -105,18 +105,17 @@ namespace util::cellGen {
     std::vector<Point2D> getRandomPoints(Point2D canvasSize, size_t pointsCount) {
         std::uniform_real_distribution<> distributionX(0, canvasSize.x);
         std::uniform_real_distribution<> distributionY(0, canvasSize.y);
-        std::mt19937 gen;
-        gen.seed(time(nullptr));
+        std::mt19937& gen = engine::gameController::Instance()->rng;
         std::vector<Point2D> ans;
         std::uniform_real_distribution<> distribution_border(-0.5, 0.5);
         const int step = 100;
-        for(int i = 0; i < canvasSize.x; i += step) ans.push_back(Point2D(i + distribution_border(gen), -step));
-        for(int i = 0; i < canvasSize.x; i += step) ans.push_back(Point2D(i + distribution_border(gen), canvasSize.y + step));
-        for(int i = 0; i < canvasSize.y; i += step) ans.push_back(Point2D(-step + distribution_border(gen), i));
-        for(int i = 0; i < canvasSize.y; i += step) ans.push_back(Point2D(canvasSize.x + step + distribution_border(gen), i));
+        for(int i = 0; i < canvasSize.x; i += step) ans.emplace_back(Point2D(i + distribution_border(gen), -step));
+        for(int i = 0; i < canvasSize.x; i += step) ans.emplace_back(Point2D(i + distribution_border(gen), canvasSize.y + step));
+        for(int i = 0; i < canvasSize.y; i += step) ans.emplace_back(Point2D(-step + distribution_border(gen), i));
+        for(int i = 0; i < canvasSize.y; i += step) ans.emplace_back(Point2D(canvasSize.x + step + distribution_border(gen), i));
         ans.reserve(pointsCount);
         for (size_t i = 0; i < pointsCount; ++i) {
-            ans.push_back(Point2D(distributionX(gen), distributionY(gen)));
+            ans.emplace_back(Point2D(distributionX(gen), distributionY(gen)));
         }
         return ans;
     }

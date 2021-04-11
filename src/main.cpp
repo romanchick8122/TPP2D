@@ -1,12 +1,14 @@
 #include <fstream>
 #include "engine/gameController.h"
 #include "util/cellgen.h"
-#include "util/geometry.h"
 #include "GameLogic/Cell.h"
-#include "engine/config.h"
-#include "Squad.h"
-#include "nlohmann/json.hpp"
-
+#include "engine/GUI/Button.h"
+#include "graphics/Textures.h"
+#include "engine/GUI/GuiList.h"
+#include "engine/GUI/GuiStrip.h"
+#ifdef WIN32
+#include "winsock2.h"
+#endif
 using util::cellGen::Point2D;
 std::string readFile(std::string filename) {
     std::ifstream t(filename);
@@ -21,17 +23,30 @@ std::string readFile(std::string filename) {
     return str;
 }
 int main() {
-    engine::config::runtime = nlohmann::json::parse(readFile("config.json"));
+    //init sockets
+#ifdef WIN32
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+#endif
+    engine::config::runtime = nlohmann::json::parse(readFile("config.json"), nullptr, false, true);
+    graphics::Textures::loadTextures();
 
     engine::config::Facade::Init(1920, 1080, "TPP2D", 60);
+
     auto t = util::cellGen::getMap(Point2D(15360, 8640), 10000);
     auto vec = makeSurface(t);
     for (auto ob : vec) {
         engine::gameController::Instance()->registerObject(ob);
     }
-    Squad* sq = new Squad(vec[0]);
-    sq->action->setPath(vec[9999]);
-    engine::gameController::Instance()->registerObject(sq);
+
+    auto* sq1 = new Squads::Squad(nullptr);
+    sq1->setCell(vec[0]);
+    Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
+    sq2->setCell(vec[9999]);
+    sq1->action->setPath(vec[9999]);
+    engine::gameController::Instance()->registerObject(sq1);
+    engine::gameController::Instance()->registerObject(sq2);
+
     engine::gameController::Instance()->gameLoop();
     return 0;
 }

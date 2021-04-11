@@ -7,6 +7,19 @@
       "border": [
         {"name": "reinforces", "speedInfluence": 5, "randParameter": 10}
       ]
+    },
+    "AllUnits": {
+      "LandUnit": [
+        {"name": "Infantry", "cost": 100, "speed": 400, "HP": 25, "attack": 10, "texture": "resources/squad.png"}
+      ]
     }
+  },
+  "graphics": {
+    "Textures": {
+      "list": [
+        "resources/squad.png"
+      ]
+    },
+    "defaultFont": "resources/font.ttf"
   }
 }

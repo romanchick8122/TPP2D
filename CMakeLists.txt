@@ -4,6 +4,8 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 include_directories(include/engine)
 include_directories(include/GameLogic)
+include_directories(include/GameLogic/Units)
+include_directories(include/GameLogic/Squad)
 include_directories(inipp/inipp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -64,7 +66,8 @@ if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
 endif()
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(TPP2D)
+add_executable(TPP2D src/GameLogic/Units/LandUnit.cpp include/GameLogic/Units/LandUnit.h src/GameLogic/Units/LandUnitFactory.cpp include/GameLogic/Units/LandUnitFactory.h src/GameLogic/Squad/AllSquadTemplates.cpp include/GameLogic/Squad/AllSquadTemplates.h)
+add_subdirectory(resources)
 
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
 
@@ -86,3 +89,11 @@ get_target_property(sources TPP2D SOURCES)
 
 #linking SFML
 target_link_libraries(TPP2D PRIVATE sfml-graphics)
+#sockets
+if(NOT UNIX)
+    target_link_libraries(TPP2D PRIVATE ws2_32)
+endif()
+
+add_subdirectory(server)
+
+add_dependencies(TPP2D server)
