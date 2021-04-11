@@ -10,8 +10,8 @@ Units::Unit *LandUnitFactory::createUnit() {
     return unit;
 }
 
-LandUnitFactory::LandUnitFactory(nlohmann::json &unitInfo, const engine::config::Facade::Texture *&texture) :
-        Factory(unitInfo, texture) {
+LandUnitFactory::LandUnitFactory(nlohmann::json &unitInfo, const engine::config::Facade::Texture *&texture_) :
+        Factory(unitInfo, texture_) {
     HP = unitInfo["HP"];
     speed = unitInfo["speed"];
     attack = unitInfo["attack"];
