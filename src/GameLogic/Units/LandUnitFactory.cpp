@@ -1,16 +1,18 @@
-#include "GameLogic/Units/LandUnitFactory.h"
-#include "GameLogic/Units/LandUnit.h"
-
-LandUnitFactory::LandUnitFactory(const std::string& name_, float cost_, float HP_, float speed_, float attack_): Factory(name_, cost_) {
-    HP = HP_;
-    speed = speed_;
-    attack = attack_;
-}
+#include "LandUnitFactory.h"
 
 bool LandUnitFactory::isPossible(Cell *) {
     return true;
 }
 
 Units::Unit *LandUnitFactory::createUnit() {
-    return new Units::LandUnit(HP, speed, attack);
+    auto* unit =  new Units::LandUnit(name, texture);
+    unit -> setStats(HP, speed, attack);
+    return unit;
+}
+
+LandUnitFactory::LandUnitFactory(nlohmann::json &unitInfo, const engine::config::Facade::Texture*& texture):
+Factory(unitInfo["name"], unitInfo["cost"], texture) {
+    HP = unitInfo["HP"];
+    speed = unitInfo["speed"];
+    attack = unitInfo["attack"];
 }

@@ -1,10 +1,13 @@
 #include "GameLogic/Units/AllUnits.h"
 #include "LandUnitFactory.h"
+#include "graphics/Textures.h"
+
 namespace Units {
-    std::vector<Factory*> AllUnits;
+    std::vector<Factory*> allUnits;
     void setUnits() {
-        for (auto& unitInfo : engine::config::runtime["GameLogic"]["AllUnits"]["LandUnit"]) {
-            AllUnits.push_back(new LandUnitFactory(unitInfo["name"], unitInfo["cost"], unitInfo["HP"], unitInfo["speed"], unitInfo["attack"]));
+        for (nlohmann::json& unitInfo : engine::config::runtime["GameLogic"]["AllUnits"]["LandUnit"]) {
+            const engine::config::Facade::Texture* texture = graphics::Textures::textures[graphics::Textures::nameMapping[unitInfo["texture"]]];
+            allUnits.push_back(new LandUnitFactory(unitInfo, texture));
         }
     }
 }

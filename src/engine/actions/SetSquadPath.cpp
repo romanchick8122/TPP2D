@@ -1,7 +1,7 @@
 #include "engine/actions/SetSquadPath.h"
 #include "engine/gameController.h"
 engine::actions::SetSquadPath::SetSquadPath() = default;
-engine::actions::SetSquadPath::SetSquadPath(Squad* squad, Cell* target) : squadId(squad->id), targetId(target->id) {}
+engine::actions::SetSquadPath::SetSquadPath(Squads::Squad* squad, Cell* target) : squadId(squad->id), targetId(target->id) {}
 void engine::actions::SetSquadPath::write(std::ostream& ostr) {
     ostr.put(engine::Action::Type::SetSquadPath);
     char* transformed = new char[sizeof(size_t) * 2];
@@ -22,7 +22,7 @@ std::unique_ptr<engine::Action> engine::actions::SetSquadPath::read(std::istream
     return std::unique_ptr<Action>(result);
 }
 void engine::actions::SetSquadPath::apply() {
-    dynamic_cast<Squad*>(engine::gameController::Instance()->networkManager.getShared(squadId))->action->setPath(
+    dynamic_cast<Squads::Squad*>(engine::gameController::Instance()->networkManager.getShared(squadId))->action->setPath(
         dynamic_cast<Cell*>(engine::gameController::Instance()->networkManager.getShared(targetId))
     );
 }

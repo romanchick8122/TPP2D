@@ -26,8 +26,16 @@ void Units::Unit::disableOrder() {
     currentUsageOfOrder = 0;
 }
 
-void Units::Unit::setSquad(Squad *ptr) {
+void Units::Unit::setSquad(Squads::Squad *ptr) {
     squad = ptr;
+}
+
+Units::Unit::Unit(const graphics::SFMLFacade::Texture *&texture_, const std::string &name_) :name(name_), texture(texture_){
+
+}
+
+Units::Unit::Unit() {
+
 }
 
 void Units::TestUnit1::tick() {
