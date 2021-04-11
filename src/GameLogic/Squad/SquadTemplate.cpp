@@ -10,10 +10,11 @@ Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::c
             engine::config::Facade::Rect({0, 0},
                                          {static_cast<float>(fact->texture->getSize().x),
                                           static_cast<float>(fact->texture->getSize().y)}),
-            [](){},
+            [](engine::GUI::Button*){},
             const_cast<engine::config::Facade::Texture*>(fact->texture)));
     }
     list->addChild(std::move(buttonStrip));
+    show();
 };
 
 bool Squads::SquadTemplate::isPossible(Cell *ptr) {
