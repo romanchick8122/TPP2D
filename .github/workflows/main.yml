@@ -2,8 +2,6 @@ name: Doxygen Action
 on:
   push:
     branches: [master, dev]
-  pull_request:
-    branches: [master, dev]
 jobs:
   generateDocs:
     runs-on: ubuntu-latest
