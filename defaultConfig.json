@@ -48,7 +48,24 @@
   "graphics": {
     "Textures": {
       "list": [
-        "resources/squad.png"
+        "resources/squad.png",
+        "resources/Amphibious_Tank.png",
+        "resources/Anti-tank.png",
+        "resources/Armored_Car.png",
+        "resources/Bicycle_Battalion.png",
+        "resources/Cavalry.png",
+        "resources/Heavy_tank.png",
+        "resources/Light_tank.png",
+        "resources/Marine.png",
+        "resources/Mechanized.png",
+        "resources/Modern_tank.png",
+        "resources/Motorized.png",
+        "resources/Motorized_anti-air.png",
+        "resources/Motorized_anti-tank.png",
+        "resources/Mountain.png",
+        "resources/Paratroop.png",
+        "resources/squad.png",
+        "resources/Super_heavy_tank.png"
       ]
     },
     "defaultFont": "resources/font.ttf"
