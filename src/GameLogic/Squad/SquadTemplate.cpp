@@ -1,6 +1,14 @@
 #include "GameLogic/Squad/SquadTemplate.h"
-
-Squads::SquadTemplate::SquadTemplate() {}
+#include <memory>
+#include "engine/GUI/Button.h"
+#include "GameLogic/Units/AllUnits.h"
+#include "engine/GUI/GuiStrip.h"
+Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::config::Facade::Color(60, 40, 8))) {
+    auto buttonStrip = std::make_unique<engine::GUI::GuiStrip>(600, engine::config::Facade::Color(30, 20, 4));
+    for (auto* fact : Units::allUnits) {
+        
+    }
+};
 
 bool Squads::SquadTemplate::isPossible(Cell *ptr) {
     for(auto i : temp) if(!i.first ->isPossible(ptr)) return false;
