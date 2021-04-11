@@ -5,6 +5,7 @@ include_directories(include)
 include_directories(include/engine)
 include_directories(include/GameLogic)
 include_directories(include/GameLogic/Units)
+include_directories(include/GameLogic/Squad)
 include_directories(inipp/inipp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -65,7 +66,7 @@ if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
 endif()
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(TPP2D src/GameLogic/Units/LandUnit.cpp include/GameLogic/Units/LandUnit.h src/GameLogic/Units/LandUnitFactory.cpp include/GameLogic/Units/LandUnitFactory.h)
+add_executable(TPP2D src/GameLogic/Units/LandUnit.cpp include/GameLogic/Units/LandUnit.h src/GameLogic/Units/LandUnitFactory.cpp include/GameLogic/Units/LandUnitFactory.h src/GameLogic/Squad/AllSquadTemplates.cpp include/GameLogic/Squad/AllSquadTemplates.h)
 add_subdirectory(resources)
 
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)

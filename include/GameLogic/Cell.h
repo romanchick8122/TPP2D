@@ -5,6 +5,16 @@ class Cell;
 #include "AllFlags.h"
 #include "engine/config.h"
 #include "graphics/Facade.h"
+#include "Squad.h"
+#include <map>
+#include "iostream"
+#include "util/geometry.h"
+#include "engine/actions/None.h"
+#include "engine/gameController.h"
+#include "engine/actions/SetSquadPath.h"
+#include "AllUnits.h"
+#include "AllSquadTemplates.h"
+
 using Facade = engine::config::Facade;
 std::vector<Cell*> makeSurface(std::vector<util::cellGen::CellData*>&);
 namespace Comparators {

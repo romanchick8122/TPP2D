@@ -8,8 +8,9 @@ namespace Units {
 
 #include <cstdio>
 #include "UnitOrder.h"
-#include "GameLogic/Squad.h"
+#include "GameLogic/Squad/Squad.h"
 #include "AllFlags.h"
+#include "graphics/Textures.h"
 
 namespace Units {
     class Unit {
@@ -17,12 +18,16 @@ namespace Units {
         UnitOrder *currentOrder;
         size_t currentUsageOfOrder;
         std::vector<UnitOrder *> allOrders;
-        Squad *squad;
+        Squads::Squad *squad;
         std::vector<float> unitLandscapeFlagResists;
         std::vector<float> unitBorderFlagResists;
         float unitSpeed;
+        const std::string name;
+        const engine::config::Facade::Texture* texture;
     public:
-        void setSquad(Squad *);
+        Unit();
+        Unit(const engine::config::Facade::Texture*&, const std::string&);
+        void setSquad(Squads::Squad *);
 
         const std::vector<float> *landscapeFlagResists = &unitLandscapeFlagResists;
         const std::vector<float> *borderFlagResists = &unitBorderFlagResists;

@@ -2,7 +2,7 @@
 #include "engine/gameController.h"
 #include "util/cellgen.h"
 #include "GameLogic/Cell.h"
-#include "Squad.h"
+#include "GameLogic/Squad/Squad.h"
 #include "engine/GUI/Button.h"
 #include "graphics/Textures.h"
 #ifdef WIN32
@@ -37,9 +37,13 @@ int main() {
     for (auto ob : vec) {
         engine::gameController::Instance()->registerObject(ob);
     }
-    Squad* sq = new Squad(vec[0]);
-    sq->action->setPath(vec[9999]);
-    engine::gameController::Instance()->registerObject(sq);
+    Squads::Squad* sq1 = new Squads::Squad(nullptr);
+    sq1->setCell(vec[0]);
+    Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
+    sq2->setCell(vec[9999]);
+    sq1->action->setPath(vec[9999]);
+    engine::gameController::Instance()->registerObject(sq1);
+    engine::gameController::Instance()->registerObject(sq2);
     engine::gameController::Instance()->gameLoop();
     return 0;
 }

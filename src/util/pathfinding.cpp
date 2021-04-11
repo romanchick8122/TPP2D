@@ -2,7 +2,7 @@
 #include "engine/gameController.h"
 #include <queue>
 namespace util::pathfinding {
-    std::list<Cell*> dijkstraPath(Cell* from, Cell* to, const Squad* squad) {
+    std::list<Cell*> dijkstraPath(Cell* from, Cell* to, const Squads::Squad* squad) {
         typedef std::pair<float, std::pair<size_t , size_t>> distanceHeapElem;
         std::priority_queue<distanceHeapElem, std::vector<distanceHeapElem>, std::greater<>> distanceHeap;
         std::map<size_t, std::pair<float, size_t>> distance;

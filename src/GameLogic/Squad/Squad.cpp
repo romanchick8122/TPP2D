@@ -1,14 +1,14 @@
-#include "GameLogic/Squad.h"
+#include "GameLogic/Squad/Squad.h"
 #include "engine/config.h"
 #include "graphics/Textures.h"
 #include "engine/gameController.h"
+#include "AllUnits.h"
 using Facade = engine::config::Facade;
-Squad::Squad(Cell* ptr) :center(ptr->center){
+Squads::Squad::Squad(Cell* ptr) {
     engine::gameController::Instance()->networkManager.makeShared(this);
-    shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
     action = new Action(this);
     cell = ptr;
-    Units::Unit* u = new Units::TestUnit1(1);
+    Units::Unit* u = Units::allUnits[0]->createUnit();
     units.push_back(u);
     updateFlagResists();
     updateSpeed();
@@ -16,9 +16,8 @@ Squad::Squad(Cell* ptr) :center(ptr->center){
 }
 
 
-Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
+Squads::Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
     engine::gameController::Instance()->networkManager.makeShared(this);
-    shape = Facade::Rect(center.x - 48, center.y-48, 48, 48);
     action = new Action(this);
     cell = cell_;
     units = units_;
@@ -27,11 +26,11 @@ Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
     updateUnitSquadPtr();
 };
 
-void Squad::updateUnitSquadPtr() {
+void Squads::Squad::updateUnitSquadPtr() {
     for(auto unit : units) unit->setSquad(this);
 }
 
-void Squad::updateFlagResists() {
+void Squads::Squad::updateFlagResists() {
     squadLandscapeFlagResists = std::vector<float>(Flags::landscapeFlags.size(),1e9);
     squadBorderFlagResists = std::vector<float>(Flags::borderFlags.size(),1e9);
     for(auto unit : units) {
@@ -44,30 +43,30 @@ void Squad::updateFlagResists() {
     }
 }
 
-void Squad::updateSpeed() {
+void Squads::Squad::updateSpeed() {
     squadCurrentSpeed = 1e9;
     for(auto unit : units) {
         squadCurrentSpeed = std::min(squadCurrentSpeed, *unit->commonSpeed);
     }
 }
 
-void Squad::tick(){
+void Squads::Squad::tick(){
     action->tick();
     for(Units::Unit* unit : units) {
         unit -> tick();
     };
 };
-void Squad::lateTick(){return;};
+void Squads::Squad::lateTick(){return;};
 
-void Squad::render(){
+void Squads::Squad::render(){
     action->render();
     Facade::DrawRect(shape, graphics::Textures::textures[0]);
 };
-Facade::Rect Squad::getRenderEdges(){
+Facade::Rect Squads::Squad::getRenderEdges(){
     return shape;
 }
 
-bool Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
+bool Squads::Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
     if (!shape.contains(pos)) {
         return false;
     }
@@ -75,10 +74,12 @@ bool Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) {
     return true;
 }
 
-void Squad::setCell(Cell *ptr) {
+void Squads::Squad::setCell(Cell *ptr) {
     cell = ptr;
+    center = cell->center;
+    shape = Facade::Rect(center.x - 21, center.y-38, 76, 42);
 }
 
-void Squad::doOnClick() {
+void Squads::Squad::doOnClick() {
     previousClick = this;
 }

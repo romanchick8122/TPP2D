@@ -1,9 +1,10 @@
+#pragma once
 #include "GameLogic/Units/Factory.h"
+#include "LandUnit.h"
 class LandUnitFactory: public Factory {
     float HP, speed, attack;
-    //const std::string name;
 public:
-    explicit LandUnitFactory(const std::string& name_, float cost, float HP_, float speed_, float attack_);
+    explicit LandUnitFactory(nlohmann::json&, const engine::config::Facade::Texture*&);
     bool isPossible(Cell*) override;
     Units::Unit* createUnit() override;
 };

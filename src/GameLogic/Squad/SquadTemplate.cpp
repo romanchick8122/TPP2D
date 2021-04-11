@@ -1,13 +1,13 @@
-#include "SquadTemplate.h"
+#include "GameLogic/Squad/SquadTemplate.h"
 
-SquadTemplate::SquadTemplate() {}
+Squads::SquadTemplate::SquadTemplate() {}
 
-bool SquadTemplate::isPossible(Cell *ptr) {
+bool Squads::SquadTemplate::isPossible(Cell *ptr) {
     for(auto i : temp) if(!i.first ->isPossible(ptr)) return false;
     return true;
 }
 
-void SquadTemplate::addFactory(Factory *ptr, int n) {
+void Squads::SquadTemplate::addFactory(Factory *ptr, int n) {
     for(int i = 0; i < temp.size(); ++i) if(temp[i].first == ptr) {
         temp[i].second += n;
         return;
@@ -15,10 +15,10 @@ void SquadTemplate::addFactory(Factory *ptr, int n) {
     temp.push_back({ptr, n});
 }
 
-Squad *SquadTemplate::build() {
+Squads::Squad *Squads::SquadTemplate::build() {
     if(temp.empty()) return nullptr;
     std::list<Units::Unit*> units_;
     for(auto f : temp) for(int i = 0; i < f.second; ++i) units_.push_back(f.first -> createUnit());
-    return new Squad(nullptr, units_);
+    return new Squads::Squad(nullptr, units_);
 }
 
