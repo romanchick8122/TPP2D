@@ -14,5 +14,7 @@ namespace Squads {
         bool isPossible(Cell *);
         void addFactory(Factory *, int);
         Squad *build();
+        void show();
+        void hide();
     };
 }

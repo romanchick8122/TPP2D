@@ -39,23 +39,6 @@ int main() {
         engine::gameController::Instance()->registerObject(ob);
     }
 
-    auto* st = new engine::GUI::GuiStrip(167, engine::config::Facade::Color(60, 40, 8));
-    auto* bruh1 = new engine::GUI::GuiList(engine::config::Facade::Color(255,255,255));
-    bruh1->boundary.width = 76;
-    bruh1->boundary.height = 42;
-    st->addChild(std::unique_ptr<engine::GUI::GuiObject>(bruh1));
-    auto* bruh2 = new engine::GUI::GuiList(engine::config::Facade::Color(255, 0, 0));
-    bruh2->boundary.width = 76;
-    bruh2->boundary.height = 42;
-    st->addChild(std::unique_ptr<engine::GUI::GuiObject>(bruh2));
-    auto* bruh3 = new engine::GUI::GuiList(engine::config::Facade::Color(255, 255, 255));
-    bruh3->boundary.width = 76;
-    bruh3->boundary.height = 42;
-    st->addChild(std::unique_ptr<engine::GUI::GuiObject>(bruh3));
-    st->boundary.left = 76;
-    st->boundary.top = 42;
-    engine::gameController::Instance()->registerStaticObject(st);
-
     auto* sq1 = new Squads::Squad(nullptr);
     sq1->setCell(vec[0]);
     Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
