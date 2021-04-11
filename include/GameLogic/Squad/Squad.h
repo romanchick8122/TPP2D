@@ -25,12 +25,11 @@ namespace Squads{
     public:
         void setCell(Cell*);
         friend Action;
-        Squad(Cell*, std::list<Units::Unit*>);
+        Squad(std::list<Units::Unit*>);
         const float* currentSpeed = &squadCurrentSpeed;
         const std::vector<float>* landscapeFlagResists = &squadLandscapeFlagResists;
         const std::vector<float>* borderFlagResists = &squadBorderFlagResists;
         Action* action;
-        Squad(Cell* ptr);
         void tick() override;
         void lateTick() override;
         void render() override;

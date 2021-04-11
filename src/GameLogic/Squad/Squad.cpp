@@ -4,22 +4,12 @@
 #include "engine/gameController.h"
 #include "AllUnits.h"
 using Facade = engine::config::Facade;
-Squads::Squad::Squad(Cell* ptr) {
-    engine::gameController::Instance()->networkManager.makeShared(this);
-    action = new Action(this);
-    cell = ptr;
-    Units::Unit* u = Units::allUnits[0]->createUnit();
-    units.push_back(u);
-    updateFlagResists();
-    updateSpeed();
-    updateUnitSquadPtr();
-}
 
 
-Squads::Squad::Squad(Cell *cell_, std::list<Units::Unit *> units_) {
+Squads::Squad::Squad(std::list<Units::Unit *> units_) {
     engine::gameController::Instance()->networkManager.makeShared(this);
+    engine::gameController::Instance()->registerObject(this);
     action = new Action(this);
-    cell = cell_;
     units = units_;
     updateFlagResists();
     updateSpeed();

@@ -61,7 +61,7 @@ void Squads::Action::render() {
 }
 
 void Squads::Action::setPath(Cell *end) {
-    if(currentPath.empty() && progress == 0) {
+    if(currentPath.empty()) {
         currentPath = findPath(squad->cell, end);
         currentPath.push_front(squad->cell);
         nextStep();

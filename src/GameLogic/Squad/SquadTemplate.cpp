@@ -48,7 +48,7 @@ Squads::Squad* Squads::SquadTemplate::build() {
     if(temp.empty()) return nullptr;
     std::list<Units::Unit*> units_;
     for(auto f : temp) for(int i = 0; i < f.second; ++i) units_.push_back(f.first -> createUnit());
-    return new Squads::Squad(nullptr, units_);
+    return new Squads::Squad(units_);
 }
 
 void Squads::SquadTemplate::show() {
