@@ -13,6 +13,7 @@ var annotated_dup =
         [ "Button", "classengine_1_1_g_u_i_1_1_button.html", "classengine_1_1_g_u_i_1_1_button" ],
         [ "GuiList", "classengine_1_1_g_u_i_1_1_gui_list.html", "classengine_1_1_g_u_i_1_1_gui_list" ],
         [ "GuiObject", "classengine_1_1_g_u_i_1_1_gui_object.html", "classengine_1_1_g_u_i_1_1_gui_object" ],
+        [ "GuiScroll", "classengine_1_1_g_u_i_1_1_gui_scroll.html", "classengine_1_1_g_u_i_1_1_gui_scroll" ],
         [ "GuiStrip", "classengine_1_1_g_u_i_1_1_gui_strip.html", "classengine_1_1_g_u_i_1_1_gui_strip" ]
       ] ],
       [ "Action", "classengine_1_1_action.html", "classengine_1_1_action" ],
@@ -32,11 +33,11 @@ var annotated_dup =
       [ "SquadTemplate", "class_squads_1_1_squad_template.html", "class_squads_1_1_squad_template" ]
     ] ],
     [ "Units", "namespace_units.html", [
+      [ "ArmoredUnit", "class_units_1_1_armored_unit.html", "class_units_1_1_armored_unit" ],
+      [ "ArmoredUnitFactory", "class_units_1_1_armored_unit_factory.html", "class_units_1_1_armored_unit_factory" ],
       [ "LandUnit", "class_units_1_1_land_unit.html", "class_units_1_1_land_unit" ],
-      [ "Unit", "class_units_1_1_unit.html", "class_units_1_1_unit" ],
-      [ "TestUnit1", "class_units_1_1_test_unit1.html", "class_units_1_1_test_unit1" ],
-      [ "TestUnit2", "class_units_1_1_test_unit2.html", "class_units_1_1_test_unit2" ],
-      [ "TestUnit3", "class_units_1_1_test_unit3.html", "class_units_1_1_test_unit3" ]
+      [ "TransportUnit", "class_units_1_1_transport_unit.html", "class_units_1_1_transport_unit" ],
+      [ "Unit", "class_units_1_1_unit.html", "class_units_1_1_unit" ]
     ] ],
     [ "util", "namespaceutil.html", [
       [ "cellGen", "namespaceutil_1_1cell_gen.html", [
@@ -48,5 +49,6 @@ var annotated_dup =
     [ "Flag", "struct_flag.html", "struct_flag" ],
     [ "LandUnitFactory", "class_land_unit_factory.html", "class_land_unit_factory" ],
     [ "TestOrder", "class_test_order.html", "class_test_order" ],
+    [ "TransportUnitFactory", "class_transport_unit_factory.html", "class_transport_unit_factory" ],
     [ "UnitOrder", "class_unit_order.html", "class_unit_order" ]
 ];

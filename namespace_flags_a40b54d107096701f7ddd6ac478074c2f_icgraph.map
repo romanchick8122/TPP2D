@@ -1,6 +1,5 @@
 <map id="Flags::generateLandscapeFlags" name="Flags::generateLandscapeFlags">
-<area shape="rect" id="node1" title=" " alt="" coords="232,49,407,90"/>
-<area shape="rect" id="node2" href="$class_cell.html#aa3317a89121135ce43f0ade0248dd9e0" title=" " alt="" coords="59,5,131,32"/>
-<area shape="rect" id="node3" href="$class_units_1_1_land_unit.html#ac5320b2f34c33a20c31889200a1ff1e8" title=" " alt="" coords="11,56,178,83"/>
-<area shape="rect" id="node4" href="$class_units_1_1_test_unit1.html#a7465d5b1ada37214c13c012c77d595af" title=" " alt="" coords="5,107,184,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="220,23,395,65"/>
+<area shape="rect" id="node2" href="$class_cell.html#aa3317a89121135ce43f0ade0248dd9e0" title=" " alt="" coords="53,5,125,32"/>
+<area shape="rect" id="node3" href="$class_units_1_1_land_unit.html#ac5320b2f34c33a20c31889200a1ff1e8" title=" " alt="" coords="5,56,172,83"/>
 </map>

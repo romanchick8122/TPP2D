@@ -1,10 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classengine_1_1game_object.html" title=" " alt="" coords="5,128,141,155"/>
 <area shape="rect" id="node2" href="$classengine_1_1_g_u_i_1_1_gui_object.html" title=" " alt="" coords="199,77,354,104"/>
-<area shape="rect" id="node6" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="189,150,364,191"/>
+<area shape="rect" id="node7" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="189,150,364,191"/>
 <area shape="rect" id="node3" href="$classengine_1_1_g_u_i_1_1_button.html" title=" " alt="" coords="416,5,551,32"/>
 <area shape="rect" id="node4" href="$classengine_1_1_g_u_i_1_1_gui_list.html" title=" " alt="" coords="414,56,553,83"/>
-<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_strip.html" title=" " alt="" coords="412,107,555,133"/>
-<area shape="rect" id="node7" href="$class_cell.html" title=" " alt="" coords="461,157,505,184"/>
-<area shape="rect" id="node8" href="$class_squads_1_1_squad.html" title=" " alt="" coords="429,208,538,235"/>
+<area shape="rect" id="node6" href="$classengine_1_1_g_u_i_1_1_gui_strip.html" title=" " alt="" coords="412,107,555,133"/>
+<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html" title=" " alt="" coords="603,56,752,83"/>
+<area shape="rect" id="node8" href="$class_cell.html" title=" " alt="" coords="461,157,505,184"/>
+<area shape="rect" id="node9" href="$class_squads_1_1_squad.html" title=" " alt="" coords="429,208,538,235"/>
 </map>

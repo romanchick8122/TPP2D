@@ -86,51 +86,53 @@ $(document).ready(function(){initNavTree('_game_logic_2_squad_2_action_8h_source
 </div><!--header-->
 <div class="contents">
 <a href="_game_logic_2_squad_2_action_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">class </span>Action;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_squad_8h.html">Squad.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cell_8h.html">Cell.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_squads.html">Squads</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_squads_1_1_action.html">    7</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_squads_1_1_action.html">Action</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">float</span> progress;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordtype">float</span> endProgress;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_squads_1_1_squad.html">Squad</a> *squad;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">float</span> speed;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classgraphics_1_1_s_f_m_l_facade.html#ad60f01c350199cf1901c6c2bd7f28482">engine::config::Facade::Point</a> d;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        std::list&lt;Cell *&gt; currentPath;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        std::list&lt;Cell *&gt; possiblePath;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_squads_1_1_action.html#a2cd38ba9863a6f6f936e8bc1747aa642">Action</a>(<a class="code" href="class_squads_1_1_squad.html">Squad</a> *);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#a5489d63bafe193ac006c2729d1870377">nextStep</a>();</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_squad_8h.html">Squad.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cell_8h.html">Cell.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_squads.html">Squads</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_squads_1_1_action.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_squads_1_1_action.html">Action</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordtype">float</span> progress;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">float</span> endProgress;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="class_squads_1_1_squad.html">Squad</a> *squad;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">float</span> speed;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classgraphics_1_1_s_f_m_l_facade.html#ad60f01c350199cf1901c6c2bd7f28482">engine::config::Facade::Point</a> d;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        std::list&lt;Cell *&gt; currentPath;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::list&lt;Cell *&gt; possiblePath;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="class_squads_1_1_action.html#a2cd38ba9863a6f6f936e8bc1747aa642">Action</a>(<a class="code" href="class_squads_1_1_squad.html">Squad</a> *);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_squads_1_1_action.html#ae3287a1304f087aed3e5e80fe892464c">calcSpeed</a>(<span class="keyword">const</span> <a class="code" href="class_cell.html">Cell</a> *start, <span class="keyword">const</span> <a class="code" href="class_cell.html">Cell</a> *end);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#a5489d63bafe193ac006c2729d1870377">nextStep</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::list&lt;Cell *&gt; <a class="code" href="class_squads_1_1_action.html#a4b58ace38d3be18a91d9c474302dbf46">findPath</a>(<a class="code" href="class_cell.html">Cell</a> *, <a class="code" href="class_cell.html">Cell</a> *);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_squads_1_1_action.html#ae3287a1304f087aed3e5e80fe892464c">calcSpeed</a>(<span class="keyword">const</span> <a class="code" href="class_cell.html">Cell</a> *start, <span class="keyword">const</span> <a class="code" href="class_cell.html">Cell</a> *end);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">setPath</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::list&lt;Cell *&gt; <a class="code" href="class_squads_1_1_action.html#a4b58ace38d3be18a91d9c474302dbf46">findPath</a>(<a class="code" href="class_cell.html">Cell</a> *, <a class="code" href="class_cell.html">Cell</a> *);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">setPath</a>(<a class="code" href="class_cell.html">Cell</a> *);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">setPath</a>();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#ad501666de46d69f03ed79874ac0858fd">tick</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">setPath</a>(<a class="code" href="class_cell.html">Cell</a> *);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#a712b11f51d4fa09a85f52e0c7766d35d">render</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#ad501666de46d69f03ed79874ac0858fd">tick</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_squads_1_1_action.html#a712b11f51d4fa09a85f52e0c7766d35d">render</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    };</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="ttc" id="a_cell_8h_html"><div class="ttname"><a href="_cell_8h.html">Cell.h</a></div></div>
 <div class="ttc" id="a_squad_8h_html"><div class="ttname"><a href="_squad_8h.html">Squad.h</a></div></div>
-<div class="ttc" id="aclass_cell_html"><div class="ttname"><a href="class_cell.html">Cell</a></div><div class="ttdef"><b>Definition:</b> Cell.h:27</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html"><div class="ttname"><a href="class_squads_1_1_action.html">Squads::Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:7</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_a2cd38ba9863a6f6f936e8bc1747aa642"><div class="ttname"><a href="class_squads_1_1_action.html#a2cd38ba9863a6f6f936e8bc1747aa642">Squads::Action::Action</a></div><div class="ttdeci">Action(Squad *)</div><div class="ttdef"><b>Definition:</b> Action.cpp:4</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_a4b58ace38d3be18a91d9c474302dbf46"><div class="ttname"><a href="class_squads_1_1_action.html#a4b58ace38d3be18a91d9c474302dbf46">Squads::Action::findPath</a></div><div class="ttdeci">std::list&lt; Cell * &gt; findPath(Cell *, Cell *)</div><div class="ttdef"><b>Definition:</b> Action.cpp:24</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_a5489d63bafe193ac006c2729d1870377"><div class="ttname"><a href="class_squads_1_1_action.html#a5489d63bafe193ac006c2729d1870377">Squads::Action::nextStep</a></div><div class="ttdeci">void nextStep()</div><div class="ttdef"><b>Definition:</b> Action.cpp:28</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_a712b11f51d4fa09a85f52e0c7766d35d"><div class="ttname"><a href="class_squads_1_1_action.html#a712b11f51d4fa09a85f52e0c7766d35d">Squads::Action::render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> Action.cpp:54</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_ac823b98ea540c11a7dfccb4749624f75"><div class="ttname"><a href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">Squads::Action::setPath</a></div><div class="ttdeci">void setPath()</div><div class="ttdef"><b>Definition:</b> Action.cpp:20</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_ad501666de46d69f03ed79874ac0858fd"><div class="ttname"><a href="class_squads_1_1_action.html#ad501666de46d69f03ed79874ac0858fd">Squads::Action::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> Action.cpp:42</div></div>
-<div class="ttc" id="aclass_squads_1_1_action_html_ae3287a1304f087aed3e5e80fe892464c"><div class="ttname"><a href="class_squads_1_1_action.html#ae3287a1304f087aed3e5e80fe892464c">Squads::Action::calcSpeed</a></div><div class="ttdeci">float calcSpeed(const Cell *start, const Cell *end)</div><div class="ttdef"><b>Definition:</b> Action.cpp:6</div></div>
-<div class="ttc" id="aclass_squads_1_1_squad_html"><div class="ttname"><a href="class_squads_1_1_squad.html">Squads::Squad</a></div><div class="ttdef"><b>Definition:</b> Squad.h:12</div></div>
+<div class="ttc" id="aclass_cell_html"><div class="ttname"><a href="class_cell.html">Cell</a></div><div class="ttdef"><b>Definition:</b> Cell.h:31</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html"><div class="ttname"><a href="class_squads_1_1_action.html">Squads::Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:9</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_a2cd38ba9863a6f6f936e8bc1747aa642"><div class="ttname"><a href="class_squads_1_1_action.html#a2cd38ba9863a6f6f936e8bc1747aa642">Squads::Action::Action</a></div><div class="ttdeci">Action(Squad *)</div><div class="ttdef"><b>Definition:</b> Action.cpp:5</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_a4b58ace38d3be18a91d9c474302dbf46"><div class="ttname"><a href="class_squads_1_1_action.html#a4b58ace38d3be18a91d9c474302dbf46">Squads::Action::findPath</a></div><div class="ttdeci">std::list&lt; Cell * &gt; findPath(Cell *, Cell *)</div><div class="ttdef"><b>Definition:</b> Action.cpp:25</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_a5489d63bafe193ac006c2729d1870377"><div class="ttname"><a href="class_squads_1_1_action.html#a5489d63bafe193ac006c2729d1870377">Squads::Action::nextStep</a></div><div class="ttdeci">void nextStep()</div><div class="ttdef"><b>Definition:</b> Action.cpp:29</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_a712b11f51d4fa09a85f52e0c7766d35d"><div class="ttname"><a href="class_squads_1_1_action.html#a712b11f51d4fa09a85f52e0c7766d35d">Squads::Action::render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> Action.cpp:55</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_ac823b98ea540c11a7dfccb4749624f75"><div class="ttname"><a href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">Squads::Action::setPath</a></div><div class="ttdeci">void setPath()</div><div class="ttdef"><b>Definition:</b> Action.cpp:21</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_ad501666de46d69f03ed79874ac0858fd"><div class="ttname"><a href="class_squads_1_1_action.html#ad501666de46d69f03ed79874ac0858fd">Squads::Action::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> Action.cpp:43</div></div>
+<div class="ttc" id="aclass_squads_1_1_action_html_ae3287a1304f087aed3e5e80fe892464c"><div class="ttname"><a href="class_squads_1_1_action.html#ae3287a1304f087aed3e5e80fe892464c">Squads::Action::calcSpeed</a></div><div class="ttdeci">float calcSpeed(const Cell *start, const Cell *end)</div><div class="ttdef"><b>Definition:</b> Action.cpp:7</div></div>
+<div class="ttc" id="aclass_squads_1_1_squad_html"><div class="ttname"><a href="class_squads_1_1_squad.html">Squads::Squad</a></div><div class="ttdef"><b>Definition:</b> Squad.h:14</div></div>
 <div class="ttc" id="aclassgraphics_1_1_s_f_m_l_facade_html_ad60f01c350199cf1901c6c2bd7f28482"><div class="ttname"><a href="classgraphics_1_1_s_f_m_l_facade.html#ad60f01c350199cf1901c6c2bd7f28482">graphics::SFMLFacade::Point</a></div><div class="ttdeci">sf::Vector2f Point</div><div class="ttdef"><b>Definition:</b> SFMLFacade.h:8</div></div>
-<div class="ttc" id="anamespace_squads_html"><div class="ttname"><a href="namespace_squads.html">Squads</a></div><div class="ttdef"><b>Definition:</b> AllSquadTemplates.cpp:2</div></div>
+<div class="ttc" id="anamespace_squads_html"><div class="ttname"><a href="namespace_squads.html">Squads</a></div><div class="ttdef"><b>Definition:</b> AllSquadTemplates.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,5 +1,4 @@
 <map id="Flags::generateBorderFlags" name="Flags::generateBorderFlags">
-<area shape="rect" id="node1" title=" " alt="" coords="232,31,412,57"/>
-<area shape="rect" id="node2" href="$class_units_1_1_land_unit.html#ac5320b2f34c33a20c31889200a1ff1e8" title=" " alt="" coords="11,5,178,32"/>
-<area shape="rect" id="node3" href="$class_units_1_1_test_unit1.html#a7465d5b1ada37214c13c012c77d595af" title=" " alt="" coords="5,56,184,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="220,5,400,32"/>
+<area shape="rect" id="node2" href="$class_units_1_1_land_unit.html#ac5320b2f34c33a20c31889200a1ff1e8" title=" " alt="" coords="5,5,172,32"/>
 </map>

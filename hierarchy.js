@@ -9,14 +9,18 @@ var hierarchy =
     [ "util::cellGen::CellData", "structutil_1_1cell_gen_1_1_cell_data.html", null ],
     [ "graphics::Event", "structgraphics_1_1_event.html", null ],
     [ "Factory", "class_factory.html", [
-      [ "LandUnitFactory", "class_land_unit_factory.html", null ]
+      [ "LandUnitFactory", "class_land_unit_factory.html", null ],
+      [ "TransportUnitFactory", "class_transport_unit_factory.html", null ],
+      [ "Units::ArmoredUnitFactory", "class_units_1_1_armored_unit_factory.html", null ]
     ] ],
     [ "Flag", "struct_flag.html", null ],
     [ "engine::gameController", "classengine_1_1game_controller.html", null ],
     [ "engine::gameObject", "classengine_1_1game_object.html", [
       [ "engine::GUI::GuiObject", "classengine_1_1_g_u_i_1_1_gui_object.html", [
         [ "engine::GUI::Button", "classengine_1_1_g_u_i_1_1_button.html", null ],
-        [ "engine::GUI::GuiList", "classengine_1_1_g_u_i_1_1_gui_list.html", null ],
+        [ "engine::GUI::GuiList", "classengine_1_1_g_u_i_1_1_gui_list.html", [
+          [ "engine::GUI::GuiScroll", "classengine_1_1_g_u_i_1_1_gui_scroll.html", null ]
+        ] ],
         [ "engine::GUI::GuiStrip", "classengine_1_1_g_u_i_1_1_gui_strip.html", null ]
       ] ],
       [ "engine::gameplayClickableGameObject", "classengine_1_1gameplay_clickable_game_object.html", [
@@ -30,10 +34,9 @@ var hierarchy =
     [ "Squads::SquadOrder", "class_squads_1_1_squad_order.html", null ],
     [ "Squads::SquadTemplate", "class_squads_1_1_squad_template.html", null ],
     [ "Units::Unit", "class_units_1_1_unit.html", [
+      [ "Units::ArmoredUnit", "class_units_1_1_armored_unit.html", null ],
       [ "Units::LandUnit", "class_units_1_1_land_unit.html", null ],
-      [ "Units::TestUnit1", "class_units_1_1_test_unit1.html", null ],
-      [ "Units::TestUnit2", "class_units_1_1_test_unit2.html", null ],
-      [ "Units::TestUnit3", "class_units_1_1_test_unit3.html", null ]
+      [ "Units::TransportUnit", "class_units_1_1_transport_unit.html", null ]
     ] ],
     [ "UnitOrder", "class_unit_order.html", [
       [ "TestOrder", "class_test_order.html", null ]

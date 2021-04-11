@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['name_485',['name',['../struct_flag.html#aca3b78cc22a26596e82d0664530c0f66',1,'Flag::name()'],['../class_factory.html#a53fb1ea0c85e6a32b58c324ed1589704',1,'Factory::name()'],['../class_units_1_1_unit.html#a7a2c8222ba0e7c5ac614511e813c1d4f',1,'Units::Unit::name()'],['../class_test_order.html#a4b2b415fceacac7e936a25d61ebd6ab5',1,'TestOrder::name()']]],
-  ['namemapping_486',['nameMapping',['../namespacegraphics_1_1_textures.html#a5f781ae3d5f5b60ec710973593e461c5',1,'graphics::Textures']]],
-  ['networkmanager_487',['networkManager',['../classengine_1_1game_controller.html#a33a22abbd8acfb68451818e81c712514',1,'engine::gameController']]],
-  ['newpos_488',['newPos',['../classengine_1_1_g_u_i_1_1_gui_list.html#a78729439ffe995b8ce344b9f717a4439',1,'engine::GUI::GuiList']]]
+  ['maxscale_520',['maxScale',['../namespaceengine_1_1config.html#ab875240ad51bf93fb5948dbac70e1ff1',1,'engine::config']]],
+  ['minscale_521',['minScale',['../namespaceengine_1_1config.html#a6e81840f1549e90305f4ed7f9b42217b',1,'engine::config']]],
+  ['mousebutton_522',['mouseButton',['../structgraphics_1_1_event.html#adc3ccfe43ab31a5b8af9a1e4288162ab',1,'graphics::Event']]],
+  ['mouseposition_523',['mousePosition',['../classgraphics_1_1_s_f_m_l_facade.html#a232caeb7ce40d74071e59227273bf777',1,'graphics::SFMLFacade']]],
+  ['mousewheelscrolldelta_524',['mouseWheelScrollDelta',['../structgraphics_1_1_event.html#a01d8a8e19d101bc68eafa7d1d3e48418',1,'graphics::Event']]]
 ];

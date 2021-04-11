@@ -1,7 +1,6 @@
 var class_squads_1_1_squad =
 [
-    [ "Squad", "class_squads_1_1_squad.html#ae6928f4c6369cf7af3bc6c6854672d0e", null ],
-    [ "Squad", "class_squads_1_1_squad.html#ad82f4b89c84cd81737ba8cb5db9882ae", null ],
+    [ "Squad", "class_squads_1_1_squad.html#aa9fb6eb8bb4e7024e829a60d1b9a4ffc", null ],
     [ "doOnClick", "class_squads_1_1_squad.html#aa6426ad0b59b00d87c28d3b9d943c11e", null ],
     [ "lateTick", "class_squads_1_1_squad.html#a167bb7f701838cc52ec330fc9a2b7077", null ],
     [ "render", "class_squads_1_1_squad.html#a03d8e0d048bb29c6668ee9c1bd6e0464", null ],

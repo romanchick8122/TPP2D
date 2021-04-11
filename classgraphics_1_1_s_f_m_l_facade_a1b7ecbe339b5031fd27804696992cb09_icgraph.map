@@ -1,7 +1,8 @@
 <map id="graphics::SFMLFacade::DrawRect" name="graphics::SFMLFacade::DrawRect">
-<area shape="rect" id="node1" title=" " alt="" coords="204,104,360,145"/>
+<area shape="rect" id="node1" title=" " alt="" coords="204,136,360,177"/>
 <area shape="rect" id="node2" href="$classengine_1_1_g_u_i_1_1_button.html#a82bc9fabdaba35b1a541a1a0a3fb028c" title=" " alt="" coords="13,5,148,47"/>
 <area shape="rect" id="node3" href="$classengine_1_1_g_u_i_1_1_gui_list.html#ae7b6a3c595534648dae184e0e6cc744c" title=" " alt="" coords="11,71,150,112"/>
-<area shape="rect" id="node4" href="$classengine_1_1_g_u_i_1_1_gui_strip.html#ad63411dc094affb9387d2a47b9a520b0" title=" " alt="" coords="9,136,152,177"/>
-<area shape="rect" id="node5" href="$class_squads_1_1_squad.html#a03d8e0d048bb29c6668ee9c1bd6e0464" title=" " alt="" coords="5,202,156,229"/>
+<area shape="rect" id="node4" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html#a7e942b0d2ffd4c9e96624dd429204645" title=" " alt="" coords="6,136,155,177"/>
+<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_strip.html#ad63411dc094affb9387d2a47b9a520b0" title=" " alt="" coords="9,201,152,243"/>
+<area shape="rect" id="node6" href="$class_squads_1_1_squad.html#a03d8e0d048bb29c6668ee9c1bd6e0464" title=" " alt="" coords="5,267,156,294"/>
 </map>

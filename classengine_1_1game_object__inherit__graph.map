@@ -1,10 +1,11 @@
 <map id="engine::gameObject" name="engine::gameObject">
 <area shape="rect" id="node1" title=" " alt="" coords="313,5,485,156"/>
 <area shape="rect" id="node2" href="$classengine_1_1_g_u_i_1_1_gui_object.html" title=" " alt="" coords="227,204,381,296"/>
-<area shape="rect" id="node6" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="475,204,650,296"/>
+<area shape="rect" id="node7" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="475,204,650,296"/>
 <area shape="rect" id="node3" href="$classengine_1_1_g_u_i_1_1_button.html" title=" " alt="" coords="5,351,141,590"/>
 <area shape="rect" id="node4" href="$classengine_1_1_g_u_i_1_1_gui_list.html" title=" " alt="" coords="165,381,304,561"/>
-<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_strip.html" title=" " alt="" coords="329,366,471,575"/>
-<area shape="rect" id="node7" href="$class_cell.html" title=" " alt="" coords="495,344,631,597"/>
-<area shape="rect" id="node8" href="$class_squads_1_1_squad.html" title=" " alt="" coords="655,351,817,590"/>
+<area shape="rect" id="node6" href="$classengine_1_1_g_u_i_1_1_gui_strip.html" title=" " alt="" coords="329,366,471,575"/>
+<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html" title=" " alt="" coords="160,645,309,781"/>
+<area shape="rect" id="node8" href="$class_cell.html" title=" " alt="" coords="495,344,631,597"/>
+<area shape="rect" id="node9" href="$class_squads_1_1_squad.html" title=" " alt="" coords="655,359,817,583"/>
 </map>

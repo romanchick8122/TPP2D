@@ -1,4 +1,6 @@
 <map id="Factory" name="Factory">
-<area shape="rect" id="node1" title=" " alt="" coords="23,5,125,141"/>
-<area shape="rect" id="node2" href="$class_land_unit_factory.html" title=" " alt="" coords="5,189,143,296"/>
+<area shape="rect" id="node1" title=" " alt="" coords="198,5,299,171"/>
+<area shape="rect" id="node2" href="$class_land_unit_factory.html" title=" " alt="" coords="5,219,143,325"/>
+<area shape="rect" id="node3" href="$class_transport_unit_factory.html" title=" " alt="" coords="167,219,330,325"/>
+<area shape="rect" id="node4" href="$class_units_1_1_armored_unit_factory.html" title=" " alt="" coords="355,219,529,325"/>
 </map>

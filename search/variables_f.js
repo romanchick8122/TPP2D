@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['vertices_509',['vertices',['../class_cell.html#a2e6a1991e810d7e364dfa31290b8886a',1,'Cell::vertices()'],['../structutil_1_1cell_gen_1_1_cell_data.html#af86b14a1ae75e6dfc088f124ec6d211e',1,'util::cellGen::CellData::vertices()']]]
+  ['unitborderflagresists_546',['unitBorderFlagResists',['../class_units_1_1_unit.html#a590977b6c076092de93990f1570c4d63',1,'Units::Unit']]],
+  ['unitlandscapeflagresists_547',['unitLandscapeFlagResists',['../class_units_1_1_unit.html#ae33e56044c168368001e025ff204ba8e',1,'Units::Unit']]],
+  ['unitspeed_548',['unitSpeed',['../class_units_1_1_unit.html#a22910ba3febc83938dc12d6df3637d84',1,'Units::Unit']]]
 ];

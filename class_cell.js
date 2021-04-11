@@ -9,8 +9,8 @@ var class_cell =
     [ "setBorders", "class_cell.html#a9712606b190104ae11477441b795b230", null ],
     [ "tick", "class_cell.html#aed0898dd05e21c9bb69dd34e7b980b64", null ],
     [ "tryOnClick", "class_cell.html#a064227f1968066ac1dfd15229b45c071", null ],
-    [ "adjacent", "class_cell.html#ac5fb435f9a0492aa37439f68c698255e", null ],
-    [ "bordersFlags", "class_cell.html#acf9659d536f44778181baeae09c61b97", null ],
+    [ "adjacent", "class_cell.html#a31b68b88afd26b8e189e89128548ae50", null ],
+    [ "bordersFlags", "class_cell.html#a5d6d014ce2e7ce4f4a3edbb821cdac20", null ],
     [ "center", "class_cell.html#a88f053d67a07ebe61a4333f4242a571d", null ],
     [ "landscapeFlags", "class_cell.html#a5adece57dff347ecfaa5ef29b4a21fc5", null ],
     [ "vertices", "class_cell.html#a2e6a1991e810d7e364dfa31290b8886a", null ]

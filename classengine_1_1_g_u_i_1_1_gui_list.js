@@ -7,6 +7,6 @@ var classengine_1_1_g_u_i_1_1_gui_list =
     [ "tick", "classengine_1_1_g_u_i_1_1_gui_list.html#a16728fff17364af1c8252af4f472b264", null ],
     [ "tryOnClick", "classengine_1_1_g_u_i_1_1_gui_list.html#ad3539aa8269e1b0ab6dc482d601f90f1", null ],
     [ "background", "classengine_1_1_g_u_i_1_1_gui_list.html#ad8db119bb6a8c5b734e2ed965840b9fa", null ],
-    [ "children", "classengine_1_1_g_u_i_1_1_gui_list.html#a4ff029933b5cb849768c1d3e0b676750", null ],
+    [ "children", "classengine_1_1_g_u_i_1_1_gui_list.html#a147a2b32d9355cab72aa57b1e022dccb", null ],
     [ "newPos", "classengine_1_1_g_u_i_1_1_gui_list.html#a78729439ffe995b8ce344b9f717a4439", null ]
 ];

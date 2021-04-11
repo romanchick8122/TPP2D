@@ -1,5 +1,5 @@
 <map id="Squads::Squad" name="Squads::Squad">
-<area shape="rect" id="node1" title=" " alt="" coords="152,448,313,672"/>
+<area shape="rect" id="node1" title=" " alt="" coords="152,448,313,657"/>
 <area shape="rect" id="node2" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="5,249,180,341"/>
 <area shape="rect" id="node3" href="$classengine_1_1game_object.html" title=" " alt="" coords="7,5,179,156"/>
 <area shape="rect" id="node4" href="$class_squads_1_1_action.html" title=" " alt="" coords="318,205,427,385"/>

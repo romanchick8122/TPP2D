@@ -1,4 +1,5 @@
 <map id="engine::gameController::registerObject" name="engine::gameController::registerObject">
-<area shape="rect" id="node1" title=" " alt="" coords="104,5,257,47"/>
-<area shape="rect" id="node2" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,56,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="205,23,359,65"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="56,5,107,32"/>
+<area shape="rect" id="node3" href="$class_squads_1_1_squad.html#aa9fb6eb8bb4e7024e829a60d1b9a4ffc" title=" " alt="" coords="5,56,157,83"/>
 </map>

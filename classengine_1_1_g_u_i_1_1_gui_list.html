@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('classengine_1_1_g_u_i_1_1_gui_list.htm
 <div class="dynheader">
 Inheritance diagram for engine::GUI::GuiList:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classengine_1_1_g_u_i_1_1_gui_list__inherit__graph.svg" width="183" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classengine_1_1_g_u_i_1_1_gui_list__inherit__graph.svg" width="183" height="714"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -117,7 +117,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae7b6a3c595534648dae184e0e6cc744c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3539aa8269e1b0ab6dc482d601f90f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#ad3539aa8269e1b0ab6dc482d601f90f1">tryOnClick</a> (<a class="el" href="classgraphics_1_1_s_f_m_l_facade.html#ad60f01c350199cf1901c6c2bd7f28482">engine::config::Facade::Point</a>, <a class="el" href="structgraphics_1_1_event.html#ab7f7ff8510b790402c97d116cd6c2d66">graphics::Event::MouseButton</a>) override</td></tr>
 <tr class="separator:ad3539aa8269e1b0ab6dc482d601f90f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ffd66a60bd19031993d00e0be1dcfa6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a8ffd66a60bd19031993d00e0be1dcfa6">addChild</a> (std::unique_ptr&lt; <a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">GuiObject</a> &gt; child)</td></tr>
+<tr class="memitem:a8ffd66a60bd19031993d00e0be1dcfa6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a8ffd66a60bd19031993d00e0be1dcfa6">addChild</a> (std::unique_ptr&lt; <a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">GuiObject</a> &gt; child)</td></tr>
 <tr class="separator:a8ffd66a60bd19031993d00e0be1dcfa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classengine_1_1_g_u_i_1_1_gui_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classengine_1_1_g_u_i_1_1_gui_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">engine::GUI::GuiObject</a></td></tr>
 <tr class="memitem:a4be2341dd995388e2e198e0e9cbb69b1 inherit pub_methods_classengine_1_1_g_u_i_1_1_gui_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html#a4be2341dd995388e2e198e0e9cbb69b1">GuiObject</a> (<a class="el" href="classgraphics_1_1_s_f_m_l_facade.html#a1b770b95fdc92d1e366cfb3798533c08">engine::config::Facade::Rect</a> fromRect)</td></tr>
@@ -140,8 +140,8 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4ff029933b5cb849768c1d3e0b676750"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">GuiObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a4ff029933b5cb849768c1d3e0b676750">children</a></td></tr>
-<tr class="separator:a4ff029933b5cb849768c1d3e0b676750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a147a2b32d9355cab72aa57b1e022dccb"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::unique_ptr&lt; <a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">GuiObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a147a2b32d9355cab72aa57b1e022dccb">children</a></td></tr>
+<tr class="separator:a147a2b32d9355cab72aa57b1e022dccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78729439ffe995b8ce344b9f717a4439"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a78729439ffe995b8ce344b9f717a4439">newPos</a></td></tr>
 <tr class="separator:a78729439ffe995b8ce344b9f717a4439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -178,6 +178,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void engine::GUI::GuiList::addChild </td>
@@ -187,7 +190,14 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classengine_1_1_g_u_i_1_1_gui_scroll.html#a3ae01e6abd3139d469c24b61f38256d9">engine::GUI::GuiScroll</a>.</p>
 
 </div>
 </div>
@@ -242,6 +252,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classengine_1_1game_object.html#a62ad6853c38ae41bdd83bf19ae996800">engine::gameObject</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classengine_1_1_g_u_i_1_1_gui_scroll.html#a7e942b0d2ffd4c9e96624dd429204645">engine::GUI::GuiScroll</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -314,6 +326,8 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classengine_1_1game_object.html#abce0cd3023ae237769acfd55945e400a">engine::gameObject</a>.</p>
 
+<p>Reimplemented in <a class="el" href="classengine_1_1_g_u_i_1_1_gui_scroll.html#a386db3af4964a4fb4a1eec53fc4849c2">engine::GUI::GuiScroll</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -331,8 +345,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a4ff029933b5cb849768c1d3e0b676750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ff029933b5cb849768c1d3e0b676750">&#9670;&nbsp;</a></span>children</h2>
+<a id="a147a2b32d9355cab72aa57b1e022dccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a147a2b32d9355cab72aa57b1e022dccb">&#9670;&nbsp;</a></span>children</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,7 +355,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">GuiObject</a>&gt; &gt; engine::GUI::GuiList::children</td>
+          <td class="memname">std::list&lt;std::unique_ptr&lt;<a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html">GuiObject</a>&gt; &gt; engine::GUI::GuiList::children</td>
         </tr>
       </table>
   </td>

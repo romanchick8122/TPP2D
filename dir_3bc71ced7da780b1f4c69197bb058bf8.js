@@ -1,6 +1,12 @@
 var dir_3bc71ced7da780b1f4c69197bb058bf8 =
 [
     [ "AllUnits.h", "_all_units_8h.html", "_all_units_8h" ],
+    [ "ArmoredUnit.h", "_armored_unit_8h.html", [
+      [ "ArmoredUnit", "class_units_1_1_armored_unit.html", "class_units_1_1_armored_unit" ]
+    ] ],
+    [ "ArmoredUnitFactory.h", "_armored_unit_factory_8h.html", [
+      [ "ArmoredUnitFactory", "class_units_1_1_armored_unit_factory.html", "class_units_1_1_armored_unit_factory" ]
+    ] ],
     [ "Factory.h", "_factory_8h.html", [
       [ "Factory", "class_factory.html", "class_factory" ]
     ] ],
@@ -10,11 +16,14 @@ var dir_3bc71ced7da780b1f4c69197bb058bf8 =
     [ "LandUnitFactory.h", "_land_unit_factory_8h.html", [
       [ "LandUnitFactory", "class_land_unit_factory.html", "class_land_unit_factory" ]
     ] ],
+    [ "TransportUnit.h", "_transport_unit_8h.html", [
+      [ "TransportUnit", "class_units_1_1_transport_unit.html", "class_units_1_1_transport_unit" ]
+    ] ],
+    [ "TransportUnitFactory.h", "_transport_unit_factory_8h.html", [
+      [ "TransportUnitFactory", "class_transport_unit_factory.html", "class_transport_unit_factory" ]
+    ] ],
     [ "Unit.h", "_unit_8h.html", [
-      [ "Unit", "class_units_1_1_unit.html", "class_units_1_1_unit" ],
-      [ "TestUnit1", "class_units_1_1_test_unit1.html", "class_units_1_1_test_unit1" ],
-      [ "TestUnit2", "class_units_1_1_test_unit2.html", "class_units_1_1_test_unit2" ],
-      [ "TestUnit3", "class_units_1_1_test_unit3.html", "class_units_1_1_test_unit3" ]
+      [ "Unit", "class_units_1_1_unit.html", "class_units_1_1_unit" ]
     ] ],
     [ "UnitOrder.h", "_unit_order_8h.html", [
       [ "UnitOrder", "class_unit_order.html", "class_unit_order" ],
