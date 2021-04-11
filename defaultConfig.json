@@ -10,8 +10,26 @@
     },
     "AllUnits": {
       "LandUnit": [
-        {"name": "Infantry", "cost": 100, "speed": 40, "HP": 25, "attack": 10, "texture": "resources/squad.png"}
-      ]
+        {"name": "Infantry", "cost": 100, "weight": 80, "speed": 40, "HP": 25, "attack": 10, "texture": "resources/squad.png"},
+        {"name": "Bicycle", "cost": 150, "weight": 110, "speed": 60, "HP": 35, "attack": 10, "texture": "resources/Bicycle_Battalion.png"},
+        {"name": "CoolInfantry", "cost": 250, "weight": 90, "speed": 50, "HP": 40, "attack": 20, "texture": "resources/Mountain.png"},
+        {"name": "Marines", "cost": 100, "weight": 80, "speed": 40, "HP": 25, "attack": 15, "texture": "resources/Marine.png"},
+        {"name": "Paratrooper", "cost": 400, "weight": 80, "speed": 50, "HP": 40, "attack": 30, "texture": "resources/Paratroop.png"},
+        {"name": "Anti-Tank", "cost": 300, "weight": 100, "speed": 20, "HP": 20, "attack": 40, "texture": "resources/Anti-tank.png"}
+      ],
+
+      "TransportUnit": [
+        {"name": "Motorized Infantry", "cost": 300, "weight": 1500, "speed": 80, "HP": 60, "armor": 500, "capacity": 1000, "texture": "resources/squad.png"}
+      ],
+
+      "ArmoredUnit": {
+        "Bases": [
+          {"name": "Light Tank", "cost": 1500, "weight": 4000, "speed": 70, "HP": 400, "armor": 500, "capacity": 250, "texture": "resources/squad.png"}
+        ],
+        "Weapons": [
+          {"addName": "Default", "addCost": 0, "addWeight": 1200, "attack": 80}
+        ]
+      }
     }
   },
   "graphics": {

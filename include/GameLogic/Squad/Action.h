@@ -1,5 +1,7 @@
 class Action;
+
 #pragma once
+
 #include "Squad.h"
 #include "Cell.h"
 
