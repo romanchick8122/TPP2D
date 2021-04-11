@@ -1,3 +1,5 @@
 target_sources(TPP2D PUBLIC
         Button.cpp
-        GuiObject.cpp)
+        GuiList.cpp
+        GuiObject.cpp
+        GuiStrip.cpp)

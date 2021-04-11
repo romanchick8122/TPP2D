@@ -53,7 +53,7 @@ uint32_t engine::NetworkManager::connect(std::string host, int port) {
     settings.sin_addr.s_addr = inet_addr(host.c_str());
     settings.sin_port = htons(port);
     if(::connect(worker, (struct sockaddr*)&settings, sizeof(settings)) < 0) {
-        std::system("start /min server.exe 1");
+        std::system("start /b server.exe 1");
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         settings.sin_family = AF_INET;
         settings.sin_addr.s_addr = inet_addr("127.0.0.1");

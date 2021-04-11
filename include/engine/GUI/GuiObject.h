@@ -3,7 +3,8 @@
 namespace engine::GUI {
     class GuiObject : public gameObject {
       public:
-        GuiObject(engine::config::Facade::Rect fromRect);
+        explicit GuiObject(engine::config::Facade::Rect fromRect);
         engine::config::Facade::Rect boundary;
+        engine::config::Facade::Rect getRenderEdges() override;
     };
 }
