@@ -18,6 +18,12 @@ bool engine::GUI::GuiStrip::tryOnClick(engine::config::Facade::Point clickPositi
     if (!boundary.contains(clickPosition)) {
         return false;
     }
+    for (auto& nxt : children) {
+        if (nxt->tryOnClick(clickPosition - engine::config::Facade::Point{boundary.left, boundary.top},
+                            button)) {
+            return true;
+        }
+    }
     return true;
 }
 void engine::GUI::GuiStrip::addChild(std::unique_ptr<GuiObject> child) {
