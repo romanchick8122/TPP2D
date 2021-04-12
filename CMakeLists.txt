@@ -66,7 +66,7 @@ if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
 endif()
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(TPP2D src/GameLogic/Units/LandUnit.cpp include/GameLogic/Units/LandUnit.h src/GameLogic/Units/LandUnitFactory.cpp include/GameLogic/Units/LandUnitFactory.h src/GameLogic/Squad/AllSquadTemplates.cpp include/GameLogic/Squad/AllSquadTemplates.h src/GameLogic/Units/TransportUnit.cpp include/GameLogic/Units/TransportUnit.h src/GameLogic/Units/ArmoredUnit.cpp include/GameLogic/Units/ArmoredUnit.h src/GameLogic/Units/TransportUnitFactory.cpp include/GameLogic/Units/TransportUnitFactory.h src/GameLogic/Units/ArmoredUnitFactory.cpp include/GameLogic/Units/ArmoredUnitFactory.h)
+add_executable(TPP2D)
 add_subdirectory(resources)
 
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
