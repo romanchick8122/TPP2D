@@ -2,6 +2,8 @@ name: Doxygen Action
 on:
   push:
     branches: [master, dev]
+  pull_request:
+    branches: [master, dev]
 jobs:
   generateDocs:
     runs-on: ubuntu-latest
@@ -14,3 +16,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/html
+      - uses: mattnotmitt/doxygen-action@v1.2.3
