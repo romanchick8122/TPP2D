@@ -1,0 +1,6 @@
+[submodule "delaunay-triangulation-algorithm"]
+	path = delaunay-triangulation-algorithm
+	url = https://github.com/pkositsyn/delaunay-triangulation-algorithm
+[submodule "cmake-build-debug/delaunay-triangulation-algorithm"]
+	path = cmake-build-debug/delaunay-triangulation-algorithm
+	url = https://github.com/pkositsyn/delaunay-triangulation-algorithm
