@@ -9,3 +9,17 @@ Factory::Factory(nlohmann::json &unitInfo, const engine::config::Facade::Texture
         texture(texture_), weight(float(unitInfo["addWeight"]) + otherFactory->cost) {
 
 }
+
+void Factory::render() {return;}
+
+void Factory::tick() {return;}
+
+void Factory::lateTick() {return;}
+
+engine::config::Facade::Rect Factory::getRenderEdges() {
+    return graphics::SFMLFacade::Rect();
+}
+
+bool Factory::tryOnClick(engine::config::Facade::Point clickPosition, graphics::Event::MouseButton) {
+    return false;
+}

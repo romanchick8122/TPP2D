@@ -79,7 +79,7 @@ bool Squads::Squad::tryOnClick(Facade::Point pos, graphics::Event::MouseButton) 
 void Squads::Squad::setCell(Cell *ptr) {
     cell = ptr;
     center = cell->center;
-    shape = Facade::Rect(center.x - 21, center.y - 38, 76, 42);
+    shape = Facade::Rect(center.x - 38, center.y - 21, 76, 42);
 }
 
 void Squads::Squad::doOnClick() {
