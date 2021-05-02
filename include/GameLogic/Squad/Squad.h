@@ -26,7 +26,7 @@ namespace Squads {
 
         void updateUnitSquadPtr();
 
-        void updateSpeed();
+        void update();
 
         float squadCurrentSpeed;
 
@@ -43,11 +43,11 @@ namespace Squads {
 
         void damageUnit(float);
 
-        void updateAttack();
 
         float getAttack();
 
         Squad(std::list<Units::Unit*>);
+        ~Squad();
 
         const float* currentSpeed = &squadCurrentSpeed;
         const std::vector<float>* landscapeFlagResists = &squadLandscapeFlagResists;

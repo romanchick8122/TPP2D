@@ -13,9 +13,16 @@ Squads::Squad::Squad(std::list<Units::Unit *> units_) {
     action = new Action(this);
     units = units_;
     updateFlagResists();
-    updateSpeed();
+    update();
     updateUnitSquadPtr();
-};
+}
+
+Squads::Squad::~Squad() {
+    engine::gameController::Instance()->networkManager.removeShared(this);
+    engine::gameController::Instance()->unregisterObject(this);
+    delete action;
+    for(auto unit : units) delete unit;
+}
 
 void Squads::Squad::updateUnitSquadPtr() {
     for (auto unit : units) unit->setSquad(this);
@@ -34,10 +41,12 @@ void Squads::Squad::updateFlagResists() {
     }
 }
 
-void Squads::Squad::updateSpeed() {
+void Squads::Squad::update() {
     squadCurrentSpeed = 1e9;
+    attack = 0;
     for (auto unit : units) {
         squadCurrentSpeed = std::min(squadCurrentSpeed, *unit->commonSpeed);
+        attack += unit->getAttack();
     }
 }
 
@@ -89,13 +98,6 @@ void Squads::Squad::damageUnit(float d) {
         delete units.front();
         units.pop_front();
         attack -= unitAttack;
-    }
-}
-
-void Squads::Squad::updateAttack() {
-    attack = 0;
-    for(auto unit : units) {
-        attack += unit->getAttack();
     }
 }
 
