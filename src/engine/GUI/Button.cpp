@@ -7,7 +7,7 @@ engine::GUI::Button::Button(engine::config::Facade::Rect bound, std::function<vo
     TextColor(textColor), fontSize(fSize) {}
 engine::GUI::Button::Button(engine::config::Facade::Rect bound,
                             std::function<void(Button*)> click,
-                            engine::config::Facade::Texture* tex, std::string text,
+                            const engine::config::Facade::Texture* tex, std::string text,
                             engine::config::Facade::Color textColor, uint32_t fSize)
     : GuiObject(bound), OnClick(std::move(click)), Texture(tex), Text(std::move(text)), TextColor(textColor),
     fontSize(fSize) {}
