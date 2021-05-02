@@ -12,6 +12,10 @@ bool Units::ArmoredUnitFactory::isPossible(Cell *) {
 }
 
 Units::Unit *Units::ArmoredUnitFactory::createUnit() {
+    auto gay = dynamic_cast<TransportUnit *>(base->createUnit());
+    gay->texture;
+    gay->name;
+    gay->weight;
     auto *unit = new Units::ArmoredUnit(dynamic_cast<TransportUnit *>(base->createUnit()), name, weight);
     unit->setStats(attack);
     return unit;

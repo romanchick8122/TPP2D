@@ -2,7 +2,7 @@
 
 
 Units::ArmoredUnit::ArmoredUnit(Units::TransportUnit *base_, const std::string &name_, float weaponWeight) :
-        Unit(base->texture, name_ + base->name, base->weight + weaponWeight) {
+        Unit(base_->texture, name_ + base_->name, base_->weight + weaponWeight) {
     base = base_;
 }
 
