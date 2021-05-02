@@ -9,7 +9,7 @@ namespace Squads {
 #include "engine/GUI/Button.h"
 namespace Squads {
     class SquadTemplate {
-        std::vector<std::pair<std::pair<Factory*, int>, engine::GUI::Button*>> temp;
+        std::vector<std::pair<std::pair<Factory*, int>, std::pair<engine::GUI::GuiObject*, engine::GUI::Button*>>> temp;
         std::unique_ptr<engine::GUI::GuiList> list;
         engine::GUI::GuiScroll* scrollObj;
         std::unique_ptr<engine::GUI::GuiScroll> factoriesAvailable;
@@ -20,6 +20,7 @@ namespace Squads {
         SquadTemplate();
         bool isPossible(Cell*);
         void addFactory(Factory*, int);
+        void removeFactory(Factory*);
         Squad* build();
         void show();
         void hide();

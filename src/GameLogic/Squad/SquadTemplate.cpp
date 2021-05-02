@@ -25,7 +25,9 @@ std::pair<engine::GUI::GuiObject*, engine::GUI::Button*> Squads::SquadTemplate::
     //texture + count
     auto countButton = new engine::GUI::Button(
         engine::config::Facade::Rect({0, 0}, {76, 42}),
-        [](engine::GUI::Button*) {},
+        [this, factory](engine::GUI::Button*) {
+            removeFactory(factory);
+        },
         factory->texture,
         std::to_string(count),
         engine::config::Facade::Color(255, 255, 255)
@@ -85,14 +87,30 @@ bool Squads::SquadTemplate::isPossible(Cell *ptr) {
 void Squads::SquadTemplate::addFactory(Factory *ptr, int n) {
     for(auto & i : temp) if(i.first.first == ptr) {
         i.first.second += n;
-        i.second->Text = std::to_string(i.first.second);
+        i.second.second->Text = std::to_string(i.first.second);
         return;
     }
 
     //create new gui object
     auto listObj = getFactoryListObject(ptr, n);
     scrollObj->addChild(std::unique_ptr<engine::GUI::GuiObject>(listObj.first));
-    temp.emplace_back(std::make_pair(ptr, n), listObj.second);
+    temp.emplace_back(std::make_pair(ptr, n), listObj);
+}
+void Squads::SquadTemplate::removeFactory(Factory* ptr) {
+    std::remove_reference_t<decltype(temp[0])>* toSwap = nullptr;
+    for (auto& i : temp) if (i.first.first == ptr) {
+        --i.first.second;
+        if (i.first.second == 0) {
+            scrollObj->removeChild(i.second.first);
+            toSwap = &i;
+            break;
+        }
+        i.second.second->Text = std::to_string(i.first.second);
+    }
+    if (toSwap != nullptr) {
+        std::swap(*toSwap, temp.back());
+        temp.pop_back();
+    }
 }
 
 Squads::Squad* Squads::SquadTemplate::build() {
