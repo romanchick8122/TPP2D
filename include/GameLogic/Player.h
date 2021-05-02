@@ -10,4 +10,7 @@ namespace Player{
     };
 
     extern Player* nullPlayer;
+    extern std::vector<Player*> players;
+
+    void setPlayers(int);
 }

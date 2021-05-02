@@ -89,6 +89,7 @@ void Cell::doOnClick() {
     } else if (previousClick == this) {
         Squads::Squad *sqq = Squads::AllTemplates[0]->build();
         sqq->setCell(this);
+        sqq->setOwner(owner);
         previousClick = nullptr;
     }
     previousClick = this;

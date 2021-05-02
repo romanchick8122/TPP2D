@@ -2,6 +2,7 @@
 #include "engine/NetworkManager.h"
 #include <chrono>
 #include <thread>
+#include "Player.h"
 void engine::NetworkManager::makeShared(gameObject* obj) {
     if (!freeIds.empty()) {
         obj->id = freeIds.back();
@@ -66,6 +67,7 @@ uint32_t engine::NetworkManager::connect(std::string host, int port) {
     recv(worker, ans, 6, 0);
     serverId = ans[0];
     int playersCount = ans[1];
+    Player::setPlayers(playersCount);
     uint32_t rngSeed = *reinterpret_cast<uint32_t*>(ans + 2);
     delete[] ans;
     return rngSeed;

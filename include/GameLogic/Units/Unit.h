@@ -38,7 +38,7 @@ namespace Units {
         const std::vector<float>* borderFlagResists = &unitBorderFlagResists;
         const float* commonSpeed = &unitSpeed;
 
-        virtual void changeHP(float);
+        virtual void changeHP(float) = 0;
         bool isAlive();
 
         virtual void tick() = 0;

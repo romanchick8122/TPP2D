@@ -91,7 +91,16 @@ void Squads::Action::move() {
 
 void Squads::Action::attack() {
     Squad* defSquad = currentPath.front()->getSquad();
-    //defSquad->getAttack()
+    defSquad->damageUnit(squad->getAttack());
+    squad->damageUnit(defSquad->getAttack());
+    if (squad->units.empty()) {
+        squad->cell->deleteSquad(squad);
+        delete squad;
+    }
+    if (defSquad->units.empty()) {
+        defSquad->cell->deleteSquad(defSquad);
+        delete defSquad;
+    }
 }
 
 void Squads::Action::stopAction() {
