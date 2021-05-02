@@ -41,6 +41,10 @@ float Units::TransportUnit::getAttack() {
 }
 
 void Units::TransportUnit::changeHP(float d) {
+    if(units.empty()) {
+        HP += d;
+        return;
+    }
     units.front()->changeHP(d);
     if(!units.front()->isAlive()) {
         delete units.front();

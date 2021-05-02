@@ -57,7 +57,7 @@ uint32_t engine::NetworkManager::connect(std::string host, int port) {
         std::system("start /b server.exe 1");
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         settings.sin_family = AF_INET;
-        settings.sin_addr.s_addr = inet_addr("127.0.0.1");
+        settings.sin_addr.s_addr = inet_addr("192.168.0.105");
         settings.sin_port = htons(9587);
         if (::connect(worker, (struct sockaddr*)&settings, sizeof(settings)) < 0) {
             throw std::runtime_error("Do not close the server");
