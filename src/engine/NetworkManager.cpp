@@ -62,10 +62,11 @@ uint32_t engine::NetworkManager::connect(std::string host, int port) {
             throw std::runtime_error("Do not close the server");
         }
     }
-    char* ans = new char[5];
-    recv(worker, ans, 5, 0);
+    char* ans = new char[6];
+    recv(worker, ans, 6, 0);
     serverId = ans[0];
-    uint32_t rngSeed = *reinterpret_cast<uint32_t*>(ans + 1);
+    int playersCount = ans[1];
+    uint32_t rngSeed = *reinterpret_cast<uint32_t*>(ans + 2);
     delete[] ans;
     return rngSeed;
 }

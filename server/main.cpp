@@ -33,10 +33,11 @@ int main(int argc, char *argv[]) {
         struct sockaddr_in client;
         int tmp = sizeof(struct sockaddr_in);
         clients[i] = accept(worker, (struct sockaddr*)&client, &tmp);
-        char* buff = new char[5];
+        char* buff = new char[6];
         buff[0] = static_cast<char>(i);
-        *reinterpret_cast<uint32_t*>(buff + 1) = gameRng;
-        send(clients[i], buff, 5, 0);
+        buff[1] = static_cast<char>(numberOfConnections);
+        *reinterpret_cast<uint32_t*>(buff + 2) = gameRng;
+        send(clients[i], buff, 6, 0);
         buff[0] = 0;
         send(clients[i], buff, 1, 0);
         delete[] buff;
