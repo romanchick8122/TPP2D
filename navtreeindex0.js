@@ -183,9 +183,10 @@ var NAVTREEINDEX0 =
 "class_squads_1_1_squad_order.html#acec58edbe10be8841deb2a2ca506c0c2":[1,0,3,2,1],
 "class_squads_1_1_squad_template.html":[1,0,3,3],
 "class_squads_1_1_squad_template.html#a251dafc4bac1499cddcaed5d3aa7a8a1":[1,0,3,3,2],
+"class_squads_1_1_squad_template.html#a3daf5310bd7913dbf9a7abee2f403ca8":[1,0,3,3,5],
 "class_squads_1_1_squad_template.html#a546f2ecdbf38e384da68c11a6e7158d3":[1,0,3,3,0],
 "class_squads_1_1_squad_template.html#a802b8fd430eda0b96170c9d84b0a788e":[1,0,3,3,1],
-"class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb":[1,0,3,3,5],
+"class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb":[1,0,3,3,6],
 "class_squads_1_1_squad_template.html#ac4e3b426950fa595ecc8f1ea23f6eb99":[1,0,3,3,3],
 "class_squads_1_1_squad_template.html#af049a7a09c2d158a14834d1ad3885869":[1,0,3,3,4],
 "class_test_order.html":[1,0,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_units_1_1_unit.html#af4bfdbb32e636b7136860f62bbf7b31a":[1,0,4,4,13],
 "classengine_1_1_action.html":[1,0,1,2],
 "classengine_1_1_action.html#a08854e5fd0a2ab4c03ee26f5a816c7ae":[1,0,1,2,0],
-"classengine_1_1_action.html#a08854e5fd0a2ab4c03ee26f5a816c7aea9e45c83e63fc5535a6eec40212f0ac5c":[1,0,1,2,0,1],
-"classengine_1_1_action.html#a08854e5fd0a2ab4c03ee26f5a816c7aeab232789ef5cab9b5d1b8a61008ab3585":[1,0,1,2,0,0]
+"classengine_1_1_action.html#a08854e5fd0a2ab4c03ee26f5a816c7aea9e45c83e63fc5535a6eec40212f0ac5c":[1,0,1,2,0,1]
 };

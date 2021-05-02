@@ -1,10 +1,8 @@
 <map id="Squads::SquadTemplate::SquadTemplate" name="Squads::SquadTemplate::SquadTemplate">
-<area shape="rect" id="node1" title=" " alt="" coords="5,104,168,145"/>
-<area shape="rect" id="node2" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html#a3ae01e6abd3139d469c24b61f38256d9" title=" " alt="" coords="223,5,372,47"/>
-<area shape="rect" id="node3" href="$class_squads_1_1_squad_template.html#ac4e3b426950fa595ecc8f1ea23f6eb99" title=" " alt="" coords="216,71,379,112"/>
-<area shape="rect" id="node6" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html#af97163559c7e1683c396100e4c74c394" title=" " alt="" coords="223,136,372,177"/>
-<area shape="rect" id="node7" href="$class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb" title=" " alt="" coords="216,201,379,243"/>
-<area shape="rect" id="node4" href="$classengine_1_1game_controller.html#ae2459bdafdf03e3b1519a14738744f00" title=" " alt="" coords="429,136,582,177"/>
-<area shape="rect" id="node5" href="$classengine_1_1game_controller.html#ad3744d23958867b81a1df22692aadd66" title=" " alt="" coords="427,71,584,112"/>
-<area shape="rect" id="node8" href="$classengine_1_1game_controller.html#ae124e19bf29bef364aded5e60d333542" title=" " alt="" coords="429,201,582,243"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,72,168,113"/>
+<area shape="rect" id="node2" href="$class_squads_1_1_squad_template.html#ac4e3b426950fa595ecc8f1ea23f6eb99" title=" " alt="" coords="216,39,379,80"/>
+<area shape="rect" id="node5" href="$class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb" title=" " alt="" coords="216,104,379,145"/>
+<area shape="rect" id="node3" href="$classengine_1_1game_controller.html#ae2459bdafdf03e3b1519a14738744f00" title=" " alt="" coords="429,71,582,112"/>
+<area shape="rect" id="node4" href="$classengine_1_1game_controller.html#ad3744d23958867b81a1df22692aadd66" title=" " alt="" coords="427,5,584,47"/>
+<area shape="rect" id="node6" href="$classengine_1_1game_controller.html#ae124e19bf29bef364aded5e60d333542" title=" " alt="" coords="429,136,582,177"/>
 </map>
