@@ -62,8 +62,11 @@ void Squads::Squad::lateTick() { return; };
 void Squads::Squad::render() {
     action->render();
     Facade::DrawRect(shape, units.front()->texture);
+    auto d = shape.height / units.size();
+    float currentTop = shape.top;
     for(auto unit : units) {
-        //unit -> ;
+        unit -> drawHP(engine::config::Facade::Rect({shape.left, currentTop}, {shape.width, d}));
+        currentTop += d;
     }
 };
 

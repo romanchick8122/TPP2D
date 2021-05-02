@@ -11,6 +11,7 @@ namespace Units {
 #include "GameLogic/Squad/Squad.h"
 #include "AllFlags.h"
 #include "graphics/Textures.h"
+#include "engine/config.h"
 
 namespace Units {
     class Unit {
@@ -41,6 +42,7 @@ namespace Units {
 
         virtual void changeHP(float) = 0;
         bool isAlive();
+        virtual void drawHP(engine::config::Facade::Rect);
 
         virtual void tick() = 0;
 
