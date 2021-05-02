@@ -2,6 +2,7 @@
 #include "engine/GUI/GuiObject.h"
 namespace engine::GUI {
     class Button : public GuiObject {
+        static std::string prepText(std::string&&, engine::config::Facade::Rect, uint32_t);
       public:
         std::function<void(Button*)> OnClick;
         const engine::config::Facade::Texture* Texture;

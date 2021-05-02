@@ -33,7 +33,7 @@ std::pair<engine::GUI::GuiObject*, engine::GUI::Button*> Squads::SquadTemplate::
     factoryObj->addChild(std::unique_ptr<engine::GUI::GuiObject>(countButton));
     //name
     factoryObj->addChild(std::make_unique<engine::GUI::Button>(
-        engine::config::Facade::Rect({0, 0}, {390 - 76 - 15, 18}),
+        engine::config::Facade::Rect({0, 0}, {390 - 76 - 15, 42}),
         [](engine::GUI::Button*) {},
         engine::config::Facade::Color(0, 0, 0, 0),
         factory->name,
