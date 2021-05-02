@@ -25,5 +25,6 @@ void Units::ArmoredUnit::setStats(float attack_) {
 }
 
 void Units::ArmoredUnit::changeHP(float d) {
-    HP += d;
+    base -> changeHP(d);
+    if(base -> isAlive()) HP = 0;
 }

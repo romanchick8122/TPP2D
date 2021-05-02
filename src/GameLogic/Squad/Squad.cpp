@@ -61,7 +61,10 @@ void Squads::Squad::lateTick() { return; };
 
 void Squads::Squad::render() {
     action->render();
-    Facade::DrawRect(shape, graphics::Textures::textures[0]);
+    Facade::DrawRect(shape, units.front()->texture);
+    for(auto unit : units) {
+        unit -> ;
+    }
 };
 
 Facade::Rect Squads::Squad::getRenderEdges() {

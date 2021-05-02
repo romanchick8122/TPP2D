@@ -24,6 +24,7 @@ void Units::TransportUnit::deleteUnit(const Units::Unit *&unit_) {
 
 void Units::TransportUnit::setStats(float HP_, float speed_, float armor_, float capacity_) {
     HP = HP_;
+    fullHP = HP_;
     unitSpeed = speed_;
     capacity = capacity_;
     armor = armor_;

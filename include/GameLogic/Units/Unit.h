@@ -23,6 +23,7 @@ namespace Units {
         std::vector<float> unitBorderFlagResists;
         float unitSpeed;
         float HP;
+        float fullHP;
     public:
         const std::string name;
         const engine::config::Facade::Texture* texture;

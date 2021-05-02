@@ -11,6 +11,7 @@ Units::LandUnit::LandUnit(const std::string &name_, const graphics::SFMLFacade::
 
 void Units::LandUnit::setStats(float HP_, float speed_, float attack_) {
     HP = HP_;
+    fullHP = HP_;
     unitSpeed = speed_;
     attack = attack_;
     unitBorderFlagResists = Flags::generateBorderFlags();

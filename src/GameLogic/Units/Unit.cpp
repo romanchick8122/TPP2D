@@ -30,10 +30,11 @@ void Units::Unit::setSquad(Squads::Squad *ptr) {
     squad = ptr;
 }
 
-Units::Unit::Unit(const graphics::SFMLFacade::Texture *&texture_, const std::string &name_, float weight_) : name(
-        name_),
+Units::Unit::Unit(const graphics::SFMLFacade::Texture *&texture_, const std::string &name_, float weight_) : name(name_),
                                                                                                              texture(texture_),
-                                                                                                             weight(weight_) {}
+                                                                                                             weight(weight_) {
+    HP = 1;
+}
 
 bool Units::Unit::isAlive() {
     return HP > 0;
