@@ -4,6 +4,7 @@
 #include "GameLogic/Units/AllUnits.h"
 #include "engine/GUI/GuiStrip.h"
 #include "engine/GUI/GuiScroll.h"
+#include "engine/actions/SpawnAction.h"
 engine::GUI::GuiObject* Squads::SquadTemplate::getAvailableFactoryObject(Factory* factory) {
     auto strip = new engine::GUI::GuiStrip(390, engine::config::Facade::Color(30, 20, 4));
     strip->addChild(std::make_unique<engine::GUI::Button>(
@@ -113,11 +114,15 @@ void Squads::SquadTemplate::removeFactory(Factory* ptr) {
     }
 }
 
-Squads::Squad* Squads::SquadTemplate::build() {
-    if(temp.empty()) return nullptr;
-    std::list<Units::Unit*> units_;
-    for(auto f : temp) for(int i = 0; i < f.first.second; ++i) units_.push_back(f.first.first -> createUnit());
-    return new Squads::Squad(units_);
+void Squads::SquadTemplate::build(Cell* buildOn, Player::Player* owner) {
+    if(temp.empty()) return;
+    std::vector<std::pair<size_t, size_t>> toAction(temp.size());
+    for (size_t i = 0; i < temp.size(); ++i) {
+        toAction[i] = {temp[i].first.first->id, temp[i].first.second};
+    }
+    engine::gameController::Instance()->networkManager.addAction(std::unique_ptr<engine::Action>(
+        new engine::actions::SpawnAction(std::move(toAction), buildOn->id, owner->id)
+        ));
 }
 
 void Squads::SquadTemplate::show() {

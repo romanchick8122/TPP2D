@@ -87,9 +87,7 @@ void Cell::doOnClick() {
                 new engine::actions::SetSquadPath(squad, this)
         ));
     } else if (previousClick == this) {
-        Squads::Squad *sqq = Squads::AllTemplates[0]->build();
-        sqq->setCell(this);
-        sqq->setOwner(owner);
+        Squads::AllTemplates[0]->build(this, owner);
         previousClick = nullptr;
     }
     previousClick = this;

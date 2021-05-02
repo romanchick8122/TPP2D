@@ -6,7 +6,8 @@ namespace engine {
       public:
         enum Type {
             None,
-            SetSquadPath
+            SetSquadPath,
+            SpawnAction
         };
         virtual void write(std::ostream&) = 0;
         virtual void apply() = 0;

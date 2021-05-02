@@ -7,6 +7,7 @@ namespace Squads {
 #include "engine/GUI/GuiList.h"
 #include "engine/GUI/GuiScroll.h"
 #include "engine/GUI/Button.h"
+#include "GameLogic/Player.h"
 namespace Squads {
     class SquadTemplate {
         std::vector<std::pair<std::pair<Factory*, int>, std::pair<engine::GUI::GuiObject*, engine::GUI::Button*>>> temp;
@@ -21,7 +22,7 @@ namespace Squads {
         bool isPossible(Cell*);
         void addFactory(Factory*, int);
         void removeFactory(Factory*);
-        Squad* build();
+        void build(Cell*, Player::Player*);
         void show();
         void hide();
     };

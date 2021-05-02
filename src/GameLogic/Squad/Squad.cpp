@@ -63,7 +63,7 @@ void Squads::Squad::render() {
     action->render();
     Facade::DrawRect(shape, units.front()->texture);
     for(auto unit : units) {
-        unit -> ;
+        //unit -> ;
     }
 };
 
