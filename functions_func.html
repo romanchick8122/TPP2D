@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>addFactory()
 : <a class="el" href="class_squads_1_1_squad_template.html#a802b8fd430eda0b96170c9d84b0a788e">Squads::SquadTemplate</a>
 </li>
+<li>addSquad()
+: <a class="el" href="class_cell.html#a50e9810f387e03054e49eaa5aca9c0da">Cell</a>
+</li>
 <li>addUnit()
 : <a class="el" href="class_units_1_1_transport_unit.html#adf14a90cea3911431da6e6107dc1c17b">Units::TransportUnit</a>
 </li>
@@ -106,6 +109,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1actions_1_1_click_action.html#a54693ba253919c87a5f5b828a9138b3c">engine::actions::ClickAction</a>
 , <a class="el" href="classengine_1_1actions_1_1_none.html#a388f3eab0ae0420893b685643aebd31c">engine::actions::None</a>
 , <a class="el" href="classengine_1_1actions_1_1_set_squad_path.html#a95516a8d5ad9b26f2719847fbbfe0892">engine::actions::SetSquadPath</a>
+, <a class="el" href="classengine_1_1actions_1_1_spawn_action.html#ac4f864831eda5eed4882a861c96ac065">engine::actions::SpawnAction</a>
 </li>
 <li>ArmoredUnit()
 : <a class="el" href="class_units_1_1_armored_unit.html#a60205557a0e95cbd607073db03cf30a5">Units::ArmoredUnit</a>
@@ -113,12 +117,15 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>ArmoredUnitFactory()
 : <a class="el" href="class_units_1_1_armored_unit_factory.html#a797961ac27b2829c9792c782e6edfa02">Units::ArmoredUnitFactory</a>
 </li>
+<li>attack()
+: <a class="el" href="class_squads_1_1_action.html#a3b7c63df595c68d48021fe912ec368ac">Squads::Action</a>
+</li>
 </ul>
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>build()
-: <a class="el" href="class_squads_1_1_squad_template.html#a251dafc4bac1499cddcaed5d3aa7a8a1">Squads::SquadTemplate</a>
+: <a class="el" href="class_squads_1_1_squad_template.html#aa6b116668389ee5b7b498d6b99bca5b1">Squads::SquadTemplate</a>
 </li>
 <li>Button()
 : <a class="el" href="classengine_1_1_g_u_i_1_1_button.html#aba63e74eba0a7ea1228ccd5e5933c550">engine::GUI::Button</a>
@@ -135,6 +142,12 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </li>
 <li>CellData()
 : <a class="el" href="structutil_1_1cell_gen_1_1_cell_data.html#a159f3f3def1c93c1ced786428b262d95">util::cellGen::CellData</a>
+</li>
+<li>changeHP()
+: <a class="el" href="class_units_1_1_armored_unit.html#a28220b0e398e3b968d5df862854221b9">Units::ArmoredUnit</a>
+, <a class="el" href="class_units_1_1_land_unit.html#a6b00fd132c2b53652e9c5fb4b8bfd0aa">Units::LandUnit</a>
+, <a class="el" href="class_units_1_1_transport_unit.html#a9899783c9728890d6cef754f90988345">Units::TransportUnit</a>
+, <a class="el" href="class_units_1_1_unit.html#a73b7389aadd967fb1faeedb9fcc40803">Units::Unit</a>
 </li>
 <li>connect()
 : <a class="el" href="classengine_1_1_network_manager.html#abd5368c2da7e065e16cacb6f2a15154a">engine::NetworkManager</a>
@@ -153,6 +166,12 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>damageUnit()
+: <a class="el" href="class_squads_1_1_squad.html#a935fffdffa2cbacff79d5496acf1e6a4">Squads::Squad</a>
+</li>
+<li>deleteSquad()
+: <a class="el" href="class_cell.html#a04a152fd295f19672938c0f1e67439e0">Cell</a>
+</li>
 <li>deleteUnit()
 : <a class="el" href="class_units_1_1_transport_unit.html#afd6b29af8c41f05fd19aff41e04e2d8f">Units::TransportUnit</a>
 </li>
@@ -219,7 +238,8 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 : <a class="el" href="class_units_1_1_armored_unit.html#a6490b3541e1e250961fda346f57f65eb">Units::ArmoredUnit</a>
 </li>
 <li>getAttack()
-: <a class="el" href="class_units_1_1_armored_unit.html#af0f3be7a9d438344d82dce49285a7eff">Units::ArmoredUnit</a>
+: <a class="el" href="class_squads_1_1_squad.html#aab6f3e93bba14a6a40553fbd3573dfbe">Squads::Squad</a>
+, <a class="el" href="class_units_1_1_armored_unit.html#af0f3be7a9d438344d82dce49285a7eff">Units::ArmoredUnit</a>
 , <a class="el" href="class_units_1_1_land_unit.html#a3b278a2520483d37dff81840dc5816fb">Units::LandUnit</a>
 , <a class="el" href="class_units_1_1_transport_unit.html#a4b7be7e309d8973c7a564a49b8919fce">Units::TransportUnit</a>
 , <a class="el" href="class_units_1_1_unit.html#a510bce5c8d36397a64c6dc4f4de04827">Units::Unit</a>
@@ -229,9 +249,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1game_object.html#aed681db75a287031e19b20a3ad29b8b5">engine::gameObject</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_button.html#ac779d7c06259b327bef93d510d15bda6">engine::GUI::Button</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_object.html#a1a088c13cc7aa40671c2971068ffc968">engine::GUI::GuiObject</a>
+, <a class="el" href="class_factory.html#ab13b32856e3cf64674a5480b7cde881f">Factory</a>
 </li>
 <li>getShared()
 : <a class="el" href="classengine_1_1_network_manager.html#a56504e3d77a73e472701788174bca212">engine::NetworkManager</a>
+</li>
+<li>getSquad()
+: <a class="el" href="class_cell.html#a7fc98c8abcb20fa05d7e82e9d1065313">Cell</a>
 </li>
 <li>GuiList()
 : <a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a07f239e80a012548276d1b06e3204c5f">engine::GUI::GuiList</a>
@@ -262,6 +286,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>Instance()
 : <a class="el" href="classengine_1_1game_controller.html#ae2459bdafdf03e3b1519a14738744f00">engine::gameController</a>
 </li>
+<li>isAlive()
+: <a class="el" href="class_units_1_1_unit.html#a4309d1421354210c1fb695ff8c9fb354">Units::Unit</a>
+</li>
 <li>isOrderPossible()
 : <a class="el" href="class_units_1_1_unit.html#acc32e11d191a7b40b9c4c73ece296f40">Units::Unit</a>
 </li>
@@ -275,6 +302,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </li>
 <li>isPossibleToAdd()
 : <a class="el" href="class_units_1_1_transport_unit.html#a8c40fda75fd5c9753739048ae3ae3e16">Units::TransportUnit</a>
+</li>
+<li>isProtected()
+: <a class="el" href="class_cell.html#ab1e6724cdab7953af5e804d90a92ee15">Cell</a>
 </li>
 </ul>
 
@@ -292,6 +322,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1_g_u_i_1_1_button.html#adcdd3923fc1fd6cc2cf80110f57838fc">engine::GUI::Button</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#af92b78cf9023ee7bb57303cefbff5a16">engine::GUI::GuiList</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_strip.html#a051860d9e96b86577e76b710bc832ed1">engine::GUI::GuiStrip</a>
+, <a class="el" href="class_factory.html#ad99d4c42d59dd1101e179ca7be0e5810">Factory</a>
 , <a class="el" href="class_squads_1_1_squad.html#a167bb7f701838cc52ec330fc9a2b7077">Squads::Squad</a>
 </li>
 <li>length()
@@ -303,6 +334,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>makeShared()
 : <a class="el" href="classengine_1_1_network_manager.html#aaf96b7aefc25cbac756e7ca5660030e3">engine::NetworkManager</a>
+</li>
+<li>move()
+: <a class="el" href="class_squads_1_1_action.html#ac3cecdd0b4c36598a8e1e6f9c4dd94b7">Squads::Action</a>
 </li>
 </ul>
 
@@ -325,6 +359,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>Player()
+: <a class="el" href="struct_player_1_1_player.html#af34ac9784824b21d97a24395a6ecb12e">Player::Player</a>
+</li>
 <li>processActions()
 : <a class="el" href="classengine_1_1_network_manager.html#ab4f7c82e685be43b92d5a47a8e5bbff9">engine::NetworkManager</a>
 </li>
@@ -339,6 +376,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 : <a class="el" href="classengine_1_1actions_1_1_click_action.html#a7b3a84e181e6a0f433f2c8f5633d5251">engine::actions::ClickAction</a>
 , <a class="el" href="classengine_1_1actions_1_1_none.html#a3bb0ac6f4435d0a764dbfcfe9f2bbf05">engine::actions::None</a>
 , <a class="el" href="classengine_1_1actions_1_1_set_squad_path.html#a6eacd7a79eb8e7dd67faf2d4fce26f12">engine::actions::SetSquadPath</a>
+, <a class="el" href="classengine_1_1actions_1_1_spawn_action.html#a48c5c917220738af72d078fb236a8d3f">engine::actions::SpawnAction</a>
 </li>
 <li>registerObject()
 : <a class="el" href="classengine_1_1game_controller.html#acbec181b8935b2fd7670808494823345">engine::gameController</a>
@@ -362,6 +400,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#ae7b6a3c595534648dae184e0e6cc744c">engine::GUI::GuiList</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_scroll.html#a7e942b0d2ffd4c9e96624dd429204645">engine::GUI::GuiScroll</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_strip.html#ad63411dc094affb9387d2a47b9a520b0">engine::GUI::GuiStrip</a>
+, <a class="el" href="class_factory.html#a363bc933f354cdc6e5f5e480499fd6e0">Factory</a>
 , <a class="el" href="struct_flag.html#abfc023c794c3f07683d28d44dc3a85bd">Flag</a>
 , <a class="el" href="class_squads_1_1_action.html#a712b11f51d4fa09a85f52e0c7766d35d">Squads::Action</a>
 , <a class="el" href="class_squads_1_1_squad.html#a03d8e0d048bb29c6668ee9c1bd6e0464">Squads::Squad</a>
@@ -378,6 +417,10 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </li>
 <li>setCell()
 : <a class="el" href="class_squads_1_1_squad.html#aa2375e6681c8d5212eead8b8f9d3430d">Squads::Squad</a>
+</li>
+<li>setOwner()
+: <a class="el" href="class_cell.html#a7fea7ca42ce6e66f5a2dab19d5ad126f">Cell</a>
+, <a class="el" href="class_squads_1_1_squad.html#af30fe1d5849ed2b7e0a1637964ef262f">Squads::Squad</a>
 </li>
 <li>setPath()
 : <a class="el" href="class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75">Squads::Action</a>
@@ -396,11 +439,17 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>show()
 : <a class="el" href="class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb">Squads::SquadTemplate</a>
 </li>
+<li>SpawnAction()
+: <a class="el" href="classengine_1_1actions_1_1_spawn_action.html#a8662ba7158801af87f11546526579b4e">engine::actions::SpawnAction</a>
+</li>
 <li>Squad()
 : <a class="el" href="class_squads_1_1_squad.html#aa9fb6eb8bb4e7024e829a60d1b9a4ffc">Squads::Squad</a>
 </li>
 <li>SquadTemplate()
 : <a class="el" href="class_squads_1_1_squad_template.html#a546f2ecdbf38e384da68c11a6e7158d3">Squads::SquadTemplate</a>
+</li>
+<li>stopAction()
+: <a class="el" href="class_squads_1_1_action.html#ab7bd48f598acdb5d7fd90c0567088ba8">Squads::Action</a>
 </li>
 </ul>
 
@@ -412,6 +461,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1_g_u_i_1_1_button.html#a2ff630c490e7c09f6ccecf4dd0327f20">engine::GUI::Button</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#a16728fff17364af1c8252af4f472b264">engine::GUI::GuiList</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_strip.html#acd5d279061205a2316f108d8be170e28">engine::GUI::GuiStrip</a>
+, <a class="el" href="class_factory.html#a685af424de23073f3ce46f21d7537e6f">Factory</a>
 , <a class="el" href="class_squads_1_1_action.html#ad501666de46d69f03ed79874ac0858fd">Squads::Action</a>
 , <a class="el" href="class_squads_1_1_squad.html#a511d284313c4ec4132b23f9a5cc31a9e">Squads::Squad</a>
 , <a class="el" href="class_test_order.html#a114e9cf7affdc7f633a6d41c2601a701">TestOrder</a>
@@ -434,6 +484,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_list.html#ad3539aa8269e1b0ab6dc482d601f90f1">engine::GUI::GuiList</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_scroll.html#a386db3af4964a4fb4a1eec53fc4849c2">engine::GUI::GuiScroll</a>
 , <a class="el" href="classengine_1_1_g_u_i_1_1_gui_strip.html#a41ee9f439c2ba430607bfe0f9c3f49b3">engine::GUI::GuiStrip</a>
+, <a class="el" href="class_factory.html#a3e1f1559abd0833a290d7acdc97513c0">Factory</a>
 , <a class="el" href="class_squads_1_1_squad.html#a8e5eed9cf754506e7476916c2949023f">Squads::Squad</a>
 </li>
 </ul>
@@ -458,6 +509,14 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classengine_1_1actions_1_1_click_action.html#ada97bab786f647e24649e7856630229d">engine::actions::ClickAction</a>
 , <a class="el" href="classengine_1_1actions_1_1_none.html#abaeeef4c0b9ea3fad0d702dc4f8baf1c">engine::actions::None</a>
 , <a class="el" href="classengine_1_1actions_1_1_set_squad_path.html#acd84150bbf86cefc8c4ea8efdf875c88">engine::actions::SetSquadPath</a>
+, <a class="el" href="classengine_1_1actions_1_1_spawn_action.html#ad364c29a7bf5cfc9fb8116db8b489619">engine::actions::SpawnAction</a>
+</li>
+</ul>
+
+
+<h3><a id="index__7E"></a>- ~ -</h3><ul>
+<li>~Squad()
+: <a class="el" href="class_squads_1_1_squad.html#a1951c087cfde5954f78a2ee80a688933">Squads::Squad</a>
 </li>
 </ul>
 </div><!-- contents -->

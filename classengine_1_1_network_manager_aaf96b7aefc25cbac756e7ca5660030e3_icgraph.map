@@ -1,5 +1,6 @@
 <map id="engine::NetworkManager::makeShared" name="engine::NetworkManager::makeShared">
-<area shape="rect" id="node1" title=" " alt="" coords="205,23,371,65"/>
+<area shape="rect" id="node1" title=" " alt="" coords="205,49,371,90"/>
 <area shape="rect" id="node2" href="$class_cell.html#aa3317a89121135ce43f0ade0248dd9e0" title=" " alt="" coords="45,5,117,32"/>
-<area shape="rect" id="node3" href="$class_squads_1_1_squad.html#aa9fb6eb8bb4e7024e829a60d1b9a4ffc" title=" " alt="" coords="5,56,157,83"/>
+<area shape="rect" id="node3" href="$class_factory.html#aaf775d7c3f301fc3af535b99939cfc87" title=" " alt="" coords="24,56,139,83"/>
+<area shape="rect" id="node4" href="$class_squads_1_1_squad.html#aa9fb6eb8bb4e7024e829a60d1b9a4ffc" title=" " alt="" coords="5,107,157,133"/>
 </map>

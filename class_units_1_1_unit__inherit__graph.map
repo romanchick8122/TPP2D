@@ -1,6 +1,6 @@
 <map id="Units::Unit" name="Units::Unit">
-<area shape="rect" id="node1" title=" " alt="" coords="125,5,311,376"/>
-<area shape="rect" id="node2" href="$class_units_1_1_armored_unit.html" title=" " alt="" coords="5,431,137,582"/>
-<area shape="rect" id="node3" href="$class_units_1_1_land_unit.html" title=" " alt="" coords="162,446,274,567"/>
-<area shape="rect" id="node4" href="$class_units_1_1_transport_unit.html" title=" " alt="" coords="298,424,437,589"/>
+<area shape="rect" id="node1" title=" " alt="" coords="125,5,311,420"/>
+<area shape="rect" id="node2" href="$class_units_1_1_armored_unit.html" title=" " alt="" coords="5,475,137,641"/>
+<area shape="rect" id="node3" href="$class_units_1_1_land_unit.html" title=" " alt="" coords="162,490,274,626"/>
+<area shape="rect" id="node4" href="$class_units_1_1_transport_unit.html" title=" " alt="" coords="298,468,437,648"/>
 </map>

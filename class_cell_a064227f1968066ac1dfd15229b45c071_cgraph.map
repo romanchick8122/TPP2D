@@ -1,9 +1,8 @@
 <map id="Cell::tryOnClick" name="Cell::tryOnClick">
-<area shape="rect" id="node1" title=" " alt="" coords="5,133,116,159"/>
-<area shape="rect" id="node2" href="$class_cell.html#a34f5c6147f63470486b6e9e9d6d33ee9" title=" " alt="" coords="193,93,303,119"/>
-<area shape="rect" id="node6" href="$namespaceutil_1_1geometry.html#aa0e434944c0af835a95ac67327f2bf2b" title=" " alt="" coords="164,158,332,185"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,116,134"/>
+<area shape="rect" id="node2" href="$class_cell.html#a34f5c6147f63470486b6e9e9d6d33ee9" title=" " alt="" coords="193,78,303,105"/>
+<area shape="rect" id="node5" href="$namespaceutil_1_1geometry.html#aa0e434944c0af835a95ac67327f2bf2b" title=" " alt="" coords="164,133,332,159"/>
 <area shape="rect" id="node3" href="$classengine_1_1_network_manager.html#aacc37ba20779d3514617aadfa2660309" title=" " alt="" coords="392,5,557,47"/>
 <area shape="rect" id="node4" href="$classengine_1_1game_controller.html#ae2459bdafdf03e3b1519a14738744f00" title=" " alt="" coords="398,71,551,112"/>
-<area shape="rect" id="node5" href="$class_squads_1_1_squad.html#aa2375e6681c8d5212eead8b8f9d3430d" title=" " alt="" coords="397,137,552,163"/>
-<area shape="rect" id="node7" href="$namespaceutil_1_1geometry.html#ab231b2cc3de4921367ecbff190cd337d" title=" " alt="" coords="380,187,569,214"/>
+<area shape="rect" id="node6" href="$namespaceutil_1_1geometry.html#ab231b2cc3de4921367ecbff190cd337d" title=" " alt="" coords="380,137,569,163"/>
 </map>

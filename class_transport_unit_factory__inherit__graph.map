@@ -1,4 +1,5 @@
 <map id="TransportUnitFactory" name="TransportUnitFactory">
-<area shape="rect" id="node1" title=" " alt="" coords="5,219,168,325"/>
-<area shape="rect" id="node2" href="$class_factory.html" title=" " alt="" coords="36,5,137,171"/>
+<area shape="rect" id="node1" title=" " alt="" coords="10,491,173,597"/>
+<area shape="rect" id="node2" href="$class_factory.html" title=" " alt="" coords="23,204,159,443"/>
+<area shape="rect" id="node3" href="$classengine_1_1game_object.html" title=" " alt="" coords="5,5,177,156"/>
 </map>

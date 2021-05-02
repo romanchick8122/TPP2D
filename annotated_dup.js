@@ -7,7 +7,8 @@ var annotated_dup =
       [ "actions", "namespaceengine_1_1actions.html", [
         [ "ClickAction", "classengine_1_1actions_1_1_click_action.html", "classengine_1_1actions_1_1_click_action" ],
         [ "None", "classengine_1_1actions_1_1_none.html", "classengine_1_1actions_1_1_none" ],
-        [ "SetSquadPath", "classengine_1_1actions_1_1_set_squad_path.html", "classengine_1_1actions_1_1_set_squad_path" ]
+        [ "SetSquadPath", "classengine_1_1actions_1_1_set_squad_path.html", "classengine_1_1actions_1_1_set_squad_path" ],
+        [ "SpawnAction", "classengine_1_1actions_1_1_spawn_action.html", "classengine_1_1actions_1_1_spawn_action" ]
       ] ],
       [ "GUI", "namespaceengine_1_1_g_u_i.html", [
         [ "Button", "classengine_1_1_g_u_i_1_1_button.html", "classengine_1_1_g_u_i_1_1_button" ],
@@ -25,6 +26,9 @@ var annotated_dup =
     [ "graphics", "namespacegraphics.html", [
       [ "Event", "structgraphics_1_1_event.html", "structgraphics_1_1_event" ],
       [ "SFMLFacade", "classgraphics_1_1_s_f_m_l_facade.html", "classgraphics_1_1_s_f_m_l_facade" ]
+    ] ],
+    [ "Player", "namespace_player.html", [
+      [ "Player", "struct_player_1_1_player.html", "struct_player_1_1_player" ]
     ] ],
     [ "Squads", "namespace_squads.html", [
       [ "Action", "class_squads_1_1_action.html", "class_squads_1_1_action" ],

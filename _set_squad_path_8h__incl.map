@@ -1,43 +1,45 @@
 <map id="include/engine/actions/SetSquadPath.h" name="include/engine/actions/SetSquadPath.h">
-<area shape="rect" id="node1" title=" " alt="" coords="790,5,941,47"/>
-<area shape="rect" id="node2" href="$engine_2_action_8h.html" title=" " alt="" coords="1187,781,1298,808"/>
-<area shape="rect" id="node5" href="$_squad_8h.html" title=" " alt="" coords="565,95,747,121"/>
-<area shape="rect" id="node6" href="$_cell_8h.html" title=" " alt="" coords="663,244,788,271"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,856,77,883"/>
-<area shape="rect" id="node4" title=" " alt="" coords="946,856,1014,883"/>
-<area shape="rect" id="node7" href="$gameplay_clickable_game_object_8h.html" title=" " alt="" coords="1445,319,1617,360"/>
-<area shape="rect" id="node10" href="$config_8h.html" title=" " alt="" coords="146,781,254,808"/>
-<area shape="rect" id="node13" href="$_facade_8h.html" title=" " alt="" coords="1556,931,1631,957"/>
-<area shape="rect" id="node30" href="$_unit_8h.html" title=" " alt="" coords="265,557,321,584"/>
-<area shape="rect" id="node41" href="$_game_logic_2_squad_2_action_8h.html" title=" " alt="" coords="635,169,816,196"/>
-<area shape="rect" id="node15" href="$cellgen_8h.html" title=" " alt="" coords="422,408,517,435"/>
-<area shape="rect" id="node17" title=" " alt="" coords="570,483,617,509"/>
-<area shape="rect" id="node19" href="$_all_flags_8h.html" title=" " alt="" coords="666,632,745,659"/>
-<area shape="rect" id="node22" href="$geometry_8h.html" title=" " alt="" coords="416,326,523,353"/>
-<area shape="rect" id="node23" href="$_none_8h.html" title=" " alt="" coords="1354,707,1505,733"/>
-<area shape="rect" id="node24" href="$game_controller_8h.html" title=" " alt="" coords="1195,557,1357,584"/>
-<area shape="rect" id="node28" href="$_all_units_8h.html" title=" " alt="" coords="699,408,778,435"/>
-<area shape="rect" id="node35" href="$_all_squad_templates_8h.html" title=" " alt="" coords="763,326,909,353"/>
-<area shape="rect" id="node8" href="$game_object_8h.html" title=" " alt="" coords="1142,707,1245,733"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1125,781,1163,808"/>
-<area shape="rect" id="node11" href="$_s_f_m_l_facade_8h.html" title=" " alt="" coords="118,856,282,883"/>
-<area shape="rect" id="node14" title=" " alt="" coords="307,856,437,883"/>
-<area shape="rect" id="node12" title=" " alt="" coords="131,931,269,957"/>
-<area shape="rect" id="node16" title=" " alt="" coords="545,781,604,808"/>
-<area shape="rect" id="node18" title=" " alt="" coords="375,483,545,509"/>
-<area shape="rect" id="node20" href="$_flag_8h.html" title=" " alt="" coords="546,707,603,733"/>
-<area shape="rect" id="node21" title=" " alt="" coords="430,781,485,808"/>
-<area shape="rect" id="node25" href="$_network_manager_8h.html" title=" " alt="" coords="1055,632,1228,659"/>
-<area shape="rect" id="node27" title=" " alt="" coords="1354,632,1419,659"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1023,707,1118,733"/>
-<area shape="rect" id="node29" href="$_factory_8h.html" title=" " alt="" coords="641,483,716,509"/>
-<area shape="rect" id="node31" title=" " alt="" coords="362,632,419,659"/>
-<area shape="rect" id="node32" href="$_unit_order_8h.html" title=" " alt="" coords="249,632,337,659"/>
-<area shape="rect" id="node33" href="$_textures_8h.html" title=" " alt="" coords="149,707,283,733"/>
-<area shape="rect" id="node34" title=" " alt="" coords="278,781,389,808"/>
-<area shape="rect" id="node36" href="$_squad_template_8h.html" title=" " alt="" coords="803,408,925,435"/>
-<area shape="rect" id="node37" href="$_gui_list_8h.html" title=" " alt="" coords="711,557,855,584"/>
-<area shape="rect" id="node39" href="$_gui_scroll_8h.html" title=" " alt="" coords="841,483,996,509"/>
-<area shape="rect" id="node40" href="$_button_8h.html" title=" " alt="" coords="1031,557,1171,584"/>
-<area shape="rect" id="node38" href="$_gui_object_8h.html" title=" " alt="" coords="871,632,1031,659"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1899,5,2050,47"/>
+<area shape="rect" id="node2" href="$engine_2_action_8h.html" title=" " alt="" coords="1421,781,1531,808"/>
+<area shape="rect" id="node5" href="$_squad_8h.html" title=" " alt="" coords="899,95,1080,121"/>
+<area shape="rect" id="node6" href="$_cell_8h.html" title=" " alt="" coords="1132,244,1257,271"/>
+<area shape="rect" id="node3" title=" " alt="" coords="1676,856,1748,883"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1026,856,1094,883"/>
+<area shape="rect" id="node9" href="$gameplay_clickable_game_object_8h.html" title=" " alt="" coords="642,319,814,360"/>
+<area shape="rect" id="node12" href="$config_8h.html" title=" " alt="" coords="57,781,165,808"/>
+<area shape="rect" id="node15" href="$_facade_8h.html" title=" " alt="" coords="1199,931,1273,957"/>
+<area shape="rect" id="node31" href="$_unit_8h.html" title=" " alt="" coords="403,557,459,584"/>
+<area shape="rect" id="node42" href="$_player_8h.html" title=" " alt="" coords="480,483,619,509"/>
+<area shape="rect" id="node43" href="$_game_logic_2_squad_2_action_8h.html" title=" " alt="" coords="1039,169,1220,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1801,483,1847,509"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1733,326,1773,353"/>
+<area shape="rect" id="node17" href="$cellgen_8h.html" title=" " alt="" coords="1563,408,1658,435"/>
+<area shape="rect" id="node20" href="$_all_flags_8h.html" title=" " alt="" coords="587,632,666,659"/>
+<area shape="rect" id="node23" href="$geometry_8h.html" title=" " alt="" coords="1484,326,1591,353"/>
+<area shape="rect" id="node24" href="$_none_8h.html" title=" " alt="" coords="1401,707,1551,733"/>
+<area shape="rect" id="node25" href="$game_controller_8h.html" title=" " alt="" coords="1227,557,1389,584"/>
+<area shape="rect" id="node29" href="$_all_units_8h.html" title=" " alt="" coords="857,408,935,435"/>
+<area shape="rect" id="node36" href="$_all_squad_templates_8h.html" title=" " alt="" coords="1011,326,1157,353"/>
+<area shape="rect" id="node10" href="$game_object_8h.html" title=" " alt="" coords="834,707,937,733"/>
+<area shape="rect" id="node11" title=" " alt="" coords="970,781,1009,808"/>
+<area shape="rect" id="node13" href="$_s_f_m_l_facade_8h.html" title=" " alt="" coords="161,856,325,883"/>
+<area shape="rect" id="node16" title=" " alt="" coords="5,856,136,883"/>
+<area shape="rect" id="node14" title=" " alt="" coords="173,931,312,957"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1283,781,1341,808"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1605,483,1776,509"/>
+<area shape="rect" id="node21" href="$_flag_8h.html" title=" " alt="" coords="683,707,741,733"/>
+<area shape="rect" id="node22" title=" " alt="" coords="553,781,607,808"/>
+<area shape="rect" id="node26" href="$_network_manager_8h.html" title=" " alt="" coords="1269,632,1443,659"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1179,632,1245,659"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1179,707,1274,733"/>
+<area shape="rect" id="node30" href="$_factory_8h.html" title=" " alt="" coords="643,483,717,509"/>
+<area shape="rect" id="node32" title=" " alt="" coords="403,632,461,659"/>
+<area shape="rect" id="node33" href="$_unit_order_8h.html" title=" " alt="" coords="291,632,379,659"/>
+<area shape="rect" id="node34" href="$_textures_8h.html" title=" " alt="" coords="241,707,375,733"/>
+<area shape="rect" id="node35" title=" " alt="" coords="253,781,363,808"/>
+<area shape="rect" id="node37" href="$_squad_template_8h.html" title=" " alt="" coords="1012,408,1135,435"/>
+<area shape="rect" id="node38" href="$_gui_list_8h.html" title=" " alt="" coords="1008,557,1152,584"/>
+<area shape="rect" id="node40" href="$_gui_scroll_8h.html" title=" " alt="" coords="1111,483,1265,509"/>
+<area shape="rect" id="node41" href="$_button_8h.html" title=" " alt="" coords="843,557,983,584"/>
+<area shape="rect" id="node39" href="$_gui_object_8h.html" title=" " alt="" coords="792,632,952,659"/>
 </map>

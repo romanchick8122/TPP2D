@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['squads_313',['Squads',['../namespace_squads.html',1,'']]]
+  ['player_341',['Player',['../namespace_player.html',1,'']]]
 ];

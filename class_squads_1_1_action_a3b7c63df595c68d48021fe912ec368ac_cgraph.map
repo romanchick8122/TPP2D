@@ -1,0 +1,7 @@
+<map id="Squads::Action::attack" name="Squads::Action::attack">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,156,108"/>
+<area shape="rect" id="node2" href="$class_squads_1_1_squad.html#a935fffdffa2cbacff79d5496acf1e6a4" title=" " alt="" coords="204,5,389,32"/>
+<area shape="rect" id="node3" href="$class_cell.html#a04a152fd295f19672938c0f1e67439e0" title=" " alt="" coords="235,56,358,83"/>
+<area shape="rect" id="node4" href="$class_squads_1_1_squad.html#aab6f3e93bba14a6a40553fbd3573dfbe" title=" " alt="" coords="211,107,382,133"/>
+<area shape="rect" id="node5" href="$class_squads_1_1_action.html#ac823b98ea540c11a7dfccb4749624f75" title=" " alt="" coords="217,157,377,184"/>
+</map>

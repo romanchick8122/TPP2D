@@ -6,5 +6,6 @@ var dir_82fd054dcd0578f75b3958335ac88715 =
     [ "Cell.h", "_cell_8h.html", "_cell_8h" ],
     [ "Flag.h", "_flag_8h.html", [
       [ "Flag", "struct_flag.html", "struct_flag" ]
-    ] ]
+    ] ],
+    [ "Player.h", "_player_8h.html", "_player_8h" ]
 ];

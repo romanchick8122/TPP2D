@@ -10,6 +10,7 @@ var namespaces_dup =
       [ "landscapeFlags", "namespace_flags.html#ad41e74b328f7a747f701138bef0affcd", null ]
     ] ],
     [ "graphics", "namespacegraphics.html", "namespacegraphics" ],
+    [ "Player", "namespace_player.html", "namespace_player" ],
     [ "Squads", "namespace_squads.html", "namespace_squads" ],
     [ "Units", "namespace_units.html", "namespace_units" ],
     [ "util", "namespaceutil.html", "namespaceutil" ]

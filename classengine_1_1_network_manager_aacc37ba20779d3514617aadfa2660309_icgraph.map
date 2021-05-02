@@ -1,5 +1,6 @@
 <map id="engine::NetworkManager::addAction" name="engine::NetworkManager::addAction">
-<area shape="rect" id="node1" title=" " alt="" coords="323,5,488,47"/>
-<area shape="rect" id="node2" href="$class_cell.html#a34f5c6147f63470486b6e9e9d6d33ee9" title=" " alt="" coords="164,13,275,39"/>
-<area shape="rect" id="node3" href="$class_cell.html#a064227f1968066ac1dfd15229b45c071" title=" " alt="" coords="5,13,116,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="375,35,540,76"/>
+<area shape="rect" id="node2" href="$class_squads_1_1_squad_template.html#aa6b116668389ee5b7b498d6b99bca5b1" title=" " alt="" coords="164,5,327,47"/>
+<area shape="rect" id="node3" href="$class_cell.html#a34f5c6147f63470486b6e9e9d6d33ee9" title=" " alt="" coords="190,71,301,98"/>
+<area shape="rect" id="node4" href="$class_cell.html#a064227f1968066ac1dfd15229b45c071" title=" " alt="" coords="5,71,116,98"/>
 </map>

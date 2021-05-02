@@ -1,6 +1,7 @@
 <map id="engine::Action" name="engine::Action">
-<area shape="rect" id="node1" title=" " alt="" coords="231,5,333,97"/>
+<area shape="rect" id="node1" title=" " alt="" coords="328,5,431,97"/>
 <area shape="rect" id="node2" href="$classengine_1_1actions_1_1_click_action.html" title=" " alt="" coords="5,153,185,259"/>
 <area shape="rect" id="node3" href="$classengine_1_1actions_1_1_none.html" title=" " alt="" coords="209,153,355,259"/>
 <area shape="rect" id="node4" href="$classengine_1_1actions_1_1_set_squad_path.html" title=" " alt="" coords="379,145,577,267"/>
+<area shape="rect" id="node5" href="$classengine_1_1actions_1_1_spawn_action.html" title=" " alt="" coords="601,145,792,267"/>
 </map>
