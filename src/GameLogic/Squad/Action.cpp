@@ -60,7 +60,7 @@ void Squads::Action::render() {
     vec[0] = squad->center;
     for (auto[i, it] = std::make_pair(0, currentPath.begin()); i < currentPath.size(); ++i, ++it)
         vec[i + 1] = (*it)->center;
-    Facade::DrawThickLineStrip(vec, 10, Facade::Color(255, 0, 0));
+    Facade::DrawThickLineStrip(vec, 5, Facade::Color(255, 0, 0, 128));
 }
 
 void Squads::Action::setPath(Cell *end) {
