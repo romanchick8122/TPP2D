@@ -44,5 +44,5 @@ void Units::Unit::drawHP(engine::config::Facade::Rect rect) {
     auto coef = HP/fullHP;
     rect.width *= coef;
     engine::config::Facade::DrawRect(rect, engine::config::Facade::Color(static_cast<int>(255*(1-coef)),
-                                                                         static_cast<int>(255*coef),0));
+                                                                         static_cast<int>(255*coef),0, 128));
 }
