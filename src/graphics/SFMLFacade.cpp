@@ -97,7 +97,7 @@ void graphics::SFMLFacade::DrawText(const std::string& str, uint32_t fontSize, C
     text.setString(str);
     text.setFillColor(color);
     text.setCharacterSize(fontSize);
-    text.setPosition(position);
+    text.setPosition(position - origin);
     text.setFont(font);
     window->draw(text);
 }
