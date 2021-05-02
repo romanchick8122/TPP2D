@@ -76,3 +76,29 @@ void Squads::Squad::setCell(Cell *ptr) {
 void Squads::Squad::doOnClick() {
     previousClick = this;
 }
+
+void Squads::Squad::setOwner(Player::Player* owner_) {
+    owner = owner_;
+}
+
+void Squads::Squad::damageUnit(float d) {
+    auto unitAttack = units.front()->getAttack();
+    units.front()->changeHP(-d);
+    if(unitAttack != units.front()->getAttack()) attack += units.front()->getAttack() - unitAttack;
+    if(!units.front()->isAlive()) {
+        delete units.front();
+        units.pop_front();
+        attack -= unitAttack;
+    }
+}
+
+void Squads::Squad::updateAttack() {
+    attack = 0;
+    for(auto unit : units) {
+        attack += unit->getAttack();
+    }
+}
+
+float Squads::Squad::getAttack() {
+    return attack;
+}

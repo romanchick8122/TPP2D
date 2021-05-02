@@ -5,7 +5,7 @@ bool Units::Unit::isOrderPossible(UnitOrder *order) {
     bool exist = false;
     for (auto i : allOrders) if (order == i) exist = true;
     return (currentOrder == nullptr || currentOrder == order) && exist;
-};
+}
 
 void Units::Unit::enableOrder(UnitOrder *order) {
     if (!isOrderPossible(order)) return;
@@ -34,3 +34,7 @@ Units::Unit::Unit(const graphics::SFMLFacade::Texture *&texture_, const std::str
         name_),
                                                                                                              texture(texture_),
                                                                                                              weight(weight_) {}
+
+bool Units::Unit::isAlive() {
+    return HP > 0;
+}

@@ -23,3 +23,7 @@ void Units::ArmoredUnit::setStats(float attack_) {
     unitSpeed = (*(base->commonSpeed) * (base->weight)) / weight;
     attack = attack_;
 }
+
+void Units::ArmoredUnit::changeHP(float d) {
+    HP += d;
+}

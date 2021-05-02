@@ -2,13 +2,14 @@ class Cell;
 
 #pragma once
 
+#include <map>
+#include <set>
 #include "engine/gameplayClickableGameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
 #include "engine/config.h"
 #include "graphics/Facade.h"
 #include "Squad.h"
-#include <map>
 #include "iostream"
 #include "util/geometry.h"
 #include "engine/actions/None.h"
@@ -16,6 +17,7 @@ class Cell;
 #include "engine/actions/SetSquadPath.h"
 #include "AllUnits.h"
 #include "AllSquadTemplates.h"
+#include "Player.h"
 
 using Facade = engine::config::Facade;
 
@@ -34,14 +36,26 @@ class Cell : public engine::gameplayClickableGameObject {
     std::map<const Cell *, std::vector<float>> cellBorderFlags;
     engine::config::Facade::Rect renderEdges;
     std::vector<engine::config::Facade::Point> shape;
+    std::set<Squads::Squad*> squads;
 public:
     const Facade::Point center;
+    Player::Player* owner = Player::nullPlayer;
     std::vector<Cell *> adjacent;
     const std::vector<float> *landscapeFlags = &cellLandscapeFlags;
     const std::map<const Cell *, std::vector<float>> *bordersFlags = &cellBorderFlags;
     const std::vector<util::cellGen::Point2D> vertices;
 
     Cell(const util::cellGen::CellData &);
+
+    void setOwner(Player::Player*);
+
+    bool isProtected();
+
+    void addSquad(Squads::Squad*);
+
+    void deleteSquad(Squads::Squad*);
+
+    Squads::Squad* getSquad();
 
     void setAdjacent(const util::cellGen::CellData &,
                      const std::map<util::cellGen::Point2D, Cell *, Comparators::Point2DComp> &);

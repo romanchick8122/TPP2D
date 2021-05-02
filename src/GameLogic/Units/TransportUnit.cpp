@@ -38,3 +38,11 @@ float Units::TransportUnit::getAttack() {
     for (auto unit : units) allAttack += unit->getAttack();
     return 0;
 }
+
+void Units::TransportUnit::changeHP(float d) {
+    units.front()->changeHP(d);
+    if(!units.front()->isAlive()) {
+        delete units.front();
+        units.pop_front();
+    }
+}

@@ -12,6 +12,8 @@ namespace Units {
 
         void tick() override;
 
+        void changeHP(float) override;
+
         float getAttack() override;
     };
 }

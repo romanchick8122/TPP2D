@@ -21,5 +21,7 @@ namespace Units {
         void setStats(float HP_, float speed_, float capacity_, float armor_);
 
         void tick() override;
+
+        void changeHP(float) override;
     };
 }

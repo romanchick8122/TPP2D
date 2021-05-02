@@ -1,4 +1,6 @@
-class Action;
+namespace Squads{
+    class Action;
+}
 
 #pragma once
 
@@ -19,9 +21,15 @@ namespace Squads {
 
         void nextStep();
 
+        void move();
+
+        void attack();
+
         float calcSpeed(const Cell *start, const Cell *end);
 
         std::list<Cell *> findPath(Cell *, Cell *);
+
+        void stopAction();
 
         void setPath();
 

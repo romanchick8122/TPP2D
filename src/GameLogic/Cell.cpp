@@ -57,12 +57,12 @@ Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.
     engine::gameController::Instance()->networkManager.makeShared(this);
 };
 
-void Cell::tick() { return; };
+void Cell::tick() { return; }
 
-void Cell::lateTick() { return; };
+void Cell::lateTick() { return; }
 
 void Cell::render() {
-    Facade::DrawConvexPolygon(shape, Facade::Color(x, y, z));
+    Facade::DrawConvexPolygon(shape, owner->color);
     Facade::DrawThickLineStrip(shape, 3, Facade::Color(255, 255, 255), true);
 };
 
@@ -94,4 +94,22 @@ void Cell::doOnClick() {
     previousClick = this;
 }
 
+void Cell::setOwner(Player::Player* owner_) {
+    owner = owner_;
+}
 
+void Cell::addSquad(Squads::Squad* ptr) {
+    squads.insert(ptr);
+}
+
+void Cell::deleteSquad(Squads::Squad* ptr) {
+    squads.erase(ptr);
+}
+
+bool Cell::isProtected() {
+    return !squads.empty();
+}
+
+Squads::Squad* Cell::getSquad() {
+    return *squads.begin();
+}

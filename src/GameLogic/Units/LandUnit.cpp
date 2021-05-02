@@ -20,3 +20,7 @@ void Units::LandUnit::setStats(float HP_, float speed_, float attack_) {
 float Units::LandUnit::getAttack() {
     return attack;
 }
+
+void Units::LandUnit::changeHP(float d) {
+    HP += d;
+}

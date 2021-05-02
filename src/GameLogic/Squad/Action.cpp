@@ -1,3 +1,6 @@
+
+#include <GameLogic/Squad/Action.h>
+
 #include "Action.h"
 #include "AllFlags.h"
 #include "util/pathfinding.h"
@@ -27,7 +30,10 @@ std::list<Cell *> Squads::Action::findPath(Cell *start, Cell *end) {
 }
 
 void Squads::Action::nextStep() {
+    squad->cell->deleteSquad(squad);
     squad->cell = currentPath.front();
+    squad->cell->owner = squad->owner;
+    squad->cell->addSquad(squad);
     currentPath.pop_front();
     progress = 0;
     if (currentPath.empty()) return;
@@ -42,14 +48,8 @@ void Squads::Action::nextStep() {
 
 void Squads::Action::tick() {
     if (currentPath.empty()) return;
-    progress += 1;
-    if (progress >= endProgress) {
-        nextStep();
-        return;
-    }
-    squad->center += d;
-    squad->shape.left += d.x;
-    squad->shape.top += d.y;
+    if (currentPath.front()->owner != squad->owner && currentPath.front()->isProtected()) attack();
+    move();
 }
 
 void Squads::Action::render() {
@@ -70,9 +70,30 @@ void Squads::Action::setPath(Cell *end) {
     }
     possiblePath = findPath(squad->cell, end);
     if (currentPath.front() != possiblePath.front()) {
-        progress = 1 - progress;
+        progress = endProgress - progress;
         possiblePath.push_front(squad->cell);
         d = -d;
     }
     currentPath = possiblePath;
+}
+
+
+void Squads::Action::move() {
+    progress += 1;
+    if (progress >= endProgress) {
+        nextStep();
+        return;
+    }
+    squad->center += d;
+    squad->shape.left += d.x;
+    squad->shape.top += d.y;
+}
+
+void Squads::Action::attack() {
+    Squad* defSquad = currentPath.front()->getSquad();
+    //defSquad->getAttack()
+}
+
+void Squads::Action::stopAction() {
+    currentPath = {squad->cell};
 }
