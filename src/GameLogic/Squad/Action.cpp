@@ -106,6 +106,7 @@ void Squads::Action::attack() {
 }
 
 void Squads::Action::lateTick() {
+    if (currentPath.empty()) return;
     if (currentPath.front()->owner != squad->owner && currentPath.front()->isProtected() && 2*progress > endProgress)
         attack();
 }
