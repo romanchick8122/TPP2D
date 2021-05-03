@@ -70,8 +70,13 @@ void Cell::tick() {
 void Cell::lateTick() { return; }
 
 void Cell::render() {
+    auto _owner = owner;
+    if (!visible) {
+        owner = Player::nullPlayer;
+    }
     Facade::DrawConvexPolygon(shape, owner->color);
     Facade::DrawThickLineStrip(shape, 3, Facade::Color(255, 255, 255), true);
+    owner = _owner;
 };
 
 Facade::Rect Cell::getRenderEdges() {
@@ -104,9 +109,16 @@ void Cell::doOnClick() {
 
 void Cell::setOwner(Player::Player* owner_) {
     owner = owner_;
-    if (owner->id != engine::gameController::Instance()->networkManager.serverId) {
+    char serverId = engine::gameController::Instance()->networkManager.serverId;
+    if (owner->id != serverId) {
         for (auto& adj : adjacent) {
             adj->visible = false;
+            for (auto& adjadj : adj->adjacent) {
+                if (adjadj->owner->id == serverId) {
+                    adj->visible = true;
+                    break;
+                }
+            }
         }
     } else {
         visible = true;

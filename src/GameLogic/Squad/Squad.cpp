@@ -60,6 +60,9 @@ void Squads::Squad::tick() {
 void Squads::Squad::lateTick() { return; };
 
 void Squads::Squad::render() {
+    if (!cell->visible) {
+        return;
+    }
     action->render();
     Facade::DrawRect(shape, units.front()->texture);
     auto d = shape.height / units.size();
