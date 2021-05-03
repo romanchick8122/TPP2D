@@ -1,6 +1,6 @@
 #include "engine/gameController.h"
 #include "engine/config.h"
-#include "engine/clickableGameObject.h"
+#include "engine/gameObject.h"
 using Facade = engine::config::Facade;
 engine::gameController* engine::gameController::instance;
 void engine::gameController::unregisterObject(gameObject* object) {
@@ -13,6 +13,7 @@ void engine::gameController::gameLoop() {
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
         auto events = Facade::Frame();
+        networkManager.processActions();
         //restoring invariant things
         if (wheelPresed) {
             Facade::origin = viewChangeStartCoordShift;
@@ -23,44 +24,33 @@ void engine::gameController::gameLoop() {
             if (event.type == event.Close) {
                 return;
             } else if (event.type == graphics::Event::MouseButtonPressed) {
-                //camera movement started
-                if (event.mouseButton == graphics::Event::MouseButton::Right) {
+                if (event.mouseButton == graphics::Event::MouseButton::Left) {
                     wheelPresed = true;
                     viewChangeStart = cursor;
                     viewChangeStartCoordShift = Facade::origin;
                 }
-                //left click detection
-                else if (event.mouseButton == graphics::Event::MouseButton::Left) {
+            } else if (event.type == graphics::Event::MouseButtonReleased) {
+                if (event.mouseButton == graphics::Event::MouseButton::Left) {
+                    wheelPresed = false;
+                }
+                if (Facade::length(cursor - viewChangeStart) < 20
+                    || event.mouseButton != graphics::Event::MouseButton::Left) {
                     bool clicked = false;
                     for (auto objIt = staticObjects.rbegin(); objIt != staticObjects.rend(); ++objIt) {
-                        if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
-                            if (!obj->getClickEdges().contains(Facade::mousePosition)) {
-                                continue;
-                            }
-                            if (obj->tryOnClick(Facade::mousePosition)) {
-                                clicked = true;
-                                break;
-                            }
+                        if ((*objIt)->tryOnClick(Facade::mousePosition, event.mouseButton)) {
+                            clicked = true;
+                            break;
                         }
                     }
                     if (clicked) {
                         continue;
                     }
                     for (auto objIt = objects.rbegin(); objIt != objects.rend(); ++objIt) {
-                        if (auto obj = dynamic_cast<clickableGameObject*>(*objIt)) {
-                            if (!obj->getClickEdges().contains(cursor)) {
-                                continue;
-                            }
-                            if (obj->tryOnClick(cursor)) {
-                                break;
-                            }
+                        if ((*objIt)->tryOnClick(cursor, event.mouseButton)) {
+                            break;
                         }
                     }
-                }
-            } else if (event.type == graphics::Event::MouseButtonReleased) {
-                //camera movement ended
-                if (event.mouseButton == graphics::Event::MouseButton::Right) {
-                    wheelPresed = false;
+                } else {
                     Facade::origin -= cursor - viewChangeStart;
                 }
             } else if (event.type == graphics::Event::MouseWheelScrolled) {
@@ -75,6 +65,7 @@ void engine::gameController::gameLoop() {
                 Facade::origin = cursor - Facade::mousePosition / Facade::scale;
             }
         }
+        networkManager.flushActions();
         //camera movement
         if (wheelPresed) {
             Facade::origin -= cursor - viewChangeStart;
@@ -139,4 +130,8 @@ void engine::gameController::registerStaticObject(engine::gameObject* object, en
 void engine::gameController::unregisterStaticObject(engine::gameObject* object) {
     staticObjects.erase(object->gameObjectListPosition);
 }
-engine::gameController::gameController() = default;
+engine::gameController::gameController()  {
+    //todo сделать через диалоговое окно
+    uint32_t rngSeed = networkManager.connect("127.0.0.1", 9587);
+    rng.seed(rngSeed);
+}

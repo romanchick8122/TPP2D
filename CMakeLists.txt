@@ -4,6 +4,9 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 include_directories(include/engine)
 include_directories(include/GameLogic)
+include_directories(include/GameLogic/Units)
+include_directories(include/GameLogic/Squad)
+include_directories(inipp/inipp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
@@ -55,7 +58,18 @@ set(SFML_DIR ${PROJECT_SOURCE_DIR}/SFML/lib/cmake/SFML)
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
-add_executable(TPP2D src/GameLogic/Cell.cpp src/GameLogic/SquadOrder.cpp include/GameLogic/SquadOrder.h src/GameLogic/Action.cpp include/GameLogic/Action.h src/GameLogic/Flag.cpp include/GameLogic/Flag.h src/GameLogic/AllFlags.cpp include/GameLogic/AllFlags.h src/GameLogic/Factory.cpp include/GameLogic/Factory.h src/GameLogic/AllUnits.cpp include/GameLogic/AllUnits.h src/GameLogic/SquadTemplate.cpp include/GameLogic/SquadTemplate.h)
+if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
+    message("Downloading json parser")
+    file(DOWNLOAD
+            https://github.com/nlohmann/json/releases/download/v3.9.1/json.hpp
+            ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
+endif()
+include_directories(${PROJECT_SOURCE_DIR})
+
+add_executable(TPP2D)
+add_subdirectory(resources)
+
+configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
 
 #Adding submodules
 if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
@@ -75,3 +89,11 @@ get_target_property(sources TPP2D SOURCES)
 
 #linking SFML
 target_link_libraries(TPP2D PRIVATE sfml-graphics)
+#sockets
+if(NOT UNIX)
+    target_link_libraries(TPP2D PRIVATE ws2_32)
+endif()
+
+add_subdirectory(server)
+
+add_dependencies(TPP2D server)

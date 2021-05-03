@@ -7,11 +7,14 @@ namespace graphics {
         using Rect = sf::FloatRect;
         using Point = sf::Vector2f;
         using Color = sf::Color;
+        using Texture = sf::Texture;
       private:
         static sf::RenderWindow* window;
+        static sf::Font font;
+      public:
         static float length(Point);
         static Point normalize(Point);
-      public:
+
         static float scale;
         static Point origin;
         static Point mousePosition;
@@ -22,6 +25,8 @@ namespace graphics {
         static void DrawThickLineStrip(const std::vector<Point>& vertices, float thickness, Color fill,
                                        bool cyclic = false);
         static void DrawRect(Rect toDraw, Color fill);
+        static void DrawRect(Rect toDraw, const Texture* texture);
+        static void DrawText(const std::string& str, uint32_t fontSize, Color color, Point position);
         static std::vector<Event> Frame();
     };
 }
