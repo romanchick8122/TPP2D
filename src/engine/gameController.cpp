@@ -131,7 +131,9 @@ void engine::gameController::unregisterStaticObject(engine::gameObject* object) 
     staticObjects.erase(object->gameObjectListPosition);
 }
 engine::gameController::gameController()  {
-    //todo сделать через диалоговое окно
-    uint32_t rngSeed = networkManager.connect("127.0.0.1", 9587);
+    std::string serverIp = "127.0.0.1";
+    std::cout << "Type server ip: ";
+    std::cin >> serverIp;
+    uint32_t rngSeed = networkManager.connect(serverIp, 9587);
     rng.seed(rngSeed);
 }
