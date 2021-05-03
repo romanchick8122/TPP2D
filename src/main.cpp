@@ -7,6 +7,7 @@
 #include "engine/GUI/GuiList.h"
 #include "engine/GUI/GuiStrip.h"
 #include "Player.h"
+#include "engine/Logger.h"
 #include "AllUnits.h"
 #ifdef WIN32
 #include "winsock2.h"
@@ -67,6 +68,8 @@ int main() {
     WSADATA wsaData;
     WSAStartup(MAKEWORD(2, 2), &wsaData);
 #endif
+    engine::Logger::Init(engine::Logger::SeverityLevel::TraceLevel);
+
     engine::config::runtime = nlohmann::json::parse(readFile("config.json"), nullptr, false, true);
     graphics::Textures::loadTextures();
 

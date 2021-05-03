@@ -12,6 +12,7 @@ void engine::gameController::gameLoop() {
     Facade::Point viewChangeStart;
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
+        ++currentTick;
         auto events = Facade::Frame();
         networkManager.processActions();
         //restoring invariant things
@@ -131,6 +132,7 @@ void engine::gameController::unregisterStaticObject(engine::gameObject* object) 
     staticObjects.erase(object->gameObjectListPosition);
 }
 engine::gameController::gameController()  {
+    currentTick = 0;
     std::string serverIp = "127.0.0.1";
     std::cout << "Type server ip: ";
     std::cin >> serverIp;

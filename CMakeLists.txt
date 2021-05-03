@@ -6,7 +6,6 @@ include_directories(include/engine)
 include_directories(include/GameLogic)
 include_directories(include/GameLogic/Units)
 include_directories(include/GameLogic/Squad)
-include_directories(inipp/inipp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 

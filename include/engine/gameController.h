@@ -11,6 +11,7 @@ namespace engine {
         static gameController* instance;
         gameController();
       public:
+        size_t currentTick;
         std::mt19937 rng;
         NetworkManager networkManager;
         static gameController* Instance();
