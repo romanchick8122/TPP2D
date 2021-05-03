@@ -37,7 +37,7 @@ void Units::TransportUnit::tick() {
 float Units::TransportUnit::getAttack() {
     float allAttack = 0;
     for (auto unit : units) allAttack += unit->getAttack();
-    return 0;
+    return allAttack;
 }
 
 void Units::TransportUnit::changeHP(float d) {

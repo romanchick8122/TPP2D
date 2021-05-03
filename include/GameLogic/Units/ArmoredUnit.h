@@ -16,6 +16,10 @@ namespace Units {
 
         void changeHP(float) override;
 
+        bool isAlive() override;
+
+        void drawHP(engine::config::Facade::Rect) override;
+
         void setStats(float attack);
 
         void tick() override;

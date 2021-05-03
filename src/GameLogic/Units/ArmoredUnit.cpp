@@ -26,5 +26,12 @@ void Units::ArmoredUnit::setStats(float attack_) {
 
 void Units::ArmoredUnit::changeHP(float d) {
     base -> changeHP(d);
-    if(base -> isAlive()) HP = 0;
+}
+
+void Units::ArmoredUnit::drawHP(engine::config::Facade::Rect rect) {
+    base->drawHP(rect);
+}
+
+bool Units::ArmoredUnit::isAlive() {
+    return base->isAlive();
 }
