@@ -89,7 +89,7 @@ void Squads::Squad::setCell(Cell *ptr) {
 }
 
 void Squads::Squad::doOnClick() {
-    previousClick = this;
+    if(owner == Player::players[engine::gameController::Instance()->networkManager.serverId]) previousClick = this;
 }
 
 void Squads::Squad::setOwner(Player::Player* owner_) {

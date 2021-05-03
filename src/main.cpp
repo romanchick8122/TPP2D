@@ -39,7 +39,11 @@ int main() {
         engine::gameController::Instance()->registerObject(ob);
     }
 
-    vec[100]->owner = Player::players[0];
+    for(int i = 0; i < Player::players.size() - 1; ++i) {
+        vec[200 * i + 100]->owner = Player::players[i];
+        vec[200 * i + 100]->adjacent.front()->owner = Player::players[i];
+        vec[200 * i + 100]->adjacent.back()->owner = Player::players[i];
+    }
     //Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
     //sq2->setCell(vec[9999]);
     //engine::gameController::Instance()->registerObject(sq2);

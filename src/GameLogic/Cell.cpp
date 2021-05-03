@@ -86,7 +86,8 @@ void Cell::doOnClick() {
         engine::gameController::Instance()->networkManager.addAction(std::unique_ptr<engine::Action>(
                 new engine::actions::SetSquadPath(squad, this)
         ));
-    } else if (previousClick == this) {
+    } else if (previousClick == this &&
+        owner == Player::players[engine::gameController::Instance()->networkManager.serverId]) {
         Squads::AllTemplates[0]->build(this, owner);
         previousClick = nullptr;
     }
