@@ -44,6 +44,10 @@ Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.
     for (size_t i = 0; i < vertices.size(); ++i) {
         shape[i] = Facade::Point(cell_.vertices[i].x, cell_.vertices[i].y);
     }
+    for (size_t i = 0; i < shape.size(); ++i) {
+        production += (shape[i].y + shape[(i + 1) % shape.size()].y) / 2 * (shape[(i + 1) % shape.size()].x - shape[i].x);
+    }
+    production = abs(production);
     double minx, maxx, miny, maxy;
     minx = maxx = vertices[0].x;
     miny = maxy = vertices[0].y;
@@ -57,7 +61,10 @@ Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.
     engine::gameController::Instance()->networkManager.makeShared(this);
 };
 
-void Cell::tick() { return; }
+void Cell::tick() {
+    owner->money += production;
+    return;
+}
 
 void Cell::lateTick() { return; }
 

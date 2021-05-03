@@ -31,7 +31,7 @@ namespace Comparators {
 
 
 class Cell : public engine::gameplayClickableGameObject {
-    int x = 0, y = 0, z = 0;
+    float production = 0;
     std::vector<float> cellLandscapeFlags;
     std::map<const Cell *, std::vector<float>> cellBorderFlags;
     engine::config::Facade::Rect renderEdges;
