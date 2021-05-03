@@ -37,6 +37,7 @@ void engine::actions::SpawnAction::apply() {
             units_.push_back(factory->createUnit());
         }
     }
+    engine::Logger::Debug(std::to_string(Player::players[owner]->money));
     if (price > Player::players[owner]->money) {
         return;
     }
