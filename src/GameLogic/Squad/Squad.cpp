@@ -106,14 +106,20 @@ void Squads::Squad::setOwner(Player::Player* owner_) {
 }
 
 void Squads::Squad::damageUnit(float& d) {
-    auto unitAttack = units.front()->getAttack();
-    units.front()->changeHP(-d);
-    if(unitAttack != units.front()->getAttack()) fullAttack += units.front()->getAttack() - unitAttack;
-    if(!units.front()->isAlive()) {
-        delete units.front();
-        units.pop_front();
+    size_t n = 1;
+    for (auto it = units.begin();; ++n) if(++it == units.end() || (*it)->name != (*--it)->name) break;
+    int rand = engine::gameController::Instance()->rng() % n;
+    auto it = units.begin();
+    for(int i = 0; i < rand; ++i) ++it;
+    auto unitAttack = (*it)->getAttack();
+    (*it)->changeHP(-d);
+    if(unitAttack != (*it)->getAttack()) fullAttack += (*it)->getAttack() - unitAttack;
+    if(!(*it)->isAlive()) {
+        delete (*it);
+        units.erase(it);
         fullAttack -= unitAttack;
     }
+    d = 0;
 }
 
 float& Squads::Squad::getAttack() {

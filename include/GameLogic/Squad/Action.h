@@ -13,7 +13,8 @@ namespace Squads {
         float endProgress;
         Squad* squad;
         float speed;
-        bool underAttack = false;
+        std::set<Squad*> underAttack;
+        Squad* attacks = nullptr;
         engine::config::Facade::Point d;
         std::list<Cell*> currentPath;
         std::list<Cell*> possiblePath;

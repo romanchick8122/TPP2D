@@ -35,6 +35,8 @@ Units::Unit::Unit(const graphics::SFMLFacade::Texture *&texture_, const std::str
                                                                                                              weight(weight_) {
 }
 
+Units::Unit::~Unit() {}
+
 bool Units::Unit::isAlive() {
     return HP > 0;
 }

@@ -48,7 +48,7 @@ void Squads::Action::nextStep() {
 
 void Squads::Action::tick() {
     if (currentPath.empty()) return;
-    if (!underAttack)
+    if (underAttack.empty() && !attacks)
         move();
 }
 
@@ -62,6 +62,8 @@ void Squads::Action::render() {
 }
 
 void Squads::Action::setPath(Cell *end) {
+    if(attacks) attacks->action->underAttack.erase(attacks);
+    attacks = nullptr;
     if (currentPath.empty()) {
         currentPath = findPath(squad->cell, end);
         currentPath.push_front(squad->cell);
@@ -72,6 +74,7 @@ void Squads::Action::setPath(Cell *end) {
     if (currentPath.front() != possiblePath.front()) {
         progress = endProgress - progress;
         possiblePath.push_front(squad->cell);
+        squad->cell = currentPath.front();
         d = -d;
     }
     currentPath = possiblePath;
@@ -90,22 +93,32 @@ void Squads::Action::move() {
 }
 
 void Squads::Action::attack() {
-    Squad* defSquad = currentPath.front()->getSquad();
-    defSquad->action->underAttack = true;
-    if(!defSquad->action->currentPath.empty()) defSquad->action->setPath(defSquad->cell);
-    defSquad->damageUnit(squad->getAttack());
-    squad->damageUnit(defSquad->getAttack());
-    if (squad->units.empty()) {
-        squad->cell->deleteSquad(squad);
-        delete squad;
-    }
-    if (defSquad->units.empty()) {
-        defSquad->cell->deleteSquad(defSquad);
-        delete defSquad;
+    attacks = currentPath.front()->getSquad();
+    attacks->action->underAttack.insert(squad);
+    if(!attacks->action->currentPath.empty()) attacks->action->setPath(attacks->cell);
+    attacks->damageUnit(squad->getAttack());
+    if (attacks->units.empty()) {
+        attacks->cell->deleteSquad(attacks);
+        attacks->action->underAttack.erase(squad);
+        for(auto attacksSquad : attacks->action->underAttack) attacksSquad->action->attacks = nullptr;
+        delete attacks;
+        attacks = nullptr;
     }
 }
 
 void Squads::Action::lateTick() {
+    if (!underAttack.empty()) {
+        size_t rand = engine::gameController::Instance()->rng() % underAttack.size();
+        auto it = underAttack.begin();
+        for(int i = 0; i < rand; ++i) ++it;
+        (*it)->damageUnit(squad->getAttack());
+        if ((*it)->units.empty()) {
+            underAttack.erase(it);
+            (*it)->cell->deleteSquad(*it);
+            delete *it;
+        }
+        return;
+    }
     if (currentPath.empty()) return;
     if (currentPath.front()->owner != squad->owner && currentPath.front()->isProtected() && 2*progress > endProgress)
         attack();

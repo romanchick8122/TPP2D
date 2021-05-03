@@ -30,9 +30,9 @@ namespace Units {
         const engine::config::Facade::Texture* texture;
         const float weight;
 
-        Unit();
-
         Unit(const engine::config::Facade::Texture*&, const std::string&, float);
+
+        virtual ~Unit();
 
         void setSquad(Squads::Squad*);
 
