@@ -40,10 +40,10 @@ void Squads::Action::nextStep() {
     speed = calcSpeed(squad->cell, currentPath.front());
     auto way = currentPath.front()->center - squad->center;
     float wayAbs = pow(way.x * way.x + way.y * way.y, 0.5);
-    endProgress = (wayAbs / speed) * 10.0f;
+    endProgress = (wayAbs / speed) * 100.0f;
     way.x /= wayAbs;
     way.y /= wayAbs;
-    d = way * speed / 10.0f;
+    d = way * speed / 100.0f;
 }
 
 void Squads::Action::tick() {

@@ -7,6 +7,7 @@
 #include "engine/GUI/GuiList.h"
 #include "engine/GUI/GuiStrip.h"
 #include "Player.h"
+#include "AllUnits.h"
 #ifdef WIN32
 #include "winsock2.h"
 #endif
@@ -84,6 +85,12 @@ int main() {
         vec[200 * i + 100]->adjacent.back()->owner = Player::players[i];
     }
 
+    for (auto cell : vec) {
+        if(cell->owner->id == Player::players.size() - 1){
+            cell->addSquad(new Squads::Squad({Units::allUnits[0]->createUnit()}));
+            cell->getSquad()->setCell(cell);
+        }
+    }
     MoneyShower main(Player::players[engine::gameController::Instance()->networkManager.serverId]);
     engine::gameController::Instance()->registerStaticObject(&main);
 
