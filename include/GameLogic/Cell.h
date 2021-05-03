@@ -37,6 +37,7 @@ class Cell : public engine::gameplayClickableGameObject {
     engine::config::Facade::Rect renderEdges;
     std::vector<engine::config::Facade::Point> shape;
     std::set<Squads::Squad*> squads;
+    bool visible;
 public:
     Player::Player* owner = Player::nullPlayer;
     const Facade::Point center;
