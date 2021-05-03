@@ -18,6 +18,7 @@ Squads::Squad::Squad(std::list<Units::Unit *> units_) {
 }
 
 Squads::Squad::~Squad() {
+    if(previousClick == this) previousClick = nullptr;
     engine::gameController::Instance()->networkManager.removeShared(this);
     engine::gameController::Instance()->unregisterObject(this);
     delete action;
