@@ -14,9 +14,6 @@ void engine::gameController::gameLoop() {
     Facade::Point viewChangeStart;
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
-        for (auto& player : Player::players) {
-            engine::Logger::Trace(std::to_string(player->money));
-        }
         ++currentTick;
         auto events = Facade::Frame();
         networkManager.processActions();
