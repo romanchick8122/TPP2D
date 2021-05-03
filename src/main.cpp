@@ -6,6 +6,7 @@
 #include "graphics/Textures.h"
 #include "engine/GUI/GuiList.h"
 #include "engine/GUI/GuiStrip.h"
+#include "Player.h"
 #ifdef WIN32
 #include "winsock2.h"
 #endif
@@ -22,6 +23,43 @@ std::string readFile(std::string filename) {
                std::istreambuf_iterator<char>());
     return str;
 }
+class MoneyShower : public engine::gameObject {
+    std::unique_ptr<engine::GUI::Button> moneyButton;
+    Player::Player* owner;
+  public:
+    MoneyShower(Player::Player* _owner) : owner(_owner), moneyButton(new engine::GUI::Button(
+        engine::config::Facade::Rect({1920 - 100, 0}, {100, 42}),
+        [](engine::GUI::Button*) {},
+        engine::config::Facade::Color(0, 0, 0),
+        "",
+        engine::config::Facade::Color(255, 215, 0)
+    )) {}
+    void tick() override {
+        if (owner->money > 1e16) {
+            moneyButton->Text = std::to_string(static_cast<int>(owner->money / 1e15)) + "P";
+        } else if (owner->money > 1e13) {
+            moneyButton->Text = std::to_string(static_cast<int>(owner->money / 1e12)) + "T";
+        } else if (owner->money > 1e10) {
+            moneyButton->Text = std::to_string(static_cast<int>(owner->money / 1e9)) + "G";
+        } else if (owner->money > 1e7) {
+            moneyButton->Text = std::to_string(static_cast<int>(owner->money / 1e6)) + "M";
+        } else if (owner->money > 1e4) {
+            moneyButton->Text = std::to_string(static_cast<int>(owner->money / 1e3)) + "k";
+        } else {
+            moneyButton->Text = std::to_string(static_cast<int>(owner->money));
+        }
+    }
+    void lateTick() override {}
+    void render() override {
+        moneyButton->render();
+    }
+    engine::config::Facade::Rect getRenderEdges() override {
+        return moneyButton->getRenderEdges();
+    }
+    bool tryOnClick(graphics::SFMLFacade::Point, graphics::Event::MouseButton) override {
+        return false;
+    }
+};
 int main() {
     //init sockets
 #ifdef WIN32
@@ -39,11 +77,15 @@ int main() {
         engine::gameController::Instance()->registerObject(ob);
     }
 
-    for(int i = 0; i < Player::players.size() - 1; ++i) {
+    for (int i = 0; i < Player::players.size() - 1; ++i) {
         vec[200 * i + 100]->owner = Player::players[i];
         vec[200 * i + 100]->adjacent.front()->owner = Player::players[i];
         vec[200 * i + 100]->adjacent.back()->owner = Player::players[i];
     }
+
+    MoneyShower main(Player::players[engine::gameController::Instance()->networkManager.serverId]);
+    engine::gameController::Instance()->registerStaticObject(&main);
+
     //Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
     //sq2->setCell(vec[9999]);
     //engine::gameController::Instance()->registerObject(sq2);
