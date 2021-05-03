@@ -79,6 +79,7 @@ int main() {
 
     for (int i = 0; i < Player::players.size() - 1; ++i) {
         vec[200 * i + 100]->owner = Player::players[i];
+        Squads::AllTemplates[0]->build(vec[200 * i + 100], Player::players[i]);
         vec[200 * i + 100]->adjacent.front()->owner = Player::players[i];
         vec[200 * i + 100]->adjacent.back()->owner = Player::players[i];
     }
@@ -86,7 +87,6 @@ int main() {
     MoneyShower main(Player::players[engine::gameController::Instance()->networkManager.serverId]);
     engine::gameController::Instance()->registerStaticObject(&main);
 
-    //Squads::Squad* sq2 = Squads::AllTemplates[0]->build();
     //sq2->setCell(vec[9999]);
     //engine::gameController::Instance()->registerObject(sq2);
     engine::gameController::Instance()->gameLoop();
