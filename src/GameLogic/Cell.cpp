@@ -145,5 +145,5 @@ Squads::Squad* Cell::getSquad() {
 }
 
 std::string Cell::repr() {
-    return "Cell (" + std::to_string(center.x) + "; " + std::to_string(center.y) + ")";
+    return "Cell (" + std::to_string(center.x) + "; " + std::to_string(center.y) + ") " + std::to_string(production);
 }

@@ -1,12 +1,17 @@
 #include "engine/gameController.h"
 #include "engine/config.h"
 #include "engine/gameObject.h"
+#include "GameLogic/Player.h"
+#include "engine/Logger.h"
 using Facade = engine::config::Facade;
 engine::gameController* engine::gameController::instance;
 void engine::gameController::unregisterObject(gameObject* object) {
     objects.erase(object->gameObjectListPosition);
 }
 void engine::gameController::gameLoop() {
+    for (auto& player : Player::players) {
+        engine::Logger::Trace(std::to_string(player->money));
+    }
     engine::config::Facade::scale = 1;
     bool wheelPresed = false;
     Facade::Point viewChangeStart;
