@@ -19,7 +19,7 @@ engine::GUI::GuiObject* Squads::SquadTemplate::getAvailableFactoryObject(Factory
     return strip;
 }
 std::pair<engine::GUI::GuiObject*, engine::GUI::Button*> Squads::SquadTemplate::getFactoryListObject(
-        Factory* factory, int count) {
+    Factory* factory, int count) {
     auto factoryObj = new engine::GUI::GuiStrip(
         390,
         engine::config::Facade::Color(0, 0, 0));
@@ -45,20 +45,20 @@ std::pair<engine::GUI::GuiObject*, engine::GUI::Button*> Squads::SquadTemplate::
     return {factoryObj, countButton};
 }
 Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::config::Facade::Color(60, 40, 8))) {
-    auto topMenuStrip = std::make_unique<engine::GUI::GuiStrip>(400, engine::config::Facade::Color(0,0,0,0));
+    auto topMenuStrip = std::make_unique<engine::GUI::GuiStrip>(400, engine::config::Facade::Color(0, 0, 0, 0));
     //name
     topMenuStrip->addChild(std::make_unique<engine::GUI::Button>(
         engine::config::Facade::Rect({0, 0}, {355, 30}),
-        [](engine::GUI::Button*){},
+        [](engine::GUI::Button*) {},
         engine::config::Facade::Color(0, 0, 0, 0),
         name,
         engine::config::Facade::Color(255, 220, 220)));
     //close button
     topMenuStrip->addChild(std::make_unique<engine::GUI::Button>(
         engine::config::Facade::Rect({0, 0}, {30, 30}),
-        [this](engine::GUI::Button*){ hide(); },
+        [this](engine::GUI::Button*) { hide(); },
         engine::config::Facade::Color(255, 0, 0)
-        ));
+    ));
     list->addChild(std::move(topMenuStrip));
 
     //Selected factories
@@ -69,7 +69,8 @@ Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::c
 
     //Factories scroll
     factoriesAvailable = std::make_unique<engine::GUI::GuiScroll>(engine::config::Facade::Rect({410, 50},
-                                                                {400, 1075 - list->boundary.height}),
+                                                                                               {400, 1075
+                                                                                                   - list->boundary.height}),
                                                                   engine::config::Facade::Color(60, 40, 8));
 
     for (auto* fact : Units::allUnits) {
@@ -80,17 +81,18 @@ Squads::SquadTemplate::SquadTemplate() : list(new engine::GUI::GuiList(engine::c
     show();
 };
 
-bool Squads::SquadTemplate::isPossible(Cell *ptr) {
-    for(auto i : temp) if(!i.first.first ->isPossible(ptr)) return false;
+bool Squads::SquadTemplate::isPossible(Cell* ptr) {
+    for (auto i : temp) if (!i.first.first->isPossible(ptr)) return false;
     return true;
 }
 
-void Squads::SquadTemplate::addFactory(Factory *ptr, int n) {
-    for(auto & i : temp) if(i.first.first == ptr) {
-        i.first.second += n;
-        i.second.second->Text = std::to_string(i.first.second);
-        return;
-    }
+void Squads::SquadTemplate::addFactory(Factory* ptr, int n) {
+    for (auto& i : temp)
+        if (i.first.first == ptr) {
+            i.first.second += n;
+            i.second.second->Text = std::to_string(i.first.second);
+            return;
+        }
 
     //create new gui object
     auto listObj = getFactoryListObject(ptr, n);
@@ -98,31 +100,34 @@ void Squads::SquadTemplate::addFactory(Factory *ptr, int n) {
     temp.emplace_back(std::make_pair(ptr, n), listObj);
 }
 void Squads::SquadTemplate::removeFactory(Factory* ptr) {
-    std::remove_reference_t<decltype(temp[0])>* toSwap = nullptr;
-    for (auto& i : temp) if (i.first.first == ptr) {
-        --i.first.second;
-        if (i.first.second == 0) {
-            scrollObj->removeChild(i.second.first);
-            toSwap = &i;
-            break;
+    auto toRemove = temp.end();
+    for (auto it = temp.begin(); it != temp.end(); ++it) {
+        auto& i = *it;
+        if (i.first.first == ptr) {
+            --i.first.second;
+            if (i.first.second == 0) {
+                scrollObj->removeChild(i.second.first);
+                toRemove = it;
+                break;
+            }
+            i.second.second->Text = std::to_string(i.first.second);
         }
-        i.second.second->Text = std::to_string(i.first.second);
     }
-    if (toSwap != nullptr) {
-        std::swap(*toSwap, temp.back());
-        temp.pop_back();
+    if (toRemove != temp.end()) {
+        temp.erase(toRemove);
     }
 }
 
 void Squads::SquadTemplate::build(Cell* buildOn, Player::Player* owner) {
-    if(temp.empty()) return;
-    std::vector<std::pair<size_t, size_t>> toAction(temp.size());
-    for (size_t i = 0; i < temp.size(); ++i) {
-        toAction[i] = {temp[i].first.first->id, temp[i].first.second};
+    if (temp.empty()) return;
+    std::vector<std::pair<size_t, size_t>> toAction;
+    toAction.reserve(temp.size());
+    for (auto& temp_i : temp) {
+        toAction.emplace_back(temp_i.first.first->id, temp_i.first.second);
     }
     engine::gameController::Instance()->networkManager.addAction(std::unique_ptr<engine::Action>(
         new engine::actions::SpawnAction(std::move(toAction), buildOn->id, owner->id)
-        ));
+    ));
 }
 
 void Squads::SquadTemplate::show() {
