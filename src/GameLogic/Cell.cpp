@@ -143,3 +143,7 @@ bool Cell::isProtected() {
 Squads::Squad* Cell::getSquad() {
     return *squads.begin();
 }
+
+std::string Cell::repr() {
+    return "Cell + (" + std::to_string(center.x) + "; " + std::to_string(center.y) + ")";
+}
