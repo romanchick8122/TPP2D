@@ -2,8 +2,9 @@ var class_units_1_1_unit =
 [
     [ "Unit", "class_units_1_1_unit.html#a67c0080bc69b90ba7a15400a6bda9dba", null ],
     [ "Unit", "class_units_1_1_unit.html#a6c76065aa78a1494c19fb200e1858bbd", null ],
-    [ "changeHP", "class_units_1_1_unit.html#a73b7389aadd967fb1faeedb9fcc40803", null ],
+    [ "changeHP", "class_units_1_1_unit.html#aba9ec4bcc5416468aad116fb12b92266", null ],
     [ "disableOrder", "class_units_1_1_unit.html#a6bf9950c12ad97fe2f76e45a3e548bc7", null ],
+    [ "drawHP", "class_units_1_1_unit.html#a47fa7996a0b593a10ed5c3029d2f9447", null ],
     [ "enableOrder", "class_units_1_1_unit.html#a8e2d5a6835fdc7a401ad7b259cb8143a", null ],
     [ "getAttack", "class_units_1_1_unit.html#a510bce5c8d36397a64c6dc4f4de04827", null ],
     [ "isAlive", "class_units_1_1_unit.html#a4309d1421354210c1fb695ff8c9fb354", null ],

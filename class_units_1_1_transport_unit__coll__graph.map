@@ -1,6 +1,6 @@
 <map id="Units::TransportUnit" name="Units::TransportUnit">
-<area shape="rect" id="node1" title=" " alt="" coords="134,1243,273,1423"/>
-<area shape="rect" id="node2" href="$class_units_1_1_unit.html" title=" " alt="" coords="110,808,297,1193"/>
+<area shape="rect" id="node1" title=" " alt="" coords="134,1257,273,1437"/>
+<area shape="rect" id="node2" href="$class_units_1_1_unit.html" title=" " alt="" coords="110,808,297,1208"/>
 <area shape="rect" id="node3" href="$class_unit_order.html" title=" " alt="" coords="108,573,187,665"/>
 <area shape="rect" id="node4" href="$class_squads_1_1_squad.html" title=" " alt="" coords="211,492,372,745"/>
 <area shape="rect" id="node5" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="5,271,180,363"/>

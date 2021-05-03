@@ -13,15 +13,14 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="28,-0.5 28,-101.5 112,-101.5 112,-0.5 28,-0.5"/>
-<text text-anchor="middle" x="70" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">Units::LandUnit</text>
-<polyline fill="none" stroke="black" points="28,-82.5 112,-82.5 "/>
-<text text-anchor="middle" x="70" y="-70.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="28,-63.5 112,-63.5 "/>
-<text text-anchor="start" x="36" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ LandUnit()</text>
-<text text-anchor="start" x="36" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setStats()</text>
-<text text-anchor="start" x="36" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ tick()</text>
-<text text-anchor="start" x="36" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ changeHP()</text>
+<polygon fill="#bfbfbf" stroke="black" points="28,-0.5 28,-90.5 112,-90.5 112,-0.5 28,-0.5"/>
+<text text-anchor="middle" x="70" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">Units::LandUnit</text>
+<polyline fill="none" stroke="black" points="28,-71.5 112,-71.5 "/>
+<text text-anchor="middle" x="70" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="28,-52.5 112,-52.5 "/>
+<text text-anchor="start" x="36" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ LandUnit()</text>
+<text text-anchor="start" x="36" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setStats()</text>
+<text text-anchor="start" x="36" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ tick()</text>
 <text text-anchor="start" x="36" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAttack()</text>
 </a>
 </g>
@@ -30,7 +29,7 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="class_units_1_1_unit.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="0,-138.5 0,-448.5 140,-448.5 140,-138.5 0,-138.5"/>
+<polygon fill="white" stroke="black" points="0,-127.5 0,-448.5 140,-448.5 140,-127.5 0,-127.5"/>
 <text text-anchor="middle" x="70" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">Units::Unit</text>
 <polyline fill="none" stroke="black" points="0,-429.5 140,-429.5 "/>
 <text text-anchor="start" x="8" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ name</text>
@@ -54,19 +53,20 @@
 <text text-anchor="start" x="8" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setSquad()</text>
 <text text-anchor="start" x="8" y="-211.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ changeHP()</text>
 <text text-anchor="start" x="8" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isAlive()</text>
-<text text-anchor="start" x="8" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ tick()</text>
-<text text-anchor="start" x="8" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAttack()</text>
-<text text-anchor="start" x="8" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isOrderPossible()</text>
-<text text-anchor="start" x="8" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ enableOrder()</text>
-<text text-anchor="start" x="8" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ disableOrder()</text>
+<text text-anchor="start" x="8" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ drawHP()</text>
+<text text-anchor="start" x="8" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ tick()</text>
+<text text-anchor="start" x="8" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAttack()</text>
+<text text-anchor="start" x="8" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isOrderPossible()</text>
+<text text-anchor="start" x="8" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ enableOrder()</text>
+<text text-anchor="start" x="8" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ disableOrder()</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M70,-128.24C70,-118.93 70,-110.03 70,-101.8"/>
-<polygon fill="none" stroke="midnightblue" points="66.5,-128.49 70,-138.49 73.5,-128.49 66.5,-128.49"/>
+<path fill="none" stroke="midnightblue" d="M70,-117.21C70,-107.73 70,-98.75 70,-90.57"/>
+<polygon fill="none" stroke="midnightblue" points="66.5,-117.25 70,-127.25 73.5,-117.25 66.5,-117.25"/>
 </g>
 </g>
 </svg>
