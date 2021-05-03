@@ -59,7 +59,7 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
                                               bool cyclic) {
     size_t sz = cyclic ? vertices.size() + 1 : vertices.size();
     sz *= 2;
-    sf::Vertex* vertexArray = new sf::Vertex[sz];
+    auto* vertexArray = new sf::Vertex[sz];
     for (size_t i = 0; i < vertices.size(); ++i) {
         Point tangent;
         if (i == 0) {
@@ -91,6 +91,7 @@ void graphics::SFMLFacade::DrawThickLineStrip(const std::vector<Point>& vertices
         vertexArray[sz - 1] = vertexArray[1];
     }
     window->draw(vertexArray, sz, sf::TrianglesStrip);
+    delete[] vertexArray;
 }
 void graphics::SFMLFacade::DrawText(const std::string& str, uint32_t fontSize, Color color, Point position) {
     auto text = sf::Text();
