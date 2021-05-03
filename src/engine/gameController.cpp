@@ -9,14 +9,14 @@ void engine::gameController::unregisterObject(gameObject* object) {
     objects.erase(object->gameObjectListPosition);
 }
 void engine::gameController::gameLoop() {
-    for (auto& player : Player::players) {
-        engine::Logger::Trace(std::to_string(player->money));
-    }
     engine::config::Facade::scale = 1;
     bool wheelPresed = false;
     Facade::Point viewChangeStart;
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
+        for (auto& player : Player::players) {
+            engine::Logger::Trace(std::to_string(player->money));
+        }
         ++currentTick;
         auto events = Facade::Frame();
         networkManager.processActions();
