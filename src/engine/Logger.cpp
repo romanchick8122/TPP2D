@@ -14,6 +14,9 @@ std::unique_ptr<LogData> logData;
 void engine::Logger::Init(engine::Logger::SeverityLevel minLevel) {
     logData = std::make_unique<LogData>(minLevel);
 }
+void engine::Logger::flush() {
+    logData->logFile.flush();
+}
 void engine::Logger::Fatal(std::string toLog) {
     if (logData->level < engine::Logger::SeverityLevel::FatalLevel) return;
     logData->logFile << "[Fatal]";

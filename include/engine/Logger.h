@@ -12,6 +12,7 @@ namespace engine {
             TraceLevel
         };
         static void Init(SeverityLevel);
+        static void flush();
         static void Fatal(std::string);
         static void Error(std::string);
         static void Warning(std::string);

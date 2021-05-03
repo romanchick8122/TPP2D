@@ -67,6 +67,7 @@ void engine::gameController::gameLoop() {
                 }
                 Facade::origin = cursor - Facade::mousePosition / Facade::scale;
             }
+            engine::Logger::flush();
         }
         networkManager.flushActions();
         //camera movement
