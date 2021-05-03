@@ -35,7 +35,11 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < numberOfConnections; ++i) {
         std::cout << "Waiting for " << i << "... ";
         struct sockaddr_in client;
+#ifdef WINNT
         int tmp = sizeof(struct sockaddr_in);
+#else
+        socklen_t tmp = sizeof(struct sockaddr_in);
+#endif
         clients[i] = accept(worker, (struct sockaddr*)&client, &tmp);
         char* buff = new char[6];
         buff[0] = static_cast<char>(i);
