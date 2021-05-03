@@ -24,13 +24,19 @@ std::unique_ptr<engine::Action> engine::actions::SpawnAction::read(std::istream&
     return std::unique_ptr<engine::Action>(new SpawnAction(std::move(resFactories), _buildOn, _owner));
 }
 void engine::actions::SpawnAction::apply() {
+    float price = 0;
     std::list<Units::Unit*> units_;
     for(auto f : factories) {
         auto factory = dynamic_cast<Factory*>(engine::gameController::Instance()->networkManager.getShared(f.first));
+        price += factory->cost * static_cast<float>(f.second);
         for (size_t i = 0; i < f.second; ++i) {
             units_.push_back(factory->createUnit());
         }
     }
+    if (price > Player::players[owner]->money) {
+        return;
+    }
+    Player::players[owner]->money -= price;
     auto spawnedSquad = new Squads::Squad(units_);
     spawnedSquad->setCell(dynamic_cast<Cell*>(engine::gameController::Instance()->networkManager.getShared(buildOn)));
     spawnedSquad->setOwner(Player::players[owner]);
