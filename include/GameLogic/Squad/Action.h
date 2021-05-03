@@ -1,4 +1,4 @@
-namespace Squads{
+namespace Squads {
     class Action;
 }
 
@@ -11,13 +11,14 @@ namespace Squads {
     class Action {
         float progress;
         float endProgress;
-        Squad *squad;
+        Squad* squad;
         float speed;
+        bool underAttack = false;
         engine::config::Facade::Point d;
-        std::list<Cell *> currentPath;
-        std::list<Cell *> possiblePath;
+        std::list<Cell*> currentPath;
+        std::list<Cell*> possiblePath;
     public:
-        Action(Squad *);
+        Action(Squad*);
 
         void nextStep();
 
@@ -25,17 +26,19 @@ namespace Squads {
 
         void attack();
 
-        float calcSpeed(const Cell *start, const Cell *end);
+        float calcSpeed(const Cell* start, const Cell* end);
 
-        std::list<Cell *> findPath(Cell *, Cell *);
+        std::list<Cell*> findPath(Cell*, Cell*);
 
         void stopAction();
 
         void setPath();
 
-        void setPath(Cell *);
+        void setPath(Cell*);
 
         void tick();
+
+        void lateTick();
 
         void render();
     };
