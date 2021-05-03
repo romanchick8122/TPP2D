@@ -7,7 +7,7 @@ struct LogData {
     engine::Logger::SeverityLevel level;
     explicit LogData(engine::Logger::SeverityLevel _level) : logFile("log.txt"), level(_level) { }
     void print(std::string&& data) {
-        logFile << "[" << engine::gameController::Instance()->currentTick << "] " << data;
+        logFile << "[" << engine::gameController::Instance()->currentTick << "] " << data << "\n";
     }
 };
 std::unique_ptr<LogData> logData;
