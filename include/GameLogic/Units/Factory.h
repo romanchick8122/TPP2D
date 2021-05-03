@@ -9,9 +9,9 @@ class Factory;
 
 class Factory : public engine::gameObject {
 protected:
-    float cost;
     float weight;
 public:
+    float cost;
     const std::string name;
     const engine::config::Facade::Texture *texture;
 

@@ -48,7 +48,7 @@ Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.
         production += (shape[i].y + shape[(i + 1) % shape.size()].y) / 2 * (shape[(i + 1) % shape.size()].x - shape[i].x);
     }
     production = abs(production);
-    production /= 1000000;
+    production /= 1e7;
     double minx, maxx, miny, maxy;
     minx = maxx = vertices[0].x;
     miny = maxy = vertices[0].y;
