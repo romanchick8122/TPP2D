@@ -11,6 +11,8 @@
 #include "AllUnits.h"
 #ifdef WIN32
 #include "winsock2.h"
+#else
+#include "sys/socket.h"
 #endif
 using util::cellGen::Point2D;
 std::string readFile(std::string filename) {

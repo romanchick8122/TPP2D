@@ -6,6 +6,7 @@
 #endif
 #include "iostream"
 #include "vector"
+#include <cstring>
 int main(int argc, char *argv[]) {
     //init sockets
 #ifdef WIN32
