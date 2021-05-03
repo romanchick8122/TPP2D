@@ -134,6 +134,9 @@ engine::gameController::gameController()  {
     std::string serverIp = "127.0.0.1";
     std::cout << "Type server ip: ";
     std::cin >> serverIp;
+    if (serverIp.empty()) {
+        serverIp = "127.0.0.1";
+    }
     uint32_t rngSeed = networkManager.connect(serverIp, 9587);
     rng.seed(rngSeed);
 }
