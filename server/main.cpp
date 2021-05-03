@@ -3,6 +3,8 @@
 #include "winsock2.h"
 #else
 #include "sys/socket.h"
+#define SOCKET int
+#define sockaddr_in sockaddr_un
 #endif
 #include "iostream"
 #include "vector"
