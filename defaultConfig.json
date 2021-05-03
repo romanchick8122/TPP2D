@@ -13,7 +13,7 @@
         {"name": "Infantry", "cost": 100, "weight": 80, "speed": 40, "HP": 25, "attack": 10, "texture": "resources/squad.png"},
         {"name": "Bicycle", "cost": 150, "weight": 110, "speed": 60, "HP": 35, "attack": 10, "texture": "resources/Bicycle_Battalion.png"},
         {"name": "CoolInfantry", "cost": 250, "weight": 90, "speed": 50, "HP": 40, "attack": 20, "texture": "resources/Mountain.png"},
-        {"name": "Marines", "cost": 100, "weight": 80, "speed": 40, "HP": 25, "attack": 15, "texture": "resources/Marine.png"},
+        {"name": "Marines", "cost": 120, "weight": 80, "speed": 40, "HP": 25, "attack": 15, "texture": "resources/Marine.png"},
         {"name": "Paratrooper", "cost": 400, "weight": 80, "speed": 50, "HP": 40, "attack": 30, "texture": "resources/Paratroop.png"},
         {"name": "Anti-Tank", "cost": 300, "weight": 100, "speed": 20, "HP": 20, "attack": 40, "texture": "resources/Anti-tank.png"}
       ],

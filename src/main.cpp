@@ -80,7 +80,6 @@ int main() {
 
     for (int i = 0; i < Player::players.size() - 1; ++i) {
         vec[200 * i + 100]->setOwner(Player::players[i]);
-        Squads::AllTemplates[0]->build(vec[200 * i + 100], Player::players[i]);
         vec[200 * i + 100]->adjacent.front()->setOwner(Player::players[i]);
         vec[200 * i + 100]->adjacent.back()->setOwner(Player::players[i]);
     }
