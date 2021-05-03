@@ -25,6 +25,7 @@ public:
     void render() override;
     void tick() override;
     void lateTick() override;
+    std::string repr() override;
     engine::config::Facade::Rect getRenderEdges() override;
     virtual bool tryOnClick(engine::config::Facade::Point clickPosition, graphics::Event::MouseButton) override;
 };
