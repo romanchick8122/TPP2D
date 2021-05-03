@@ -32,7 +32,7 @@ std::list<Cell *> Squads::Action::findPath(Cell *start, Cell *end) {
 void Squads::Action::nextStep() {
     squad->cell->deleteSquad(squad);
     squad->cell = currentPath.front();
-    squad->cell->owner = squad->owner;
+    squad->cell->setOwner(squad->owner);
     squad->cell->addSquad(squad);
     currentPath.pop_front();
     progress = 0;
