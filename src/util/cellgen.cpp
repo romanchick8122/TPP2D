@@ -94,6 +94,11 @@ namespace util::cellGen {
         auto res = std::remove_if(ans.begin(), ans.end(), [](CellData* a) {
             return a->adjacent.size() == 0;
         });
+        for (auto& it : ans) {
+            std::sort(it->adjacent.begin(), it->adjacent.end(), [](const CellData* l, const CellData* r) {
+                return l->center.x < r->center.x;
+            });
+        }
         ans.resize(res - ans.begin());
         ans.shrink_to_fit();
         for (auto &cd : ans) {
