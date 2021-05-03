@@ -25,3 +25,7 @@ engine::config::Facade::Rect Factory::getRenderEdges() {
 bool Factory::tryOnClick(engine::config::Facade::Point clickPosition, graphics::Event::MouseButton) {
     return false;
 }
+
+std::string Factory::repr() {
+    return "Factory - " + name;
+}
