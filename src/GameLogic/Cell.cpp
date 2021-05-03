@@ -104,6 +104,16 @@ void Cell::doOnClick() {
 
 void Cell::setOwner(Player::Player* owner_) {
     owner = owner_;
+    if (owner->id != engine::gameController::Instance()->networkManager.serverId) {
+        for (auto& adj : adjacent) {
+            adj->visible = false;
+        }
+    } else {
+        visible = true;
+        for (auto& adj : adjacent) {
+            adj->visible = true;
+        }
+    }
 }
 
 void Cell::addSquad(Squads::Squad* ptr) {
