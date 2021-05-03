@@ -70,8 +70,13 @@ void Cell::tick() {
 void Cell::lateTick() { return; }
 
 void Cell::render() {
+    auto _owner = owner;
+    if (!visible) {
+        owner = Player::nullPlayer;
+    }
     Facade::DrawConvexPolygon(shape, owner->color);
     Facade::DrawThickLineStrip(shape, 3, Facade::Color(255, 255, 255), true);
+    owner = _owner;
 };
 
 Facade::Rect Cell::getRenderEdges() {

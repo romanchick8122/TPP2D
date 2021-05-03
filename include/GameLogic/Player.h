@@ -6,7 +6,7 @@
 namespace Player{
     struct Player {
         graphics::SFMLFacade::Color color;
-        double money = 0;
+        double money = 500;
         char id;
         Player(int, int, int, char);
     };
