@@ -4,7 +4,8 @@
 #else
 #include "sys/socket.h"
 #define SOCKET int
-#define sockaddr_in sockaddr_un
+#include <sys/socket.h>
+#include <netinet/in.h>
 #endif
 #include "iostream"
 #include "vector"
