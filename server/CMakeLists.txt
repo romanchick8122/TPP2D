@@ -1,2 +1,4 @@
 add_executable(server main.cpp)
-target_link_libraries(server PRIVATE ws2_32)
+if(NOT UNIX)
+    target_link_libraries(server PRIVATE ws2_32)
+endif()
