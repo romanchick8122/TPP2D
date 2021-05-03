@@ -40,7 +40,7 @@ std::vector<Cell *> makeSurface(std::vector<util::cellGen::CellData *> &cells_) 
 }
 
 Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.center.y), vertices(cell_.vertices),
-                                                   shape(cell_.vertices.size()) {
+                                                   shape(cell_.vertices.size()), visible(false) {
     cellLandscapeFlags = Flags::generateLandscapeFlags();
     for (size_t i = 0; i < vertices.size(); ++i) {
         shape[i] = Facade::Point(cell_.vertices[i].x, cell_.vertices[i].y);
