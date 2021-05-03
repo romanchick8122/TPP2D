@@ -3,6 +3,7 @@
 #include <chrono>
 #include <thread>
 #include "Player.h"
+#include "engine/Logger.h"
 void engine::NetworkManager::makeShared(gameObject* obj) {
     if (!freeIds.empty()) {
         obj->id = freeIds.back();
@@ -12,8 +13,10 @@ void engine::NetworkManager::makeShared(gameObject* obj) {
         obj->id = sharedObjects.size();
         sharedObjects.push_back(obj);
     }
+    engine::Logger::Trace("makeShared[" + std::to_string(obj->id) + "] " + obj->repr());
 }
 void engine::NetworkManager::removeShared(gameObject* obj) {
+    engine::Logger::Trace("removeShared[" + std::to_string(obj->id) + "] " + obj->repr());
     freeIds.push_back(obj->id);
 }
 engine::gameObject* engine::NetworkManager::getShared(size_t id) {

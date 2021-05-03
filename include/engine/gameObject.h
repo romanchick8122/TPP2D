@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <list>
 #include "engine/config.h"
 #include "engine/Action.h"
@@ -7,6 +8,7 @@ namespace engine {
       public:
         size_t id;
         std::list<gameObject*>::iterator gameObjectListPosition;
+        virtual std::string repr();
         virtual void tick() = 0;
         virtual void lateTick() = 0;
         virtual void render() = 0;

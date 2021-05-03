@@ -18,6 +18,7 @@ class Cell;
 #include "AllUnits.h"
 #include "AllSquadTemplates.h"
 #include "Player.h"
+#include <string>
 
 using Facade = engine::config::Facade;
 
@@ -74,5 +75,7 @@ public:
     bool tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
 
     void doOnClick() override;
+
+    std::string repr() override;
 };
 
