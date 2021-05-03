@@ -48,9 +48,7 @@ void Squads::Action::nextStep() {
 
 void Squads::Action::tick() {
     if (currentPath.empty()) return;
-    if (currentPath.front()->owner != squad->owner && currentPath.front()->isProtected() && 2*progress > endProgress)
-        attack();
-    else
+    if (!underAttack)
         move();
 }
 
@@ -93,9 +91,10 @@ void Squads::Action::move() {
 
 void Squads::Action::attack() {
     Squad* defSquad = currentPath.front()->getSquad();
+    defSquad->action->underAttack = true;
     if(!defSquad->action->currentPath.empty()) defSquad->action->setPath(defSquad->cell);
-    defSquad->damageUnit(squad->getAttack()/1000);
-    squad->damageUnit(defSquad->getAttack()/1000);
+    defSquad->damageUnit(squad->getAttack());
+    squad->damageUnit(defSquad->getAttack());
     if (squad->units.empty()) {
         squad->cell->deleteSquad(squad);
         delete squad;
@@ -104,4 +103,9 @@ void Squads::Action::attack() {
         defSquad->cell->deleteSquad(defSquad);
         delete defSquad;
     }
+}
+
+void Squads::Action::lateTick() {
+    if (currentPath.front()->owner != squad->owner && currentPath.front()->isProtected() && 2*progress > endProgress)
+        attack();
 }

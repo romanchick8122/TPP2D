@@ -44,10 +44,10 @@ void Squads::Squad::updateFlagResists() {
 
 void Squads::Squad::update() {
     squadCurrentSpeed = 1e9;
-    attack = 0;
+    fullAttack = 0;
     for (auto unit : units) {
         squadCurrentSpeed = std::min(squadCurrentSpeed, *unit->commonSpeed);
-        attack += unit->getAttack();
+        fullAttack += unit->getAttack();
     }
 }
 
@@ -55,10 +55,14 @@ void Squads::Squad::tick() {
     action->tick();
     for (Units::Unit *unit : units) {
         unit->tick();
-    };
-};
+    }
+    attack = fullAttack/1000;
+}
 
-void Squads::Squad::lateTick() { return; };
+void Squads::Squad::lateTick() {
+    action->lateTick();
+    return;
+}
 
 void Squads::Squad::render() {
     if (!cell->visible) {
@@ -101,17 +105,17 @@ void Squads::Squad::setOwner(Player::Player* owner_) {
     owner = owner_;
 }
 
-void Squads::Squad::damageUnit(float d) {
+void Squads::Squad::damageUnit(float& d) {
     auto unitAttack = units.front()->getAttack();
     units.front()->changeHP(-d);
-    if(unitAttack != units.front()->getAttack()) attack += units.front()->getAttack() - unitAttack;
+    if(unitAttack != units.front()->getAttack()) fullAttack += units.front()->getAttack() - unitAttack;
     if(!units.front()->isAlive()) {
         delete units.front();
         units.pop_front();
-        attack -= unitAttack;
+        fullAttack -= unitAttack;
     }
 }
 
-float Squads::Squad::getAttack() {
+float& Squads::Squad::getAttack() {
     return attack;
 }

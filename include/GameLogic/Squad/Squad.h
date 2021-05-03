@@ -22,6 +22,7 @@ namespace Squads {
 
         std::list<Units::Unit*> units;
 
+        float fullAttack;
         float attack;
 
         void updateUnitSquadPtr();
@@ -41,10 +42,10 @@ namespace Squads {
 
         void setCell(Cell*);
 
-        void damageUnit(float);
+        void damageUnit(float&);
 
 
-        float getAttack();
+        float& getAttack();
 
         Squad(std::list<Units::Unit*>);
         ~Squad();
