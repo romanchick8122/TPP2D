@@ -1,4 +1,5 @@
 #include "Cell.h"
+#include "engine/Logger.h"
 
 using Facade = engine::config::Facade;
 
@@ -60,9 +61,10 @@ Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.
     }
     renderEdges = Facade::Rect(minx, miny, maxx - minx, maxy - miny);
     engine::gameController::Instance()->networkManager.makeShared(this);
-};
+}
 
 void Cell::tick() {
+    if(owner != Player::nullPlayer) engine::Logger::Trace(std::to_string(id) + " " + std::to_string(production) + " " + std::to_string(owner->money));
     owner->money += production;
     return;
 }
