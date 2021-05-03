@@ -1,5 +1,6 @@
 #pragma once
 #include "graphics/SFMLFacade.h"
+#include "graphics/FanFacade.h"
 #include "nlohmann/json.hpp"
 namespace engine::config {
     extern const float scaleSpeed;

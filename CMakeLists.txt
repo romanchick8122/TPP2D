@@ -66,7 +66,7 @@ if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
 endif()
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(TPP2D)
+add_executable(TPP2D src/graphics/FanFacade.cpp include/graphics/FanFacade.h)
 add_subdirectory(resources)
 
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
