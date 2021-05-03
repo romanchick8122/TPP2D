@@ -64,7 +64,7 @@ Cell::Cell(const util::cellGen::CellData &cell_) : center(cell_.center.x, cell_.
 }
 
 void Cell::tick() {
-    if(owner != Player::nullPlayer) engine::Logger::Trace(std::to_string(id) + " " + std::to_string(production) + " " + std::to_string(owner->money));
+    //if(owner != Player::nullPlayer) engine::Logger::Trace(std::to_string(id) + " " + std::to_string(production) + " " + std::to_string(owner->money));
     owner->money += production;
     return;
 }
