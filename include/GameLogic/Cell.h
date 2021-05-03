@@ -38,8 +38,8 @@ class Cell : public engine::gameplayClickableGameObject {
     std::vector<engine::config::Facade::Point> shape;
     std::set<Squads::Squad*> squads;
 public:
-    const Facade::Point center;
     Player::Player* owner = Player::nullPlayer;
+    const Facade::Point center;
     std::vector<Cell *> adjacent;
     const std::vector<float> *landscapeFlags = &cellLandscapeFlags;
     const std::map<const Cell *, std::vector<float>> *bordersFlags = &cellBorderFlags;
