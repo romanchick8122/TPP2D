@@ -10,7 +10,7 @@ namespace Squads {
 #include "GameLogic/Player.h"
 namespace Squads {
     class SquadTemplate {
-        std::vector<std::pair<std::pair<Factory*, int>, std::pair<engine::GUI::GuiObject*, engine::GUI::Button*>>> temp;
+        std::list<std::pair<std::pair<Factory*, int>, std::pair<engine::GUI::GuiObject*, engine::GUI::Button*>>> temp;
         std::unique_ptr<engine::GUI::GuiList> list;
         engine::GUI::GuiScroll* scrollObj;
         std::unique_ptr<engine::GUI::GuiScroll> factoriesAvailable;
