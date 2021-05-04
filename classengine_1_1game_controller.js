@@ -5,6 +5,7 @@ var classengine_1_1game_controller =
     [ "registerStaticObject", "classengine_1_1game_controller.html#ae124e19bf29bef364aded5e60d333542", null ],
     [ "unregisterObject", "classengine_1_1game_controller.html#ab112a24436bda384e0fa8c28362f5166", null ],
     [ "unregisterStaticObject", "classengine_1_1game_controller.html#ad3744d23958867b81a1df22692aadd66", null ],
+    [ "currentTick", "classengine_1_1game_controller.html#ae630064bc66de3f878b4f01ec210494f", null ],
     [ "networkManager", "classengine_1_1game_controller.html#a33a22abbd8acfb68451818e81c712514", null ],
     [ "rng", "classengine_1_1game_controller.html#aec0e5d1246bc55efd479f9de28e67fca", null ]
 ];

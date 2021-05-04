@@ -49,7 +49,7 @@
 <text text-anchor="start" x="8" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00"># fullHP</text>
 <polyline fill="none" stroke="black" points="0,-256.5 140,-256.5 "/>
 <text text-anchor="start" x="8" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Unit()</text>
-<text text-anchor="start" x="8" y="-233.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Unit()</text>
+<text text-anchor="start" x="8" y="-233.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~Unit()</text>
 <text text-anchor="start" x="8" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setSquad()</text>
 <text text-anchor="start" x="8" y="-211.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ changeHP()</text>
 <text text-anchor="start" x="8" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isAlive()</text>

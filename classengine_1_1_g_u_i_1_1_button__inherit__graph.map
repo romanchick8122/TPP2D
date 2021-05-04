@@ -1,5 +1,5 @@
 <map id="engine::GUI::Button" name="engine::GUI::Button">
-<area shape="rect" id="node1" title=" " alt="" coords="23,344,159,583"/>
-<area shape="rect" id="node2" href="$classengine_1_1_g_u_i_1_1_gui_object.html" title=" " alt="" coords="14,204,169,296"/>
-<area shape="rect" id="node3" href="$classengine_1_1game_object.html" title=" " alt="" coords="5,5,177,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="23,359,159,597"/>
+<area shape="rect" id="node2" href="$classengine_1_1_g_u_i_1_1_gui_object.html" title=" " alt="" coords="14,219,169,311"/>
+<area shape="rect" id="node3" href="$classengine_1_1game_object.html" title=" " alt="" coords="5,5,177,171"/>
 </map>

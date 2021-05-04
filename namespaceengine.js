@@ -13,6 +13,7 @@ var namespaceengine =
     [ "gameController", "classengine_1_1game_controller.html", "classengine_1_1game_controller" ],
     [ "gameObject", "classengine_1_1game_object.html", "classengine_1_1game_object" ],
     [ "gameplayClickableGameObject", "classengine_1_1gameplay_clickable_game_object.html", "classengine_1_1gameplay_clickable_game_object" ],
+    [ "Logger", "classengine_1_1_logger.html", "classengine_1_1_logger" ],
     [ "NetworkManager", "classengine_1_1_network_manager.html", "classengine_1_1_network_manager" ],
     [ "readAction", "namespaceengine.html#aa7c2228a9c94c8e8e2a48d25c3c84c51", null ]
 ];

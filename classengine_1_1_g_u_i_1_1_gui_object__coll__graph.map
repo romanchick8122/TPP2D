@@ -1,4 +1,4 @@
 <map id="engine::GUI::GuiObject" name="engine::GUI::GuiObject">
-<area shape="rect" id="node1" title=" " alt="" coords="14,204,169,296"/>
-<area shape="rect" id="node2" href="$classengine_1_1game_object.html" title=" " alt="" coords="5,5,177,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="14,219,169,311"/>
+<area shape="rect" id="node2" href="$classengine_1_1game_object.html" title=" " alt="" coords="5,5,177,171"/>
 </map>

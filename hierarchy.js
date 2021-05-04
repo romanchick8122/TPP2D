@@ -8,6 +8,9 @@ var hierarchy =
     ] ],
     [ "Squads::Action", "class_squads_1_1_action.html", null ],
     [ "util::cellGen::CellData", "structutil_1_1cell_gen_1_1_cell_data.html", null ],
+    [ "sf::Color", null, [
+      [ "graphics::FanFacade::Color1", "classgraphics_1_1_fan_facade_1_1_color1.html", null ]
+    ] ],
     [ "graphics::Event", "structgraphics_1_1_event.html", null ],
     [ "Flag", "struct_flag.html", null ],
     [ "engine::gameController", "classengine_1_1game_controller.html", null ],
@@ -17,6 +20,7 @@ var hierarchy =
         [ "TransportUnitFactory", "class_transport_unit_factory.html", null ],
         [ "Units::ArmoredUnitFactory", "class_units_1_1_armored_unit_factory.html", null ]
       ] ],
+      [ "MoneyShower", "class_money_shower.html", null ],
       [ "engine::GUI::GuiObject", "classengine_1_1_g_u_i_1_1_gui_object.html", [
         [ "engine::GUI::Button", "classengine_1_1_g_u_i_1_1_button.html", null ],
         [ "engine::GUI::GuiList", "classengine_1_1_g_u_i_1_1_gui_list.html", [
@@ -29,10 +33,14 @@ var hierarchy =
         [ "Squads::Squad", "class_squads_1_1_squad.html", null ]
       ] ]
     ] ],
+    [ "LogData", "struct_log_data.html", null ],
+    [ "engine::Logger", "classengine_1_1_logger.html", null ],
     [ "engine::NetworkManager", "classengine_1_1_network_manager.html", null ],
     [ "Player::Player", "struct_player_1_1_player.html", null ],
     [ "Comparators::Point2DComp", "struct_comparators_1_1_point2_d_comp.html", null ],
-    [ "graphics::SFMLFacade", "classgraphics_1_1_s_f_m_l_facade.html", null ],
+    [ "graphics::SFMLFacade", "classgraphics_1_1_s_f_m_l_facade.html", [
+      [ "graphics::FanFacade", "classgraphics_1_1_fan_facade.html", null ]
+    ] ],
     [ "Squads::SquadOrder", "class_squads_1_1_squad_order.html", null ],
     [ "Squads::SquadTemplate", "class_squads_1_1_squad_template.html", null ],
     [ "Units::Unit", "class_units_1_1_unit.html", [

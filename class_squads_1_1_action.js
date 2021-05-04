@@ -4,6 +4,7 @@ var class_squads_1_1_action =
     [ "attack", "class_squads_1_1_action.html#a3b7c63df595c68d48021fe912ec368ac", null ],
     [ "calcSpeed", "class_squads_1_1_action.html#ae3287a1304f087aed3e5e80fe892464c", null ],
     [ "findPath", "class_squads_1_1_action.html#a4b58ace38d3be18a91d9c474302dbf46", null ],
+    [ "lateTick", "class_squads_1_1_action.html#a5075ef1047478f0accf22bb5b2bbf373", null ],
     [ "move", "class_squads_1_1_action.html#ac3cecdd0b4c36598a8e1e6f9c4dd94b7", null ],
     [ "nextStep", "class_squads_1_1_action.html#a5489d63bafe193ac006c2729d1870377", null ],
     [ "render", "class_squads_1_1_action.html#a712b11f51d4fa09a85f52e0c7766d35d", null ],

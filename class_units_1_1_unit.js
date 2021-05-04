@@ -1,7 +1,7 @@
 var class_units_1_1_unit =
 [
-    [ "Unit", "class_units_1_1_unit.html#a67c0080bc69b90ba7a15400a6bda9dba", null ],
     [ "Unit", "class_units_1_1_unit.html#a6c76065aa78a1494c19fb200e1858bbd", null ],
+    [ "~Unit", "class_units_1_1_unit.html#a74aba0c21568392b3a7508af73044ab0", null ],
     [ "changeHP", "class_units_1_1_unit.html#aba9ec4bcc5416468aad116fb12b92266", null ],
     [ "disableOrder", "class_units_1_1_unit.html#a6bf9950c12ad97fe2f76e45a3e548bc7", null ],
     [ "drawHP", "class_units_1_1_unit.html#a47fa7996a0b593a10ed5c3029d2f9447", null ],

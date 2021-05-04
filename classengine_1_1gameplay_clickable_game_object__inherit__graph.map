@@ -1,6 +1,6 @@
 <map id="engine::gameplayClickableGameObject" name="engine::gameplayClickableGameObject">
-<area shape="rect" id="node1" title=" " alt="" coords="73,204,247,296"/>
-<area shape="rect" id="node3" href="$class_cell.html" title=" " alt="" coords="5,344,141,685"/>
-<area shape="rect" id="node4" href="$class_squads_1_1_squad.html" title=" " alt="" coords="166,381,327,649"/>
-<area shape="rect" id="node2" href="$classengine_1_1game_object.html" title=" " alt="" coords="74,5,246,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="73,219,247,311"/>
+<area shape="rect" id="node3" href="$class_cell.html" title=" " alt="" coords="5,359,141,729"/>
+<area shape="rect" id="node4" href="$class_squads_1_1_squad.html" title=" " alt="" coords="166,410,327,678"/>
+<area shape="rect" id="node2" href="$classengine_1_1game_object.html" title=" " alt="" coords="74,5,246,171"/>
 </map>

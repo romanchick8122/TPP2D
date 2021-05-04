@@ -9,6 +9,7 @@ var class_cell =
     [ "isProtected", "class_cell.html#ab1e6724cdab7953af5e804d90a92ee15", null ],
     [ "lateTick", "class_cell.html#a0148cff7aa30c945a7764fc4bf1f8e34", null ],
     [ "render", "class_cell.html#a1a6d9c09b8ca979d3320af25545884d1", null ],
+    [ "repr", "class_cell.html#ad73861249e9521286434275ca32c373a", null ],
     [ "setAdjacent", "class_cell.html#a36b12e21113601bf558fc861e98e37d3", null ],
     [ "setBorders", "class_cell.html#a9712606b190104ae11477441b795b230", null ],
     [ "setOwner", "class_cell.html#a7fea7ca42ce6e66f5a2dab19d5ad126f", null ],
@@ -19,5 +20,6 @@ var class_cell =
     [ "center", "class_cell.html#a88f053d67a07ebe61a4333f4242a571d", null ],
     [ "landscapeFlags", "class_cell.html#a5adece57dff347ecfaa5ef29b4a21fc5", null ],
     [ "owner", "class_cell.html#a15cc73c3a8f3cd2afb533d84c11e32e5", null ],
-    [ "vertices", "class_cell.html#a2e6a1991e810d7e364dfa31290b8886a", null ]
+    [ "vertices", "class_cell.html#a2e6a1991e810d7e364dfa31290b8886a", null ],
+    [ "visible", "class_cell.html#a52e62fb49767cb113eab5a182eaa07d2", null ]
 ];

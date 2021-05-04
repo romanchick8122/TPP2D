@@ -21,10 +21,12 @@ var annotated_dup =
       [ "gameController", "classengine_1_1game_controller.html", "classengine_1_1game_controller" ],
       [ "gameObject", "classengine_1_1game_object.html", "classengine_1_1game_object" ],
       [ "gameplayClickableGameObject", "classengine_1_1gameplay_clickable_game_object.html", "classengine_1_1gameplay_clickable_game_object" ],
+      [ "Logger", "classengine_1_1_logger.html", "classengine_1_1_logger" ],
       [ "NetworkManager", "classengine_1_1_network_manager.html", "classengine_1_1_network_manager" ]
     ] ],
     [ "graphics", "namespacegraphics.html", [
       [ "Event", "structgraphics_1_1_event.html", "structgraphics_1_1_event" ],
+      [ "FanFacade", "classgraphics_1_1_fan_facade.html", "classgraphics_1_1_fan_facade" ],
       [ "SFMLFacade", "classgraphics_1_1_s_f_m_l_facade.html", "classgraphics_1_1_s_f_m_l_facade" ]
     ] ],
     [ "Player", "namespace_player.html", [
@@ -52,6 +54,8 @@ var annotated_dup =
     [ "Factory", "class_factory.html", "class_factory" ],
     [ "Flag", "struct_flag.html", "struct_flag" ],
     [ "LandUnitFactory", "class_land_unit_factory.html", "class_land_unit_factory" ],
+    [ "LogData", "struct_log_data.html", "struct_log_data" ],
+    [ "MoneyShower", "class_money_shower.html", "class_money_shower" ],
     [ "TestOrder", "class_test_order.html", "class_test_order" ],
     [ "TransportUnitFactory", "class_transport_unit_factory.html", "class_transport_unit_factory" ],
     [ "UnitOrder", "class_unit_order.html", "class_unit_order" ]

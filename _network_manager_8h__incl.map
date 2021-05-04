@@ -1,16 +1,20 @@
 <map id="include/engine/NetworkManager.h" name="include/engine/NetworkManager.h">
-<area shape="rect" id="node1" title=" " alt="" coords="423,5,641,32"/>
-<area shape="rect" id="node2" href="$game_object_8h.html" title=" " alt="" coords="224,80,368,107"/>
-<area shape="rect" id="node12" href="$_none_8h.html" title=" " alt="" coords="393,80,543,107"/>
-<area shape="rect" id="node13" title=" " alt="" coords="568,80,627,107"/>
-<area shape="rect" id="node14" title=" " alt="" coords="651,80,746,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="191,155,230,181"/>
-<area shape="rect" id="node4" href="$config_8h.html" title=" " alt="" coords="254,155,362,181"/>
-<area shape="rect" id="node9" href="$engine_2_action_8h.html" title=" " alt="" coords="407,155,518,181"/>
-<area shape="rect" id="node5" href="$_s_f_m_l_facade_8h.html" title=" " alt="" coords="58,229,222,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="247,229,377,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,304,144,331"/>
-<area shape="rect" id="node7" href="$_facade_8h.html" title=" " alt="" coords="168,304,243,331"/>
-<area shape="rect" id="node10" title=" " alt="" coords="424,229,496,256"/>
-<area shape="rect" id="node11" title=" " alt="" coords="521,229,589,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="627,5,846,32"/>
+<area shape="rect" id="node2" href="$game_object_8h.html" title=" " alt="" coords="313,80,457,107"/>
+<area shape="rect" id="node14" href="$_none_8h.html" title=" " alt="" coords="481,80,632,107"/>
+<area shape="rect" id="node15" title=" " alt="" coords="657,80,715,107"/>
+<area shape="rect" id="node16" title=" " alt="" coords="740,80,835,107"/>
+<area shape="rect" id="node17" title=" " alt="" coords="859,80,945,107"/>
+<area shape="rect" id="node18" title=" " alt="" coords="969,80,1051,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="208,155,263,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="287,155,325,181"/>
+<area shape="rect" id="node5" href="$config_8h.html" title=" " alt="" coords="349,155,457,181"/>
+<area shape="rect" id="node11" href="$engine_2_action_8h.html" title=" " alt="" coords="501,155,612,181"/>
+<area shape="rect" id="node6" href="$_s_f_m_l_facade_8h.html" title=" " alt="" coords="180,229,344,256"/>
+<area shape="rect" id="node9" href="$_fan_facade_8h.html" title=" " alt="" coords="5,229,156,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="369,229,499,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="37,304,175,331"/>
+<area shape="rect" id="node8" href="$_facade_8h.html" title=" " alt="" coords="211,304,286,331"/>
+<area shape="rect" id="node12" title=" " alt="" coords="615,229,687,256"/>
+<area shape="rect" id="node13" title=" " alt="" coords="523,229,591,256"/>
 </map>

@@ -2,9 +2,9 @@ var class_squads_1_1_squad =
 [
     [ "Squad", "class_squads_1_1_squad.html#aa9fb6eb8bb4e7024e829a60d1b9a4ffc", null ],
     [ "~Squad", "class_squads_1_1_squad.html#a1951c087cfde5954f78a2ee80a688933", null ],
-    [ "damageUnit", "class_squads_1_1_squad.html#a935fffdffa2cbacff79d5496acf1e6a4", null ],
+    [ "damageUnit", "class_squads_1_1_squad.html#ae7e0e111d20b7a73a91653454b0c41ab", null ],
     [ "doOnClick", "class_squads_1_1_squad.html#aa6426ad0b59b00d87c28d3b9d943c11e", null ],
-    [ "getAttack", "class_squads_1_1_squad.html#aab6f3e93bba14a6a40553fbd3573dfbe", null ],
+    [ "getAttack", "class_squads_1_1_squad.html#a09439fdd2d0328b2e1abb19a7826eef2", null ],
     [ "lateTick", "class_squads_1_1_squad.html#a167bb7f701838cc52ec330fc9a2b7077", null ],
     [ "render", "class_squads_1_1_squad.html#a03d8e0d048bb29c6668ee9c1bd6e0464", null ],
     [ "setCell", "class_squads_1_1_squad.html#aa2375e6681c8d5212eead8b8f9d3430d", null ],

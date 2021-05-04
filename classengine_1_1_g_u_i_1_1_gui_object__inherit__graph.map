@@ -1,8 +1,8 @@
 <map id="engine::GUI::GuiObject" name="engine::GUI::GuiObject">
-<area shape="rect" id="node1" title=" " alt="" coords="157,204,312,296"/>
-<area shape="rect" id="node3" href="$classengine_1_1_g_u_i_1_1_button.html" title=" " alt="" coords="5,344,141,583"/>
-<area shape="rect" id="node4" href="$classengine_1_1_g_u_i_1_1_gui_list.html" title=" " alt="" coords="165,373,304,553"/>
-<area shape="rect" id="node6" href="$classengine_1_1_g_u_i_1_1_gui_strip.html" title=" " alt="" coords="329,359,471,568"/>
-<area shape="rect" id="node2" href="$classengine_1_1game_object.html" title=" " alt="" coords="149,5,321,156"/>
-<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html" title=" " alt="" coords="160,631,309,767"/>
+<area shape="rect" id="node1" title=" " alt="" coords="157,219,312,311"/>
+<area shape="rect" id="node3" href="$classengine_1_1_g_u_i_1_1_button.html" title=" " alt="" coords="5,359,141,597"/>
+<area shape="rect" id="node4" href="$classengine_1_1_g_u_i_1_1_gui_list.html" title=" " alt="" coords="165,388,304,568"/>
+<area shape="rect" id="node6" href="$classengine_1_1_g_u_i_1_1_gui_strip.html" title=" " alt="" coords="329,373,471,583"/>
+<area shape="rect" id="node2" href="$classengine_1_1game_object.html" title=" " alt="" coords="149,5,321,171"/>
+<area shape="rect" id="node5" href="$classengine_1_1_g_u_i_1_1_gui_scroll.html" title=" " alt="" coords="160,645,309,781"/>
 </map>

@@ -1,5 +1,6 @@
 <map id="engine::gameController::registerStaticObject" name="engine::gameController::registerStaticObject">
-<area shape="rect" id="node1" title=" " alt="" coords="427,5,580,47"/>
-<area shape="rect" id="node2" href="$class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb" title=" " alt="" coords="216,5,379,47"/>
-<area shape="rect" id="node3" href="$class_squads_1_1_squad_template.html#a546f2ecdbf38e384da68c11a6e7158d3" title=" " alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="427,27,580,69"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="272,5,323,32"/>
+<area shape="rect" id="node3" href="$class_squads_1_1_squad_template.html#aa004e66dc0b72234e0b49a7cd69f9acb" title=" " alt="" coords="216,57,379,98"/>
+<area shape="rect" id="node4" href="$class_squads_1_1_squad_template.html#a546f2ecdbf38e384da68c11a6e7158d3" title=" " alt="" coords="5,57,168,98"/>
 </map>

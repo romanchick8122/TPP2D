@@ -1,5 +1,6 @@
 <map id="engine::gameController::gameLoop" name="engine::gameController::gameLoop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,159,80"/>
-<area shape="rect" id="node2" href="$classgraphics_1_1_s_f_m_l_facade.html#a5a508e4f5515d1407348e1e8253f7015" title=" " alt="" coords="207,5,363,47"/>
-<area shape="rect" id="node3" href="$classgraphics_1_1_s_f_m_l_facade.html#aba3633e15a496111908f54a44e1ee44b" title=" " alt="" coords="207,71,363,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,57,159,98"/>
+<area shape="rect" id="node2" href="$classengine_1_1_logger.html#a2131f107cf1aa6d5051dd2a4b9720717" title=" " alt="" coords="215,5,354,32"/>
+<area shape="rect" id="node3" href="$classgraphics_1_1_s_f_m_l_facade.html#a5a508e4f5515d1407348e1e8253f7015" title=" " alt="" coords="207,57,363,98"/>
+<area shape="rect" id="node4" href="$classgraphics_1_1_s_f_m_l_facade.html#aba3633e15a496111908f54a44e1ee44b" title=" " alt="" coords="207,122,363,163"/>
 </map>

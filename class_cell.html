@@ -94,13 +94,13 @@ $(document).ready(function(){initNavTree('class_cell.html',''); initResizable();
 <div class="dynheader">
 Inheritance diagram for Cell:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell__inherit__graph.svg" width="186" height="691"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell__inherit__graph.svg" width="186" height="735"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Cell:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell__coll__graph.svg" width="423" height="692"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell__coll__graph.svg" width="423" height="751"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -134,13 +134,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a064227f1968066ac1dfd15229b45c071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34f5c6147f63470486b6e9e9d6d33ee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a34f5c6147f63470486b6e9e9d6d33ee9">doOnClick</a> () override</td></tr>
 <tr class="separator:a34f5c6147f63470486b6e9e9d6d33ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73861249e9521286434275ca32c373a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#ad73861249e9521286434275ca32c373a">repr</a> () override</td></tr>
+<tr class="separator:ad73861249e9521286434275ca32c373a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a88f053d67a07ebe61a4333f4242a571d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classgraphics_1_1_s_f_m_l_facade.html#ad60f01c350199cf1901c6c2bd7f28482">Facade::Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a88f053d67a07ebe61a4333f4242a571d">center</a></td></tr>
-<tr class="separator:a88f053d67a07ebe61a4333f4242a571d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e62fb49767cb113eab5a182eaa07d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a52e62fb49767cb113eab5a182eaa07d2">visible</a></td></tr>
+<tr class="separator:a52e62fb49767cb113eab5a182eaa07d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15cc73c3a8f3cd2afb533d84c11e32e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_player_1_1_player.html">Player::Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a15cc73c3a8f3cd2afb533d84c11e32e5">owner</a> = <a class="el" href="namespace_player.html#a425dd4932e9eb1a7d2c81eba971228d9">Player::nullPlayer</a></td></tr>
 <tr class="separator:a15cc73c3a8f3cd2afb533d84c11e32e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88f053d67a07ebe61a4333f4242a571d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classgraphics_1_1_s_f_m_l_facade.html#ad60f01c350199cf1901c6c2bd7f28482">Facade::Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a88f053d67a07ebe61a4333f4242a571d">center</a></td></tr>
+<tr class="separator:a88f053d67a07ebe61a4333f4242a571d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31b68b88afd26b8e189e89128548ae50"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a31b68b88afd26b8e189e89128548ae50">adjacent</a></td></tr>
 <tr class="separator:a31b68b88afd26b8e189e89128548ae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5adece57dff347ecfaa5ef29b4a21fc5"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html#a5adece57dff347ecfaa5ef29b4a21fc5">landscapeFlags</a> = &amp;cellLandscapeFlags</td></tr>
@@ -180,7 +184,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell_aa3317a89121135ce43f0ade0248dd9e0_cgraph.svg" width="306" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell_aa3317a89121135ce43f0ade0248dd9e0_cgraph.svg" width="499" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -220,12 +224,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell_a04a152fd295f19672938c0f1e67439e0_icgraph.svg" width="332" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -389,6 +387,33 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="ad73861249e9521286434275ca32c373a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73861249e9521286434275ca32c373a">&#9670;&nbsp;</a></span>repr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Cell::repr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classengine_1_1game_object.html#a8053816dc4af5fb4c0755edd6bae1069">engine::gameObject</a>.</p>
+
+</div>
+</div>
 <a id="a36b12e21113601bf558fc861e98e37d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36b12e21113601bf558fc861e98e37d3">&#9670;&nbsp;</a></span>setAdjacent()</h2>
 
@@ -449,6 +474,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_cell_a7fea7ca42ce6e66f5a2dab19d5ad126f_cgraph.svg" width="319" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -602,6 +633,20 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">const std::vector&lt;<a class="el" href="namespaceutil_1_1cell_gen.html#a8d28ebe3bd0d4a5ced2dea38999a639d">util::cellGen::Point2D</a>&gt; Cell::vertices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52e62fb49767cb113eab5a182eaa07d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e62fb49767cb113eab5a182eaa07d2">&#9670;&nbsp;</a></span>visible</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cell::visible</td>
         </tr>
       </table>
 </div><div class="memdoc">

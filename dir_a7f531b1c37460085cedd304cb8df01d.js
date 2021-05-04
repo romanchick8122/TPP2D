@@ -13,7 +13,8 @@ var dir_a7f531b1c37460085cedd304cb8df01d =
     [ "gameplayClickableGameObject.h", "gameplay_clickable_game_object_8h.html", [
       [ "gameplayClickableGameObject", "classengine_1_1gameplay_clickable_game_object.html", "classengine_1_1gameplay_clickable_game_object" ]
     ] ],
-    [ "NetworkManager.h", "_network_manager_8h.html", [
-      [ "NetworkManager", "classengine_1_1_network_manager.html", "classengine_1_1_network_manager" ]
-    ] ]
+    [ "Logger.h", "_logger_8h.html", [
+      [ "Logger", "classengine_1_1_logger.html", "classengine_1_1_logger" ]
+    ] ],
+    [ "NetworkManager.h", "_network_manager_8h.html", "_network_manager_8h" ]
 ];

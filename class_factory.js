@@ -7,6 +7,7 @@ var class_factory =
     [ "isPossible", "class_factory.html#a0373d43950fcc2cac6d50dd48410b084", null ],
     [ "lateTick", "class_factory.html#ad99d4c42d59dd1101e179ca7be0e5810", null ],
     [ "render", "class_factory.html#a363bc933f354cdc6e5f5e480499fd6e0", null ],
+    [ "repr", "class_factory.html#ac554ea339b69ead0f65cb8c916e9836c", null ],
     [ "tick", "class_factory.html#a685af424de23073f3ce46f21d7537e6f", null ],
     [ "tryOnClick", "class_factory.html#a3e1f1559abd0833a290d7acdc97513c0", null ],
     [ "cost", "class_factory.html#afd80e78ad24c0d14eedbc5a598bb003a", null ],

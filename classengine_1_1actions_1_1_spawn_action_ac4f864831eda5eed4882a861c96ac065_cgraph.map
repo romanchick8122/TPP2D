@@ -1,5 +1,7 @@
 <map id="engine::actions::SpawnAction::apply" name="engine::actions::SpawnAction::apply">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,196,80"/>
-<area shape="rect" id="node2" href="$classengine_1_1_network_manager.html#a56504e3d77a73e472701788174bca212" title=" " alt="" coords="244,5,409,47"/>
-<area shape="rect" id="node3" href="$classengine_1_1game_controller.html#ae2459bdafdf03e3b1519a14738744f00" title=" " alt="" coords="250,71,403,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,90,196,131"/>
+<area shape="rect" id="node2" href="$classengine_1_1_logger.html#a2ce15243188b4b6c992ca9b09db4e0bf" title=" " alt="" coords="252,5,401,32"/>
+<area shape="rect" id="node3" href="$classengine_1_1_network_manager.html#a56504e3d77a73e472701788174bca212" title=" " alt="" coords="244,57,409,98"/>
+<area shape="rect" id="node4" href="$classengine_1_1game_controller.html#ae2459bdafdf03e3b1519a14738744f00" title=" " alt="" coords="250,122,403,163"/>
+<area shape="rect" id="node5" href="$classengine_1_1_logger.html#aa4821d031aaabdef211acc1e04db1f04" title=" " alt="" coords="254,188,399,215"/>
 </map>

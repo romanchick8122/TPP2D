@@ -1,8 +1,8 @@
 <map id="Units::Unit" name="Units::Unit">
-<area shape="rect" id="node1" title=" " alt="" coords="110,808,297,1208"/>
-<area shape="rect" id="node2" href="$class_unit_order.html" title=" " alt="" coords="108,573,187,665"/>
-<area shape="rect" id="node3" href="$class_squads_1_1_squad.html" title=" " alt="" coords="211,492,372,745"/>
-<area shape="rect" id="node4" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="5,271,180,363"/>
-<area shape="rect" id="node5" href="$classengine_1_1game_object.html" title=" " alt="" coords="7,5,179,156"/>
-<area shape="rect" id="node6" href="$class_squads_1_1_action.html" title=" " alt="" coords="318,205,427,429"/>
+<area shape="rect" id="node1" title=" " alt="" coords="110,837,297,1237"/>
+<area shape="rect" id="node2" href="$class_unit_order.html" title=" " alt="" coords="108,602,187,694"/>
+<area shape="rect" id="node3" href="$class_squads_1_1_squad.html" title=" " alt="" coords="211,521,372,775"/>
+<area shape="rect" id="node4" href="$classengine_1_1gameplay_clickable_game_object.html" title=" " alt="" coords="5,293,180,385"/>
+<area shape="rect" id="node5" href="$classengine_1_1game_object.html" title=" " alt="" coords="7,5,179,171"/>
+<area shape="rect" id="node6" href="$class_squads_1_1_action.html" title=" " alt="" coords="318,220,427,459"/>
 </map>

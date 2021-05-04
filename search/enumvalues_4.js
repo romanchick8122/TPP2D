@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right_622',['Right',['../structgraphics_1_1_event.html#ab7f7ff8510b790402c97d116cd6c2d66a348aa29119166a88516d2c87e8d6d410',1,'graphics::Event']]]
+  ['infolevel_682',['InfoLevel',['../classengine_1_1_logger.html#ab74687ba02aa4c6e9fb69c07d57357c3a0deeb51304ad174d3018388ebc34f1de',1,'engine::Logger']]]
 ];
