@@ -107,8 +107,12 @@ void Squads::Squad::setOwner(Player::Player* owner_) {
 
 void Squads::Squad::damageUnit(float& d) {
     size_t n = 1;
-    for (auto it = units.begin();it != units.end(); ++n, ++it)
-        if(++it == units.end() || (*it)->name != (*--it)->name) break;
+    for (auto it = units.begin();it != units.end();) {
+        std::string name = (*it)->name;
+        ++it;
+        if(it == units.end() || (*it)->name != name) break;
+        ++n;
+    }
     size_t rand = engine::gameController::Instance()->rng() % n;
     auto it = units.begin();
     for(int i = 0; i < rand; ++i) ++it;
