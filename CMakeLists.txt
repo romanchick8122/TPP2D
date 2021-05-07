@@ -74,7 +74,8 @@ configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json 
 if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
     message(Submodule not found)
     file(REMOVE delaunay-triangulation-algorithm)
-    execute_process(COMMAND git submodule update --force delaunay-triangulation-algorithm)
+    execute_process(COMMAND git submodule init)
+    execute_process(COMMAND git submodule update --force)
 endif()
 include_directories(delaunay-triangulation-algorithm/src)
 target_sources(TPP2D PUBLIC
