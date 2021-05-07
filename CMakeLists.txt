@@ -71,16 +71,16 @@ add_subdirectory(resources)
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
 
 #Adding submodules
-if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
     message(Submodule not found)
-    file(REMOVE delaunay-triangulation-algorithm)
+    file(REMOVE ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm)
     execute_process(COMMAND git submodule init WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
     execute_process(COMMAND git submodule update --force WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
-include_directories(delaunay-triangulation-algorithm/src)
+include_directories(${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src)
 target_sources(TPP2D PUBLIC
-        delaunay-triangulation-algorithm/src/models.cpp
-        delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
+        ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src/models.cpp
+        ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
 
 add_subdirectory(src)
 
