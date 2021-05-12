@@ -6,7 +6,6 @@ include_directories(include/engine)
 include_directories(include/GameLogic)
 include_directories(include/GameLogic/Units)
 include_directories(include/GameLogic/Squad)
-include_directories(inipp/inipp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
@@ -66,22 +65,22 @@ if (NOT EXISTS ${PROJECT_SOURCE_DIR}/nlohmann/json.hpp)
 endif()
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(TPP2D)
+add_executable(TPP2D src/graphics/FanFacade.cpp include/graphics/FanFacade.h)
 add_subdirectory(resources)
 
 configure_file(defaultConfig.json ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/config.json COPYONLY)
 
 #Adding submodules
-if(NOT EXISTS delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
     message(Submodule not found)
-    file(REMOVE delaunay-triangulation-algorithm)
-    execute_process(COMMAND git submodule add --force https://github.com/pkositsyn/delaunay-triangulation-algorithm)
-    execute_process(COMMAND git submodule update --force delaunay-triangulation-algorithm)
+    file(REMOVE ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm)
+    execute_process(COMMAND git submodule init WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    execute_process(COMMAND git submodule update --force WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
-include_directories(delaunay-triangulation-algorithm/src)
+include_directories(${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src)
 target_sources(TPP2D PUBLIC
-        delaunay-triangulation-algorithm/src/models.cpp
-        delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
+        ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src/models.cpp
+        ${CMAKE_SOURCE_DIR}/delaunay-triangulation-algorithm/src/scanline_triangulation.cpp)
 
 add_subdirectory(src)
 

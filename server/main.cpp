@@ -3,9 +3,13 @@
 #include "winsock2.h"
 #else
 #include "sys/socket.h"
+#define SOCKET int
+#include <sys/socket.h>
+#include <netinet/in.h>
 #endif
 #include "iostream"
 #include "vector"
+#include <cstring>
 int main(int argc, char *argv[]) {
     //init sockets
 #ifdef WIN32
@@ -31,12 +35,17 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < numberOfConnections; ++i) {
         std::cout << "Waiting for " << i << "... ";
         struct sockaddr_in client;
+#ifdef WINNT
         int tmp = sizeof(struct sockaddr_in);
+#else
+        socklen_t tmp = sizeof(struct sockaddr_in);
+#endif
         clients[i] = accept(worker, (struct sockaddr*)&client, &tmp);
-        char* buff = new char[5];
+        char* buff = new char[6];
         buff[0] = static_cast<char>(i);
-        *reinterpret_cast<uint32_t*>(buff + 1) = gameRng;
-        send(clients[i], buff, 5, 0);
+        buff[1] = static_cast<char>(numberOfConnections);
+        *reinterpret_cast<uint32_t*>(buff + 2) = gameRng;
+        send(clients[i], buff, 6, 0);
         buff[0] = 0;
         send(clients[i], buff, 1, 0);
         delete[] buff;

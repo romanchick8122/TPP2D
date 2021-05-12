@@ -2,13 +2,14 @@ class Cell;
 
 #pragma once
 
+#include <map>
+#include <set>
 #include "engine/gameplayClickableGameObject.h"
 #include "util/cellgen.h"
 #include "AllFlags.h"
 #include "engine/config.h"
 #include "graphics/Facade.h"
 #include "Squad.h"
-#include <map>
 #include "iostream"
 #include "util/geometry.h"
 #include "engine/actions/None.h"
@@ -16,6 +17,8 @@ class Cell;
 #include "engine/actions/SetSquadPath.h"
 #include "AllUnits.h"
 #include "AllSquadTemplates.h"
+#include "Player.h"
+#include <string>
 
 using Facade = engine::config::Facade;
 
@@ -29,12 +32,15 @@ namespace Comparators {
 
 
 class Cell : public engine::gameplayClickableGameObject {
-    int x = 0, y = 0, z = 0;
+    double production = 0;
     std::vector<float> cellLandscapeFlags;
     std::map<const Cell *, std::vector<float>> cellBorderFlags;
     engine::config::Facade::Rect renderEdges;
     std::vector<engine::config::Facade::Point> shape;
+    std::set<Squads::Squad*> squads;
 public:
+    bool visible;
+    Player::Player* owner = Player::nullPlayer;
     const Facade::Point center;
     std::vector<Cell *> adjacent;
     const std::vector<float> *landscapeFlags = &cellLandscapeFlags;
@@ -42,6 +48,16 @@ public:
     const std::vector<util::cellGen::Point2D> vertices;
 
     Cell(const util::cellGen::CellData &);
+
+    void setOwner(Player::Player*);
+
+    bool isProtected();
+
+    void addSquad(Squads::Squad*);
+
+    void deleteSquad(Squads::Squad*);
+
+    Squads::Squad* getSquad();
 
     void setAdjacent(const util::cellGen::CellData &,
                      const std::map<util::cellGen::Point2D, Cell *, Comparators::Point2DComp> &);
@@ -59,5 +75,7 @@ public:
     bool tryOnClick(Facade::Point pos, graphics::Event::MouseButton) override;
 
     void doOnClick() override;
+
+    std::string repr() override;
 };
 

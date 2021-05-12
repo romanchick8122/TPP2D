@@ -6,5 +6,6 @@ target_sources(TPP2D PUBLIC
         Squad/Action.cpp
         Flag.cpp
         AllFlags.cpp
+        Player.cpp
         Squad/SquadTemplate.cpp
         Squad/Squad.cpp)

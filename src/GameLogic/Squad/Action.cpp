@@ -1,3 +1,6 @@
+
+#include <GameLogic/Squad/Action.h>
+
 #include "Action.h"
 #include "AllFlags.h"
 #include "util/pathfinding.h"
@@ -27,21 +30,58 @@ std::list<Cell *> Squads::Action::findPath(Cell *start, Cell *end) {
 }
 
 void Squads::Action::nextStep() {
+    squad->cell->deleteSquad(squad);
     squad->cell = currentPath.front();
+    squad->cell->setOwner(squad->owner);
+    squad->cell->addSquad(squad);
     currentPath.pop_front();
     progress = 0;
     if (currentPath.empty()) return;
     speed = calcSpeed(squad->cell, currentPath.front());
     auto way = currentPath.front()->center - squad->center;
     float wayAbs = pow(way.x * way.x + way.y * way.y, 0.5);
-    endProgress = (wayAbs / speed) * 10.0f;
+    endProgress = (wayAbs / speed) * 100.0f;
     way.x /= wayAbs;
     way.y /= wayAbs;
-    d = way * speed / 10.0f;
+    d = way * speed / 100.0f;
 }
 
 void Squads::Action::tick() {
     if (currentPath.empty()) return;
+    if (underAttack.empty() && !attacks)
+        move();
+}
+
+void Squads::Action::render() {
+    if (currentPath.empty()) return;
+    std::vector<Facade::Point> vec(currentPath.size() + 1);
+    vec[0] = squad->center;
+    for (auto[i, it] = std::make_pair(0, currentPath.begin()); i < currentPath.size(); ++i, ++it)
+        vec[i + 1] = (*it)->center;
+    Facade::DrawThickLineStrip(vec, 5, Facade::Color(255, 0, 0, 128));
+}
+
+void Squads::Action::setPath(Cell *end) {
+    if(attacks) attacks->action->underAttack.erase(attacks);
+    attacks = nullptr;
+    if (currentPath.empty()) {
+        currentPath = findPath(squad->cell, end);
+        currentPath.push_front(squad->cell);
+        nextStep();
+        return;
+    }
+    possiblePath = findPath(squad->cell, end);
+    if (currentPath.front() != possiblePath.front()) {
+        progress = endProgress - progress;
+        possiblePath.push_front(squad->cell);
+        squad->cell = currentPath.front();
+        d = -d;
+    }
+    currentPath = possiblePath;
+}
+
+
+void Squads::Action::move() {
     progress += 1;
     if (progress >= endProgress) {
         nextStep();
@@ -52,27 +92,34 @@ void Squads::Action::tick() {
     squad->shape.top += d.y;
 }
 
-void Squads::Action::render() {
-    if (currentPath.empty()) return;
-    std::vector<Facade::Point> vec(currentPath.size() + 1);
-    vec[0] = squad->center;
-    for (auto[i, it] = std::make_pair(0, currentPath.begin()); i < currentPath.size(); ++i, ++it)
-        vec[i + 1] = (*it)->center;
-    Facade::DrawThickLineStrip(vec, 10, Facade::Color(255, 0, 0));
+void Squads::Action::attack() {
+    attacks = currentPath.front()->getSquad();
+    attacks->action->underAttack.insert(squad);
+    if(!attacks->action->currentPath.empty()) attacks->action->setPath(attacks->cell);
+    attacks->damageUnit(squad->getAttack());
+    if (attacks->units.empty()) {
+        attacks->cell->deleteSquad(attacks);
+        attacks->action->underAttack.erase(squad);
+        for(auto attacksSquad : attacks->action->underAttack) attacksSquad->action->attacks = nullptr;
+        delete attacks;
+        attacks = nullptr;
+    }
 }
 
-void Squads::Action::setPath(Cell *end) {
-    if (currentPath.empty()) {
-        currentPath = findPath(squad->cell, end);
-        currentPath.push_front(squad->cell);
-        nextStep();
+void Squads::Action::lateTick() {
+    if (!underAttack.empty()) {
+        size_t rand = engine::gameController::Instance()->rng() % underAttack.size();
+        auto it = underAttack.begin();
+        for(int i = 0; i < rand; ++i) ++it;
+        (*it)->damageUnit(squad->getAttack());
+        if ((*it)->units.empty()) {
+            underAttack.erase(it);
+            (*it)->cell->deleteSquad(*it);
+            delete *it;
+        }
         return;
     }
-    possiblePath = findPath(squad->cell, end);
-    if (currentPath.front() != possiblePath.front()) {
-        progress = 1 - progress;
-        possiblePath.push_front(squad->cell);
-        d = -d;
-    }
-    currentPath = possiblePath;
+    if (currentPath.empty()) return;
+    if (currentPath.front()->owner != squad->owner && currentPath.front()->isProtected() && 2*progress > endProgress)
+        attack();
 }

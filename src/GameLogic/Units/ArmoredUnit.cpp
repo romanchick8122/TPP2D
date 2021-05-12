@@ -2,7 +2,7 @@
 
 
 Units::ArmoredUnit::ArmoredUnit(Units::TransportUnit *base_, const std::string &name_, float weaponWeight) :
-        Unit(base->texture, name_ + base->name, base->weight + weaponWeight) {
+        Unit(base_->texture, name_ + base_->name, base_->weight + weaponWeight) {
     base = base_;
 }
 
@@ -22,4 +22,16 @@ void Units::ArmoredUnit::tick() {
 void Units::ArmoredUnit::setStats(float attack_) {
     unitSpeed = (*(base->commonSpeed) * (base->weight)) / weight;
     attack = attack_;
+}
+
+void Units::ArmoredUnit::changeHP(float d) {
+    base -> changeHP(d);
+}
+
+void Units::ArmoredUnit::drawHP(engine::config::Facade::Rect rect) {
+    base->drawHP(rect);
+}
+
+bool Units::ArmoredUnit::isAlive() {
+    return base->isAlive();
 }

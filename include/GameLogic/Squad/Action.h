@@ -1,4 +1,6 @@
-class Action;
+namespace Squads {
+    class Action;
+}
 
 #pragma once
 
@@ -9,25 +11,35 @@ namespace Squads {
     class Action {
         float progress;
         float endProgress;
-        Squad *squad;
+        Squad* squad;
         float speed;
+        std::set<Squad*> underAttack;
+        Squad* attacks = nullptr;
         engine::config::Facade::Point d;
-        std::list<Cell *> currentPath;
-        std::list<Cell *> possiblePath;
+        std::list<Cell*> currentPath;
+        std::list<Cell*> possiblePath;
     public:
-        Action(Squad *);
+        Action(Squad*);
 
         void nextStep();
 
-        float calcSpeed(const Cell *start, const Cell *end);
+        void move();
 
-        std::list<Cell *> findPath(Cell *, Cell *);
+        void attack();
+
+        float calcSpeed(const Cell* start, const Cell* end);
+
+        std::list<Cell*> findPath(Cell*, Cell*);
+
+        void stopAction();
 
         void setPath();
 
-        void setPath(Cell *);
+        void setPath(Cell*);
 
         void tick();
+
+        void lateTick();
 
         void render();
     };

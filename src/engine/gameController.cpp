@@ -1,6 +1,8 @@
 #include "engine/gameController.h"
 #include "engine/config.h"
 #include "engine/gameObject.h"
+#include "GameLogic/Player.h"
+#include "engine/Logger.h"
 using Facade = engine::config::Facade;
 engine::gameController* engine::gameController::instance;
 void engine::gameController::unregisterObject(gameObject* object) {
@@ -12,6 +14,7 @@ void engine::gameController::gameLoop() {
     Facade::Point viewChangeStart;
     Facade::Point viewChangeStartCoordShift = Facade::origin;
     while (true) {
+        ++currentTick;
         auto events = Facade::Frame();
         networkManager.processActions();
         //restoring invariant things
@@ -64,6 +67,7 @@ void engine::gameController::gameLoop() {
                 }
                 Facade::origin = cursor - Facade::mousePosition / Facade::scale;
             }
+            engine::Logger::flush();
         }
         networkManager.flushActions();
         //camera movement
@@ -131,7 +135,13 @@ void engine::gameController::unregisterStaticObject(engine::gameObject* object) 
     staticObjects.erase(object->gameObjectListPosition);
 }
 engine::gameController::gameController()  {
-    //todo сделать через диалоговое окно
-    uint32_t rngSeed = networkManager.connect("127.0.0.1", 9587);
+    currentTick = 0;
+    std::string serverIp = "127.0.0.1";
+    std::cout << "Type server ip: ";
+    std::cin >> serverIp;
+    if (serverIp.empty()) {
+        serverIp = "127.0.0.1";
+    }
+    uint32_t rngSeed = networkManager.connect(serverIp, 9587);
     rng.seed(rngSeed);
 }

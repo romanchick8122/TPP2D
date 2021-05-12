@@ -2,6 +2,8 @@
 #include "engine/NetworkManager.h"
 #include <chrono>
 #include <thread>
+#include "Player.h"
+#include "engine/Logger.h"
 void engine::NetworkManager::makeShared(gameObject* obj) {
     if (!freeIds.empty()) {
         obj->id = freeIds.back();
@@ -11,8 +13,10 @@ void engine::NetworkManager::makeShared(gameObject* obj) {
         obj->id = sharedObjects.size();
         sharedObjects.push_back(obj);
     }
+    engine::Logger::Trace("makeShared[" + std::to_string(obj->id) + "] " + obj->repr());
 }
 void engine::NetworkManager::removeShared(gameObject* obj) {
+    engine::Logger::Trace("removeShared[" + std::to_string(obj->id) + "] " + obj->repr());
     freeIds.push_back(obj->id);
 }
 engine::gameObject* engine::NetworkManager::getShared(size_t id) {
@@ -62,10 +66,12 @@ uint32_t engine::NetworkManager::connect(std::string host, int port) {
             throw std::runtime_error("Do not close the server");
         }
     }
-    char* ans = new char[5];
-    recv(worker, ans, 5, 0);
+    char* ans = new char[6];
+    recv(worker, ans, 6, 0);
     serverId = ans[0];
-    uint32_t rngSeed = *reinterpret_cast<uint32_t*>(ans + 1);
+    int playersCount = ans[1];
+    Player::setPlayers(playersCount);
+    uint32_t rngSeed = *reinterpret_cast<uint32_t*>(ans + 2);
     delete[] ans;
     return rngSeed;
 }
